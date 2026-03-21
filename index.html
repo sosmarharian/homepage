@@ -1112,6 +1112,8 @@
      JAVASCRIPT
 ═══════════════════════════════════════════════ -->
 <script>
+  if (window.location.hash) { history.replaceState(null, null, window.location.pathname); } window.scrollTo(0, 0);
+
   /* ── Hero slideshow ───────────────────────────── */
   const slides = document.querySelectorAll('#hero-slideshow img');
   let current = 0;
