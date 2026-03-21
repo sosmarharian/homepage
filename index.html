@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marharian Production · Fotograf & Videograf Hamburg</title>
-  <meta name="description" content="Marharian Production — Premium Foto & Video in Hamburg. Hochzeiten, Portraits, Events und kommerzielle Shootings mit unverwechselbarem Stil." />
+  <title>Marharian Production · Photography & Video Hamburg</title>
+  <meta name="description" content="Marharian Production — Professional photography and cinematic video in Hamburg. Weddings, portraits, events and commercial shoots." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Darker+Grotesque:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+
   <style>
-    /* ── Reset ─────────────────────────────────────────── */
+    /* ─── Reset ───────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -24,8 +25,7 @@
       --border:     rgba(0,0,0,0.08);
     }
 
-    html { scroll-behavior: smooth; cursor: none; }
-
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Darker Grotesque', sans-serif;
       font-weight: 400;
@@ -34,63 +34,61 @@
       overflow-x: hidden;
       cursor: none;
     }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { font-family: inherit; cursor: none; }
 
     /* Scrollbar */
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
 
-    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1; }
-
-    a { text-decoration: none; color: inherit; }
-    img { display: block; max-width: 100%; }
-    button { font-family: inherit; cursor: none; }
-
-    /* ── Custom cursor ───────────────────────────────── */
-    #cursor-dot {
+    /* ─── Custom Cursor ───────────────────────────────── */
+    #cur-dot {
       position: fixed;
       width: 8px; height: 8px;
       background: var(--gold);
       border-radius: 50%;
       pointer-events: none;
       z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.1s, opacity 0.2s;
+      transform: translate(-50%,-50%);
     }
-    #cursor-ring {
+    #cur-ring {
       position: fixed;
       width: 36px; height: 36px;
       border: 1.5px solid var(--gold);
       border-radius: 50%;
       pointer-events: none;
       z-index: 9998;
-      transform: translate(-50%, -50%);
-      opacity: 0.6;
+      transform: translate(-50%,-50%);
+      opacity: 0.55;
       transition: opacity 0.2s;
     }
 
-    /* ── Section commons ─────────────────────────────── */
-    .section-eyebrow {
-      font-family: 'Darker Grotesque', sans-serif;
+    /* ─── Typography helpers ──────────────────────────── */
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      line-height: 1.08;
+    }
+    .eyebrow {
+      display: block;
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 14px;
-      display: block;
     }
-    .section-title {
-      font-size: clamp(2.2rem, 4vw, 3.6rem);
-      font-weight: 300;
-      line-height: 1.1;
-      margin-bottom: 20px;
+    .section-heading {
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      margin-bottom: 16px;
     }
     .section-sub {
       font-size: 17px;
       font-weight: 300;
       color: var(--gray);
-      line-height: 1.7;
+      line-height: 1.75;
       max-width: 520px;
     }
     .section-header { margin-bottom: 60px; }
@@ -99,7 +97,7 @@
 
     section { padding: 100px 80px; }
 
-    /* ── Buttons ─────────────────────────────────────── */
+    /* ─── Buttons ─────────────────────────────────────── */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -109,81 +107,66 @@
       font-size: 15px;
       font-weight: 700;
       letter-spacing: 0.04em;
-      border-radius: 6px;
       border: none;
+      border-radius: 6px;
       cursor: none;
       transition: all 0.22s;
+      white-space: nowrap;
     }
-    .btn-gold {
-      background: var(--gold);
-      color: var(--charcoal);
-    }
+    .btn-gold { background: var(--gold); color: var(--charcoal); }
     .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
-    .btn-outline-gold {
+    .btn-outline {
       background: transparent;
       color: var(--gold);
       border: 1.5px solid var(--gold);
     }
-    .btn-outline-gold:hover { background: var(--gold); color: var(--charcoal); transform: translateY(-2px); }
-    .btn-outline-dark {
+    .btn-outline:hover { background: var(--gold); color: var(--charcoal); transform: translateY(-2px); }
+    .btn-ghost {
       background: transparent;
       color: var(--charcoal);
-      border: 1.5px solid rgba(0,0,0,0.2);
+      border: 1.5px solid rgba(0,0,0,0.15);
     }
-    .btn-outline-dark:hover { border-color: var(--gold); color: var(--gold); }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* ── Reveal ──────────────────────────────────────── */
+    /* ─── Reveal animation ────────────────────────────── */
     .reveal {
       opacity: 0;
       transform: translateY(24px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
     .reveal.visible { opacity: 1; transform: none; }
-    .reveal-d1 { transition-delay: 0.1s; }
-    .reveal-d2 { transition-delay: 0.22s; }
-    .reveal-d3 { transition-delay: 0.34s; }
-    .reveal-d4 { transition-delay: 0.46s; }
-    .reveal-d5 { transition-delay: 0.58s; }
-    .reveal-d6 { transition-delay: 0.7s; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.22s; }
+    .reveal-delay-3 { transition-delay: 0.35s; }
+    .reveal-delay-4 { transition-delay: 0.48s; }
 
-    /* ════════════════════════════════════════════════
-       NAVIGATION
-    ════════════════════════════════════════════════ */
+    /* ═══════════════════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════════════════ */
     #nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
+      inset: 0 0 auto 0;
+      z-index: 200;
       height: 72px;
       padding: 0 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      transition: background 0.3s, border-color 0.3s, backdrop-filter 0.3s;
       border-bottom: 1px solid transparent;
+      transition: background 0.3s, border-color 0.3s, backdrop-filter 0.3s;
     }
     #nav.scrolled {
-      background: rgba(255,255,255,0.96);
+      background: rgba(255,255,255,0.97);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom-color: var(--border);
     }
 
-    .nav-logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'Darker Grotesque', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--charcoal);
-    }
-    .nav-logo span { color: var(--gold); }
+    .nav-logo img { height: 36px; width: auto; display: block; }
 
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: 36px;
+      gap: 38px;
       list-style: none;
     }
     .nav-links a {
@@ -202,7 +185,7 @@
       font-family: 'Darker Grotesque', sans-serif;
       font-size: 14px;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       border: none;
       border-radius: 6px;
       cursor: none;
@@ -217,8 +200,10 @@
       gap: 5px;
       background: none;
       border: none;
-      padding: 4px;
+      padding: 6px;
       cursor: none;
+      z-index: 201;
+      position: relative;
     }
     .hamburger span {
       display: block;
@@ -230,65 +215,61 @@
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-    /* Mobile overlay */
-    .mobile-overlay {
+    /* Fullscreen mobile menu */
+    .mob-menu {
       display: none;
       position: fixed;
       inset: 0;
-      z-index: 99;
+      z-index: 199;
       background: var(--white);
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 28px;
+      gap: 32px;
     }
-    .mobile-overlay.open { display: flex; }
-    .mobile-overlay a {
+    .mob-menu.open { display: flex; }
+    .mob-menu a {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.4rem;
+      font-size: clamp(2rem, 6vw, 3rem);
       font-weight: 300;
       color: var(--charcoal);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
       transition: color 0.2s;
     }
-    .mobile-overlay a:hover { color: var(--gold); }
-    .mobile-overlay .btn { font-size: 16px; margin-top: 8px; }
+    .mob-menu a:hover { color: var(--gold); }
+    .mob-menu .btn { margin-top: 8px; font-size: 16px; padding: 14px 36px; }
 
-    /* ════════════════════════════════════════════════
+    /* ═══════════════════════════════════════════════════
        HERO
-    ════════════════════════════════════════════════ */
+    ═══════════════════════════════════════════════════ */
     #hero {
       padding: 0;
       min-height: 100vh;
-      background: var(--cream);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      overflow: hidden;
     }
 
     .hero-left {
+      background: var(--cream);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       padding: 80px 64px 80px 80px;
       position: relative;
-      z-index: 2;
     }
 
     .hero-eyebrow {
-      font-family: 'Darker Grotesque', sans-serif;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 24px;
       opacity: 0;
       animation: fadeUp 0.8s 0.3s forwards;
     }
-
     .hero-h1 {
-      font-size: clamp(64px, 8vw, 120px);
+      font-size: clamp(56px, 7.5vw, 110px);
       font-weight: 300;
       line-height: 1.02;
       color: var(--charcoal);
@@ -296,19 +277,25 @@
       opacity: 0;
       animation: fadeUp 0.8s 0.5s forwards;
     }
-    .hero-h1 em { font-style: italic; color: var(--charcoal); }
-
+    .hero-h1 em { font-style: italic; }
     .hero-sub {
       font-size: 17px;
       font-weight: 300;
       color: var(--gray);
-      line-height: 1.75;
-      max-width: 420px;
+      line-height: 1.8;
+      max-width: 400px;
       margin-bottom: 40px;
       opacity: 0;
       animation: fadeUp 0.8s 0.7s forwards;
     }
-
+    .hero-sub strong {
+      display: block;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+    }
     .hero-btns {
       display: flex;
       gap: 14px;
@@ -327,8 +314,7 @@
       overflow: hidden;
     }
     .hero-right img {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       object-fit: cover;
       object-position: center top;
       display: block;
@@ -336,276 +322,33 @@
 
     .scroll-hint {
       position: absolute;
-      right: 40px;
-      bottom: 36px;
-      z-index: 3;
+      right: 36px; bottom: 36px;
+      z-index: 2;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 8px;
-      color: var(--gray);
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
+      color: var(--gray);
     }
     .scroll-hint::after {
       content: '';
-      width: 1px;
-      height: 44px;
+      width: 1px; height: 48px;
       background: linear-gradient(to bottom, var(--gold), transparent);
-      animation: scrollPulse 2s ease-in-out infinite;
+      animation: scrollLine 2s ease-in-out infinite;
     }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.5; transform: scaleY(1); }
-      50%       { opacity: 1; transform: scaleY(0.65); }
-    }
-
-    /* ════════════════════════════════════════════════
-       SHOWREEL
-    ════════════════════════════════════════════════ */
-    #showreel {
-      background: var(--charcoal);
-      padding: 100px 80px;
-      text-align: center;
+    @keyframes scrollLine {
+      0%,100% { opacity: 0.5; transform: scaleY(1); }
+      50%      { opacity: 1; transform: scaleY(0.6); }
     }
 
-    .showreel-title {
-      font-size: clamp(2.4rem, 5vw, 4.5rem);
-      font-weight: 300;
-      color: var(--white);
-      margin-bottom: 14px;
-    }
-    .showreel-title em { font-style: italic; color: var(--gold-light); }
-
-    .showreel-sub {
-      font-size: 17px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.45);
-      margin-bottom: 56px;
-    }
-
-    .showreel-player {
-      position: relative;
-      max-width: 900px;
-      margin: 0 auto;
-      aspect-ratio: 16/9;
-      background: #0c0b09;
-      border-radius: 10px;
-      overflow: hidden;
-      cursor: none;
-    }
-
-    .play-poster {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #1a1815 0%, #0c0b09 100%);
-    }
-
-    .play-circle {
-      position: relative;
-      width: 80px; height: 80px;
-      border-radius: 50%;
-      border: 1.5px solid var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.25s, background 0.25s;
-    }
-    .play-circle::before {
-      content: '';
-      position: absolute;
-      inset: -14px;
-      border-radius: 50%;
-      border: 1px solid var(--gold);
-      opacity: 0.25;
-      animation: playPulse 2.4s ease-in-out infinite;
-    }
-    .play-circle::after {
-      content: '';
-      position: absolute;
-      inset: -28px;
-      border-radius: 50%;
-      border: 1px solid var(--gold);
-      opacity: 0.1;
-      animation: playPulse 2.4s ease-in-out infinite 0.6s;
-    }
-    @keyframes playPulse {
-      0%, 100% { transform: scale(1); opacity: 0.25; }
-      50%       { transform: scale(1.1); opacity: 0.05; }
-    }
-    .showreel-player:hover .play-circle { transform: scale(1.12); background: rgba(201,169,110,0.15); }
-
-    .play-triangle {
-      width: 0; height: 0;
-      border-top: 11px solid transparent;
-      border-bottom: 11px solid transparent;
-      border-left: 20px solid var(--gold);
-      margin-left: 4px;
-    }
-
-    /* ════════════════════════════════════════════════
-       LEISTUNGEN
-    ════════════════════════════════════════════════ */
-    #services {
-      background: var(--white);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .service-card {
-      position: relative;
-      background: var(--light);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 40px 32px;
-      overflow: hidden;
-      transition: border-color 0.28s, transform 0.28s, box-shadow 0.28s;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.35s ease;
-    }
-    .service-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.07); }
-    .service-card:hover::before { transform: scaleX(1); }
-
-    .service-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      font-weight: 300;
-      color: var(--gold);
-      opacity: 0.35;
-      line-height: 1;
-      margin-bottom: 20px;
-    }
-
-    .service-icon {
-      width: 40px; height: 40px;
-      margin-bottom: 18px;
-      stroke: var(--gold);
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .service-title {
-      font-family: 'Darker Grotesque', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--charcoal);
-      margin-bottom: 10px;
-      letter-spacing: 0.01em;
-    }
-    .service-desc {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--gray);
-      line-height: 1.7;
-    }
-
-    /* ════════════════════════════════════════════════
-       PORTFOLIO
-    ════════════════════════════════════════════════ */
-    #portfolio {
-      background: var(--cream);
-      padding: 100px 80px;
-    }
-
-    .filter-bar {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-    }
-    .filter-btn {
-      padding: 8px 18px;
-      font-family: 'Darker Grotesque', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      border: 1.5px solid rgba(0,0,0,0.12);
-      border-radius: 6px;
-      background: transparent;
-      color: var(--gray);
-      cursor: none;
-      transition: all 0.22s;
-    }
-    .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
-    .filter-btn.active { background: var(--gold); border-color: var(--gold); color: var(--charcoal); }
-
-    /* Masonry-like grid using CSS columns */
-    .portfolio-grid {
-      columns: 3;
-      column-gap: 16px;
-    }
-
-    .portfolio-item {
-      break-inside: avoid;
-      margin-bottom: 16px;
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      cursor: none;
-      background: var(--charcoal);
-    }
-    .portfolio-item:nth-child(2) { height: 420px; }
-    .portfolio-item:nth-child(3) { height: 320px; }
-    .portfolio-item:nth-child(1) { height: 360px; }
-    .portfolio-item:nth-child(4) { height: 280px; }
-    .portfolio-item:nth-child(5) { height: 400px; }
-    .portfolio-item:nth-child(6) { height: 340px; }
-
-    .portfolio-ph {
-      width: 100%; height: 100%;
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #1a1815 0%, #2e2a24 50%, #1a1815 100%);
-    }
-
-    .portfolio-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(17,16,16,0.88) 0%, transparent 55%);
-      opacity: 0;
-      transition: opacity 0.32s;
-      display: flex;
-      align-items: flex-end;
-      padding: 24px 20px;
-    }
-    .portfolio-item:hover .portfolio-overlay { opacity: 1; }
-
-    .portfolio-cat {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    /* transition for filter */
-    .portfolio-item { transition: opacity 0.3s, transform 0.3s; }
-    .portfolio-item.hidden { opacity: 0; transform: scale(0.96); pointer-events: none; height: 0 !important; margin: 0; overflow: hidden; }
-
-    /* ════════════════════════════════════════════════
-       ÜBER UNS
-    ════════════════════════════════════════════════ */
-    #about {
-      background: var(--white);
-    }
+    /* ═══════════════════════════════════════════════════
+       ABOUT
+    ═══════════════════════════════════════════════════ */
+    #about { background: var(--white); }
 
     .about-grid {
       display: grid;
@@ -615,8 +358,7 @@
       max-width: 1100px;
       margin: 0 auto;
     }
-
-    .about-img {
+    .about-photo {
       width: 100%;
       aspect-ratio: 3/4;
       object-fit: cover;
@@ -624,18 +366,14 @@
       border-radius: 4px;
       display: block;
     }
-
-    .about-text .section-title { margin-bottom: 24px; }
-    .about-text .section-title em { font-style: italic; }
-
+    .about-text .section-heading { margin-bottom: 24px; }
     .about-body {
       font-size: 17px;
       font-weight: 300;
       color: var(--gray);
       line-height: 1.85;
-      margin-bottom: 48px;
+      margin-bottom: 44px;
     }
-
     .about-stats {
       display: flex;
       gap: 40px;
@@ -644,153 +382,190 @@
       border-top: 1px solid var(--border);
     }
     .stat { display: flex; flex-direction: column; gap: 4px; }
-    .stat-num {
+    .stat-n {
       font-family: 'Cormorant Garamond', serif;
       font-size: 3rem;
       font-weight: 300;
       color: var(--charcoal);
       line-height: 1;
     }
-    .stat-label {
+    .stat-l {
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--gray);
     }
 
-    /* ════════════════════════════════════════════════
-       PROZESS
-    ════════════════════════════════════════════════ */
-    #process {
-      background: var(--cream);
-    }
+    /* ═══════════════════════════════════════════════════
+       SERVICES
+    ═══════════════════════════════════════════════════ */
+    #services { background: var(--cream); }
 
-    .process-steps {
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      position: relative;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
-
-    .process-step {
+    .svc-card {
       position: relative;
-      padding: 0 32px 0 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 40px 32px;
+      overflow: hidden;
+      transition: border-color 0.28s, transform 0.28s, box-shadow 0.28s;
     }
-    .process-step:not(:last-child)::after {
-      content: '→';
+    .svc-card::before {
+      content: '';
       position: absolute;
-      right: -4px;
-      top: 28px;
-      font-size: 20px;
-      color: var(--gold);
-      opacity: 0.5;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.32s ease;
     }
+    .svc-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.07); }
+    .svc-card:hover::before { transform: scaleX(1); }
 
-    .step-num {
+    .svc-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 6rem;
+      font-size: 3rem;
       font-weight: 300;
       color: var(--gold);
-      opacity: 0.15;
+      opacity: 0.3;
       line-height: 1;
-      margin-bottom: 12px;
+      margin-bottom: 18px;
     }
-
-    .step-title {
+    .svc-icon {
+      width: 38px; height: 38px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      margin-bottom: 16px;
+    }
+    .svc-title {
       font-family: 'Darker Grotesque', sans-serif;
       font-size: 18px;
       font-weight: 700;
       color: var(--charcoal);
       margin-bottom: 10px;
     }
-
-    .step-desc {
+    .svc-desc {
       font-size: 15px;
       font-weight: 300;
       color: var(--gray);
       line-height: 1.7;
     }
 
-    /* ════════════════════════════════════════════════
-       BEWERTUNGEN
-    ════════════════════════════════════════════════ */
-    #reviews {
-      background: var(--white);
+    /* ═══════════════════════════════════════════════════
+       PROCESS
+    ═══════════════════════════════════════════════════ */
+    #process { background: var(--white); }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .proc-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 40px 28px;
+      position: relative;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .proc-card:hover { border-color: var(--gold); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+
+    .proc-connector {
+      display: none; /* used only visually via CSS sibling trick */
     }
 
-    .reviews-grid {
+    .proc-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5.5rem;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.12;
+      line-height: 1;
+      margin-bottom: 14px;
+      user-select: none;
+    }
+    .proc-title {
+      font-family: 'Darker Grotesque', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .proc-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.72;
+    }
+
+    .process-wrapper {
+      position: relative;
+    }
+    .process-arrows {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    /* Arrow between cards rendered via pseudo-elements in JS */
+
+    /* ═══════════════════════════════════════════════════
+       WHY US
+    ═══════════════════════════════════════════════════ */
+    #why { background: var(--cream); }
+
+    .why-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
-
-    .review-card {
+    .why-card {
+      background: var(--white);
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 36px 32px;
-      transition: border-color 0.28s, transform 0.28s, box-shadow 0.28s;
+      transition: border-color 0.25s, transform 0.25s;
     }
-    .review-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.06); }
-
-    .review-stars {
-      display: flex;
-      gap: 4px;
-      margin-bottom: 20px;
+    .why-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .why-icon {
+      width: 36px; height: 36px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      margin-bottom: 16px;
     }
-    .star {
-      width: 16px; height: 16px;
-      fill: var(--gold);
-    }
-
-    .review-text {
-      font-size: 16px;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--charcoal);
-      line-height: 1.75;
-      margin-bottom: 28px;
-    }
-
-    .review-author {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .review-avatar {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: var(--cream);
-      border: 1.5px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: var(--gold);
-      flex-shrink: 0;
-    }
-    .review-name {
-      font-size: 15px;
+    .why-title {
+      font-family: 'Darker Grotesque', sans-serif;
+      font-size: 17px;
       font-weight: 700;
       color: var(--charcoal);
-      margin-bottom: 2px;
+      margin-bottom: 8px;
     }
-    .review-type {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .why-desc {
+      font-size: 15px;
+      font-weight: 300;
       color: var(--gray);
+      line-height: 1.68;
     }
 
-    /* ════════════════════════════════════════════════
-       KONTAKT
-    ════════════════════════════════════════════════ */
-    #contact {
-      background: var(--cream);
-    }
+    /* ═══════════════════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════════════════ */
+    #contact { background: var(--white); }
 
     .contact-grid {
       display: grid;
@@ -798,10 +573,7 @@
       gap: 80px;
       align-items: start;
     }
-
-    .contact-info .section-title { margin-bottom: 20px; }
-    .contact-info .section-title em { font-style: italic; }
-
+    .contact-heading { margin-bottom: 20px; }
     .contact-desc {
       font-size: 17px;
       font-weight: 300;
@@ -809,57 +581,39 @@
       line-height: 1.75;
       margin-bottom: 36px;
     }
-
-    .contact-items { display: flex; flex-direction: column; gap: 18px; margin-bottom: 36px; }
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
     .contact-row {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       font-size: 16px;
       font-weight: 400;
       color: var(--charcoal);
     }
-    .contact-row-icon {
-      font-size: 18px;
-      width: 28px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    .social-btns { display: flex; gap: 10px; }
-    .btn-social {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      border: 1.5px solid rgba(0,0,0,0.14);
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--charcoal);
-      background: transparent;
-      cursor: none;
-      transition: border-color 0.22s, color 0.22s;
-    }
-    .btn-social:hover { border-color: var(--gold); color: var(--gold); }
+    .contact-row a:hover { color: var(--gold); }
+    .contact-icon-wrap { font-size: 18px; width: 26px; flex-shrink: 0; text-align: center; }
+    .social-row { display: flex; gap: 10px; }
 
     /* Form */
     .contact-form { display: flex; flex-direction: column; gap: 16px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-group { display: flex; flex-direction: column; gap: 7px; }
-    .form-group label {
+    .fg { display: flex; flex-direction: column; gap: 7px; }
+    .fg label {
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--gray);
     }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
+    .fg input, .fg select, .fg textarea {
       padding: 13px 16px;
-      background: var(--white);
-      border: 1.5px solid rgba(0,0,0,0.1);
+      background: var(--light);
+      border: 1.5px solid transparent;
       border-radius: 6px;
       font-family: 'Darker Grotesque', sans-serif;
       font-size: 16px;
@@ -871,16 +625,10 @@
       transition: border-color 0.2s;
       cursor: none;
     }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder { color: rgba(136,133,128,0.6); }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--gold); }
-    .form-group input.error,
-    .form-group select.error,
-    .form-group textarea.error { border-color: #c0392b; }
-    .form-group textarea { min-height: 120px; resize: vertical; }
-
+    .fg input::placeholder, .fg textarea::placeholder { color: rgba(136,133,128,0.55); }
+    .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--gold); background: var(--white); }
+    .fg input.err, .fg select.err, .fg textarea.err { border-color: #c0392b; }
+    .fg textarea { min-height: 120px; resize: vertical; }
     .btn-submit {
       width: 100%;
       padding: 16px;
@@ -889,18 +637,18 @@
       font-family: 'Darker Grotesque', sans-serif;
       font-size: 16px;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
       border: none;
       border-radius: 6px;
       cursor: none;
-      transition: background 0.22s, transform 0.22s;
+      transition: background 0.22s, transform 0.2s;
     }
     .btn-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
     .btn-submit.success { background: #4a7c59; color: #fff; }
 
-    /* ════════════════════════════════════════════════
+    /* ═══════════════════════════════════════════════════
        FOOTER
-    ════════════════════════════════════════════════ */
+    ═══════════════════════════════════════════════════ */
     footer {
       background: var(--charcoal);
       padding: 40px 80px;
@@ -912,16 +660,7 @@
       flex-wrap: wrap;
       gap: 20px;
     }
-    .footer-logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'Darker Grotesque', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.9);
-    }
+    .footer-logo img { height: 28px; filter: brightness(0) invert(1); display: block; }
     .footer-copy {
       font-size: 14px;
       font-weight: 300;
@@ -940,9 +679,9 @@
     }
     .footer-links a:hover { color: var(--gold); }
 
-    /* ════════════════════════════════════════════════
+    /* ═══════════════════════════════════════════════════
        RESPONSIVE
-    ════════════════════════════════════════════════ */
+    ═══════════════════════════════════════════════════ */
     @media (max-width: 900px) {
       section { padding: 72px 24px; }
 
@@ -952,32 +691,20 @@
 
       #hero {
         grid-template-columns: 1fr;
-        grid-template-rows: 45vh 1fr;
         min-height: 100vh;
       }
-      .hero-right { grid-row: 1; }
-      .hero-left {
-        grid-row: 2;
-        padding: 48px 24px 80px;
-        justify-content: flex-start;
-      }
-      .hero-h1 { font-size: clamp(48px, 12vw, 80px); }
-      .scroll-hint { right: 20px; bottom: 20px; }
+      .hero-right { height: 45vh; order: -1; }
+      .hero-left { padding: 48px 24px 72px; justify-content: flex-start; }
+      .hero-h1 { font-size: clamp(44px, 12vw, 72px); }
 
-      #showreel { padding: 72px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-photo { aspect-ratio: 4/3; }
 
       .services-grid { grid-template-columns: 1fr; gap: 14px; }
 
-      #portfolio { padding: 72px 24px; }
-      .portfolio-grid { columns: 2; }
-      .portfolio-item { height: 220px !important; }
+      .process-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
 
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
-
-      .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
-      .process-step::after { display: none; }
-
-      .reviews-grid { grid-template-columns: 1fr; gap: 16px; }
+      .why-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
 
       .contact-grid { grid-template-columns: 1fr; gap: 48px; }
       .form-row { grid-template-columns: 1fr; }
@@ -987,56 +714,50 @@
     }
 
     @media (max-width: 560px) {
-      .portfolio-grid { columns: 1; }
-      .process-steps { grid-template-columns: 1fr; }
+      .process-grid, .why-grid { grid-template-columns: 1fr; }
       .about-stats { gap: 24px; }
       .hero-btns { flex-direction: column; }
-      .hero-btns .btn { justify-content: center; }
+      .hero-btns .btn { width: 100%; justify-content: center; }
+      .scroll-hint { right: 16px; bottom: 16px; }
     }
   </style>
 </head>
 <body>
 
-<!-- Custom cursor -->
-<div id="cursor-dot"></div>
-<div id="cursor-ring"></div>
+<!-- Cursor -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
 
 <!-- ═══════════════════════════════════════════════
      NAVIGATION
 ═══════════════════════════════════════════════ -->
 <nav id="nav">
   <a href="#" class="nav-logo">
-    <!-- Camera SVG -->
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 8h2.5l2-3h9l2 3H22a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2H3z"/>
-      <circle cx="14" cy="15" r="4"/>
-    </svg>
-    MARHAR<span>IAN</span>
+    <img src="marharian.png" alt="Marharian Production" style="height: 36px; width: auto;">
   </a>
 
   <ul class="nav-links">
-    <li><a href="#about">Über uns</a></li>
-    <li><a href="#services">Leistungen</a></li>
-    <li><a href="#showreel">Showreel</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#contact">Kontakt</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 
-  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Session buchen</button>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a session</button>
 
-  <button class="hamburger" id="hamburger" aria-label="Menü">
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- Mobile overlay -->
-<div class="mobile-overlay" id="mobileOverlay">
-  <a href="#about" class="mob-link">Über uns</a>
-  <a href="#services" class="mob-link">Leistungen</a>
-  <a href="#showreel" class="mob-link">Showreel</a>
-  <a href="#portfolio" class="mob-link">Portfolio</a>
-  <a href="#contact" class="mob-link">Kontakt</a>
-  <button class="btn btn-gold mob-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Session buchen</button>
+<!-- Mobile menu -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#about"    class="mob-link">About</a>
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#process"  class="mob-link">Process</a>
+  <a href="#why"      class="mob-link">Why us</a>
+  <a href="#contact"  class="mob-link">Contact</a>
+  <button class="btn btn-gold mob-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a session</button>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -1044,197 +765,53 @@
 ═══════════════════════════════════════════════ -->
 <section id="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">Hamburg · Foto &amp; Video Produktion</div>
-    <h1 class="hero-h1">Wir erschaffen<br>Bilder, <em>die bleiben.</em></h1>
-    <p class="hero-sub">Premium Foto &amp; Video in Hamburg.<br>Hochzeiten, Portraits, Events und kommerzielle Shootings — mit unverwechselbarem Stil.</p>
+    <div class="hero-eyebrow">Photo &amp; Video Production in Hamburg</div>
+    <h1 class="hero-h1">Creating elegant<br><em>visual stories.</em></h1>
+    <p class="hero-sub">
+      <strong>Sos Marharian &amp; Yaroslava Khadzhynova</strong>
+      Professional photography and cinematic video with attention to every detail.
+    </p>
     <div class="hero-btns">
-      <button class="btn btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Session buchen</button>
-      <a href="#showreel" class="btn btn-outline-dark">
-        <svg width="11" height="13" viewBox="0 0 11 13" fill="var(--gold)"><path d="M1 1l9 5.5L1 12V1z"/></svg>
-        Showreel ansehen
-      </a>
+      <button class="btn btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a session</button>
+      <a href="#about" class="btn btn-outline">Learn more</a>
     </div>
   </div>
 
   <div class="hero-right">
-    <img src="DSC03060.JPG" alt="Marharian Production — Fotografie Hamburg" />
+    <img src="DSC03060.JPG" alt="Marharian Production — Photography Hamburg" />
     <div class="scroll-hint">Scroll</div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     SHOWREEL
-═══════════════════════════════════════════════ -->
-<section id="showreel">
-  <h2 class="showreel-title reveal">Ein Jahr in <em>Bewegung</em></h2>
-  <p class="showreel-sub reveal reveal-d1">Marharian Production · Hamburg · 2025</p>
-
-  <div class="showreel-player reveal reveal-d2" id="showreelPlayer" data-video="">
-    <div class="play-poster">
-      <div class="play-circle">
-        <div class="play-triangle"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     LEISTUNGEN
-═══════════════════════════════════════════════ -->
-<section id="services">
-  <div class="section-header reveal">
-    <span class="section-eyebrow">Was wir anbieten</span>
-    <h2 class="section-title">Leistungen, die<br><em>begeistern.</em></h2>
-  </div>
-
-  <div class="services-grid">
-    <!-- 01 -->
-    <div class="service-card reveal">
-      <div class="service-num">01</div>
-      <svg class="service-icon" viewBox="0 0 40 40">
-        <circle cx="20" cy="13" r="5"/>
-        <path d="M8 34c0-6.627 5.373-12 12-12s12 5.373 12 12"/>
-        <circle cx="30" cy="11" r="3.5"/>
-        <path d="M34 28c0-4.4-3.1-8-7-9"/>
-      </svg>
-      <div class="service-title">Individuelle Fotosessions</div>
-      <p class="service-desc">Portraits, Paar- und Familien-Shootings. Studio, Outdoor oder Lifestyle — ganz nach eurer Geschichte.</p>
-    </div>
-
-    <!-- 02 -->
-    <div class="service-card reveal reveal-d1">
-      <div class="service-num">02</div>
-      <svg class="service-icon" viewBox="0 0 40 40">
-        <rect x="3" y="11" width="24" height="18" rx="2"/>
-        <path d="M27 16l10-5v18l-10-5"/>
-        <circle cx="11" cy="20" r="3"/>
-      </svg>
-      <div class="service-title">Videosessions</div>
-      <p class="service-desc">Cineastische Kurzfilme, Reels und persönliche Videoprojekte — Bewegtbild mit Seele.</p>
-    </div>
-
-    <!-- 03 -->
-    <div class="service-card reveal reveal-d2">
-      <div class="service-num">03</div>
-      <svg class="service-icon" viewBox="0 0 40 40">
-        <rect x="4" y="10" width="32" height="26" rx="2"/>
-        <path d="M27 10V6M13 10V6M4 18h32"/>
-      </svg>
-      <div class="service-title">Events</div>
-      <p class="service-desc">Firmenevents, Partys, Performances. Vollständige Berichterstattung vom ersten bis zum letzten Moment.</p>
-    </div>
-
-    <!-- 04 -->
-    <div class="service-card reveal">
-      <div class="service-num">04</div>
-      <svg class="service-icon" viewBox="0 0 40 40">
-        <path d="M20 34s-14-9-14-19a14 14 0 0 1 14-7 14 14 0 0 1 14 7c0 10-14 19-14 19z"/>
-      </svg>
-      <div class="service-title">Hochzeiten</div>
-      <p class="service-desc">Euer wichtigster Tag — festgehalten mit Emotion, Eleganz und einem cineastischen Blick.</p>
-    </div>
-
-    <!-- 05 -->
-    <div class="service-card reveal reveal-d1">
-      <div class="service-num">05</div>
-      <svg class="service-icon" viewBox="0 0 40 40">
-        <path d="M12 6v28M28 6v28M12 20h16"/>
-        <circle cx="9" cy="6" r="3"/>
-        <circle cx="31" cy="6" r="3"/>
-        <circle cx="9" cy="34" r="3"/>
-        <circle cx="31" cy="34" r="3"/>
-      </svg>
-      <div class="service-title">Restaurants &amp; Business</div>
-      <p class="service-desc">Food, Atmosphäre, Interiors. Visuelle Identität für Restaurants, Marken und Unternehmen.</p>
-    </div>
-
-    <!-- 06 -->
-    <div class="service-card reveal reveal-d2">
-      <div class="service-num">06</div>
-      <svg class="service-icon" viewBox="0 0 40 40">
-        <polygon points="20,4 24.5,14.5 36,15.5 27,24 29.5,36 20,30 10.5,36 13,24 4,15.5 15.5,14.5"/>
-      </svg>
-      <div class="service-title">Beauty Masters</div>
-      <p class="service-desc">Portfolio-Shootings für Make-up Artists und Beauty-Profis. Zeigt euer Können mit Bildern, die neue Kunden anziehen.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     PORTFOLIO
-═══════════════════════════════════════════════ -->
-<section id="portfolio">
-  <div class="section-header reveal">
-    <span class="section-eyebrow">Portfolio</span>
-    <h2 class="section-title">Ausgewählte Projekte</h2>
-  </div>
-
-  <div class="filter-bar reveal">
-    <button class="filter-btn active" data-filter="all">Alle</button>
-    <button class="filter-btn" data-filter="portraits">Portraits</button>
-    <button class="filter-btn" data-filter="video">Video</button>
-    <button class="filter-btn" data-filter="hochzeiten">Hochzeiten</button>
-    <button class="filter-btn" data-filter="events">Events</button>
-    <button class="filter-btn" data-filter="business">Business</button>
-    <button class="filter-btn" data-filter="beauty">Beauty</button>
-  </div>
-
-  <div class="portfolio-grid">
-    <div class="portfolio-item" data-category="portraits" data-src="">
-      <div class="portfolio-ph"></div>
-      <div class="portfolio-overlay"><span class="portfolio-cat">Portraits</span></div>
-    </div>
-    <div class="portfolio-item" data-category="hochzeiten" data-src="">
-      <div class="portfolio-ph" style="background:linear-gradient(135deg,#2a2520 0%,#1a1815 100%)"></div>
-      <div class="portfolio-overlay"><span class="portfolio-cat">Hochzeiten</span></div>
-    </div>
-    <div class="portfolio-item" data-category="video" data-src="">
-      <div class="portfolio-ph" style="background:linear-gradient(135deg,#1a1815 0%,#252018 100%)"></div>
-      <div class="portfolio-overlay"><span class="portfolio-cat">Video</span></div>
-    </div>
-    <div class="portfolio-item" data-category="beauty" data-src="">
-      <div class="portfolio-ph" style="background:linear-gradient(135deg,#201e1b 0%,#2e2820 100%)"></div>
-      <div class="portfolio-overlay"><span class="portfolio-cat">Beauty</span></div>
-    </div>
-    <div class="portfolio-item" data-category="events" data-src="">
-      <div class="portfolio-ph" style="background:linear-gradient(135deg,#1e1c19 0%,#252018 100%)"></div>
-      <div class="portfolio-overlay"><span class="portfolio-cat">Events</span></div>
-    </div>
-    <div class="portfolio-item" data-category="business" data-src="">
-      <div class="portfolio-ph" style="background:linear-gradient(135deg,#2a2520 0%,#1a1815 100%)"></div>
-      <div class="portfolio-overlay"><span class="portfolio-cat">Business</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     ÜBER UNS
+     ABOUT
 ═══════════════════════════════════════════════ -->
 <section id="about">
   <div class="about-grid">
     <div class="reveal">
-      <img class="about-img" src="DSC03060.JPG" alt="Sos & Yaroslava Marharian" />
+      <img class="about-photo" src="DSC03060.JPG" alt="Sos & Yaroslava Marharian" />
     </div>
-    <div class="about-text reveal reveal-d1">
-      <span class="section-eyebrow">Über uns</span>
-      <h2 class="section-title">Sos &amp; Yaroslava<br><em>Marharian</em></h2>
+
+    <div class="reveal reveal-delay-1">
+      <span class="eyebrow">About us</span>
+      <h2 class="section-heading">Sos &amp; Yaroslava<br><em>Marharian</em></h2>
       <p class="about-body">
-        Wir sind ein kreatives Ehepaar aus Hamburg und arbeiten unter dem Namen Marharian Production. Gemeinsam bringen wir eine einzigartige Perspektive in jedes Shooting — technische Präzision trifft einen natürlichen, cineastischen Blick.
+        We are a husband and wife creative team based in Hamburg. For over 8 years we have been creating visual stories for people and brands. We work together on every shoot — giving full attention to every detail, creating a comfortable atmosphere and finding the best moments.
         <br><br>
-        Von intimen Portrait-Sessions bis hin zu großen Hochzeiten und kommerziellen Projekten liefern wir Arbeit, die sich authentisch, raffiniert und unverwechselbar anfühlt.
+        Our goal is not just beautiful photos or video, but a refined visual result that will look relevant for years.
       </p>
       <div class="about-stats">
         <div class="stat">
-          <span class="stat-num">5+</span>
-          <span class="stat-label">Jahre</span>
+          <span class="stat-n">8+</span>
+          <span class="stat-l">Years</span>
         </div>
         <div class="stat">
-          <span class="stat-num">300+</span>
-          <span class="stat-label">Projekte</span>
+          <span class="stat-n">300+</span>
+          <span class="stat-l">Projects</span>
         </div>
         <div class="stat">
-          <span class="stat-num">2</span>
-          <span class="stat-label">Kreative, eine Vision</span>
+          <span class="stat-n">2</span>
+          <span class="stat-l">Creatives, one vision</span>
         </div>
       </div>
     </div>
@@ -1242,131 +819,232 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     PROZESS
+     SERVICES
+═══════════════════════════════════════════════ -->
+<section id="services">
+  <div class="section-header reveal">
+    <span class="eyebrow">What we do</span>
+    <h2 class="section-heading">Our services</h2>
+    <p class="section-sub">From intimate portraits to large-scale productions — we bring the same dedication to every project.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="svc-card reveal">
+      <div class="svc-num">01</div>
+      <svg class="svc-icon" viewBox="0 0 38 38">
+        <circle cx="19" cy="12" r="5"/>
+        <path d="M7 34c0-6.627 5.373-12 12-12s12 5.373 12 12"/>
+        <circle cx="29" cy="10" r="3.5"/>
+        <path d="M33 27c0-4.4-3-7.8-7-9"/>
+      </svg>
+      <div class="svc-title">Individual Photoshoots</div>
+      <p class="svc-desc">Studio and outdoor sessions, portraits and personal stories tailored to you.</p>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-1">
+      <div class="svc-num">02</div>
+      <svg class="svc-icon" viewBox="0 0 38 38">
+        <rect x="2" y="10" width="24" height="18" rx="2"/>
+        <path d="M26 15l10-5v18l-10-5"/>
+        <circle cx="10" cy="19" r="3"/>
+      </svg>
+      <div class="svc-title">Video Sessions</div>
+      <p class="svc-desc">Cinematic short films, reels and personal video projects with a clear visual direction.</p>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-2">
+      <div class="svc-num">03</div>
+      <svg class="svc-icon" viewBox="0 0 38 38">
+        <rect x="3" y="9" width="32" height="26" rx="2"/>
+        <path d="M26 9V5M12 9V5M3 17h32"/>
+      </svg>
+      <div class="svc-title">Events</div>
+      <p class="svc-desc">Corporate events, parties, performances. Full coverage from the first to the last moment.</p>
+    </div>
+
+    <div class="svc-card reveal">
+      <div class="svc-num">04</div>
+      <svg class="svc-icon" viewBox="0 0 38 38">
+        <path d="M19 33S5 24 5 14a14 14 0 0 1 14-6.5A14 14 0 0 1 33 14c0 10-14 19-14 19z"/>
+      </svg>
+      <div class="svc-title">Weddings</div>
+      <p class="svc-desc">Emotional and elegant stories of your most important day, captured with our cinematic touch.</p>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-1">
+      <div class="svc-num">05</div>
+      <svg class="svc-icon" viewBox="0 0 38 38">
+        <path d="M10 5v28M28 5v28M10 19h18"/>
+        <circle cx="7" cy="5" r="3"/><circle cx="31" cy="5" r="3"/>
+        <circle cx="7" cy="33" r="3"/><circle cx="31" cy="33" r="3"/>
+      </svg>
+      <div class="svc-title">Restaurants &amp; Business</div>
+      <p class="svc-desc">Food, atmosphere, interiors. Visual identity for restaurants, brands and businesses.</p>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-2">
+      <div class="svc-num">06</div>
+      <svg class="svc-icon" viewBox="0 0 38 38">
+        <polygon points="19,3 23,14 35,14 25.5,21.5 29,33 19,26 9,33 12.5,21.5 3,14 15,14"/>
+      </svg>
+      <div class="svc-title">Beauty Industry</div>
+      <p class="svc-desc">Portfolio shoots for stylists, makeup artists and beauty brands. Show your craft with imagery that attracts new clients.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     PROCESS
 ═══════════════════════════════════════════════ -->
 <section id="process">
-  <div class="section-header center reveal">
-    <span class="section-eyebrow">Wie wir arbeiten</span>
-    <h2 class="section-title">Von der Idee<br>zum <em>Ergebnis.</em></h2>
+  <div class="section-header reveal">
+    <span class="eyebrow">How we work</span>
+    <h2 class="section-heading">From idea <em>to result</em></h2>
   </div>
 
-  <div class="process-steps">
-    <div class="process-step reveal">
-      <div class="step-num">01</div>
-      <div class="step-title">Erstgespräch</div>
-      <p class="step-desc">Wir lernen euch kennen, verstehen eure Vision und klären alle Wünsche und Details.</p>
+  <div style="position:relative;">
+    <!-- Connector arrows overlay -->
+    <div style="
+      position:absolute;
+      top:50%; left:0; right:0;
+      pointer-events:none;
+      z-index:2;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+      transform:translateY(-50%);
+    ">
+      <div></div>
+      <div style="display:flex;align-items:center;justify-content:flex-start;margin-left:-26px;">
+        <span style="font-size:22px;color:var(--gold);opacity:0.45;">→</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:flex-start;margin-left:-26px;">
+        <span style="font-size:22px;color:var(--gold);opacity:0.45;">→</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:flex-start;margin-left:-26px;">
+        <span style="font-size:22px;color:var(--gold);opacity:0.45;">→</span>
+      </div>
     </div>
-    <div class="process-step reveal reveal-d1">
-      <div class="step-num">02</div>
-      <div class="step-title">Planung &amp; Vorbereitung</div>
-      <p class="step-desc">Location-Scouting, Moodboard, Zeitplan — alles wird sorgfältig vorbereitet.</p>
-    </div>
-    <div class="process-step reveal reveal-d2">
-      <div class="step-num">03</div>
-      <div class="step-title">Das Shooting</div>
-      <p class="step-desc">Entspannte Atmosphäre, professionelles Equipment und ein Team, das euch zum Strahlen bringt.</p>
-    </div>
-    <div class="process-step reveal reveal-d3">
-      <div class="step-num">04</div>
-      <div class="step-title">Lieferung</div>
-      <p class="step-desc">Bearbeitete Bilder und Videos in einer eleganten Online-Galerie — bereit zum Download.</p>
+
+    <div class="process-grid">
+      <div class="proc-card reveal">
+        <div class="proc-num">01</div>
+        <div class="proc-title">First talk</div>
+        <p class="proc-desc">We discuss your vision, goals and expectations. Everything starts from your idea.</p>
+      </div>
+      <div class="proc-card reveal reveal-delay-1">
+        <div class="proc-num">02</div>
+        <div class="proc-title">Planning</div>
+        <p class="proc-desc">Location, style, mood board. We prepare every detail so the shoot runs perfectly.</p>
+      </div>
+      <div class="proc-card reveal reveal-delay-2">
+        <div class="proc-num">03</div>
+        <div class="proc-title">The shoot</div>
+        <p class="proc-desc">Two creatives, premium equipment, full attention. We create the atmosphere and capture real moments.</p>
+      </div>
+      <div class="proc-card reveal reveal-delay-3">
+        <div class="proc-num">04</div>
+        <div class="proc-title">Delivery</div>
+        <p class="proc-desc">Careful selection, color grading, retouching. Delivered with our signature look, on time.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     BEWERTUNGEN
+     WHY US
 ═══════════════════════════════════════════════ -->
-<section id="reviews">
+<section id="why">
   <div class="section-header center reveal">
-    <span class="section-eyebrow">Kundenstimmen</span>
-    <h2 class="section-title">Was Kunden über<br>uns <em>sagen.</em></h2>
+    <span class="eyebrow">Why clients choose us</span>
+    <h2 class="section-heading">What makes us <em>different</em></h2>
   </div>
 
-  <div class="reviews-grid">
-    <div class="review-card reveal">
-      <div class="review-stars">
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
-      </div>
-      <p class="review-text">„Sos und Yaroslava haben unsere Hochzeit so festgehalten, wie wir sie erlebt haben — voller Emotionen und Schönheit. Wir sind sprachlos und unendlich dankbar."</p>
-      <div class="review-author">
-        <div class="review-avatar">A</div>
-        <div>
-          <div class="review-name">Anna &amp; Markus</div>
-          <div class="review-type">Hochzeit · Hamburg</div>
-        </div>
-      </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <svg class="why-icon" viewBox="0 0 36 36">
+        <circle cx="18" cy="18" r="14"/>
+        <path d="M18 10v8l5 3"/>
+      </svg>
+      <div class="why-title">8+ years of experience</div>
+      <p class="why-desc">Over eight years working with people and brands across Hamburg and beyond.</p>
     </div>
-
-    <div class="review-card reveal reveal-d1">
-      <div class="review-stars">
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
-      </div>
-      <p class="review-text">„Unser Brand-Shooting war ein absolutes Erlebnis. Das Team ist professionell, kreativ und macht einem das Gefühl, wirklich gesehen zu werden. Die Ergebnisse übertrafen alle Erwartungen."</p>
-      <div class="review-author">
-        <div class="review-avatar">L</div>
-        <div>
-          <div class="review-name">Laura S.</div>
-          <div class="review-type">Business · Branding</div>
-        </div>
-      </div>
+    <div class="why-card reveal reveal-delay-1">
+      <svg class="why-icon" viewBox="0 0 36 36">
+        <path d="M18 3l4 9 10 1.5-7.5 7 1.5 10L18 26l-8 4.5 1.5-10L4 13.5 14 12z"/>
+      </svg>
+      <div class="why-title">300+ projects completed</div>
+      <p class="why-desc">Every project has shaped our craft and deepened our understanding of visual storytelling.</p>
     </div>
-
-    <div class="review-card reveal reveal-d2">
-      <div class="review-stars">
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
-      </div>
-      <p class="review-text">„Mein Beauty-Portfolio hat durch Marharian Production eine komplett neue Qualität bekommen. Jedes Bild erzählt eine Geschichte. Absolute Empfehlung für jeden Beauty-Professional!"</p>
-      <div class="review-author">
-        <div class="review-avatar">M</div>
-        <div>
-          <div class="review-name">Maria K.</div>
-          <div class="review-type">Beauty · Make-up Artist</div>
-        </div>
-      </div>
+    <div class="why-card reveal reveal-delay-2">
+      <svg class="why-icon" viewBox="0 0 36 36">
+        <path d="M18 31S4 22 4 12a14 14 0 0 1 14-6.5A14 14 0 0 1 32 12c0 10-14 19-14 19z"/>
+      </svg>
+      <div class="why-title">Family team</div>
+      <p class="why-desc">Two people, one shared vision — more attention, more care, better results on every shoot.</p>
+    </div>
+    <div class="why-card reveal">
+      <svg class="why-icon" viewBox="0 0 36 36">
+        <rect x="3" y="9" width="22" height="18" rx="2"/>
+        <path d="M25 14l8-4v16l-8-4"/>
+        <circle cx="9" cy="18" r="3"/>
+      </svg>
+      <div class="why-title">Professional equipment</div>
+      <p class="why-desc">Cinema-grade cameras, lenses and lighting — we invest in gear so our images stand out.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-1">
+      <svg class="why-icon" viewBox="0 0 36 36">
+        <circle cx="18" cy="18" r="14"/>
+        <circle cx="18" cy="18" r="7"/>
+        <line x1="18" y1="4" x2="18" y2="10"/>
+        <line x1="18" y1="26" x2="18" y2="32"/>
+        <line x1="4" y1="18" x2="10" y2="18"/>
+        <line x1="26" y1="18" x2="32" y2="18"/>
+      </svg>
+      <div class="why-title">Modern editing style</div>
+      <p class="why-desc">Consistent color grading and retouching — a refined aesthetic that stays timeless.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-2">
+      <svg class="why-icon" viewBox="0 0 36 36">
+        <path d="M18 3C10 3 4 9 4 17c0 5 2.5 9.5 6.5 12L18 33l7.5-4C29.5 26.5 32 22 32 17c0-8-6-14-14-14z"/>
+        <path d="M12 18l4 4 8-8"/>
+      </svg>
+      <div class="why-title">Comfortable atmosphere</div>
+      <p class="why-desc">We make every client feel at ease on set — natural expressions, real moments, genuine results.</p>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     KONTAKT
+     CONTACT
 ═══════════════════════════════════════════════ -->
 <section id="contact">
   <div class="contact-grid">
-    <div class="reveal">
-      <span class="section-eyebrow">Kontakt</span>
-      <h2 class="section-title">Lass uns etwas<br><em>Großartiges erschaffen.</em></h2>
-      <p class="contact-desc">Habt ihr ein Projekt im Kopf? Schreibt uns — wir melden uns innerhalb von 24 Stunden.</p>
 
-      <div class="contact-items">
+    <div class="reveal">
+      <span class="eyebrow">Get in touch</span>
+      <h2 class="section-heading contact-heading">Let's create something<br><em>together</em></h2>
+      <p class="contact-desc">Have a project in mind? Write to us — we'll reply within 24 hours.</p>
+
+      <div class="contact-list">
         <div class="contact-row">
-          <span class="contact-row-icon">📍</span>
-          <span>Hamburg, Deutschland</span>
+          <span class="contact-icon-wrap">📍</span>
+          <span>Hamburg, Germany</span>
         </div>
         <div class="contact-row">
-          <span class="contact-row-icon">✉</span>
-          <a href="mailto:marharianstudio@gmail.com" style="transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''">marharianstudio@gmail.com</a>
+          <span class="contact-icon-wrap">✉</span>
+          <a href="mailto:marharianstudio@gmail.com" style="transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''">marharianstudio@gmail.com</a>
         </div>
         <div class="contact-row">
-          <span class="contact-row-icon">📸</span>
-          <a href="https://instagram.com/marharian.production" target="_blank" rel="noopener" style="transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''">@marharian.production</a>
+          <span class="contact-icon-wrap">📸</span>
+          <a href="https://instagram.com/marharian.production" target="_blank" rel="noopener" style="transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''">@marharian.production</a>
         </div>
       </div>
 
-      <div class="social-btns">
-        <a href="https://instagram.com/marharian.production" target="_blank" rel="noopener" class="btn-social">
+      <div class="social-row">
+        <a href="https://instagram.com/marharian.production" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:14px; padding:10px 20px;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="2" width="20" height="20" rx="5"/>
             <circle cx="12" cy="12" r="4"/>
@@ -1374,7 +1052,7 @@
           </svg>
           Instagram
         </a>
-        <a href="https://wa.me/49" target="_blank" rel="noopener" class="btn-social">
+        <a href="https://wa.me/49" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:14px; padding:10px 20px;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
           </svg>
@@ -1383,41 +1061,42 @@
       </div>
     </div>
 
-    <div class="reveal reveal-d1">
-      <form class="contact-form" id="contactForm" novalidate>
+    <div class="reveal reveal-delay-1">
+      <form class="contact-form" id="cForm" novalidate>
         <div class="form-row">
-          <div class="form-group">
-            <label for="fVorname">Vorname *</label>
-            <input type="text" id="fVorname" name="vorname" placeholder="Euer Vorname" required />
+          <div class="fg">
+            <label for="fFirst">First name *</label>
+            <input type="text" id="fFirst" name="first" placeholder="Your first name" required />
           </div>
-          <div class="form-group">
-            <label for="fNachname">Nachname *</label>
-            <input type="text" id="fNachname" name="nachname" placeholder="Nachname" required />
+          <div class="fg">
+            <label for="fLast">Last name *</label>
+            <input type="text" id="fLast" name="last" placeholder="Last name" required />
           </div>
         </div>
-        <div class="form-group">
-          <label for="fEmail">E-Mail *</label>
-          <input type="email" id="fEmail" name="email" placeholder="mail@beispiel.de" required />
+        <div class="fg">
+          <label for="fEmail">Email *</label>
+          <input type="email" id="fEmail" name="email" placeholder="you@example.com" required />
         </div>
-        <div class="form-group">
-          <label for="fLeistung">Leistung</label>
-          <select id="fLeistung" name="leistung">
-            <option value="">Bitte wählen …</option>
-            <option>Individuelle Fotosession</option>
-            <option>Videosession</option>
+        <div class="fg">
+          <label for="fService">Service</label>
+          <select id="fService" name="service">
+            <option value="">Please select…</option>
+            <option>Individual Photoshoot</option>
+            <option>Video Session</option>
             <option>Event</option>
-            <option>Hochzeit</option>
+            <option>Wedding</option>
             <option>Restaurant &amp; Business</option>
-            <option>Beauty Masters</option>
+            <option>Beauty Industry</option>
           </select>
         </div>
-        <div class="form-group">
-          <label for="fNachricht">Nachricht *</label>
-          <textarea id="fNachricht" name="nachricht" placeholder="Erzählt uns von eurem Projekt …" required></textarea>
+        <div class="fg">
+          <label for="fMsg">Message *</label>
+          <textarea id="fMsg" name="message" placeholder="Tell us about your project…" required></textarea>
         </div>
-        <button type="submit" class="btn-submit" id="submitBtn">Anfrage senden →</button>
+        <button type="submit" class="btn-submit" id="cSubmit">Send request →</button>
       </form>
     </div>
+
   </div>
 </section>
 
@@ -1427,18 +1106,12 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
-      <svg width="22" height="22" viewBox="0 0 28 28" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 8h2.5l2-3h9l2 3H22a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2H3z"/>
-        <circle cx="14" cy="15" r="4"/>
-      </svg>
-      MARHARIAN PRODUCTION
+      <img src="marharian.png" alt="Marharian Production" style="height: 28px; filter: brightness(0) invert(1);">
     </div>
-
-    <div class="footer-copy">© 2026 Marharian Production. Hamburg, Deutschland.</div>
-
+    <div class="footer-copy">© 2026 Marharian Production. Hamburg, Germany.</div>
     <ul class="footer-links">
-      <li><a href="#">Datenschutz</a></li>
-      <li><a href="#">Impressum</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Imprint</a></li>
       <li><a href="https://instagram.com/marharian.production" target="_blank" rel="noopener">Instagram</a></li>
     </ul>
   </div>
@@ -1448,102 +1121,76 @@
      JAVASCRIPT
 ═══════════════════════════════════════════════ -->
 <script>
-  /* ── Custom cursor ─────────────────────────────── */
-  const dot  = document.getElementById('cursor-dot');
-  const ring = document.getElementById('cursor-ring');
-  let mx = 0, my = 0, rx = 0, ry = 0;
+  /* ── Custom cursor ────────────────────────────── */
+  const dot  = document.getElementById('cur-dot');
+  const ring = document.getElementById('cur-ring');
+  let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+  let rx = mx, ry = my;
 
   document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '0.55'; });
 
-  (function loop() {
+  (function tick() {
     rx += (mx - rx) * 0.12;
     ry += (my - ry) * 0.12;
     dot.style.left  = mx + 'px';
     dot.style.top   = my + 'px';
     ring.style.left = rx + 'px';
     ring.style.top  = ry + 'px';
-    requestAnimationFrame(loop);
+    requestAnimationFrame(tick);
   })();
 
-  document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
-  document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '0.6'; });
-
-  /* ── Nav scroll ────────────────────────────────── */
+  /* ── Nav scroll ───────────────────────────────── */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
 
-  /* ── Hamburger ─────────────────────────────────── */
+  /* ── Mobile menu ──────────────────────────────── */
   const hamburger = document.getElementById('hamburger');
-  const overlay   = document.getElementById('mobileOverlay');
+  const mobMenu   = document.getElementById('mobMenu');
 
   hamburger.addEventListener('click', () => {
-    const open = overlay.classList.toggle('open');
+    const open = mobMenu.classList.toggle('open');
     hamburger.classList.toggle('open', open);
     document.body.style.overflow = open ? 'hidden' : '';
   });
-
   document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
-    overlay.classList.remove('open');
+    mobMenu.classList.remove('open');
     hamburger.classList.remove('open');
     document.body.style.overflow = '';
   }));
 
-  /* ── IntersectionObserver reveal ──────────────── */
+  /* ── Reveal on scroll ─────────────────────────── */
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  /* ── Portfolio filter ──────────────────────────── */
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const f = btn.dataset.filter;
-      document.querySelectorAll('.portfolio-item').forEach(item => {
-        const match = f === 'all' || item.dataset.category === f;
-        item.classList.toggle('hidden', !match);
-      });
-    });
-  });
+  /* ── Contact form ─────────────────────────────── */
+  const form   = document.getElementById('cForm');
+  const submit = document.getElementById('cSubmit');
 
-  /* ── Showreel player ───────────────────────────── */
-  document.getElementById('showreelPlayer').addEventListener('click', function () {
-    const url = this.dataset.video;
-    if (!url) return;
-    const iframe = document.createElement('iframe');
-    iframe.src = url + (url.includes('?') ? '&' : '?') + 'autoplay=1';
-    iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
-    iframe.allow = 'autoplay; fullscreen; picture-in-picture';
-    this.innerHTML = '';
-    this.appendChild(iframe);
-  });
-
-  /* ── Form validation ───────────────────────────── */
-  const form = document.getElementById('contactForm');
-  const btn  = document.getElementById('submitBtn');
-
-  form.querySelectorAll('input, textarea, select').forEach(f =>
-    f.addEventListener('input', () => f.classList.remove('error'))
+  form.querySelectorAll('input,textarea,select').forEach(f =>
+    f.addEventListener('input', () => f.classList.remove('err'))
   );
 
   form.addEventListener('submit', e => {
     e.preventDefault();
-    let valid = true;
-    form.querySelectorAll('[required]').forEach(field => {
-      const bad = !field.value.trim() || (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value));
-      field.classList.toggle('error', bad);
-      if (bad) valid = false;
+    let ok = true;
+    form.querySelectorAll('[required]').forEach(f => {
+      const bad = !f.value.trim() || (f.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value));
+      f.classList.toggle('err', bad);
+      if (bad) ok = false;
     });
-    if (!valid) return;
-    btn.textContent = '✓ Anfrage gesendet!';
-    btn.classList.add('success');
-    btn.disabled = true;
+    if (!ok) return;
+    submit.textContent = '✓ Request sent!';
+    submit.classList.add('success');
+    submit.disabled = true;
     form.reset();
     setTimeout(() => {
-      btn.textContent = 'Anfrage senden →';
-      btn.classList.remove('success');
-      btn.disabled = false;
+      submit.textContent = 'Send request →';
+      submit.classList.remove('success');
+      submit.disabled = false;
     }, 3500);
   });
 </script>
