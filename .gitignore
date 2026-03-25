@@ -1,4 +1,4 @@
-# Images
+# Images (ignore all except site assets listed below)
 *.jpg
 *.JPG
 *.jpeg
@@ -15,6 +15,35 @@
 *.WEBP
 *.ico
 *.ICO
+
+# Site assets — do NOT ignore
+!marharian.png
+!IMG_1326.JPG
+!IMG_6539.JPG
+!R6M20042.jpg
+!IMG_8801.jpg
+!IMG_2755.JPG
+!IMG_0233.JPG
+!IMG_0387.JPG
+!IMG_7623.JPG
+!IMG_9775.JPG
+!R6M20675.jpg
+!R6M20679.jpg
+!IMG_7577.JPG
+!IMG_2880.JPG
+!IMG_5034.JPG
+!IMG_5171.JPG
+!IMG_5517.JPG
+!IMG_9115.JPG
+!IMG_5855.JPG
+!IMG_5866.JPG
+!IMG_5904.JPG
+!IMG_7252.JPG
+!IMG_9044.JPG
+!IMG_9089.JPG
+!IMG_2954.JPG
+!IMG_5703.JPG
+!IMG_2953.JPG
 
 # Video files
 *.mov
