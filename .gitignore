@@ -48,13 +48,15 @@
 !IMG_3251.JPG
 !IMG_7252.JPG
 
-# Video files
+# Video files (ignore all except site assets listed below)
 *.mov
 *.MOV
 *.mp4
 *.MP4
 *.avi
 *.mkv
+
+!IMG_2982.MP4
 
 # System
 .DS_Store
