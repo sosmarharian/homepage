@@ -988,6 +988,16 @@
     </div>
 
     <div class="svc-card reveal reveal-delay-1">
+      <div id="fashion-slideshow" style="position:absolute; inset:0;">
+        <img src="IMG_3265.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+        <img src="IMG_5173.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_6583.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_1330.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_3253.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5618.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5624.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5029.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      </div>
       <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
       <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
         <div class="svc-num">02</div>
@@ -998,7 +1008,7 @@
           <path d="M19 25v3"/>
           <path d="M26 8l3-3M12 8L9 5"/>
         </svg>
-        <div class="svc-title">Fashion &amp; Events</div>
+        <div class="svc-title">Fashion</div>
         <p class="svc-desc">Editorial, lookbook and campaign shoots. Corporate events, parties and performances — full visual coverage from first to last moment.</p>
       </div>
     </div>
@@ -1263,6 +1273,17 @@
       currentInd = (currentInd + 1) % indSlides.length;
       indSlides[currentInd].style.opacity = '1';
     }, 3000);
+  }
+
+  /* ── Fashion slideshow ────────────────────────── */
+  const fashSlides = document.querySelectorAll('#fashion-slideshow img');
+  let currentFash = 0;
+  if (fashSlides.length > 0) {
+    setInterval(() => {
+      fashSlides[currentFash].style.opacity = '0';
+      currentFash = (currentFash + 1) % fashSlides.length;
+      fashSlides[currentFash].style.opacity = '1';
+    }, 3500);
   }
 
   /* ── Beauty slideshow ─────────────────────────── */
