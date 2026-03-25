@@ -1,0 +1,31 @@
+# Images
+*.jpg
+*.JPG
+*.jpeg
+*.JPEG
+*.png
+*.PNG
+*.gif
+*.GIF
+*.bmp
+*.BMP
+*.tiff
+*.TIFF
+*.webp
+*.WEBP
+*.ico
+*.ICO
+
+# Video files
+*.mov
+*.MOV
+*.mp4
+*.MP4
+*.avi
+*.mkv
+
+# System
+.DS_Store
+
+# Claude Code
+.claude/

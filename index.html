@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marharian Production · Photography & Video Hamburg</title>
+  <meta name="description" content="Marharian Production — Professional photography and cinematic video in Hamburg. Weddings, portraits, events and commercial shoots." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Darker+Grotesque:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:      #ffffff;
+      --cream:      #f0ebe3;
+      --light:      #f7f4f0;
+      --charcoal:   #1a1815;
+      --dark:       #111010;
+      --gold:       #c9a96e;
+      --gold-light: #e2c89a;
+      --gray:       #888580;
+      --border:     rgba(0,0,0,0.08);
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      background: var(--white);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      cursor: default;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { font-family: inherit; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+    /* ─── Typography helpers ──────────────────────────── */
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      line-height: 1.08;
+    }
+    .eyebrow {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .section-heading {
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      margin-bottom: 16px;
+      font-family: var(--font-heading);
+    }
+    .section-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.75;
+      max-width: 520px;
+    }
+    .section-header { margin-bottom: 60px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-sub { margin: 0 auto; }
+
+    section { padding: 100px 80px; }
+
+    /* ─── Buttons ─────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 6px;
+      transition: all 0.22s;
+      white-space: nowrap;
+    }
+    .btn-gold { background: var(--gold); color: var(--charcoal); font-family: var(--font-body); }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      font-family: var(--font-body);
+    }
+    .btn-outline:hover { background: var(--gold); color: var(--charcoal); transform: translateY(-2px); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--charcoal);
+      border: 1.5px solid rgba(0,0,0,0.15);
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ─── Reveal animation ────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.22s; }
+    .reveal-delay-3 { transition-delay: 0.35s; }
+    .reveal-delay-4 { transition-delay: 0.48s; }
+
+    /* ═══════════════════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════════════════ */
+    #nav {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 56px;
+      background: transparent;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 40px;
+      width: calc(100% - 80px);
+      max-width: 1200px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: top 0.3s, width 0.3s, border-radius 0.3s, background 0.3s;
+    }
+    #nav.scrolled {
+      top: 0;
+      left: 0;
+      transform: none;
+      width: 100%;
+      max-width: none;
+      border-radius: 0;
+      background: rgba(255,255,255,0.15);
+      border: none;
+    }
+    #nav.scrolled .nav-links a { color: var(--charcoal); }
+    #nav.scrolled .nav-logo img { filter: brightness(1) invert(0); }
+    #video-hero {
+      position: relative;
+      width: 100%;
+      height: 65vh;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    #video-hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    #video-hero .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 36px; width: auto; display: block; filter: brightness(0) invert(1); }
+
+    .nav-links {
+      display: flex;
+      gap: 38px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 24px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 1.5px;
+      transition: color 0.2s;
+      font-family: var(--font-body);
+      text-transform: uppercase;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      padding: 10px 22px;
+      background: var(--gold);
+      color: #000;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.22s, transform 0.22s;
+    }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 6px;
+      cursor: pointer;
+      z-index: 201;
+      position: relative;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 1.5px;
+      background: #ffffff;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Fullscreen mobile menu */
+    .mob-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 199;
+      background: var(--white);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .mob-menu.open { display: flex; }
+    .mob-menu a {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 300;
+      color: var(--charcoal);
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .mob-menu a:hover { color: var(--gold); }
+    .mob-menu .btn { margin-top: 8px; font-size: 16px; padding: 14px 36px; }
+
+    /* ═══════════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════════ */
+    #hero {
+      padding: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-left {
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 80px 64px 80px 80px;
+      padding-top: 80px;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.3s forwards;
+    }
+    .hero-h1 {
+      font-size: clamp(56px, 7.5vw, 110px);
+      font-weight: 300;
+      line-height: 1.02;
+      color: var(--charcoal);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards;
+      font-family: var(--font-heading);
+    }
+    .hero-h1 em { font-style: italic; }
+    .hero-sub {
+      font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.8;
+      max-width: 400px;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.7s forwards;
+      font-family: var(--font-body);
+    }
+    .hero-sub strong {
+      display: block;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+      font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+      letter-spacing: 0.02em;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.9s forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-right img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    #hero-slideshow { position:absolute; inset:0; width:100%; height:100%; overflow:hidden; }
+
+    .scroll-hint {
+      position: absolute;
+      right: 36px; bottom: 36px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .scroll-hint::after {
+      content: '';
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%,100% { opacity: 0.5; transform: scaleY(1); }
+      50%      { opacity: 1; transform: scaleY(0.6); }
+    }
+
+    /* ═══════════════════════════════════════════════════
+       ABOUT
+    ═══════════════════════════════════════════════════ */
+    #about { background: transparent; }
+    #about-slideshow img { object-position: center center !important; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center center;
+      border-radius: 4px;
+      display: block;
+    }
+    .about-text .section-heading { margin-bottom: 24px; }
+    .about-body {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.85;
+      margin-bottom: 44px;
+      font-family: var(--font-body);
+    }
+    .about-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .stat { display: flex; flex-direction: column; gap: 4px; }
+    .stat-n {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+    .stat-l {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      font-family: var(--font-body);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       SERVICES
+    ═══════════════════════════════════════════════════ */
+    #services { background: var(--cream); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .svc-card {
+      position: relative;
+      background: #222;
+      border: none;
+      border-radius: 10px;
+      padding: 0;
+      overflow: hidden;
+      aspect-ratio: 9/16;
+      transition: transform 0.28s, box-shadow 0.28s;
+    }
+    .svc-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.32s ease;
+    }
+    .svc-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.07); }
+    .svc-card:hover::before { transform: scaleX(1); }
+
+    .svc-num {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.3;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+    .svc-icon {
+      width: 38px; height: 38px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      margin-bottom: 16px;
+    }
+    .svc-title {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .svc-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      font-family: var(--font-body);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       PROCESS
+    ═══════════════════════════════════════════════════ */
+    #process { background: var(--white); }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .proc-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 40px 28px;
+      position: relative;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .proc-card:hover { border-color: var(--gold); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+
+    .proc-connector {
+      display: none; /* used only visually via CSS sibling trick */
+    }
+
+    .proc-num {
+      font-family: var(--font-heading);
+      font-size: 5.5rem;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.12;
+      line-height: 1;
+      margin-bottom: 14px;
+      user-select: none;
+    }
+    .proc-title {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .proc-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.72;
+      font-family: var(--font-body);
+    }
+
+    .process-wrapper {
+      position: relative;
+    }
+    .process-arrows {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    /* Arrow between cards rendered via pseudo-elements in JS */
+
+
+
+    /* ═══════════════════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════════════════ */
+    #contact { background: var(--white); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-heading { margin-bottom: 20px; }
+    .contact-desc {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--charcoal);
+    }
+    .contact-row a:hover { color: var(--gold); }
+    .contact-icon-wrap { font-size: 18px; width: 26px; flex-shrink: 0; text-align: center; }
+    .social-row { display: flex; gap: 10px; }
+
+    /* Form */
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .fg { display: flex; flex-direction: column; gap: 7px; }
+    .fg label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .fg input, .fg select, .fg textarea {
+      padding: 13px 16px;
+      background: var(--light);
+      border: 1.5px solid transparent;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--charcoal);
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+      transition: border-color 0.2s;
+      cursor: pointer;
+    }
+    .fg input::placeholder, .fg textarea::placeholder { color: rgba(136,133,128,0.55); }
+    .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--gold); background: var(--white); }
+    .fg input.err, .fg select.err, .fg textarea.err { border-color: #c0392b; }
+    .fg textarea { min-height: 120px; resize: vertical; }
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.22s, transform 0.2s;
+    }
+    .btn-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-submit.success { background: #4a7c59; color: #fff; }
+
+    /* ═══════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════ */
+    footer {
+      background: var(--charcoal);
+      padding: 40px 80px;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-logo img { height: 28px; filter: brightness(0) invert(1); display: block; }
+    .footer-copy {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ═══════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════ */
+    @media (min-width: 901px) {
+      .hero-left { background: var(--cream); }
+      #about { background: var(--white); }
+    }
+
+    @media (max-width: 900px) {
+      body, html { overflow-x: hidden; max-width: 100%; }
+      * { max-width: 100%; box-sizing: border-box; }
+      section { padding: 48px 20px; }
+
+      /* NAV */
+      #nav { padding: 0 16px; height: 52px; border-radius: 30px; width: calc(100% - 32px); top: 10px; }
+      .nav-links { display: none; }
+      .nav-logo img { height: 32px; }
+      .hamburger { display: flex; }
+
+      /* VIDEO HERO */
+      #video-hero { height: 80vh; }
+
+      /* GAP */
+      .eyebrow-gap { padding: 16px 20px; }
+      .eyebrow-gap span { font-size: clamp(0.9rem, 2.5vw, 1.2rem); letter-spacing: 0.1em; white-space: normal; word-break: break-word; display: block; text-align: center; }
+
+      /* HERO — Full-screen overlay */
+      #hero {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        height: 100svh !important;
+        min-height: unset !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        grid-template-columns: unset !important;
+      }
+      .hero-right {
+        position: absolute !important;
+        top: 0 !important; left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: unset !important;
+        z-index: 1;
+        display: block !important;
+      }
+      #hero-slideshow {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+      #hero::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0;
+        width: 100%; height: 60%;
+        background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+        z-index: 2;
+        pointer-events: none;
+      }
+      .hero-left {
+        position: absolute !important;
+        bottom: 0 !important; left: 0 !important; right: 0 !important;
+        z-index: 3 !important;
+        padding: 40px 24px 52px !important;
+        background: transparent !important;
+        background-color: transparent !important;
+      }
+      .hero-left * { background: transparent !important; background-color: transparent !important; }
+      .two-creatives { display: none; }
+      .hero-sub { display: none; }
+      .hero-h1 { font-size: clamp(1.8rem, 8vw, 2.5rem) !important; color: #ffffff !important; text-align: left; }
+      .hero-btns { flex-direction: column; gap: 12px; margin-top: 20px; justify-content: flex-start; }
+      .hero-btns .btn { width: 100%; justify-content: center; text-align: center; background: rgba(255,255,255,0.15) !important; color: #fff !important; backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.4) !important; }
+      .hero-btns a { width: 100%; justify-content: center; text-align: center; background: transparent !important; border: 1px solid rgba(255,255,255,0.5) !important; color: #ffffff !important; }
+
+      /* ABOUT — overlay matching hero style */
+      #about {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        min-height: 100svh !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: transparent !important;
+      }
+      .about-grid { display: block !important; }
+      #about .about-grid > div:first-child {
+        position: absolute !important;
+        inset: 0 !important;
+        z-index: 1;
+      }
+      #about-slideshow {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: unset !important;
+        border-radius: 0 !important;
+        overflow: hidden !important;
+      }
+      #about::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0;
+        width: 100%; height: 60%;
+        background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+        z-index: 2;
+        pointer-events: none;
+      }
+      #about .about-grid > div:last-child {
+        position: absolute !important;
+        bottom: 0 !important; left: 0 !important; right: 0 !important;
+        z-index: 3 !important;
+        padding: 32px 24px 48px !important;
+        background: transparent !important;
+      }
+      #about .about-grid > div:last-child * { background: transparent !important; background-color: transparent !important; }
+      #about .eyebrow { color: var(--gold) !important; }
+      #about .section-heading { color: #ffffff !important; }
+      #about .about-body { color: rgba(255,255,255,0.85) !important; }
+      .about-stats { gap: 20px; flex-wrap: wrap; display: grid; grid-template-columns: 1fr 1fr; color: #ffffff; }
+
+      /* SERVICES */
+      #services { padding: 48px 20px; }
+      .services-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .svc-card { aspect-ratio: 3/4; }
+      .svc-title { font-size: 15px; }
+      .svc-desc { font-size: 11px; }
+
+
+
+      /* PROCESS */
+      #process { padding: 48px 20px; }
+      .process-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .process-arrows { display: none; }
+      .proc-card { padding: 24px 16px; }
+      .proc-num { font-size: 3rem; margin-bottom: 8px; }
+      .proc-title { font-size: 16px; }
+      .proc-desc { font-size: 13px; }
+
+      /* CONTACT */
+      #contact { padding: 48px 20px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-list { gap: 12px; }
+      .contact-form input, .contact-form textarea, .contact-form select, .contact-form button { width: 100%; }
+
+      /* FOOTER */
+      footer { padding: 32px 20px; }
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 16px; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 40px 16px; }
+      #video-hero { height: 70vh; }
+      .hero-right { height: 55vh; min-height: 400px; }
+      /* #about-slideshow height handled by overlay rules above */
+      .services-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr; }
+
+      .hero-h1 { font-size: clamp(28px, 8vw, 40px); }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* NUCLEAR: kill all backgrounds inside #about on mobile */
+    @media (max-width: 900px) {
+      #about,
+      #about > *,
+      #about .about-grid,
+      #about .about-grid > *,
+      #about .reveal,
+      #about .about-body,
+      #about .section-heading,
+      #about .eyebrow,
+      #about .about-stats,
+      #about .about-stats > * {
+        background: transparent !important;
+        background-color: transparent !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Cursor -->
+<!-- ═══════════════════════════════════════════════
+     VIDEO HERO
+═══════════════════════════════════════════════ -->
+<div id="video-hero">
+  <video autoplay muted loop playsinline style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ks_seit.mov" type="video/mp4"></video>
+  <div class="video-overlay"></div>
+  <!-- ═══════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════ -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">
+      <img src="marharian.png" alt="Marharian Production" style="height: 48px; width: auto;">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About us</a></li>
+      <li><a href="#services">What we do</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</div>
+<div class="eyebrow-gap" style="background:#ffffff; display:flex; align-items:center; justify-content:center; padding: 12px 24px; text-align: center;">
+  <span style="font-size: clamp(1.2rem, 2vw, 2rem); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; text-align: center; white-space: normal; word-break: break-word;">Photo &amp; Video Production in Hamburg</span>
+</div>
+
+<!-- Mobile menu -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#about"    class="mob-link">About</a>
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#process"  class="mob-link">Process</a>
+
+  <a href="#contact"  class="mob-link">Contact</a>
+  <button class="btn btn-gold mob-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a session</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="two-creatives" style="font-size: clamp(1rem, 2.5vw, 1.6rem); letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); font-weight: 700; margin-bottom: 16px; text-align: left; margin-top: 0; line-height: 1.3; font-family: var(--font-heading);">TWO CREATIVES<br>ONE VISION</p>
+
+    <h1 class="hero-h1">Creating elegant<br><em>visual stories.</em></h1>
+    <p class="hero-sub">
+      <strong>Sos &amp; Yaroslava Marharian</strong>
+      Professional photography and cinematic video with attention to every detail.
+    </p>
+    <div class="hero-btns">
+      <button class="btn btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a session</button>
+      <a href="https://www.instagram.com/marharian.production/" target="_blank" style="display:inline-flex; align-items:center; padding:16px 32px; border:2px solid var(--gold); color:var(--gold); font-size:14px; font-weight:600; letter-spacing:0.1em; text-decoration:none; border-radius:6px; font-family:inherit;">Instagram</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div id="hero-slideshow">
+      <img src="IMG_1326.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+      <img src="IMG_6539.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      <img src="R6M20042.jpg" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      <img src="IMG_8801.jpg" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      <img src="IMG_2755.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      <img src="IMG_0233.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+    </div>
+    <div class="scroll-hint">Scroll</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     ABOUT
+═══════════════════════════════════════════════ -->
+<section id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <div id="about-slideshow" style="position:relative; width:100%; aspect-ratio:3/4; overflow:hidden; border-radius:4px;">
+        <img src="IMG_0387.JPG" alt="Sos & Yaroslava Marharian" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+        <img src="IMG_7623.JPG" alt="Sos & Yaroslava Marharian" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_9775.JPG" alt="Sos & Yaroslava Marharian" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="R6M20675.jpg" alt="Sos & Yaroslava Marharian" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="R6M20679.jpg" alt="Sos & Yaroslava Marharian" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_7577.JPG" alt="Sos & Yaroslava Marharian" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-1">
+      <span class="eyebrow">About us</span>
+      <h2 class="section-heading">Sos <span style="font-family:var(--font-body)">&amp;</span> Yaroslava<br>Marharian</h2>
+      <p class="about-body">
+        We are a husband and wife creative team based in Hamburg. For over 8 years we have been creating visual stories for people and brands. We work together on every shoot — giving full attention to every detail, creating a comfortable atmosphere and finding the best moments.
+        <br><br>
+        Our goal is not just beautiful photos or video, but a refined visual result that will look relevant for years.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════════════ -->
+<section id="services">
+  <div class="section-header reveal">
+    <span class="eyebrow">What we do</span>
+    <h2 class="section-heading">Our services</h2>
+    <p class="section-sub">From intimate portraits to large-scale productions — we bring the same dedication to every project.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="svc-card reveal">
+      <div id="individual-slideshow" style="position:absolute; inset:0;">
+        <img src="IMG_2880.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+        <img src="IMG_5034.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5171.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5517.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      </div>
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <div class="svc-num">01</div>
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <circle cx="19" cy="12" r="5"/>
+          <path d="M7 34c0-6.627 5.373-12 12-12s12 5.373 12 12"/>
+          <circle cx="29" cy="10" r="3.5"/>
+          <path d="M33 27c0-4.4-3-7.8-7-9"/>
+        </svg>
+        <div class="svc-title">Individual</div>
+        <p class="svc-desc">Studio and outdoor sessions, portraits and personal stories tailored to you. Cinematic short films, reels and personal video projects with a clear visual direction.</p>
+      </div>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-1">
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <div class="svc-num">02</div>
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <rect x="5" y="12" width="28" height="20" rx="2"/>
+          <path d="M13 12V9a6 6 0 0 1 12 0v3"/>
+          <circle cx="19" cy="22" r="3"/>
+          <path d="M19 25v3"/>
+          <path d="M26 8l3-3M12 8L9 5"/>
+        </svg>
+        <div class="svc-title">Fashion &amp; Events</div>
+        <p class="svc-desc">Editorial, lookbook and campaign shoots. Corporate events, parties and performances — full visual coverage from first to last moment.</p>
+      </div>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-2">
+      <div id="wedding-slideshow" style="position:absolute; inset:0;">
+        <img src="IMG_9115.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+        <img src="IMG_5855.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5866.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5904.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_7252.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_9044.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_9089.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      </div>
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <div class="svc-num">03</div>
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <path d="M19 33S5 24 5 14a14 14 0 0 1 14-6.5A14 14 0 0 1 33 14c0 10-14 19-14 19z"/>
+        </svg>
+        <div class="svc-title">Weddings</div>
+        <p class="svc-desc">Emotional and elegant stories of your most important day, captured with our cinematic touch.</p>
+      </div>
+    </div>
+
+    <div class="svc-card reveal">
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <div class="svc-num">04</div>
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <circle cx="19" cy="20" r="10"/>
+          <path d="M9 20H4M29 20h5M19 10V5M19 30v5"/>
+          <path d="M12 13l-4-4M26 13l4-4M12 27l-4 4M26 27l4 4"/>
+          <circle cx="19" cy="20" r="4"/>
+        </svg>
+        <div class="svc-title">Restaurants &amp; Food</div>
+        <p class="svc-desc">Food, atmosphere and interiors. We create visual content that makes your restaurant unforgettable.</p>
+      </div>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-1">
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <div class="svc-num">05</div>
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <rect x="4" y="13" width="30" height="20" rx="2"/>
+          <path d="M13 13V9a6 6 0 0 1 12 0v4"/>
+          <path d="M4 21h30"/>
+          <rect x="14" y="18" width="10" height="6" rx="1"/>
+        </svg>
+        <div class="svc-title">Commercial &amp; Brand</div>
+        <p class="svc-desc">Photo and video content for brands, advertising campaigns and social media. Visual identity that sells.</p>
+      </div>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-2">
+      <div id="beauty-slideshow" style="position:absolute; inset:0;">
+        <img src="IMG_2954.JPG" alt="Beauty Industry" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+        <img src="IMG_5703.JPG" alt="Beauty Industry" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_2953.JPG" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      </div>
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <div class="svc-num">06</div>
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <polygon points="19,3 23,14 35,14 25.5,21.5 29,33 19,26 9,33 12.5,21.5 3,14 15,14"/>
+        </svg>
+        <div class="svc-title">Beauty Industry</div>
+        <p class="svc-desc">Portfolio shoots for stylists, makeup artists and beauty brands. Show your craft with imagery that attracts new clients.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     PROCESS
+═══════════════════════════════════════════════ -->
+<section id="process">
+  <div class="section-header reveal">
+    <span class="eyebrow">How we work</span>
+    <h2 class="section-heading">From idea to result</h2>
+  </div>
+
+  <div style="position:relative;">
+    <!-- Connector arrows overlay -->
+    <div style="
+      position:absolute;
+      top:50%; left:0; right:0;
+      pointer-events:none;
+      z-index:2;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+      transform:translateY(-50%);
+    ">
+      <div></div>
+      <div style="display:flex;align-items:center;justify-content:flex-start;margin-left:-26px;">
+        <span style="font-size:22px;color:var(--gold);opacity:0.45;">→</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:flex-start;margin-left:-26px;">
+        <span style="font-size:22px;color:var(--gold);opacity:0.45;">→</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:flex-start;margin-left:-26px;">
+        <span style="font-size:22px;color:var(--gold);opacity:0.45;">→</span>
+      </div>
+    </div>
+
+    <div class="process-grid">
+      <div class="proc-card reveal">
+        <div class="proc-num">01</div>
+        <div class="proc-title">First talk</div>
+        <p class="proc-desc">We discuss your vision, goals and expectations. Everything starts from your idea.</p>
+      </div>
+      <div class="proc-card reveal reveal-delay-1">
+        <div class="proc-num">02</div>
+        <div class="proc-title">Planning</div>
+        <p class="proc-desc">Location, style, mood board. We prepare every detail so the shoot runs perfectly.</p>
+      </div>
+      <div class="proc-card reveal reveal-delay-2">
+        <div class="proc-num">03</div>
+        <div class="proc-title">The shoot</div>
+        <p class="proc-desc">Two creatives, premium equipment, full attention. We create the atmosphere and capture real moments.</p>
+      </div>
+      <div class="proc-card reveal reveal-delay-3">
+        <div class="proc-num">04</div>
+        <div class="proc-title">Delivery</div>
+        <p class="proc-desc">Careful selection, color grading, retouching. Delivered with our signature look, on time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="contact-grid">
+
+    <div class="reveal">
+      <span class="eyebrow">Get in touch</span>
+      <h2 class="section-heading contact-heading">Let's create something<br>together</h2>
+      <p class="contact-desc">Have a project in mind? Write to us — we'll reply within 24 hours.</p>
+
+      <div class="contact-list">
+        <div class="contact-row">
+          <span class="contact-icon-wrap">📍</span>
+          <span>Hamburg, Germany</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon-wrap">✉</span>
+          <a href="mailto:marharianstudio@gmail.com" style="transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''">marharianstudio@gmail.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon-wrap">📸</span>
+          <a href="https://instagram.com/marharian.production" target="_blank" rel="noopener" style="transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''">@marharian.production</a>
+        </div>
+      </div>
+
+      <div class="social-row">
+        <a href="https://instagram.com/marharian.production" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:14px; padding:10px 20px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          Instagram
+        </a>
+        <a href="https://wa.me/491602741274" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:14px; padding:10px 20px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-1">
+      <form class="contact-form" id="cForm" novalidate>
+        <div class="form-row">
+          <div class="fg">
+            <label for="fFirst">First name *</label>
+            <input type="text" id="fFirst" name="first" placeholder="Your first name" required />
+          </div>
+          <div class="fg">
+            <label for="fLast">Last name *</label>
+            <input type="text" id="fLast" name="last" placeholder="Last name" required />
+          </div>
+        </div>
+        <div class="fg">
+          <label for="fEmail">Email *</label>
+          <input type="email" id="fEmail" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="fg">
+          <label for="fService">Service</label>
+          <select id="fService" name="service">
+            <option value="">Please select…</option>
+            <option>Individual Photoshoot</option>
+            <option>Video Session</option>
+            <option>Event</option>
+            <option>Wedding</option>
+            <option>Restaurant &amp; Business</option>
+            <option>Beauty Industry</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="fMsg">Message *</label>
+          <textarea id="fMsg" name="message" placeholder="Tell us about your project…" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="cSubmit">Send request →</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="marharian.png" alt="Marharian Production" style="height: 28px; filter: brightness(0) invert(1);">
+    </div>
+    <div class="footer-copy">© 2026 Marharian Production. Hamburg, Germany.</div>
+    <ul class="footer-links">
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Imprint</a></li>
+      <li><a href="https://instagram.com/marharian.production" target="_blank" rel="noopener">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════ -->
+<script>
+  if (window.location.hash) { history.replaceState(null, null, window.location.pathname); } window.scrollTo(0, 0);
+
+  /* ── Hero slideshow ───────────────────────────── */
+  const slides = document.querySelectorAll('#hero-slideshow img');
+  let current = 0;
+  setInterval(() => { slides[current].style.opacity = '0'; current = (current + 1) % slides.length; slides[current].style.opacity = '1'; }, 4000);
+
+  /* ── Wedding slideshow ────────────────────────── */
+  const wedSlides = document.querySelectorAll('#wedding-slideshow img');
+  let currentWed = 0;
+  if (wedSlides.length > 0) {
+    setInterval(() => {
+      wedSlides[currentWed].style.opacity = '0';
+      currentWed = (currentWed + 1) % wedSlides.length;
+      wedSlides[currentWed].style.opacity = '1';
+    }, 3000);
+  }
+
+  /* ── Individual slideshow ─────────────────────── */
+  const indSlides = document.querySelectorAll('#individual-slideshow img');
+  let currentInd = 0;
+  if (indSlides.length > 0) {
+    setInterval(() => {
+      indSlides[currentInd].style.opacity = '0';
+      currentInd = (currentInd + 1) % indSlides.length;
+      indSlides[currentInd].style.opacity = '1';
+    }, 3000);
+  }
+
+  /* ── Beauty slideshow ─────────────────────────── */
+  const beautySlides = document.querySelectorAll('#beauty-slideshow img');
+  let currentBeauty = 0;
+  setInterval(() => { beautySlides[currentBeauty].style.opacity='0'; currentBeauty=(currentBeauty+1)%beautySlides.length; beautySlides[currentBeauty].style.opacity='1'; }, 4000);
+
+  /* ── About slideshow ──────────────────────────── */
+  const aboutSlides = document.querySelectorAll('#about-slideshow img');
+  let currentAbout = 0;
+  setInterval(() => { aboutSlides[currentAbout].style.opacity = '0'; currentAbout = (currentAbout + 1) % aboutSlides.length; aboutSlides[currentAbout].style.opacity = '1'; }, 4000);
+
+
+  /* ── Nav scroll ───────────────────────────────── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY < 10) nav.classList.remove('scrolled');
+    else nav.classList.toggle('scrolled', window.scrollY > 100);
+  }, { passive: true });
+
+  /* ── Mobile menu ──────────────────────────────── */
+  const hamburger = document.getElementById('hamburger');
+  const mobMenu   = document.getElementById('mobMenu');
+
+  hamburger.addEventListener('click', () => {
+    const open = mobMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
+    mobMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
+
+  /* ── Reveal on scroll ─────────────────────────── */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  /* ── Contact form ─────────────────────────────── */
+  const form   = document.getElementById('cForm');
+  const submit = document.getElementById('cSubmit');
+
+  form.querySelectorAll('input,textarea,select').forEach(f =>
+    f.addEventListener('input', () => f.classList.remove('err'))
+  );
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let ok = true;
+    form.querySelectorAll('[required]').forEach(f => {
+      const bad = !f.value.trim() || (f.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value));
+      f.classList.toggle('err', bad);
+      if (bad) ok = false;
+    });
+    if (!ok) return;
+    submit.textContent = '✓ Request sent!';
+    submit.classList.add('success');
+    submit.disabled = true;
+    form.reset();
+    setTimeout(() => {
+      submit.textContent = 'Send request →';
+      submit.classList.remove('success');
+      submit.disabled = false;
+    }, 3500);
+  });
+</script>
+</body>
+</html>
