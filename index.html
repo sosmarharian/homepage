@@ -1034,6 +1034,10 @@
     </div>
 
     <div class="svc-card reveal">
+      <div id="restaurants-slideshow" style="position:absolute; inset:0;">
+        <img src="IMG_3090.JPG" alt="Restaurants & Food" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+        <img src="IMG_3091.jpg" alt="Restaurants & Food" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      </div>
       <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
       <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
         <div class="svc-num">04</div>
@@ -1290,6 +1294,11 @@
   const beautySlides = document.querySelectorAll('#beauty-slideshow img');
   let currentBeauty = 0;
   setInterval(() => { beautySlides[currentBeauty].style.opacity='0'; currentBeauty=(currentBeauty+1)%beautySlides.length; beautySlides[currentBeauty].style.opacity='1'; }, 4000);
+
+  /* ── Restaurants slideshow ─────────────────────────── */
+  const restaurantSlides = document.querySelectorAll('#restaurants-slideshow img');
+  let currentRestaurant = 0;
+  setInterval(() => { restaurantSlides[currentRestaurant].style.opacity='0'; currentRestaurant=(currentRestaurant+1)%restaurantSlides.length; restaurantSlides[currentRestaurant].style.opacity='1'; }, 4000);
 
   /* ── About slideshow ──────────────────────────── */
   const aboutSlides = document.querySelectorAll('#about-slideshow img');
