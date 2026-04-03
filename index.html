@@ -506,10 +506,18 @@
       gap: 8px;
     }
     .gallery-cell {
-      aspect-ratio: 3/4;
+      aspect-ratio: 9/16;
       overflow: hidden;
       border-radius: 4px;
       background: #e8e2db;
+    }
+    .gallery-cell video,
+    .gallery-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
 
 
@@ -1043,15 +1051,15 @@
   </div>
 
   <div class="gallery-grid">
-    <div class="gallery-cell reveal"></div>
-    <div class="gallery-cell reveal"></div>
-    <div class="gallery-cell reveal"></div>
-    <div class="gallery-cell reveal reveal-delay-1"></div>
-    <div class="gallery-cell reveal reveal-delay-1"></div>
-    <div class="gallery-cell reveal reveal-delay-1"></div>
-    <div class="gallery-cell reveal reveal-delay-2"></div>
-    <div class="gallery-cell reveal reveal-delay-2"></div>
-    <div class="gallery-cell reveal reveal-delay-2"></div>
+    <div class="gallery-cell reveal"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3261_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3380_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_9403_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal reveal-delay-1"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2857_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal reveal-delay-1"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3381_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal reveal-delay-1"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_7399_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal reveal-delay-2"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_4745_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal reveal-delay-2"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3254_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal reveal-delay-2"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2855_comp.mp4" type="video/mp4"></video></div>
   </div>
 </section>
 
