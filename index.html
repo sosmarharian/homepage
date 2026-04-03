@@ -1306,7 +1306,11 @@
     video.loop = true;
     video.playsInline = true;
     video.removeAttribute('autoplay');
-    video.pause();
+
+    // Show first frame as poster
+    video.addEventListener('loadedmetadata', () => { video.currentTime = 0.1; });
+    video.addEventListener('seeked', () => { video.pause(); }, { once: true });
+    video.load();
 
     video.addEventListener('play', () => video.parentElement.classList.add('playing'));
     video.addEventListener('pause', () => video.parentElement.classList.remove('playing'));
