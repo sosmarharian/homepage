@@ -510,6 +510,23 @@
       overflow: hidden;
       border-radius: 4px;
       background: #e8e2db;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-cell::after {
+      content: '▶';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgba(255,255,255,0.8);
+      font-size: 32px;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .gallery-cell:hover::after,
+    .gallery-cell.playing::after {
+      opacity: 0;
     }
     .gallery-cell video,
     .gallery-cell img {
@@ -1051,15 +1068,15 @@
   </div>
 
   <div class="gallery-grid">
-    <div class="gallery-cell reveal"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3261_comp.mp4" type="video/mp4"></video></div>
-    <div class="gallery-cell reveal"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3380_comp.mp4" type="video/mp4"></video></div>
-    <div class="gallery-cell reveal"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_9403_comp.mp4" type="video/mp4"></video></div>
-    <div class="gallery-cell reveal reveal-delay-1"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2857_comp.mp4" type="video/mp4"></video></div>
-    <div class="gallery-cell reveal reveal-delay-1"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3381_comp.mp4" type="video/mp4"></video></div>
-    <div class="gallery-cell reveal reveal-delay-1"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_7399_comp.mp4" type="video/mp4"></video></div>
-    <div class="gallery-cell reveal reveal-delay-2"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_4745_comp.mp4" type="video/mp4"></video></div>
-    <div class="gallery-cell reveal reveal-delay-2"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3254_comp.mp4" type="video/mp4"></video></div>
-    <div class="gallery-cell reveal reveal-delay-2"><video autoplay muted loop playsinline preload="metadata"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2855_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3261_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3380_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_9403_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal reveal-delay-1"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2857_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal reveal-delay-1"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3381_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal reveal-delay-1"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_7399_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal reveal-delay-2"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_4745_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal reveal-delay-2"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3254_comp.mp4" type="video/mp4"></video></div>
+    <div class="gallery-cell reveal reveal-delay-2"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2855_comp.mp4" type="video/mp4"></video></div>
   </div>
 </section>
 
@@ -1277,6 +1294,36 @@
       submit.classList.remove('success');
       submit.disabled = false;
     }, 3500);
+  });
+
+  /* ── Gallery: play on hover (desktop) / tap (mobile) ── */
+  const galleryVideos = document.querySelectorAll('#gallery video');
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+  galleryVideos.forEach(video => {
+    video.preload = 'metadata';
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.removeAttribute('autoplay');
+    video.pause();
+
+    video.addEventListener('play', () => video.parentElement.classList.add('playing'));
+    video.addEventListener('pause', () => video.parentElement.classList.remove('playing'));
+
+    if (isMobile) {
+      video.addEventListener('click', () => {
+        if (video.paused) {
+          galleryVideos.forEach(v => { if (v !== video) v.pause(); });
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    } else {
+      video.addEventListener('mouseenter', () => { video.play(); });
+      video.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+    }
   });
 </script>
 </body>
