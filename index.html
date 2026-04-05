@@ -1141,15 +1141,17 @@
     </div>
 
     <div class="reveal reveal-delay-1">
-      <form class="contact-form" id="cForm" novalidate>
+      <form class="contact-form" id="cForm" action="https://formspree.io/f/marharianstudio@gmail.com" method="POST" novalidate>
+        <input type="hidden" name="_next" value="https://marharian.com">
+        <input type="hidden" name="_subject" value="Neue Anfrage von marharian.com">
         <div class="form-row">
           <div class="fg">
             <label for="fFirst">First name *</label>
-            <input type="text" id="fFirst" name="first" placeholder="Your first name" required />
+            <input type="text" id="fFirst" name="first_name" placeholder="Your first name" required />
           </div>
           <div class="fg">
             <label for="fLast">Last name *</label>
-            <input type="text" id="fLast" name="last" placeholder="Last name" required />
+            <input type="text" id="fLast" name="last_name" placeholder="Last name" required />
           </div>
         </div>
         <div class="fg">
@@ -1301,15 +1303,30 @@
       if (bad) ok = false;
     });
     if (!ok) return;
-    submit.textContent = '✓ Request sent!';
-    submit.classList.add('success');
+    submit.textContent = 'Sending…';
     submit.disabled = true;
-    form.reset();
-    setTimeout(() => {
-      submit.textContent = 'Send request →';
-      submit.classList.remove('success');
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(res => {
+      if (res.ok) {
+        submit.textContent = '✓ Request sent!';
+        submit.classList.add('success');
+        form.reset();
+        setTimeout(() => {
+          submit.textContent = 'Send request →';
+          submit.classList.remove('success');
+          submit.disabled = false;
+        }, 3500);
+      } else {
+        submit.textContent = 'Error — try again';
+        submit.disabled = false;
+      }
+    }).catch(() => {
+      submit.textContent = 'Error — try again';
       submit.disabled = false;
-    }, 3500);
+    });
   });
 
   /* ── Gallery: play on hover (desktop) / tap (mobile) ── */
