@@ -1309,6 +1309,7 @@
       body: new FormData(form),
       headers: { 'Accept': 'application/json' }
     }).then(res => {
+      res.clone().json().then(d => console.log('Formspree response:', res.status, d));
       if (res.ok) {
         submit.textContent = '✓ Request sent!';
         submit.classList.add('success');
