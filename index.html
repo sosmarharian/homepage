@@ -1142,7 +1142,6 @@
 
     <div class="reveal reveal-delay-1">
       <form class="contact-form" id="cForm" action="https://formspree.io/f/maqllark" method="POST" novalidate>
-        <input type="hidden" name="_next" value="https://marharian.com">
         <input type="hidden" name="_subject" value="Neue Anfrage von marharian.com">
         <div class="form-row">
           <div class="fg">
@@ -1305,7 +1304,7 @@
     if (!ok) return;
     submit.textContent = 'Sending…';
     submit.disabled = true;
-    fetch(form.action, {
+    fetch('https://formspree.io/f/maqllark', {
       method: 'POST',
       body: new FormData(form),
       headers: { 'Accept': 'application/json' }
@@ -1320,10 +1319,12 @@
           submit.disabled = false;
         }, 3500);
       } else {
+        res.json().then(data => console.error('Formspree error:', data));
         submit.textContent = 'Error — try again';
         submit.disabled = false;
       }
-    }).catch(() => {
+    }).catch(err => {
+      console.error('Fetch error:', err);
       submit.textContent = 'Error — try again';
       submit.disabled = false;
     });
