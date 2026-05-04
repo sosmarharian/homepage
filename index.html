@@ -1339,14 +1339,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }).then(res => {
       res.clone().json().then(d => console.log('Formspree response:', res.status, d));
       if (res.ok) {
-        submit.textContent = '✓ Request sent!';
-        submit.classList.add('success');
-        form.reset();
-        setTimeout(() => {
-          submit.textContent = 'Send request →';
-          submit.classList.remove('success');
-          submit.disabled = false;
-        }, 3500);
+        window.location.href = '/thanks';
       } else {
         res.json().then(data => console.error('Formspree error:', data));
         submit.textContent = 'Error — try again';
