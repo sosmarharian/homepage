@@ -1167,8 +1167,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="reveal reveal-delay-1">
-      <form class="contact-form" id="cForm" action="https://formspree.io/f/maqllark" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="Neue Anfrage von marharian.com">
+      <form class="contact-form" id="cForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="f7f95cd3-8f10-484e-a42e-3975a14980bc">
+        <input type="hidden" name="subject" value="Neue Anfrage von marharian.com">
         <div class="form-row">
           <div class="fg">
             <label for="fFirst">First name *</label>
@@ -1330,7 +1331,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (!ok) return;
     submit.textContent = 'Sending…';
     submit.disabled = true;
-    fetch('https://formspree.io/f/maqllark', {
+    fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       body: new FormData(form),
       headers: { 'Accept': 'application/json' }
