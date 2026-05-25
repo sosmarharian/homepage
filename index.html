@@ -836,7 +836,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       section { padding: 40px 16px; }
       #video-hero { height: 70vh; }
       .hero-right { height: 55vh; min-height: 400px; }
-      /* #about-slideshow height handled by overlay rules above */
       .services-grid { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: 1fr; }
 
@@ -987,7 +986,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
-    .wedding-about-img { margin-left: 90px;
+    .wedding-about-img {
+      margin-left: 90px;
       position: relative;
       overflow: hidden;
       aspect-ratio: 3/4;
@@ -1082,23 +1082,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* Portfolio feature rows */
     .wedding-feature-rows {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 60px;
+      padding: 60px;
       box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
     }
     .wedding-feature-row {
       display: flex;
-      align-items: stretch;
-      gap: 0;
-      padding: 40px 0;
+      align-items: center;
+      position: relative;
+    }
+    .wedding-feature-row.reverse {
+      flex-direction: row-reverse;
     }
     .wedding-feature-rows-2col .wedding-feature-photo {
-      aspect-ratio: 3/4;
-      max-height: 562px;
+      height: 100%;
     }
     .wedding-feature-photo {
-      flex: 0 0 60%;
+      flex: 0 0 65%;
+      height: 420px;
       overflow: hidden;
     }
     .wedding-feature-photo img {
@@ -1107,30 +1112,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       object-fit: cover;
       display: block;
     }
-
     .wedding-feature-text {
-      flex: 0 0 40%;
+      flex: 0 0 340px;
       background: #fff;
       padding: 48px 40px;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 40px rgba(0,0,0,0.08);
       display: flex;
       flex-direction: column;
       justify-content: center;
+      box-sizing: border-box;
+      margin-left: -80px;
+      position: relative;
+      z-index: 2;
+    }
+    .wedding-feature-row.reverse .wedding-feature-text {
       margin-left: 0;
-      position: static;
+      margin-right: -80px;
     }
     .wedding-feature-text h3 {
       font-family: var(--font-heading);
       font-size: 13px;
       font-weight: 700;
       color: var(--charcoal);
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
     }
     .wedding-feature-text p {
-      font-size: 13px;
-      line-height: 1.7;
+      font-size: 15px;
+      line-height: 1.8;
       color: var(--gray);
     }
 
@@ -1379,7 +1389,6 @@ src="https://www.facebook.com/tr?id=935651865930025&ev=PageView&noscript=1"/>
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- Cursor -->
 <!-- ───────────────────────────────────────────────
      VIDEO HERO
 ─────────────────────────────────────────────── -->
@@ -1416,7 +1425,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#about"    class="mob-link">About</a>
   <a href="#services" class="mob-link">Services</a>
   <a href="#gallery" class="mob-link">Gallery</a>
-
   <a href="#contact"  class="mob-link">Contact</a>
   <button class="btn btn-gold mob-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a session</button>
 </div>
@@ -1426,7 +1434,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 ─────────────────────────────────────────────── -->
 <section id="hero">
   <div class="hero-left">
-
     <h1 class="hero-h1">Creating elegant<br><em>visual stories.</em></h1>
     <div class="hero-btns">
       <button class="btn btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a session</button>
@@ -1599,7 +1606,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- ───────────────────────────────────────────────
-     PROCESS
+     GALLERY
 ─────────────────────────────────────────────── -->
 <section id="gallery">
   <div class="section-header reveal">
@@ -1782,7 +1789,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   let currentAbout = 0;
   setInterval(() => { aboutSlides[currentAbout].style.opacity = '0'; currentAbout = (currentAbout + 1) % aboutSlides.length; aboutSlides[currentAbout].style.opacity = '1'; }, 4000);
 
-
   /* — Nav scroll ───────────────────────────────────── */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -1861,7 +1867,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     video.playsInline = true;
     video.removeAttribute('autoplay');
 
-    // Show first frame as poster
     video.addEventListener('loadedmetadata', () => { video.currentTime = 0.1; });
     video.addEventListener('seeked', () => { video.pause(); }, { once: true });
     video.load();
@@ -1939,47 +1944,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="wedding-feature-rows">
         <div class="wedding-feature-row">
-          <div class="wedding-feature-photo">
-            <img src="DSC04362-2.jpg" alt="Creative Duo">
-          </div>
-          <div class="wedding-feature-text">
-            <h3>Creative Duo</h3>
-            <p>Photo &amp; film from one team — perfectly coordinated, no communication gaps, pure focus on your day.</p>
-          </div>
-          <div class="wedding-feature-photo">
-            <img src="DSC04400.jpg" alt="Cinematic Style">
-          </div>
-          <div class="wedding-feature-text">
-            <h3>Cinematic Style</h3>
-            <p>Every image crafted with a director's eye — emotional, timeless, cinematic.</p>
-          </div>
-          <div class="wedding-feature-photo">
-            <img src="DSC03319.jpg" alt="All of Germany">
-          </div>
-          <div class="wedding-feature-text">
-            <h3>All of Germany</h3>
-            <p>Based in Hamburg, we travel throughout Germany and beyond for your wedding — without hidden costs.</p>
-          </div>
+          <div class="wedding-feature-photo"><img src="DSC04362-2.jpg" alt="Creative Duo"></div>
+          <div class="wedding-feature-text"><h3>Creative Duo</h3><p>Photo &amp; film from one team — perfectly coordinated, no communication gaps, pure focus on your day.</p></div>
+        </div>
+        <div class="wedding-feature-row reverse">
+          <div class="wedding-feature-photo"><img src="DSC04400.jpg" alt="Cinematic Style"></div>
+          <div class="wedding-feature-text"><h3>Cinematic Style</h3><p>Every image crafted with a director's eye — emotional, timeless, cinematic.</p></div>
+        </div>
+        <div class="wedding-feature-row">
+          <div class="wedding-feature-photo"><img src="DSC03319.jpg" alt="All of Germany"></div>
+          <div class="wedding-feature-text"><h3>All of Germany</h3><p>Based in Hamburg, we travel throughout Germany and beyond for your wedding — without hidden costs.</p></div>
+        </div>
+        <div class="wedding-feature-row reverse">
           <div class="wedding-feature-photo"><img src="DSC04969-2.jpg" alt="Your Moment"></div>
           <div class="wedding-feature-text"><h3>Your Moment</h3><p>Every glance, every tear, every laugh — caught before it fades. This is what we live for.</p></div>
         </div>
-      </div>
-      <div class="wedding-feature-rows">
         <div class="wedding-feature-row">
           <div class="wedding-feature-photo"><img src="DSC02043-2.jpg" alt="Wedding rings"></div>
           <div class="wedding-feature-text"><h3>Joined Forever</h3><p>Two rings, one promise — the detail that changes everything.</p></div>
-          <div class="wedding-feature-photo"><img src="DSC04969-2.jpg" alt="Wedding ceremony"></div>
-          <div class="wedding-feature-text"><h3>Pure Emotion</h3><p>The moment she breathes in — and everything stands still.</p></div>
-          <div class="wedding-feature-photo"><img src="IMG_5642.JPG" alt="Wedding photo"></div>
+        </div>
+        <div class="wedding-feature-row reverse">
+          <div class="wedding-feature-photo"><img src="IMG_5642.JPG" alt="Together"></div>
           <div class="wedding-feature-text"><h3>Together</h3><p>Foreheads together, hearts even closer. Real and unposed.</p></div>
-          <div class="wedding-feature-photo"><img src="IMG_2414.jpg" alt="Wedding photo"></div>
-          <div class="wedding-feature-text"><h3>The First Kiss</h3><p>Gentle, tender, unforgettable — just as it should be.</p></div>
+        </div>
+        <div class="wedding-feature-row">
+          <div class="wedding-feature-photo"><img src="DSC03781-2%202.jpg" alt="In the Woods"></div>
+          <div class="wedding-feature-text"><h3>In the Woods</h3><p>Surrounded by nature, lost in each other — a moment outside of time.</p></div>
+        </div>
+        <div class="wedding-feature-row reverse">
+          <div class="wedding-feature-photo"><img src="DSC03837%202.jpg" alt="Hand in Hand"></div>
+          <div class="wedding-feature-text"><h3>Hand in Hand</h3><p>Every step together — the beginning of a lifetime journey.</p></div>
+        </div>
+        <div class="wedding-feature-row">
+          <div class="wedding-feature-photo"><img src="DSC08642.jpg" alt="The Ceremony"></div>
+          <div class="wedding-feature-text"><h3>The Ceremony</h3><p>A sacred moment, witnessed by those who matter most.</p></div>
+        </div>
+        <div class="wedding-feature-row reverse">
+          <div class="wedding-feature-photo"><img src="R6M20601-2.jpg" alt="Just Married"></div>
+          <div class="wedding-feature-text"><h3>Just Married</h3><p>The beginning of forever — captured in a single frame.</p></div>
         </div>
       </div>
-      <div class="wedding-feature-rows"><div class="wedding-feature-row"><div class="wedding-feature-photo" style="max-height: 320px; overflow: hidden;"><img src="DSC03781-2%202.jpg" alt="Wedding photo"></div><div class="wedding-feature-text"><h3>In the Woods</h3><p>Surrounded by nature, lost in each other — a moment outside of time.</p></div><div class="wedding-feature-photo" style="max-height: 320px; overflow: hidden;"><img src="DSC03837%202.jpg" alt="Wedding photo"></div><div class="wedding-feature-text"><h3>Hand in Hand</h3><p>Every step together — the beginning of a lifetime journey.</p></div></div></div>
-      <div class="wedding-grid"><div class="wedding-grid-item"><span class="wedding-grid-num">7</span><img src="DSC08642.jpg" alt="Wedding photo"></div><div class="wedding-grid-item"><span class="wedding-grid-num">8</span><img src="R6M20601-2.jpg" alt="Wedding photo"></div></div>
     </div>
-
 
     <!-- Process -->
     <div class="wedding-process">
@@ -2094,14 +2099,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     function handleWeddingForm(e) {
       e.preventDefault();
-      // Trigger PDF download
       const link = document.createElement('a');
       link.href = 'Marharian-Preisliste-Hochzeit-2026.pdf';
       link.download = 'Marharian-Preisliste-Hochzeit-2026.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      // Show thank you message
       const form = e.target;
       form.innerHTML = '<p style="color: var(--gold); font-family: var(--font-heading); font-size: 18px; letter-spacing: 0.1em; text-align: center; padding: 32px 0;">Thank you! Your price list is downloading.<br><span style="font-size:14px; color: rgba(255,255,255,0.5); font-family: var(--font-body); letter-spacing: normal;">We will be in touch within 24 hours.</span></p>';
     }
