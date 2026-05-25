@@ -1082,29 +1082,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* Portfolio feature rows */
     .wedding-feature-rows {
-      max-width: 100%;
-      margin: 0;
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 0 60px;
       box-sizing: border-box;
     }
     .wedding-feature-row {
-      display: flex;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: 1fr auto;
       align-items: center;
       gap: 0;
       padding: 40px 0;
-      position: relative;
     }
     .wedding-feature-rows-2col .wedding-feature-photo {
       aspect-ratio: 3/4;
       max-height: 562px;
     }
     .wedding-feature-photo {
-      flex: 0 0 55%;
+      width: 100%;
       aspect-ratio: 4/3;
       overflow: hidden;
-      position: relative;
-      max-height: 420px;
+      max-height: 360px;
     }
     .wedding-feature-photo img {
       width: 100%;
@@ -1113,14 +1111,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: block;
     }
     .wedding-feature-text {
-      flex: 0 0 280px;
-      margin-left: -100px;
-      align-self: center;
-      position: relative;
-      z-index: 2;
+      width: 260px;
       background: #fff;
       padding: 36px 32px;
       box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+      margin-left: -60px;
+      position: relative;
+      z-index: 2;
+      align-self: center;
     }
     .wedding-feature-text h3 {
       font-family: var(--font-heading);
