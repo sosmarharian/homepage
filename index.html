@@ -1370,6 +1370,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .wedding-feature-photo { flex: none; width: 100%; aspect-ratio: 3/4; }
       .wedding-feature-photo img { object-position: center top; }
       .wedding-feature-text { flex: none; width: 90%; margin-left: 5%; margin-right: 0; }
+      #wedding-side-btn { display: block; }
     }
 
   </style>
@@ -2120,7 +2121,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   </script>
 
-  <a id="wedding-side-btn" href="#weddings" style="position:fixed;left:0;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:left center;background:#1a1a1a;color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:10px 20px;text-decoration:none;z-index:999;white-space:nowrap;display:block;">Weddings</a>
+  <a id="wedding-side-btn" href="#weddings" style="display:none;position:fixed;left:0;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:left center;background:#1a1a1a;color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:10px 20px;text-decoration:none;z-index:999;white-space:nowrap;">Weddings</a>
 
   <script>const btn=document.getElementById('wedding-side-btn');const section=document.getElementById('weddings');const weddingObs=new IntersectionObserver(e=>{btn.style.display=e[0].isIntersecting?'none':'block'});weddingObs.observe(section);</script>
 
