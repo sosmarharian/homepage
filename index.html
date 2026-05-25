@@ -1086,24 +1086,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       margin: 0 auto;
     }
     .wedding-feature-row {
-      display: flex;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto;
       align-items: center;
-      flex-wrap: nowrap;
-      gap: 40px;
-      padding: 40px;
-    }
-    .wedding-feature-photos {
-      display: flex;
-      flex-direction: row;
-      gap: 8px;
-      flex-shrink: 0;
+      gap: 24px;
+      padding: 32px 40px;
     }
     .wedding-feature-photo {
-      flex-shrink: 0;
       width: 200px;
       aspect-ratio: 3/4;
       overflow: hidden;
+      justify-self: center;
     }
     .wedding-feature-photo img {
       width: 100%;
@@ -1112,19 +1105,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: block;
     }
     .wedding-feature-text {
-      flex: 1;
-      padding: 40px;
+      max-width: 150px;
     }
     .wedding-feature-text h3 {
       font-family: var(--font-heading);
-      font-size: clamp(20px, 2.5vw, 28px);
+      font-size: 13px;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 16px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
     .wedding-feature-text p {
-      font-size: 16px;
-      line-height: 1.8;
+      font-size: 13px;
+      line-height: 1.7;
       color: rgba(255,255,255,0.6);
     }
 
@@ -1933,44 +1927,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="wedding-feature-rows">
         <div class="wedding-feature-row">
-          <div class="wedding-feature-photos">
-            <div class="wedding-feature-photo">
-              <img src="DSC04362-2.jpg" alt="Creative Duo">
-            </div>
-            <div class="wedding-feature-photo">
-              <img src="DSC02043-2.jpg" alt="Creative Duo">
-            </div>
+          <div class="wedding-feature-photo">
+            <img src="DSC04362-2.jpg" alt="Creative Duo">
           </div>
           <div class="wedding-feature-text">
             <h3>Creative Duo</h3>
+          </div>
+          <div class="wedding-feature-photo">
+            <img src="DSC02043-2.jpg" alt="Creative Duo">
+          </div>
+          <div class="wedding-feature-text">
             <p>Photo &amp; film from one team — perfectly coordinated, no communication gaps, pure focus on your day.</p>
           </div>
         </div>
         <div class="wedding-feature-row">
-          <div class="wedding-feature-photos">
-            <div class="wedding-feature-photo">
-              <img src="DSC04400.jpg" alt="Cinematic Style">
-            </div>
-            <div class="wedding-feature-photo">
-              <img src="DSC04969-2.jpg" alt="Cinematic Style">
-            </div>
+          <div class="wedding-feature-photo">
+            <img src="DSC04400.jpg" alt="Cinematic Style">
           </div>
           <div class="wedding-feature-text">
             <h3>Cinematic Style</h3>
+          </div>
+          <div class="wedding-feature-photo">
+            <img src="DSC04969-2.jpg" alt="Cinematic Style">
+          </div>
+          <div class="wedding-feature-text">
             <p>Every image crafted with a director's eye — emotional, timeless, cinematic.</p>
           </div>
         </div>
         <div class="wedding-feature-row">
-          <div class="wedding-feature-photos">
-            <div class="wedding-feature-photo">
-              <img src="DSC03319.jpg" alt="All of Germany">
-            </div>
-            <div class="wedding-feature-photo">
-              <img src="IMG_5642.JPG" alt="All of Germany">
-            </div>
+          <div class="wedding-feature-photo">
+            <img src="DSC03319.jpg" alt="All of Germany">
           </div>
           <div class="wedding-feature-text">
             <h3>All of Germany</h3>
+          </div>
+          <div class="wedding-feature-photo">
+            <img src="IMG_5642.JPG" alt="All of Germany">
+          </div>
+          <div class="wedding-feature-text">
             <p>Based in Hamburg, we travel throughout Germany and beyond for your wedding — without hidden costs.</p>
           </div>
         </div>
