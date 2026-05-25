@@ -1087,20 +1087,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .wedding-feature-row {
       display: flex;
+      flex-direction: row;
       align-items: center;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 40px;
       padding: 40px;
     }
     .wedding-feature-photos {
       display: flex;
-      gap: 12px;
+      flex-direction: row;
+      gap: 8px;
       flex-shrink: 0;
     }
     .wedding-feature-photo {
       flex-shrink: 0;
-      width: 100%;
-      max-width: 350px;
+      width: 200px;
       aspect-ratio: 3/4;
       overflow: hidden;
     }
