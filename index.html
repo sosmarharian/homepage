@@ -1348,6 +1348,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       margin-top: 8px;
     }
 
+    .mobile-wedding-btn { display: none; }
+    @media (max-width: 768px) {
+      .mobile-wedding-btn { display: flex; justify-content: center; align-items: center; padding: 8px 20px; border: 1.5px solid #e63030; color: #e63030; font-family: 'Great Vibes', cursive; font-size: 18px; text-decoration: none; margin: 8px auto; width: fit-content; border-radius: 4px; }
+    }
+
     /* Mobile */
     @media (max-width: 768px) {
       .nav-wedding { font-size: 17px; padding: 6px 14px; }
@@ -1408,6 +1413,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="#" class="nav-logo">
       <img src="marharian.png" alt="Marharian Production" style="height: 48px; width: auto;">
     </a>
+    <a href="#weddings" class="mobile-wedding-btn">Weddings</a>
 
     <ul class="nav-links">
       <li><a href="#weddings" class="nav-wedding">Weddings</a></li>
