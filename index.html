@@ -1087,12 +1087,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .wedding-feature-row {
       display: flex;
-      align-items: stretch;
+      align-items: center;
+      gap: 40px;
+      padding: 40px;
     }
-    .wedding-feature-row:nth-child(even) { flex-direction: row-reverse; }
     .wedding-feature-photo {
-      width: 40%;
       flex-shrink: 0;
+      width: 100%;
+      max-width: 350px;
       aspect-ratio: 3/4;
       overflow: hidden;
     }
@@ -1103,16 +1105,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: block;
     }
     .wedding-feature-text {
-      width: 60%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 48px 56px;
-      background: #111;
+      flex: 1;
+      padding: 40px;
     }
     .wedding-feature-text h3 {
       font-family: var(--font-heading);
-      font-size: clamp(22px, 2.5vw, 32px);
+      font-size: clamp(20px, 2.5vw, 28px);
       font-weight: 700;
       color: #fff;
       margin-bottom: 16px;
