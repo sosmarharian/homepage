@@ -1082,18 +1082,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* Portfolio feature rows */
     .wedding-feature-rows {
-      max-width: 1200px;
-      margin: 0 auto;
+      max-width: 100%;
+      margin: 0;
     }
     .wedding-feature-row {
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: 24px;
-      padding: 32px 40px;
+      gap: 0;
+      padding: 0;
+      width: 100%;
     }
     .wedding-feature-photo {
-      width: 250px;
+      flex: 1;
       aspect-ratio: 3/4;
       overflow: hidden;
       justify-self: center;
@@ -1105,7 +1106,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: block;
     }
     .wedding-feature-text {
-      max-width: 150px;
+      flex: 0 0 160px;
+      padding: 0 24px;
     }
     .wedding-feature-text h3 {
       font-family: var(--font-heading);
