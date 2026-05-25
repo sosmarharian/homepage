@@ -1084,20 +1084,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .wedding-feature-rows {
       max-width: 100%;
       margin: 0;
-    }
-    .wedding-feature-row {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
-      align-items: center;
-      gap: 0;
-      padding: 40px 60px;
-      width: 100%;
+      padding: 0 60px;
       box-sizing: border-box;
     }
+    .wedding-feature-row {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      gap: 24px;
+      padding: 40px 0;
+    }
     .wedding-feature-photo {
+      flex: 1;
       aspect-ratio: 3/4;
       overflow: hidden;
-      width: 100%;
     }
     .wedding-feature-photo img {
       width: 100%;
@@ -1106,7 +1106,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: block;
     }
     .wedding-feature-text {
-      padding: 0 28px;
+      flex: 0 0 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 8px;
     }
     .wedding-feature-text h3 {
       font-family: var(--font-heading);
