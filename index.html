@@ -1080,50 +1080,47 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .wedding-grid-item:hover img { transform: scale(1.04); }
 
-    /* Why us */
-    .wedding-why {
-      padding: 80px 40px;
-      background: #0d0d0d;
-    }
-    .wedding-why-header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-    .wedding-why-header .eyebrow { color: var(--gold); }
-    .wedding-why-header h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(24px, 3vw, 36px);
-      font-weight: 300;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #fff;
-      margin-top: 8px;
-    }
-    .wedding-why-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      max-width: 900px;
+    /* Portfolio feature rows */
+    .wedding-feature-rows {
+      max-width: 1200px;
       margin: 0 auto;
     }
-    .wedding-why-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(197,154,94,0.15);
-      padding: 32px;
-      border-radius: 2px;
+    .wedding-feature-row {
+      display: flex;
+      align-items: stretch;
     }
-    .wedding-why-card h3 {
+    .wedding-feature-row:nth-child(even) { flex-direction: row-reverse; }
+    .wedding-feature-photo {
+      width: 40%;
+      flex-shrink: 0;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+    .wedding-feature-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .wedding-feature-text {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 56px;
+      background: #111;
+    }
+    .wedding-feature-text h3 {
       font-family: var(--font-heading);
-      font-size: 16px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 10px;
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
     }
-    .wedding-why-card p {
-      font-size: 15px;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.55);
+    .wedding-feature-text p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.6);
     }
 
     /* Process */
@@ -1340,13 +1337,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .wedding-stats { flex-wrap: wrap; }
       .wedding-stat { min-width: 50%; border-right: none; border-bottom: 1px solid rgba(197,154,94,0.15); }
       .wedding-grid { grid-template-columns: 1fr 1fr; }
-      .wedding-why-grid { grid-template-columns: 1fr; }
       .wedding-steps { flex-wrap: wrap; gap: 32px; }
       .wedding-steps::before { display: none; }
       .wedding-form-row { grid-template-columns: 1fr; }
       .wedding-faq { padding: 60px 24px; }
       .wedding-request { padding: 60px 24px; }
-      .wedding-why { padding: 60px 24px; }
       .wedding-process { padding: 60px 24px; }
     }
 
@@ -1931,18 +1926,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="eyebrow">Portfolio</span>
         <h2>Beloved Moments</h2>
       </div>
+      <div class="wedding-feature-rows">
+        <div class="wedding-feature-row">
+          <div class="wedding-feature-photo">
+            <img src="DSC04362-2.jpg" alt="Creative Duo">
+          </div>
+          <div class="wedding-feature-text">
+            <h3>Creative Duo</h3>
+            <p>Photo &amp; film from one team — perfectly coordinated, no communication gaps, pure focus on your day.</p>
+          </div>
+        </div>
+        <div class="wedding-feature-row">
+          <div class="wedding-feature-photo">
+            <img src="DSC04400.jpg" alt="Cinematic Style">
+          </div>
+          <div class="wedding-feature-text">
+            <h3>Cinematic Style</h3>
+            <p>Every image crafted with a director's eye — emotional, timeless, cinematic.</p>
+          </div>
+        </div>
+        <div class="wedding-feature-row">
+          <div class="wedding-feature-photo">
+            <img src="DSC03319.jpg" alt="All of Germany">
+          </div>
+          <div class="wedding-feature-text">
+            <h3>All of Germany</h3>
+            <p>Based in Hamburg, we travel throughout Germany and beyond for your wedding — without hidden costs.</p>
+          </div>
+        </div>
+      </div>
       <div class="wedding-grid">
         <div class="wedding-grid-item">
-          <span class="wedding-grid-num">1</span>
-          <img src="DSC04362-2.jpg" alt="Wedding moment">
-        </div>
-        <div class="wedding-grid-item">
-          <span class="wedding-grid-num">2</span>
-          <img src="DSC04400.jpg" alt="Wedding detail">
-        </div>
-        <div class="wedding-grid-item">
-          <span class="wedding-grid-num">3</span>
-          <img src="DSC03319.jpg" alt="Wedding couple">
+          <span class="wedding-grid-num">4</span>
+          <img src="DSC02043-2.jpg" alt="Wedding rings">
         </div>
         <div class="wedding-grid-item">
           <span class="wedding-grid-num">4</span>
@@ -1979,31 +1995,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <!-- Why us -->
-    <div class="wedding-why">
-      <div class="wedding-why-header">
-        <span class="eyebrow">Why Us</span>
-        <h2>What Sets Us Apart</h2>
-      </div>
-      <div class="wedding-why-grid">
-        <div class="wedding-why-card">
-          <h3>Creative Duo</h3>
-          <p>Photo &amp; film from one team — perfectly coordinated, no communication gaps, pure focus on your day.</p>
-        </div>
-        <div class="wedding-why-card">
-          <h3>All of Germany</h3>
-          <p>Based in Hamburg, we travel throughout Germany and beyond for your wedding — without hidden costs.</p>
-        </div>
-        <div class="wedding-why-card">
-          <h3>Cinematic Style</h3>
-          <p>Every image and every film frame is crafted with a director's eye — emotional, timeless, cinematic.</p>
-        </div>
-        <div class="wedding-why-card">
-          <h3>Photo &amp; Video Together</h3>
-          <p>Book photo only, video only, or both combined — fully flexible to your wishes and budget.</p>
-        </div>
-      </div>
-    </div>
 
     <!-- Process -->
     <div class="wedding-process">
