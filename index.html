@@ -165,6 +165,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     #nav.scrolled .nav-links a { color: var(--charcoal); }
     #nav.scrolled .nav-logo img { filter: brightness(1) invert(0); }
+    #nav.scrolled .lang-switch a { color: var(--charcoal); }
+    #nav.scrolled .lang-switch a[href="index.html"] { color: var(--gold); }
+    #nav.scrolled .lang-switch span { color: rgba(0,0,0,0.3); }
     #video-hero {
       position: relative;
       width: 100%;
@@ -1676,6 +1679,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="#contact">Contact</a></li>
     </ul>
 
+    <div class="lang-switch" style="display: flex; align-items: center; gap: 8px; margin-left: 20px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
+      <a href="index-de.html" style="display: inline-flex; align-items: center; gap: 4px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s;">🇩🇪 DE</a>
+      <span style="color: rgba(255,255,255,0.3);">|</span>
+      <a href="index.html" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;">🇬🇧 EN</a>
+    </div>
+
     <button class="hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -1692,6 +1701,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#gallery" class="mob-link">Gallery</a>
   <a href="#contact"  class="mob-link">Contact</a>
   <button class="btn btn-gold mob-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a session</button>
+  <div style="display: flex; align-items: center; gap: 8px; margin-top: 16px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
+    <a href="index-de.html" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gray); text-decoration: none; transition: color 0.2s;">🇩🇪 DE</a>
+    <span style="color: rgba(0,0,0,0.3);">|</span>
+    <a href="index.html" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;">🇬🇧 EN</a>
+  </div>
 </div>
 
 <!-- ───────────────────────────────────────────────
