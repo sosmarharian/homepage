@@ -1,0 +1,2183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9L4JN9K');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marharian Production · Hochzeitsfotografie &amp; Video Hamburg</title>
+  <meta name="description" content="Marharian Production — Professionelle Hochzeitsfotografie und cinematische Videografie in Hamburg. Hochzeiten, Porträts, Events und kommerzielle Shootings." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Darker+Grotesque:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:      #ffffff;
+      --cream:      #f0ebe3;
+      --light:      #f7f4f0;
+      --charcoal:   #1a1815;
+      --dark:       #111010;
+      --gold:       #c9a96e;
+      --gold-light: #e2c89a;
+      --gray:       #888580;
+      --border:     rgba(0,0,0,0.08);
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      background: var(--white);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      cursor: default;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { font-family: inherit; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+    /* ─── Typography helpers ──────────────────────────── */
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      line-height: 1.08;
+    }
+    .eyebrow {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .section-heading {
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      margin-bottom: 16px;
+      font-family: var(--font-heading);
+    }
+    .section-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.75;
+      max-width: 520px;
+    }
+    .section-header { margin-bottom: 60px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-sub { margin: 0 auto; }
+
+    section { padding: 100px 80px; }
+
+    /* ─── Buttons ─────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 6px;
+      transition: all 0.22s;
+      white-space: nowrap;
+    }
+    .btn-gold { background: var(--gold); color: var(--charcoal); font-family: var(--font-body); }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      font-family: var(--font-body);
+    }
+    .btn-outline:hover { background: var(--gold); color: var(--charcoal); transform: translateY(-2px); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--charcoal);
+      border: 1.5px solid rgba(0,0,0,0.15);
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ─── Reveal animation ────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.22s; }
+    .reveal-delay-3 { transition-delay: 0.35s; }
+    .reveal-delay-4 { transition-delay: 0.48s; }
+
+    /* ─────────────────────────────────────────────────────
+       NAV
+    ───────────────────────────────────────────────────── */
+    #nav {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      padding: 0 32px;
+      height: 56px;
+      background: transparent;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 40px;
+      width: calc(100% - 80px);
+      max-width: 1200px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: top 0.3s, width 0.3s, border-radius 0.3s, background 0.3s;
+    }
+    #nav.scrolled {
+      top: 0;
+      left: 0;
+      transform: none;
+      width: 100%;
+      max-width: none;
+      border-radius: 0;
+      background: rgba(255,255,255,0.15);
+      border: none;
+    }
+    #nav.scrolled .nav-links a { color: var(--charcoal); }
+    #nav.scrolled .nav-logo img { filter: brightness(1) invert(0); }
+    #nav.scrolled .lang-switch a { color: var(--charcoal); }
+    #nav.scrolled .lang-switch a[href="index-de.html"] { color: var(--gold); }
+    #nav.scrolled .lang-switch span { color: rgba(0,0,0,0.3); }
+    #video-hero {
+      position: relative;
+      width: 100%;
+      height: 65vh;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    #video-hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 70% center;
+    }
+    #video-hero .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logo img { height: 48px; width: auto; display: block; filter: brightness(0) invert(1); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      gap: 28px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      line-height: 1;
+      font-size: 20px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 1.5px;
+      transition: color 0.2s;
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      padding: 9px 18px;
+      background: var(--gold);
+      color: #000;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.22s, transform 0.22s;
+    }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 6px;
+      cursor: pointer;
+      z-index: 201;
+      position: relative;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 1.5px;
+      background: #ffffff;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Fullscreen mobile menu */
+    .mob-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 199;
+      background: var(--white);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .mob-menu.open { display: flex; }
+    .mob-menu a {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 300;
+      color: var(--charcoal);
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .mob-menu a:hover { color: var(--gold); }
+    .mob-menu .btn { margin-top: 8px; font-size: 16px; padding: 14px 36px; }
+
+    /* ─────────────────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────────────────── */
+    #hero {
+      padding: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-left {
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 64px 80px 80px;
+      padding-top: 80px;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.3s forwards;
+    }
+    .hero-h1 {
+      font-size: clamp(56px, 7.5vw, 110px);
+      font-weight: 300;
+      line-height: 1.02;
+      color: var(--charcoal);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards;
+      font-family: var(--font-heading);
+    }
+    .hero-h1 em { font-style: italic; }
+    .hero-sub {
+      font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.8;
+      max-width: 400px;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.7s forwards;
+      font-family: var(--font-body);
+    }
+    .hero-sub strong {
+      display: block;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+      font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+      letter-spacing: 0.02em;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.9s forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-right img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center center !important;
+      display: block;
+    }
+    #hero-slideshow img { object-position: center center !important; }
+    #hero-slideshow { position:absolute; inset:0; width:100%; height:100%; overflow:hidden; }
+
+    .scroll-hint {
+      position: absolute;
+      right: 36px; bottom: 36px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .scroll-hint::after {
+      content: '';
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%,100% { opacity: 0.5; transform: scaleY(1); }
+      50%      { opacity: 1; transform: scaleY(0.6); }
+    }
+
+    /* ─────────────────────────────────────────────────────
+       ABOUT
+    ───────────────────────────────────────────────────── */
+    #about { background: transparent; }
+    #about-slideshow img { object-position: center center !important; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 9/16;
+      object-fit: cover;
+      object-position: 70% center;
+      border-radius: 4px;
+      display: block;
+    }
+    .about-text .section-heading { margin-bottom: 24px; }
+    .about-body {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.85;
+      margin-bottom: 44px;
+      font-family: var(--font-body);
+    }
+    .about-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .stat { display: flex; flex-direction: column; gap: 4px; }
+    .stat-n {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+    .stat-l {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      font-family: var(--font-body);
+    }
+
+    /* ─────────────────────────────────────────────────────
+       SERVICES
+    ───────────────────────────────────────────────────── */
+    #services { background: var(--cream); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .svc-card {
+      position: relative;
+      background: #222;
+      border: none;
+      border-radius: 10px;
+      padding: 0;
+      overflow: hidden;
+      aspect-ratio: 9/16;
+      transition: transform 0.28s, box-shadow 0.28s;
+    }
+    .svc-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.32s ease;
+    }
+    .svc-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.07); }
+    .svc-card:hover::before { transform: scaleX(1); }
+
+    .svc-num {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.3;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+    .svc-icon {
+      width: 38px; height: 38px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      margin-bottom: 16px;
+    }
+    .svc-title {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .svc-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      font-family: var(--font-body);
+    }
+
+    /* ─────────────────────────────────────────────────────
+       PROCESS
+    ───────────────────────────────────────────────────── */
+    #gallery { background: var(--white); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .gallery-cell {
+      aspect-ratio: 9/16;
+      overflow: hidden;
+      border-radius: 4px;
+      background: #e8e2db;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-cell::after {
+      content: '▶';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgba(255,255,255,0.8);
+      font-size: 32px;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .gallery-cell:hover::after,
+    .gallery-cell.playing::after {
+      opacity: 0;
+    }
+    .gallery-number {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      z-index: 3;
+      letter-spacing: 1px;
+    }
+    .gallery-cell video,
+    .gallery-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 70% center;
+      display: block;
+    }
+
+
+
+    /* ─────────────────────────────────────────────────────
+       CONTACT
+    ───────────────────────────────────────────────────── */
+    #contact { background: var(--white); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-heading { margin-bottom: 20px; }
+    .contact-desc {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--charcoal);
+    }
+    .contact-row a:hover { color: var(--gold); }
+    .contact-icon-wrap { font-size: 18px; width: 26px; flex-shrink: 0; text-align: center; }
+    .social-row { display: flex; gap: 10px; }
+
+    /* Form */
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .fg { display: flex; flex-direction: column; gap: 7px; }
+    .fg label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .fg input, .fg select, .fg textarea {
+      padding: 13px 16px;
+      background: var(--light);
+      border: 1.5px solid transparent;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--charcoal);
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+      transition: border-color 0.2s;
+      cursor: pointer;
+    }
+    .fg input::placeholder, .fg textarea::placeholder { color: rgba(136,133,128,0.55); }
+    .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--gold); background: var(--white); }
+    .fg input.err, .fg select.err, .fg textarea.err { border-color: #c0392b; }
+    .fg textarea { min-height: 120px; resize: vertical; }
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.22s, transform 0.2s;
+    }
+    .btn-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-submit.success { background: #4a7c59; color: #fff; }
+
+    /* ─────────────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────────────── */
+    footer {
+      background: var(--charcoal);
+      padding: 40px 80px;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-logo img { height: 28px; filter: brightness(0) invert(1); display: block; }
+    .footer-copy {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ─────────────────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────────────────── */
+    @media (min-width: 901px) {
+      .hero-left { background: var(--cream); }
+      #about { background: var(--white); }
+    }
+
+    @media (max-width: 900px) {
+      body, html { overflow-x: hidden; max-width: 480px; }
+      * { max-width: 480px; box-sizing: border-box; }
+      section { padding: 48px 20px; }
+
+      /* NAV */
+      #nav { padding: 0 16px; height: 52px; border-radius: 30px; width: calc(100% - 32px); top: 10px; }
+      .nav-links { display: none; }
+      .nav-logo img { height: 32px; }
+      .hamburger { display: flex; }
+
+      /* VIDEO HERO */
+      #video-hero { height: 80vh; }
+
+      /* GAP */
+      .eyebrow-gap { padding: 16px 20px; }
+      .eyebrow-gap span { font-size: clamp(0.9rem, 2.5vw, 1.2rem); letter-spacing: 0.1em; white-space: normal; word-break: break-word; display: block; text-align: center; }
+
+      /* HERO — Full-screen overlay */
+      #hero {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        height: 100svh !important;
+        min-height: unset !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        grid-template-columns: unset !important;
+      }
+      .hero-right {
+        position: absolute !important;
+        top: 0 !important; left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: unset !important;
+        z-index: 1;
+        display: block !important;
+      }
+      #hero-slideshow {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+      #hero::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0;
+        width: 100%; height: 60%;
+        background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+        z-index: 2;
+        pointer-events: none;
+      }
+      .hero-left {
+        position: absolute !important;
+        bottom: 0 !important; left: 0 !important; right: 0 !important;
+        z-index: 3 !important;
+        padding: 40px 24px 52px !important;
+        background: transparent !important;
+        background-color: transparent !important;
+      }
+      .hero-left * { background: transparent !important; background-color: transparent !important; }
+      .two-creatives { display: none; }
+      .hero-sub { display: none; }
+      .hero-h1 { font-size: clamp(1.8rem, 8vw, 2.5rem) !important; color: #ffffff !important; text-align: left; }
+      .hero-btns { flex-direction: column; gap: 12px; margin-top: 20px; justify-content: flex-start; }
+      .hero-btns .btn { width: 100%; justify-content: center; text-align: center; background: rgba(255,255,255,0.15) !important; color: #fff !important; backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.4) !important; }
+      .hero-btns a { width: 100%; justify-content: center; text-align: center; background: transparent !important; border: 1px solid rgba(255,255,255,0.5) !important; color: #ffffff !important; }
+
+      /* ABOUT — overlay matching hero style */
+      #about {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        min-height: 100svh !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: transparent !important;
+      }
+      .about-grid { display: block !important; }
+      #about .about-grid > div:first-child {
+        position: absolute !important;
+        inset: 0 !important;
+        z-index: 1;
+      }
+      #about-slideshow {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: unset !important;
+        border-radius: 0 !important;
+        overflow: hidden !important;
+      }
+      #about::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0;
+        width: 100%; height: 60%;
+        background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+        z-index: 2;
+        pointer-events: none;
+      }
+      #about .about-grid > div:last-child {
+        position: absolute !important;
+        bottom: 0 !important; left: 0 !important; right: 0 !important;
+        z-index: 3 !important;
+        padding: 32px 24px 48px !important;
+        background: transparent !important;
+      }
+      #about .about-grid > div:last-child * { background: transparent !important; background-color: transparent !important; }
+      #about .eyebrow { color: var(--gold) !important; }
+      #about .section-heading { color: #ffffff !important; }
+      #about .about-body { color: rgba(255,255,255,0.85) !important; }
+      .about-stats { gap: 20px; flex-wrap: wrap; display: grid; grid-template-columns: 1fr 1fr; color: #ffffff; }
+
+      /* SERVICES */
+      #services { padding: 48px 20px; }
+      .services-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .svc-card { aspect-ratio: 9/16; }
+      .svc-title { font-size: 15px; }
+      .svc-desc { font-size: 11px; }
+
+
+
+      /* GALLERY */
+      #gallery { padding: 48px 20px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
+
+      /* CONTACT */
+      #contact { padding: 48px 20px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-list { gap: 12px; }
+      .contact-form input, .contact-form textarea, .contact-form select, .contact-form button { width: 100%; }
+
+      /* FOOTER */
+      footer { padding: 32px 20px; }
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 16px; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    }
+
+    @media (max-width: 768px) {
+      .hamburger { display: none !important; }
+      #nav { justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 40px 16px; }
+      #video-hero { height: 70vh; }
+      .hero-right { height: 55vh; min-height: 400px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+
+      .hero-h1 { font-size: clamp(28px, 8vw, 40px); }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* NUCLEAR: kill all backgrounds inside #about on mobile */
+    @media (max-width: 900px) {
+      #about,
+      #about > *,
+      #about .about-grid,
+      #about .about-grid > *,
+      #about .reveal,
+      #about .about-body,
+      #about .section-heading,
+      #about .eyebrow,
+      #about .about-stats,
+      #about .about-stats > * {
+        background: transparent !important;
+        background-color: transparent !important;
+      }
+    }
+
+    /* ─── Weddings Nav Button ─── */
+    .nav-wedding {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      background: transparent;
+      border: 1.5px solid #e63030;
+      border-radius: 4px;
+      color: #e63030;
+      font-family: 'Great Vibes', cursive;
+      font-size: 20px;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .nav-wedding:hover {
+      background: #e63030;
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    /* ─── Weddings Section ─── */
+    #weddings {
+      background: #f5f0eb;
+      color: var(--charcoal);
+      padding: 0;
+    }
+
+    .wedding-hero {
+      position: relative;
+      height: 85vh;
+      min-height: 560px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .wedding-hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 70% center;
+      filter: brightness(0.5);
+    }
+    .wedding-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 24px;
+    }
+    .wedding-hero-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(52px, 10vw, 96px);
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .wedding-hero-sub {
+      font-family: var(--font-heading);
+      font-size: clamp(13px, 2vw, 17px);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 32px;
+    }
+    .wedding-hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      background: #fff;
+      color: #1a1815;
+      border: 2px solid #fff;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .wedding-hero-btn:hover { background: #a8d5a2; color: #1a1815; border-color: #a8d5a2; transform: translateY(-2px); }
+
+    /* Stats */
+    .wedding-stats {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      background: #fff;
+      border-top: 1px solid rgba(0,0,0,0.07);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .wedding-stat {
+      flex: 1;
+      max-width: 240px;
+      text-align: center;
+      padding: 48px 24px;
+      border-right: 1px solid rgba(0,0,0,0.07);
+    }
+    .wedding-stat:last-child { border-right: none; }
+    .wedding-stat-num {
+      font-family: var(--font-heading);
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .wedding-stat-label {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    /* About duo */
+    .wedding-about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .wedding-about-img {
+      margin-left: 90px;
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      width: 100%;
+      max-width: 480px;
+    }
+    .wedding-about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 80% center;
+    }
+    .wedding-about-text {
+      padding: 48px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #f5f0eb;
+    }
+    .wedding-about-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 42px;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .wedding-about-text h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      color: var(--charcoal);
+    }
+    .wedding-about-text p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    /* Portfolio grid */
+    .wedding-portfolio {
+      padding: 80px 0 0;
+      background: #f5f0eb;
+    }
+    .wedding-portfolio-header {
+      text-align: center;
+      padding: 0 24px 48px;
+    }
+    .wedding-portfolio-header .eyebrow { color: var(--gold); }
+    .wedding-portfolio-header h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(40px, 7vw, 72px);
+      color: var(--charcoal);
+      font-weight: 400;
+      margin-top: 8px;
+    }
+    .wedding-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .wedding-grid-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      max-height: 562px;
+    }
+    .wedding-grid-num {
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      z-index: 2;
+      line-height: 1;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .wedding-grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      display: block;
+    }
+    .wedding-grid-item:hover img { transform: scale(1.04); }
+
+    /* Portfolio feature rows */
+    .wedding-feature-rows {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+    .wedding-feature-row {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .wedding-feature-row.reverse {
+      flex-direction: row-reverse;
+    }
+    .wedding-feature-rows-2col .wedding-feature-photo {
+      height: 100%;
+    }
+    .wedding-feature-photo {
+      flex: 0 0 55%;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+    .wedding-feature-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .wedding-feature-text {
+      flex: 0 0 340px;
+      background: #fff;
+      padding: 48px 40px;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+      margin-left: -80px;
+      position: relative;
+      z-index: 2;
+    }
+    .wedding-feature-row.reverse .wedding-feature-text {
+      margin-left: 0;
+      margin-right: -80px;
+    }
+    .wedding-feature-text h3 {
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .wedding-feature-text p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--gray);
+    }
+
+    /* Process */
+    .wedding-process {
+      padding: 80px 40px;
+      background: #fff;
+    }
+    .wedding-process-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .wedding-process-header .eyebrow { color: var(--gold); }
+    .wedding-process-header h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(36px, 6vw, 60px);
+      color: var(--charcoal);
+      font-weight: 400;
+      margin-top: 8px;
+    }
+    .wedding-steps {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .wedding-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: rgba(0,0,0,0.1);
+    }
+    .wedding-step {
+      flex: 1;
+      text-align: center;
+      padding: 0 12px;
+      position: relative;
+    }
+    .wedding-step-num {
+      width: 56px;
+      height: 56px;
+      border: 1px solid var(--charcoal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 16px;
+      color: var(--charcoal);
+      margin: 0 auto 16px;
+      background: #fff;
+      position: relative;
+      z-index: 1;
+    }
+    .wedding-step h4 {
+      font-family: var(--font-heading);
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+    .wedding-step p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* FAQ */
+    .wedding-faq {
+      padding: 80px 40px;
+      background: #f5f0eb;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .wedding-faq-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .wedding-faq-header .eyebrow { color: var(--gold); }
+    .wedding-faq-header h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      margin-top: 8px;
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--charcoal);
+      font-family: var(--font-heading);
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 24px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-question span.faq-icon {
+      color: var(--charcoal);
+      font-size: 20px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--gray);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-bottom: 24px;
+    }
+
+    /* Request form */
+    .wedding-request {
+      padding: 80px 40px;
+      background: #fff;
+      text-align: center;
+    }
+    .wedding-request-inner {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .wedding-request .eyebrow { color: var(--gold); }
+    .wedding-request h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(40px, 7vw, 68px);
+      color: var(--charcoal);
+      font-weight: 400;
+      margin: 8px 0 12px;
+    }
+    .wedding-request p {
+      font-size: 15px;
+      color: var(--gray);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .wedding-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: left;
+    }
+    .wedding-form input,
+    .wedding-form select {
+      width: 100%;
+      background: #f5f0eb;
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 2px;
+      padding: 16px 20px;
+      color: var(--charcoal);
+      font-family: var(--font-body);
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+    .wedding-form input::placeholder { color: var(--gray); }
+    .wedding-form input:focus,
+    .wedding-form select:focus { border-color: var(--charcoal); }
+    .wedding-form select { color: var(--gray); }
+    .wedding-form select option { background: #fff; color: var(--charcoal); }
+    .wedding-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .wedding-submit {
+      width: 100%;
+      padding: 18px;
+      background: var(--charcoal);
+      color: #fff;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      margin-top: 8px;
+    }
+    .wedding-submit:hover { background: var(--gold); color: var(--charcoal); }
+    .wedding-form-note {
+      font-size: 12px;
+      color: var(--gray);
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .nav-wedding { font-size: 17px; padding: 6px 14px; }
+      .wedding-about { grid-template-columns: 1fr; }
+      .wedding-about-img { width: 100%; height: 300px; margin: 0 auto; display: block; }
+      .wedding-about-img img { object-position: center 30%; }
+      .wedding-about-text { padding: 48px 24px; }
+      .wedding-stats { flex-wrap: wrap; }
+      .wedding-stat { min-width: 50%; border-right: none; border-bottom: 1px solid rgba(197,154,94,0.15); }
+      .wedding-grid { grid-template-columns: 1fr 1fr; }
+      .wedding-steps { flex-wrap: wrap; gap: 32px; }
+      .wedding-steps::before { display: none; }
+      .wedding-form-row { grid-template-columns: 1fr; }
+      .wedding-faq { padding: 60px 24px; }
+      .wedding-request { padding: 60px 24px; }
+      .wedding-process { padding: 60px 24px; }
+      .wedding-feature-row { flex-direction: column; height: auto; }
+      .wedding-feature-row.reverse { flex-direction: column; }
+      .wedding-feature-row.reverse .wedding-feature-text { margin-left: 0; margin-right: 5%; }
+      .wedding-feature-photo { flex: none; width: 100%; aspect-ratio: 3/4; }
+      .wedding-feature-photo img { object-position: center 60%; }
+      .wedding-feature-text { flex: none; width: 90%; margin-left: 5%; margin-right: 0; }
+    }
+
+  </style>
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '935651865930025');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=935651865930025&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9L4JN9K"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <!-- ===== WEDDINGS SECTION ===== -->
+  <section id="weddings">
+
+    <!-- Hero -->
+    <div class="wedding-hero">
+      <img src="DSC04037-2.jpg" alt="Wedding Photography Hamburg">
+      <div class="wedding-hero-content">
+        <div class="wedding-hero-script">Euer Tag. Unser Handwerk.</div>
+        <div class="wedding-hero-sub">Hochzeitsfotografie &amp; Film · Hamburg &amp; Deutschlandweit</div>
+        <a href="#wedding-request" class="wedding-hero-btn" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'});return false;">
+          Preisliste anfordern
+        </a>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="wedding-stats">
+      <div class="wedding-stat">
+        <div class="wedding-stat-num">7+</div>
+        <div class="wedding-stat-label">Jahre Erfahrung</div>
+      </div>
+      <div class="wedding-stat">
+        <div class="wedding-stat-num">30+</div>
+        <div class="wedding-stat-label">Hochzeiten festgehalten</div>
+      </div>
+      <div class="wedding-stat">
+        <div class="wedding-stat-num">2</div>
+        <div class="wedding-stat-label">Kreative, eine Vision</div>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="wedding-about">
+      <div class="wedding-about-img">
+        <img src="IMG_6176.jpg" alt="Marharian Production Wedding">
+      </div>
+      <div class="wedding-about-text">
+        <div class="wedding-about-script">Wir sind</div>
+        <h2>Marharian Production</h2>
+        <p>Wir könnten mit Zahlen beginnen — über 30 Hochzeiten, professionelle Ausrüstung, Jahre hinter der Kamera. Und darauf sind wir stolz. Doch das ist nicht das, worauf es an eurem Tag ankommt.</p>
+        <p>Worauf es ankommt, ist etwas anderes — das Auge, das Gespür für den Moment, der Geschmack. Dinge, die nur mit Erfahrung kommen: die Fähigkeit, einen Augenblick eine Sekunde vor seinem Eintreten zu erfassen und nie zu verpassen.</p>
+        <p>Für uns ist jede Hochzeit eine Geschichte, die wir mit euch erleben und behutsam bewahren. Keine gestellten Aufnahmen, sondern echte Emotionen in ihrem ehrlichsten Moment.</p>
+        <p>Basis Hamburg. Wir fotografieren dort, wo ihr seid.</p>
+      </div>
+    </div>
+
+    <!-- Portfolio -->
+    <div class="wedding-portfolio">
+      <div class="wedding-portfolio-header">
+        <span class="eyebrow">Portfolio</span>
+        <h2>Geliebte Momente</h2>
+      </div>
+      <div class="wedding-feature-rows">
+        <div class="wedding-feature-row">
+          <div class="wedding-feature-photo"><img src="DSC04362-2.jpg" alt="Creative Duo" style="object-position: center top;"></div>
+          <div class="wedding-feature-text"><h3>Kreatives Duo</h3><p>Foto &amp; Film aus einem Team — perfekt aufeinander abgestimmt, keine Kommunikationslücken, voller Fokus auf euren Tag.</p></div>
+        </div>
+        <div class="wedding-feature-row reverse">
+          <div class="wedding-feature-photo"><img src="DSC04400.jpg" alt="Cinematic Style"></div>
+          <div class="wedding-feature-text"><h3>Cinematischer Stil</h3><p>Jedes Bild gestaltet mit dem Auge eines Regisseurs — emotional, zeitlos, cinematisch.</p></div>
+        </div>
+        <div class="wedding-feature-row">
+          <div class="wedding-feature-photo"><img src="DSC03319.jpg" alt="All of Germany"></div>
+          <div class="wedding-feature-text"><h3>Ganz Deutschland</h3><p>Basis Hamburg — wir reisen durch ganz Deutschland und darüber hinaus für eure Hochzeit, ohne versteckte Kosten.</p></div>
+        </div>
+        <div class="wedding-feature-row reverse">
+          <div class="wedding-feature-photo"><img src="DSC04969-2.jpg" alt="Your Moment"></div>
+          <div class="wedding-feature-text"><h3>Euer Moment</h3><p>Jeder Blick, jede Träne, jedes Lachen — eingefangen, bevor er vergeht. Dafür leben wir.</p></div>
+        </div>
+        <div class="wedding-feature-row">
+          <div class="wedding-feature-photo"><img src="DSC02043-2.jpg" alt="Wedding rings"></div>
+          <div class="wedding-feature-text"><h3>Für immer vereint</h3><p>Zwei Ringe, ein Versprechen — das Detail, das alles verändert.</p></div>
+        </div>
+        <div class="wedding-feature-row reverse">
+          <div class="wedding-feature-photo"><img src="IMG_5642.JPG" alt="Together"></div>
+          <div class="wedding-feature-text"><h3>Zusammen</h3><p>Stirn an Stirn, Herzen noch näher. Echt und ungestellt.</p></div>
+        </div>
+        <div class="wedding-feature-row">
+          <div class="wedding-feature-photo"><img src="DSC03781-2%202.jpg" alt="In the Woods" style="transform: scale(1.15); transform-origin: center 85%; object-fit: cover; width: 100%; height: 100%;"></div>
+          <div class="wedding-feature-text"><h3>Im Wald</h3><p>Umgeben von Natur, ineinander versunken — ein Moment außerhalb der Zeit.</p></div>
+        </div>
+        <div class="wedding-feature-row reverse">
+          <div class="wedding-feature-photo"><img src="IMG_0326.JPG" alt="Hand in Hand"></div>
+          <div class="wedding-feature-text"><h3>Zwischen den Tropfen</h3><p>Wir warten immer auf den Regen. Er bewirkt etwas in Menschen — nimmt alles Gestellte und lässt nur das Echte zurück.</p></div>
+        </div>
+        <div class="wedding-feature-row">
+          <div class="wedding-feature-photo"><img src="IMG_2414.jpg" alt="The First Kiss"></div>
+          <div class="wedding-feature-text"><h3>Der erste Kuss</h3><p>Sanft, zart, unvergesslich — genau so, wie er sein soll.</p></div>
+        </div>
+        <div class="wedding-feature-row reverse">
+          <div class="wedding-feature-photo"><img src="R6M20601-2.jpg" alt="Just Married"></div>
+          <div class="wedding-feature-text"><h3>Soeben getraut</h3><p>Der Anfang der Ewigkeit — in einem einzigen Bild festgehalten.</p></div>
+        </div>
+        <div class="wedding-feature-row">
+          <div class="wedding-feature-photo"><img src="DSC08642.jpg" alt="The Ceremony" style="transform: scale(1.25); transform-origin: center 75%; object-fit: cover; width: 100%; height: 100%;"></div>
+          <div class="wedding-feature-text"><h3>Die Zeremonie</h3><p>Ein heiliger Moment, bezeugt von den Menschen, die am meisten zählen.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Process -->
+    <div class="wedding-process">
+      <div class="wedding-process-header">
+        <span class="eyebrow">So funktioniert es</span>
+        <h2>So einfach</h2>
+      </div>
+      <div class="wedding-steps">
+        <div class="wedding-step">
+          <div class="wedding-step-num">01</div>
+          <h4>Anfrage</h4>
+          <p>Per Formular oder E-Mail</p>
+        </div>
+        <div class="wedding-step">
+          <div class="wedding-step-num">02</div>
+          <h4>Beratung</h4>
+          <p>Kennenlernen &amp; planen</p>
+        </div>
+        <div class="wedding-step">
+          <div class="wedding-step-num">03</div>
+          <h4>Buchung</h4>
+          <p>Termin &amp; Anzahlung</p>
+        </div>
+        <div class="wedding-step">
+          <div class="wedding-step-num">04</div>
+          <h4>Euer Tag</h4>
+          <p>Wir sind für euch da</p>
+        </div>
+        <div class="wedding-step">
+          <div class="wedding-step-num">05</div>
+          <h4>Übergabe</h4>
+          <p>Galerie innerhalb von 4–6 Wochen</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;justify-content:center;margin-top:48px;flex-wrap:wrap;">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <p style="font-size:13px;color:var(--gray);text-align:center;margin-bottom:8px;">Folgt uns auf Instagram</p>
+          <a href="https://instagram.com/marharian.production" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;font-weight:600;border-radius:50px;text-decoration:none;font-family:var(--font-body);font-size:15px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg>
+            Instagram
+          </a>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <p style="font-size:13px;color:var(--gray);text-align:center;margin-bottom:8px;">Schreib uns auf WhatsApp</p>
+          <a href="https://wa.me/491602741274" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:#25D366;color:#fff;font-weight:600;border-radius:50px;text-decoration:none;font-family:var(--font-body);font-size:15px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div style="background: #f5f0eb; padding: 80px 40px;">
+      <div class="wedding-faq" style="padding: 0;">
+        <div class="wedding-faq-header">
+          <span class="eyebrow">FAQ</span>
+          <h2>Alles, was ihr wissen müsst</h2>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            In welchen Regionen fotografiert ihr Hochzeiten?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">Unsere Basis ist Hamburg, und wir begleiten Hochzeiten in ganz Deutschland — von Hamburg über München, Berlin und Köln hinaus. Reisekosten für Standorte außerhalb Hamburgs besprechen wir individuell.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Bietet ihr Foto und Video zusammen an?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">Ja — wir bieten nur Fotografie, nur Videografie oder beides kombiniert an. Besonders beliebt sind unsere Kombi-Pakete, denn ihr erhaltet ein perfekt abgestimmtes Ergebnis aus einer kreativen Hand.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Wie läuft der Buchungsprozess ab?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">Ihr sendet uns eine Anfrage über das untenstehende Formular, wir melden uns innerhalb von 24 Stunden für ein Beratungsgespräch zurück und bestätigen euren Termin mit Vertrag und Anzahlung. Einfach und stressfrei.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Wie würdet ihr euren Stil beschreiben?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">Cinematisch und emotional. Wir konzentrieren uns auf echte Momente, authentische Gefühle und künstlerische Komposition. Jede Hochzeit ist einzigartig — wir passen uns eurem Stil an, nicht umgekehrt.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Request form -->
+    <div class="wedding-request" id="wedding-request">
+      <div class="wedding-request-inner">
+        <span class="eyebrow">Preisliste</span>
+        <h2>Fordert euer Angebot an</h2>
+        <p>Hinterlasst eure Daten und erhaltet unsere komplette Preisliste als PDF — direkt und unverbindlich.</p>
+        <form class="wedding-form" onsubmit="handleWeddingForm(event)">
+          <div class="wedding-form-row">
+            <input type="text" name="name" placeholder="Euer Name *" required>
+            <input type="email" name="email" placeholder="Eure E-Mail *" required>
+          </div>
+          <div class="wedding-form-row">
+            <input type="date" name="date" placeholder="Hochzeitsdatum">
+            <select name="package">
+              <option value="" disabled selected>Woran seid ihr interessiert?</option>
+              <option value="photo-video">Foto + Video kombiniert</option>
+              <option value="photo">Nur Fotografie</option>
+              <option value="video">Nur Videografie</option>
+              <option value="unsure">Noch unsicher</option>
+            </select>
+          </div>
+          <input type="text" name="location" placeholder="Hochzeitsort / Stadt">
+          <button type="submit" class="wedding-submit">Preisliste als PDF herunterladen →</button>
+          <p class="wedding-form-note">Kein Spam. Wir melden uns persönlich innerhalb von 24 Stunden bei euch.</p>
+        </form>
+      </div>
+    </div>
+
+  </section>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    function handleWeddingForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      data.append('access_key', 'f7f95cd3-8f10-484e-a42e-3975a14980bc');
+      data.append('subject', 'Neue Hochzeitsanfrage von marharian.com (DE)');
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(res => {
+        const link = document.createElement('a');
+        link.href = 'Marharian-Preisliste-Hochzeit-2026.pdf';
+        link.download = 'Marharian-Preisliste-Hochzeit-2026.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        form.innerHTML = '<p style="color: var(--gold); font-family: var(--font-heading); font-size: 18px; letter-spacing: 0.1em; text-align: center; padding: 32px 0;">Vielen Dank! Eure Preisliste wird heruntergeladen.<br><span style="font-size:14px; color: rgba(0,0,0,0.4); font-family: var(--font-body); letter-spacing: normal;">Wir melden uns innerhalb von 24 Stunden bei euch.</span></p>';
+      }).catch(() => {
+        const link = document.createElement('a');
+        link.href = 'Marharian-Preisliste-Hochzeit-2026.pdf';
+        link.download = 'Marharian-Preisliste-Hochzeit-2026.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+    }
+  </script>
+
+
+<!-- ───────────────────────────────────────────────
+     VIDEO HERO
+─────────────────────────────────────────────── -->
+<div id="video-hero">
+  <video autoplay muted loop playsinline style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/hero_video_final.mp4" type="video/mp4"></video>
+  <div class="video-overlay"></div>
+  <!-- ───────────────────────────────────────────────
+       NAVIGATION
+  ─────────────────────────────────────────────── -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">
+      <img src="marharian.png" alt="Marharian Production" style="height: 48px; width: auto;">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#weddings" class="nav-wedding">Hochzeiten</a></li>
+      <li><a href="#about">Über uns</a></li>
+      <li><a href="#services">Leistungen</a></li>
+      <li><a href="#gallery">Galerie</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+
+    <div class="lang-switch" style="display: flex; align-items: center; gap: 8px; margin-left: 16px; font-family: var(--font-body); font-size: 13px; font-weight: 600; white-space: nowrap; flex-shrink: 0;">
+      <a href="index-de.html" style="display: inline-flex; align-items: center; gap: 5px; color: var(--gold); text-decoration: none; transition: color 0.2s; white-space: nowrap;"><span style="font-size: 16px; line-height: 1;">🇩🇪</span><span>DE</span></a>
+      <span style="color: rgba(255,255,255,0.3);">|</span>
+      <a href="index.html" style="display: inline-flex; align-items: center; gap: 5px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; white-space: nowrap;"><span style="font-size: 16px; line-height: 1;">🇬🇧</span><span>EN</span></a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</div>
+<div class="eyebrow-gap" style="background:#ffffff; display:flex; align-items:center; justify-content:center; padding: 12px 24px; text-align: center;">
+  <span style="font-size: clamp(1.2rem, 2vw, 2rem); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; text-align: center; white-space: normal; word-break: break-word;">Foto- &amp; Videoproduktion in Hamburg</span>
+</div>
+
+<!-- Mobile menu -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#about"    class="mob-link">About</a>
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#gallery" class="mob-link">Galerie</a>
+  <a href="#contact"  class="mob-link">Kontakt</a>
+  <button class="btn btn-gold mob-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Termin buchen</button>
+  <div style="display: flex; align-items: center; gap: 8px; margin-top: 16px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
+    <a href="index-de.html" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;">🇩🇪 DE</a>
+    <span style="color: rgba(0,0,0,0.3);">|</span>
+    <a href="index.html" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gray); text-decoration: none; transition: color 0.2s;">🇬🇧 EN</a>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────────────
+     HERO
+─────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-left">
+    <h1 class="hero-h1">Elegante<br><em>visuelle Geschichten.</em></h1>
+    <div class="hero-btns">
+      <button class="btn btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Termin buchen</button>
+      <a href="https://www.instagram.com/marharian.production/" target="_blank" style="display:inline-flex; align-items:center; padding:16px 32px; border:2px solid var(--gold); color:var(--gold); font-size:14px; font-weight:600; letter-spacing:0.1em; text-decoration:none; border-radius:6px; font-family:inherit;">Instagram</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div id="hero-slideshow">
+      <img src="IMG_1326.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+      <img src="IMG_6477.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      <img src="IMG_6539.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      <img src="IMG_8801.jpg" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      <img src="R6M20042.jpg" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+    </div>
+    <div class="scroll-hint">Scroll</div>
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────
+     ABOUT
+─────────────────────────────────────────────── -->
+<section id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <div id="about-slideshow" style="position:relative; width:100%; aspect-ratio:3/4; overflow:hidden; border-radius:4px;">
+        <img src="IMG_7623.JPG" alt="Sos &amp; Yaroslava Marharian" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+        <img src="IMG_9775.JPG" alt="Sos &amp; Yaroslava Marharian" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="R6M20675.jpg" alt="Sos &amp; Yaroslava Marharian" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="R6M20679.jpg" alt="Sos &amp; Yaroslava Marharian" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_7577.JPG" alt="Sos &amp; Yaroslava Marharian" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-1">
+      <span class="eyebrow">Über uns</span>
+      <h2 class="section-heading" style="font-family:var(--font-heading); font-weight:700; text-transform:uppercase; letter-spacing:2px; font-style:normal;">ZWEI KREATIVE<br>EINE VISION</h2>
+      <p class="about-body"><strong style="font-family:var(--font-body); font-weight:600; font-style:normal;">Sos &amp; Yaroslava Marharian</strong><span style="font-family:var(--font-body); font-weight:400; line-height:1.7;"> — Fotografie und cinematisches Video aus Hamburg. Wir versuchen nicht, möglichst viele Fotos zu liefern oder den Film künstlich in die Länge zu ziehen. Wir fügen keine Aufnahmen nur der Laufzeit wegen hinzu. Unser Ansatz ist etwas anders als das Übliche. Jedes Bild hat seinen Platz und ist aus einem Grund da. Jede Kamerabewegung ist motiviert. Und das Licht wirkt nie gestellt.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────
+     SERVICES
+─────────────────────────────────────────────── -->
+<section id="services">
+  <div class="section-header reveal">
+    <span class="eyebrow">Was wir tun</span>
+    <h2 class="section-heading">Unsere Leistungen</h2>
+    <p class="section-sub">Von intimen Porträts bis zu großen Produktionen — wir bringen die gleiche Hingabe in jedes Projekt.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="svc-card reveal">
+      <div id="individual-slideshow" style="position:absolute; inset:0;">
+        <img src="IMG_2880.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+        <img src="IMG_5171.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5517.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_2587.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_3096.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      </div>
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <circle cx="19" cy="12" r="5"/>
+          <path d="M7 34c0-6.627 5.373-12 12-12s12 5.373 12 12"/>
+          <circle cx="29" cy="10" r="3.5"/>
+          <path d="M33 27c0-4.4-3-7.8-7-9"/>
+        </svg>
+        <div class="svc-title">Individuell</div>
+        <p class="svc-desc">Studio- und Outdoor-Sessions, Porträts und persönliche Geschichten, individuell auf euch zugeschnitten. Cinematische Kurzfilme, Reels und persönliche Videoprojekte mit klarer visueller Handschrift.</p>
+      </div>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-1">
+      <div id="fashion-slideshow" style="position:absolute; inset:0;">
+        <img src="IMG_3265.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+        <img src="IMG_5173.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_6583.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_0560.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5034.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_3253.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5618.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5029.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      </div>
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <rect x="5" y="12" width="28" height="20" rx="2"/>
+          <path d="M13 12V9a6 6 0 0 1 12 0v3"/>
+          <circle cx="19" cy="22" r="3"/>
+          <path d="M19 25v3"/>
+          <path d="M26 8l3-3M12 8L9 5"/>
+        </svg>
+        <div class="svc-title">Fashion</div>
+        <p class="svc-desc">Editorial-, Lookbook- und Kampagnen-Shootings. Firmenevents, Partys und Auftritte — vollständige visuelle Begleitung vom ersten bis zum letzten Moment.</p>
+      </div>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-2">
+      <div id="wedding-slideshow" style="position:absolute; inset:0;">
+        <img src="IMG_9115.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+        <img src="IMG_9044.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5904.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_9089.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_3251.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_7252.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      </div>
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <path d="M19 33S5 24 5 14a14 14 0 0 1 14-6.5A14 14 0 0 1 33 14c0 10-14 19-14 19z"/>
+        </svg>
+        <div class="svc-title">Hochzeiten</div>
+        <p class="svc-desc">Emotionale und elegante Geschichten eures wichtigsten Tages, festgehalten mit unserer cinematischen Handschrift.</p>
+      </div>
+    </div>
+
+    <div class="svc-card reveal">
+      <div id="restaurants-slideshow" style="position:absolute; inset:0;">
+        <img src="IMG_3090.JPG" alt="Restaurants &amp; Food" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+        <img src="IMG_3091.jpg" alt="Restaurants &amp; Food" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      </div>
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <circle cx="19" cy="20" r="10"/>
+          <path d="M9 20H4M29 20h5M19 10V5M19 30v5"/>
+          <path d="M12 13l-4-4M26 13l4-4M12 27l-4 4M26 27l4 4"/>
+          <circle cx="19" cy="20" r="4"/>
+        </svg>
+        <div class="svc-title">Restaurants &amp; Food</div>
+        <p class="svc-desc">Speisen, Atmosphäre und Interieurs. Wir erschaffen visuelle Inhalte, die euer Restaurant unvergesslich machen.</p>
+      </div>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-1">
+      <video autoplay muted loop playsinline preload="metadata" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
+        <source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2982.MP4" type="video/mp4">
+      </video>
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <rect x="4" y="13" width="30" height="20" rx="2"/>
+          <path d="M13 13V9a6 6 0 0 1 12 0v4"/>
+          <path d="M4 21h30"/>
+          <rect x="14" y="18" width="10" height="6" rx="1"/>
+        </svg>
+        <div class="svc-title">Commercial &amp; Brand</div>
+        <p class="svc-desc">Foto- und Videoinhalte für Marken, Werbekampagnen und Social Media. Visuelle Identität, die verkauft.</p>
+      </div>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-2">
+      <video autoplay muted loop playsinline style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
+        <source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3784.MP4" type="video/mp4">
+      </video>
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <polygon points="19,3 23,14 35,14 25.5,21.5 29,33 19,26 9,33 12.5,21.5 3,14 15,14"/>
+        </svg>
+        <div class="svc-title">Beauty-Industrie</div>
+        <p class="svc-desc">Portfolio-Shootings für Stylisten, Make-up-Artists und Beauty-Marken. Zeigt euer Handwerk mit Bildern, die neue Kunden anziehen.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────
+     GALLERY
+─────────────────────────────────────────────── -->
+<section id="gallery">
+  <div class="section-header reveal">
+    <h2 class="section-heading" style="text-transform:uppercase; letter-spacing:2px;">Unsere Arbeiten</h2>
+    <p style="font-family:var(--font-body); font-weight:400; text-align:center; margin-top:12px; color:var(--gray);">Ausgewählte Projekte aus unserem Portfolio</p>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-cell reveal"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3381_comp.mp4" type="video/mp4"></video><span class="gallery-number">01</span></div>
+    <div class="gallery-cell reveal"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_9403_comp.mp4" type="video/mp4"></video><span class="gallery-number">02</span></div>
+    <div class="gallery-cell reveal"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3261_comp.mp4" type="video/mp4"></video><span class="gallery-number">03</span></div>
+    <div class="gallery-cell reveal reveal-delay-1"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_4745_comp.mp4" type="video/mp4"></video><span class="gallery-number">04</span></div>
+    <div class="gallery-cell reveal reveal-delay-1"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2857_comp.mp4" type="video/mp4"></video><span class="gallery-number">05</span></div>
+    <div class="gallery-cell reveal reveal-delay-1"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3254_comp.mp4" type="video/mp4"></video><span class="gallery-number">06</span></div>
+    <div class="gallery-cell reveal reveal-delay-2"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_7399_comp.mp4" type="video/mp4"></video><span class="gallery-number">07</span></div>
+    <div class="gallery-cell reveal reveal-delay-2"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3380_comp.mp4" type="video/mp4"></video><span class="gallery-number">08</span></div>
+    <div class="gallery-cell reveal reveal-delay-2"><video muted loop playsinline preload="none"><source src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2855_comp.mp4" type="video/mp4"></video><span class="gallery-number">09</span></div>
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────
+     CONTACT
+─────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="contact-grid">
+
+    <div class="reveal">
+      <span class="eyebrow">Kontakt</span>
+      <h2 class="section-heading contact-heading">Lasst uns etwas<br>gemeinsam erschaffen</h2>
+      <p class="contact-desc">Habt ihr ein Projekt im Kopf? Schreibt uns — wir antworten innerhalb von 24 Stunden.</p>
+
+      <div class="contact-list">
+        <div class="contact-row">
+          <span class="contact-icon-wrap">📍</span>
+          <span>Hamburg, Germany</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon-wrap">✉</span>
+          <a href="mailto:marharianstudio@gmail.com" style="transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''">marharianstudio@gmail.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon-wrap">📸</span>
+          <a href="https://instagram.com/marharian.production" target="_blank" rel="noopener" style="transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''">@marharian.production</a>
+        </div>
+      </div>
+
+      <div class="social-row">
+        <a href="https://instagram.com/marharian.production" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:14px; padding:10px 20px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          Instagram
+        </a>
+        <a href="https://wa.me/491602741274" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:14px; padding:10px 20px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-1">
+      <form class="contact-form" id="cForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="f7f95cd3-8f10-484e-a42e-3975a14980bc">
+        <input type="hidden" name="subject" value="Neue Anfrage von marharian.com (DE)">
+        <input type="hidden" name="redirect" value="https://marharian.com/thanks">
+        <div class="form-row">
+          <div class="fg">
+            <label for="fFirst">Vorname *</label>
+            <input type="text" id="fFirst" name="first_name" placeholder="Euer Vorname" required />
+          </div>
+          <div class="fg">
+            <label for="fLast">Nachname *</label>
+            <input type="text" id="fLast" name="last_name" placeholder="Nachname" required />
+          </div>
+        </div>
+        <div class="fg">
+          <label for="fEmail">E-Mail *</label>
+          <input type="email" id="fEmail" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="fg">
+          <label for="fService">Leistung</label>
+          <select id="fService" name="service">
+            <option value="">Bitte auswählen…</option>
+            <option>Individuelles Fotoshooting</option>
+            <option>Video-Session</option>
+            <option>Event</option>
+            <option>Hochzeit</option>
+            <option>Restaurant &amp; Business</option>
+            <option>Beauty-Industrie</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="fMsg">Nachricht *</label>
+          <textarea id="fMsg" name="message" placeholder="Erzählt uns von eurem Projekt…" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="cSubmit">Anfrage senden →</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────
+     FOOTER
+─────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="marharian.png" alt="Marharian Production" style="height: 28px; filter: brightness(0) invert(1);">
+    </div>
+    <div class="footer-copy">© 2026 Marharian Production. Hamburg, Germany.</div>
+    <ul class="footer-links">
+      <li><a href="#">Privacy</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="https://instagram.com/marharian.production" target="_blank" rel="noopener">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- ───────────────────────────────────────────────
+     JAVASCRIPT
+─────────────────────────────────────────────── -->
+<script>
+  if (window.location.hash) { history.replaceState(null, null, window.location.pathname); } window.scrollTo(0, 0);
+
+  /* — Hero slideshow ─────────────────────────────── */
+  const slides = document.querySelectorAll('#hero-slideshow img');
+  let current = 0;
+  if (slides.length > 0) { setInterval(() => { slides[current].style.opacity = '0'; current = (current + 1) % slides.length; slides[current].style.opacity = '1'; }, 4000); }
+
+  /* — Wedding slideshow ────────────────────────── */
+  const wedSlides = document.querySelectorAll('#wedding-slideshow img');
+  let currentWed = 0;
+  if (wedSlides.length > 0) {
+    setInterval(() => {
+      wedSlides[currentWed].style.opacity = '0';
+      currentWed = (currentWed + 1) % wedSlides.length;
+      wedSlides[currentWed].style.opacity = '1';
+    }, 3000);
+  }
+
+  /* — Individual slideshow ───────────────────────── */
+  const indSlides = document.querySelectorAll('#individual-slideshow img');
+  let currentInd = 0;
+  if (indSlides.length > 0) {
+    setInterval(() => {
+      indSlides[currentInd].style.opacity = '0';
+      currentInd = (currentInd + 1) % indSlides.length;
+      indSlides[currentInd].style.opacity = '1';
+    }, 3000);
+  }
+
+  /* — Fashion slideshow ────────────────────────── */
+  const fashSlides = document.querySelectorAll('#fashion-slideshow img');
+  let currentFash = 0;
+  if (fashSlides.length > 0) {
+    setInterval(() => {
+      fashSlides[currentFash].style.opacity = '0';
+      currentFash = (currentFash + 1) % fashSlides.length;
+      fashSlides[currentFash].style.opacity = '1';
+    }, 3500);
+  }
+
+  /* — Beauty slideshow ───────────────────────────── */
+  const beautySlides = document.querySelectorAll('#beauty-slideshow img');
+  let currentBeauty = 0;
+  if (beautySlides.length > 0) { setInterval(() => { beautySlides[currentBeauty].style.opacity='0'; currentBeauty=(currentBeauty+1)%beautySlides.length; beautySlides[currentBeauty].style.opacity='1'; }, 4000); }
+
+  /* — Restaurants slideshow ───────────────────────── */
+  const restaurantSlides = document.querySelectorAll('#restaurants-slideshow img');
+  let currentRestaurant = 0;
+  if (restaurantSlides.length > 0) { setInterval(() => { restaurantSlides[currentRestaurant].style.opacity='0'; currentRestaurant=(currentRestaurant+1)%restaurantSlides.length; restaurantSlides[currentRestaurant].style.opacity='1'; }, 4000); }
+
+  /* — About slideshow ────────────────────────────── */
+  const aboutSlides = document.querySelectorAll('#about-slideshow img');
+  let currentAbout = 0;
+  if (aboutSlides.length > 0) { setInterval(() => { aboutSlides[currentAbout].style.opacity = '0'; currentAbout = (currentAbout + 1) % aboutSlides.length; aboutSlides[currentAbout].style.opacity = '1'; }, 4000); }
+
+  /* — Nav scroll ───────────────────────────────────── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY < 10) nav.classList.remove('scrolled');
+    else nav.classList.toggle('scrolled', window.scrollY > 100);
+  }, { passive: true });
+
+  /* — Mobile menu ────────────────────────────────── */
+  const hamburger = document.getElementById('hamburger');
+  const mobMenu   = document.getElementById('mobMenu');
+
+  hamburger.addEventListener('click', () => {
+    const open = mobMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
+    mobMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
+
+  /* — Reveal on scroll ───────────────────────────── */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  /* — Contact form ───────────────────────────────── */
+  const form   = document.getElementById('cForm');
+  const submit = document.getElementById('cSubmit');
+
+  form.querySelectorAll('input,textarea,select').forEach(f =>
+    f.addEventListener('input', () => f.classList.remove('err'))
+  );
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let ok = true;
+    form.querySelectorAll('[required]').forEach(f => {
+      const bad = !f.value.trim() || (f.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value));
+      f.classList.toggle('err', bad);
+      if (bad) ok = false;
+    });
+    if (!ok) return;
+    submit.textContent = 'Wird gesendet…';
+    submit.disabled = true;
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(res => {
+      res.clone().json().then(d => console.log('Formspree response:', res.status, d));
+      if (res.ok) {
+        window.location.href = '/thanks';
+      } else {
+        res.json().then(data => console.error('Formspree error:', data));
+        submit.textContent = 'Fehler — bitte erneut versuchen';
+        submit.disabled = false;
+      }
+    }).catch(err => {
+      console.error('Fetch error:', err);
+      submit.textContent = 'Fehler — bitte erneut versuchen';
+      submit.disabled = false;
+    });
+  });
+
+  /* — Gallery: play on hover (desktop) / tap (mobile) — */
+  const galleryVideos = document.querySelectorAll('#gallery video');
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+  galleryVideos.forEach(video => {
+    video.preload = 'metadata';
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.removeAttribute('autoplay');
+
+    video.addEventListener('loadedmetadata', () => { video.currentTime = 0.1; });
+    video.addEventListener('seeked', () => { video.pause(); }, { once: true });
+    video.load();
+
+    video.addEventListener('play', () => video.parentElement.classList.add('playing'));
+    video.addEventListener('pause', () => video.parentElement.classList.remove('playing'));
+
+    if (isMobile) {
+      video.addEventListener('click', () => {
+        if (video.paused) {
+          galleryVideos.forEach(v => { if (v !== video) v.pause(); });
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    } else {
+      video.addEventListener('mouseenter', () => { video.play(); });
+      video.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+    }
+  });
+</script>
+
+
+</body>
+</html>
