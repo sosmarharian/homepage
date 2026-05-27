@@ -142,6 +142,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: nowrap;
       padding: 0 32px;
       height: 56px;
       background: transparent;
@@ -189,16 +190,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: rgba(0,0,0,0.35);
     }
 
-    .nav-logo { display: flex; align-items: center; }
-    .nav-logo img { height: 36px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logo img { height: 48px; width: auto; display: block; filter: brightness(0) invert(1); }
 
     .nav-links {
       display: flex;
-      gap: 38px;
+      gap: 28px;
       list-style: none;
     }
     .nav-links a {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 500;
       color: rgba(255,255,255,0.85);
       letter-spacing: 1.5px;
@@ -210,11 +211,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .nav-links a:hover { color: var(--gold); }
 
     .nav-cta {
-      padding: 10px 22px;
+      padding: 9px 18px;
       background: var(--gold);
       color: #000;
       font-family: var(--font-body);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       letter-spacing: 0.05em;
       border: none;
@@ -1680,7 +1681,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="#contact">Contact</a></li>
     </ul>
 
-    <div class="lang-switch" style="display: flex; align-items: center; gap: 10px; margin-left: 24px; font-family: var(--font-body); font-size: 14px; font-weight: 600; white-space: nowrap; flex-shrink: 0;">
+    <div class="lang-switch" style="display: flex; align-items: center; gap: 8px; margin-left: 16px; font-family: var(--font-body); font-size: 13px; font-weight: 600; white-space: nowrap; flex-shrink: 0;">
       <a href="index-de.html" style="display: inline-flex; align-items: center; gap: 5px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; white-space: nowrap;"><span style="font-size: 16px; line-height: 1;">🇩🇪</span><span>DE</span></a>
       <span style="color: rgba(255,255,255,0.3);">|</span>
       <a href="index.html" style="display: inline-flex; align-items: center; gap: 5px; color: var(--gold); text-decoration: none; transition: color 0.2s; white-space: nowrap;"><span style="font-size: 16px; line-height: 1;">🇬🇧</span><span>EN</span></a>
