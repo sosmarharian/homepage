@@ -841,7 +841,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     @media (max-width: 768px) {
       .hamburger { display: none !important; }
-      #nav { justify-content: center; }
+      #nav { justify-content: space-between; }
+      #nav::before {
+        content: '';
+        width: 72px;
+        flex-shrink: 0;
+      }
+      .nav-logo { flex: 0 0 auto; }
+      .lang-switch { width: 72px; justify-content: flex-end; }
     }
 
     @media (max-width: 480px) {
