@@ -166,8 +166,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     #nav.scrolled .nav-links a { color: var(--charcoal); }
     #nav.scrolled .nav-logo img { filter: brightness(1) invert(0); }
-    #nav.scrolled .lang-de, #nav.scrolled .lang-en { color: var(--charcoal); }
-    #nav.scrolled .lang-de { color: var(--gold); }
+    #nav.scrolled .lang-de,
+    #nav.scrolled .lang-en {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .lang-de, .lang-en {
+      transition: opacity 0.3s ease;
+    }
     #video-hero {
       position: relative;
       width: 100%;
