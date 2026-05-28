@@ -141,8 +141,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       z-index: 1000;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 16px;
+      justify-content: space-between;
       flex-wrap: nowrap;
       padding: 0 32px;
       height: 56px;
@@ -175,7 +174,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .lang-de, .lang-en {
       transition: opacity 0.3s ease;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
+    .lang-de { color: rgba(255,255,255,0.6); }
+    .lang-en { color: var(--gold); }
     #video-hero {
       position: relative;
       width: 100%;
@@ -709,8 +716,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       section { padding: 48px 20px; }
 
       /* NAV */
-      #nav { padding: 0 16px; height: 52px; border-radius: 30px; width: calc(100% - 32px); top: 10px; }
+      #nav { padding: 0 16px; height: 52px; border-radius: 30px; width: calc(100% - 32px); top: 10px; overflow: hidden; }
       .nav-links { display: none; }
+      .nav-logo { flex: 1; justify-content: center; }
       .nav-logo img { height: 32px; }
       .hamburger { display: flex; }
 
@@ -1686,7 +1694,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        NAVIGATION
   ─────────────────────────────────────────────── -->
   <nav id="nav">
-    <a href="index-de.html" class="lang-de" style="display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--gold); text-decoration: none; transition: color 0.2s; white-space: nowrap; margin-left: auto;"><span style="font-size: 16px; line-height: 1;">🇩🇪</span><span>DE</span></a>
+    <a href="index-de.html" class="lang-de" style="display: inline-flex; align-items: center; gap: 5px;"><span style="font-size: 16px; line-height: 1;">🇩🇪</span><span>DE</span></a>
 
     <a href="#" class="nav-logo">
       <img src="marharian.png" alt="Marharian Production" style="height: 48px; width: auto;">
@@ -1700,7 +1708,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="#contact">Kontakt</a></li>
     </ul>
 
-    <a href="index.html" class="lang-en" style="display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; white-space: nowrap; margin-right: auto;"><span style="font-size: 16px; line-height: 1;">🇬🇧</span><span>EN</span></a>
+    <a href="index.html" class="lang-en" style="display: inline-flex; align-items: center; gap: 5px;"><span style="font-size: 16px; line-height: 1;">🇬🇧</span><span>EN</span></a>
 
     <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
@@ -2184,7 +2192,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       video.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
     }
   });
-
 </script>
 
 
