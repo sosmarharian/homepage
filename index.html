@@ -1665,7 +1665,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        form.innerHTML = '<p style="color: var(--gold); font-family: var(--font-heading); font-size: 18px; letter-spacing: 0.1em; text-align: center; padding: 32px 0;">Thank you! Your price list is downloading.<br><span style="font-size:14px; color: rgba(0,0,0,0.4); font-family: var(--font-body); letter-spacing: normal;">We will be in touch within 24 hours.</span></p>';
+        setTimeout(() => { window.location.href = '/thanks'; }, 1500);
       }).catch(() => {
         const link = document.createElement('a');
         link.href = 'Marharian-Preisliste-Hochzeit-2026.pdf';
@@ -1673,6 +1673,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+        setTimeout(() => { window.location.href = '/thanks'; }, 1500);
       });
     }
   </script>
