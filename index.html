@@ -848,8 +848,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     @media (max-width: 768px) {
       .hamburger { display: none !important; }
-      #nav { justify-content: center; align-items: center; padding: 0 10px; gap: 12px; }
-      .lang-de, .lang-en { flex-shrink: 0; }
+      #nav { display: flex; justify-content: center; gap: 8px; padding: 0 16px; }
+      .lang-de, .lang-en { position: relative; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.6); white-space: nowrap; }
       .nav-logo img { height: 28px; }
     }
 
@@ -1688,7 +1688,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        NAVIGATION
   ─────────────────────────────────────────────── -->
   <nav id="nav">
-    <a href="index-de.html" class="lang-de" style="display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; white-space: nowrap;"><span style="font-size: 16px; line-height: 1;">🇩🇪</span><span>DE</span></a>
+    <a href="index-de.html" class="lang-de" style="display: inline-flex; align-items: center; gap: 5px;"><span style="font-size: 16px; line-height: 1;">🇩🇪</span><span>DE</span></a>
 
     <a href="#" class="nav-logo">
       <img src="marharian.png" alt="Marharian Production" style="height: 48px; width: auto;">
@@ -1702,7 +1702,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="#contact">Contact</a></li>
     </ul>
 
-    <a href="index.html" class="lang-en" style="display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--gold); text-decoration: none; transition: color 0.2s; white-space: nowrap;"><span style="font-size: 16px; line-height: 1;">🇬🇧</span><span>EN</span></a>
+    <a href="index.html" class="lang-en" style="display: inline-flex; align-items: center; gap: 5px;"><span style="font-size: 16px; line-height: 1;">🇬🇧</span><span>EN</span></a>
 
     <button class="hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
