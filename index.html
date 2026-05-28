@@ -841,8 +841,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     @media (max-width: 768px) {
       .hamburger { display: none !important; }
-      #nav { justify-content: space-between; }
-      .nav-logo { position: absolute; left: 50%; transform: translateX(-50%); }
+      #nav {
+        display: flex;
+        justify-content: center;
+        position: relative;
+      }
+      .nav-logo {
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        max-width: none !important;
+      }
+      .lang-switch {
+        position: absolute !important;
+        right: 16px !important;
+        max-width: none !important;
+      }
     }
 
     @media (max-width: 480px) {
