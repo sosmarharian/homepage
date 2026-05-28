@@ -166,9 +166,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     #nav.scrolled .nav-links a { color: var(--charcoal); }
     #nav.scrolled .nav-logo img { filter: brightness(1) invert(0); }
-    #nav.scrolled .lang-switch a { color: var(--charcoal); }
-    #nav.scrolled .lang-switch a[href="index.html"] { color: var(--gold); }
-    #nav.scrolled .lang-switch span { color: rgba(0,0,0,0.3); }
+    #nav.scrolled .lang-de, #nav.scrolled .lang-en { color: var(--charcoal); }
+    #nav.scrolled .lang-en { color: var(--gold); }
     #video-hero {
       position: relative;
       width: 100%;
@@ -841,11 +840,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     @media (max-width: 768px) {
       .hamburger { display: none !important; }
-      #nav { justify-content: center; }
-      .lang-switch {
-        position: absolute;
-        right: 16px;
-      }
+      #nav { justify-content: space-between; align-items: center; }
+      .lang-de, .lang-en { flex-shrink: 0; }
     }
 
     @media (max-width: 480px) {
@@ -1680,6 +1676,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        NAVIGATION
   ─────────────────────────────────────────────── -->
   <nav id="nav">
+    <a href="index-de.html" class="lang-de" style="display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; white-space: nowrap;"><span style="font-size: 16px; line-height: 1;">🇩🇪</span><span>DE</span></a>
+
     <a href="#" class="nav-logo">
       <img src="marharian.png" alt="Marharian Production" style="height: 48px; width: auto;">
     </a>
@@ -1692,11 +1690,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="#contact">Contact</a></li>
     </ul>
 
-    <div class="lang-switch" style="display: flex; align-items: center; gap: 8px; margin-left: 16px; font-family: var(--font-body); font-size: 13px; font-weight: 600; white-space: nowrap; flex-shrink: 0;">
-      <a href="index-de.html" style="display: inline-flex; align-items: center; gap: 5px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; white-space: nowrap;"><span style="font-size: 16px; line-height: 1;">🇩🇪</span><span>DE</span></a>
-      <span style="color: rgba(255,255,255,0.3);">|</span>
-      <a href="index.html" style="display: inline-flex; align-items: center; gap: 5px; color: var(--gold); text-decoration: none; transition: color 0.2s; white-space: nowrap;"><span style="font-size: 16px; line-height: 1;">🇬🇧</span><span>EN</span></a>
-    </div>
+    <a href="index.html" class="lang-en" style="display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--gold); text-decoration: none; transition: color 0.2s; white-space: nowrap;"><span style="font-size: 16px; line-height: 1;">🇬🇧</span><span>EN</span></a>
 
     <button class="hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
