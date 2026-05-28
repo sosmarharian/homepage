@@ -848,10 +848,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     @media (max-width: 768px) {
       .hamburger { display: none !important; }
-      #nav { justify-content: space-between; align-items: center; }
+      #nav { justify-content: space-between; align-items: center; padding: 0 10px; gap: 4px; }
       .lang-de, .lang-en { flex-shrink: 0; }
-      .lang-de { margin-left: 8px; }
-      .lang-en { margin-right: 8px; }
+      .lang-de { margin-left: 0; margin-right: -8px; }
+      .lang-en { margin-right: 0; margin-left: -8px; }
+      .nav-logo img { height: 28px; }
     }
 
     @media (max-width: 480px) {
