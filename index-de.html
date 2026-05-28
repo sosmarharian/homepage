@@ -708,7 +708,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       section { padding: 48px 20px; }
 
       /* NAV */
-      #nav { padding: 0 16px; height: 52px; border-radius: 30px; width: calc(100% - 32px); top: 10px; justify-content: center; gap: 12px; }
+      #nav { padding: 0 16px; height: 52px; border-radius: 30px; width: calc(100% - 32px); top: 10px; }
       .nav-links { display: none; }
       .nav-logo img { height: 32px; }
       .hamburger { display: flex; }
@@ -2183,6 +2183,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       video.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
     }
   });
+
+  if (window.innerWidth <= 768) {
+    document.getElementById('nav').style.justifyContent = 'center';
+    document.getElementById('nav').style.gap = '12px';
+  }
 </script>
 
 
