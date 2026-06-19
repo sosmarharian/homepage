@@ -16,6 +16,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Darker+Grotesque:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="horyzont.jpg" media="(min-width: 769px)">
+  <link rel="preload" as="image" href="wedding-hero.jpg" media="(max-width: 768px)">
 
   <style>
     /* ─── Reset ───────────────────────────────────────── */
@@ -937,6 +939,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       object-position: 70% center;
       filter: brightness(0.5);
     }
+    .wh-slide {
+      position: absolute;
+      inset: 0;
+      will-change: opacity;
+    }
+    @keyframes wh-slide1 {
+      0%     { opacity: 1; }
+      25.64% { opacity: 1; }
+      33.33% { opacity: 0; }
+      92.31% { opacity: 0; }
+      100%   { opacity: 1; }
+    }
+    @keyframes wh-slide2 {
+      0%     { opacity: 0; }
+      25.64% { opacity: 0; }
+      33.33% { opacity: 1; }
+      59.0%  { opacity: 1; }
+      66.67% { opacity: 0; }
+      100%   { opacity: 0; }
+    }
+    @keyframes wh-slide3 {
+      0%     { opacity: 0; }
+      59.0%  { opacity: 0; }
+      66.67% { opacity: 1; }
+      92.31% { opacity: 1; }
+      100%   { opacity: 0; }
+    }
+    .wh-slide-1 { animation: wh-slide1 19.5s infinite; }
+    .wh-slide-2 { animation: wh-slide2 19.5s infinite; }
+    .wh-slide-3 { animation: wh-slide3 19.5s infinite; }
     .wedding-hero-content {
       position: relative;
       z-index: 2;
@@ -1431,11 +1463,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Hero -->
     <div class="wedding-hero">
-      <picture>
-        <source media="(max-width: 768px)" srcset="wedding-hero.jpg">
-        <source media="(min-width: 769px)" srcset="horyzont.jpg">
-        <img src="horyzont.jpg" alt="Wedding Photography Hamburg">
-      </picture>
+      <div class="wh-slide wh-slide-1">
+        <picture>
+          <source media="(max-width: 768px)" srcset="wedding-hero.jpg">
+          <img src="horyzont.jpg" alt="Wedding Photography Hamburg">
+        </picture>
+      </div>
+      <div class="wh-slide wh-slide-2">
+        <picture>
+          <source media="(max-width: 768px)" srcset="5.jpg">
+          <img src="2.jpg" alt="Wedding Photography Hamburg">
+        </picture>
+      </div>
+      <div class="wh-slide wh-slide-3">
+        <picture>
+          <source media="(max-width: 768px)" srcset="6.JPG">
+          <img src="3.jpg" alt="Wedding Photography Hamburg">
+        </picture>
+      </div>
       <div class="wedding-hero-content">
         <div class="wedding-hero-script">Euer Tag. Unser Handwerk.</div>
         <div class="wedding-hero-sub">Hochzeitsfotografie &amp; Film · Hamburg &amp; Deutschlandweit</div>
