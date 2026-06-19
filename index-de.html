@@ -1694,8 +1694,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        NAVIGATION
   ─────────────────────────────────────────────── -->
   <nav id="nav">
-    <a href="index-de.html" class="lang-de" style="display: inline-flex; align-items: center; gap: 5px;"><span style="font-size: 16px; line-height: 1;">🇩🇪</span><span>DE</span></a>
-
     <a href="#" class="nav-logo">
       <img src="marharian.png" alt="Marharian Production" style="height: 48px; width: auto;">
     </a>
@@ -1708,7 +1706,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="#contact">Kontakt</a></li>
     </ul>
 
-    <a href="index.html" class="lang-en" style="display: inline-flex; align-items: center; gap: 5px;"><span style="font-size: 16px; line-height: 1;">🇬🇧</span><span>EN</span></a>
+    <a href="index.html" class="lang-en" style="display: inline-flex; align-items: center; gap: 5px;" onclick="sessionStorage.setItem('lang','en')"><span style="font-size: 16px; line-height: 1;">🇬🇧</span><span>EN</span></a>
 
     <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
@@ -1727,9 +1725,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#contact"  class="mob-link">Kontakt</a>
   <button class="btn btn-gold mob-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Termin buchen</button>
   <div style="display: flex; align-items: center; gap: 8px; margin-top: 16px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
-    <a href="index-de.html" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;">🇩🇪 DE</a>
-    <span style="color: rgba(0,0,0,0.3);">|</span>
-    <a href="index.html" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gray); text-decoration: none; transition: color 0.2s;">🇬🇧 EN</a>
+    <a href="index.html" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="sessionStorage.setItem('lang','en')">🇬🇧 EN</a>
   </div>
 </div>
 
