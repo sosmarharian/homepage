@@ -1655,7 +1655,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .wedding-grid { grid-template-columns: 1fr 1fr; }
       .wedding-faq { padding: 60px 24px; }
       .wedding-request { padding: 60px 20px; }
-      .quiz-card { padding: 32px 20px 24px; }
+      .quiz-card { padding: 32px 20px 24px; overflow: hidden; }
+      .quiz-date-input { max-width: 100%; min-width: 0; }
       .quiz-choices { grid-template-columns: 1fr; }
       .quiz-footer { flex-direction: column; align-items: stretch; gap: 16px; }
       .quiz-nav { justify-content: flex-end; }
@@ -1903,6 +1904,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="quiz-step active" data-step="1">
             <h3 class="quiz-question">Wann findet eure Hochzeit statt?</h3>
             <input type="date" class="quiz-date-input" id="quiz-date">
+            <p id="quiz-date-error" style="display:none;color:#c0392b;font-size:13px;margin-top:-8px;margin-bottom:8px;"></p>
             <label class="quiz-checkbox-label">
               <input type="checkbox" id="quiz-date-unsure"> Noch unsicher — wir wissen es noch nicht genau
             </label>
@@ -1949,6 +1951,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <input type="text" name="names" placeholder="Eure Namen *" required class="quiz-input">
               <input type="email" name="email" placeholder="E-Mail *" required class="quiz-input">
               <input type="tel" name="whatsapp" placeholder="WhatsApp-Nummer (optional)" class="quiz-input">
+              <input type="text" name="instagram" placeholder="Instagram (optional)" class="quiz-input">
               <textarea name="comment" placeholder="Möchtet ihr uns noch etwas erzählen? (optional)" class="quiz-textarea" rows="3"></textarea>
               <label class="quiz-checkbox-label quiz-consent">
                 <input type="checkbox" id="quiz-consent" required>
@@ -2004,7 +2007,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var step = quizState.step;
       var valid = false;
       if (step === 1) {
-        valid = (document.getElementById('quiz-date').value !== '') || document.getElementById('quiz-date-unsure').checked;
+        var dateEl = document.getElementById('quiz-date');
+        var unsure = document.getElementById('quiz-date-unsure').checked;
+        var errEl = document.getElementById('quiz-date-error');
+        if (unsure) {
+          errEl.style.display = 'none';
+          valid = true;
+        } else if (dateEl.value !== '') {
+          var todayChk = new Date().toISOString().split('T')[0];
+          if (dateEl.value < todayChk) {
+            errEl.textContent = 'Bitte wählt ein zukünftiges Datum';
+            errEl.style.display = 'block';
+            valid = false;
+          } else {
+            errEl.style.display = 'none';
+            valid = true;
+          }
+        } else {
+          errEl.style.display = 'none';
+          valid = false;
+        }
       } else if (step === 2) {
         valid = quizState.location !== '';
       } else if (step === 3) {
@@ -2047,6 +2069,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var names = form.querySelector('[name="names"]').value.trim();
       var email = form.querySelector('[name="email"]').value.trim();
       var whatsapp = form.querySelector('[name="whatsapp"]').value.trim();
+      var instagram = form.querySelector('[name="instagram"]').value.trim();
       var comment = form.querySelector('[name="comment"]').value.trim();
       var dateStr = quizState.dateUnsure ? 'Noch unsicher' : (quizState.date || 'Nicht angegeben');
       var message = 'Hochzeitsdatum: ' + dateStr + '\n'
@@ -2055,6 +2078,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         + 'Stunden: ' + quizState.hours + '\n'
         + 'Namen: ' + names + '\n'
         + 'WhatsApp: ' + (whatsapp || '—') + '\n'
+        + 'Instagram: ' + (instagram || '—') + '\n'
         + 'Anmerkung: ' + (comment || '—');
       var data = new FormData();
       data.append('access_key', 'f7f95cd3-8f10-484e-a42e-3975a14980bc');
@@ -2087,9 +2111,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           quizValidateStep();
         });
       });
+      var todayISO = new Date().toISOString().split('T')[0];
+      document.getElementById('quiz-date').setAttribute('min', todayISO);
       document.getElementById('quiz-date').addEventListener('input', quizValidateStep);
       document.getElementById('quiz-date-unsure').addEventListener('change', function() {
         document.getElementById('quiz-date').disabled = this.checked;
+        if (this.checked) document.getElementById('quiz-date-error').style.display = 'none';
         quizValidateStep();
       });
       var slider = document.getElementById('quiz-hours');
