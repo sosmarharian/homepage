@@ -2504,7 +2504,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      JAVASCRIPT
 ─────────────────────────────────────────────── -->
 <script>
-  if (window.location.hash) { history.replaceState(null, null, window.location.pathname); } window.scrollTo(0, 0);
+  if (window.location.hash) { var _t = document.querySelector(window.location.hash); if (_t) { setTimeout(function(){ _t.scrollIntoView(); }, 50); } } else { window.scrollTo(0, 0); }
 
   /* — Hero slideshow ─────────────────────────────── */
   const slides = document.querySelectorAll('#hero-slideshow img');
