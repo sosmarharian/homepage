@@ -716,7 +716,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     @media (max-width: 900px) {
-      body, html { overflow-x: hidden; max-width: 480px; }
+      body, html { overflow-x: hidden; max-width: 100%; }
       * { max-width: 480px; box-sizing: border-box; }
       section { padding: 48px 20px; }
 
@@ -1661,7 +1661,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .wedding-grid { grid-template-columns: 1fr 1fr; }
       .wedding-faq { padding: 60px 24px; }
       .wedding-request { padding: 60px 20px; }
-      .quiz-card { padding: 32px 20px 24px; overflow: hidden; border: 1px solid rgba(0,0,0,0.09); box-shadow: 0 2px 16px rgba(0,0,0,0.10); }
+      .wedding-request-inner { width: 100%; max-width: 100%; box-sizing: border-box; }
+      .quiz-card { padding: 32px 20px 24px; box-sizing: border-box; width: 100%; margin: 0 auto; border: 1px solid rgba(0,0,0,0.09); box-shadow: 0 2px 16px rgba(0,0,0,0.10); }
       .quiz-step { overflow: hidden; }
       .quiz-date-input { display: block !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important; box-sizing: border-box !important; }
       .quiz-choices { grid-template-columns: 1fr; }
@@ -2116,7 +2117,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         minDate: 'today',
         dateFormat: 'd.m.Y',
         locale: 'de',
-        disableMobile: false,
+        disableMobile: true,
         allowInput: false,
         onChange: function(selectedDates, dateStr) {
           quizState.date = dateStr;
