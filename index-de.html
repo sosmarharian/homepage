@@ -1432,7 +1432,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       letter-spacing: 0.02em;
     }
     .quiz-date-input {
+      display: block;
       width: 100%;
+      max-width: 100%;
+      min-width: 0;
       background: #f0ece6;
       border: 1px solid rgba(0, 0, 0, 0.12);
       border-radius: 2px;
@@ -1656,7 +1659,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .wedding-faq { padding: 60px 24px; }
       .wedding-request { padding: 60px 20px; }
       .quiz-card { padding: 32px 20px 24px; overflow: hidden; }
-      .quiz-date-input { max-width: 100%; min-width: 0; }
+      .quiz-step { overflow: hidden; }
+      .quiz-date-input { display: block !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important; box-sizing: border-box !important; }
       .quiz-choices { grid-template-columns: 1fr; }
       .quiz-footer { flex-direction: column; align-items: stretch; gap: 16px; }
       .quiz-nav { justify-content: flex-end; }
@@ -1904,6 +1908,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="quiz-step active" data-step="1">
             <h3 class="quiz-question">Wann findet eure Hochzeit statt?</h3>
             <input type="date" class="quiz-date-input" id="quiz-date">
+            <script>(function(){var d=document.getElementById('quiz-date');if(d)d.setAttribute('min',new Date().toISOString().split('T')[0]);})()</script>
             <p id="quiz-date-error" style="display:none;color:#c0392b;font-size:13px;margin-top:-8px;margin-bottom:8px;"></p>
             <label class="quiz-checkbox-label">
               <input type="checkbox" id="quiz-date-unsure"> Noch unsicher — wir wissen es noch nicht genau
@@ -2112,10 +2117,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
       });
       var todayISO = new Date().toISOString().split('T')[0];
-      document.getElementById('quiz-date').setAttribute('min', todayISO);
-      document.getElementById('quiz-date').addEventListener('input', quizValidateStep);
+      var dateInput = document.getElementById('quiz-date');
+      dateInput.setAttribute('min', todayISO);
+      dateInput.addEventListener('input', quizValidateStep);
+      dateInput.addEventListener('change', function() {
+        var today = new Date().toISOString().split('T')[0];
+        if (this.value && this.value < today) {
+          this.value = '';
+          document.getElementById('quiz-date-error').textContent = 'Bitte wählt ein zukünftiges Datum';
+          document.getElementById('quiz-date-error').style.display = 'block';
+          document.getElementById('quiz-next').disabled = true;
+        } else {
+          quizValidateStep();
+        }
+      });
       document.getElementById('quiz-date-unsure').addEventListener('change', function() {
-        document.getElementById('quiz-date').disabled = this.checked;
+        dateInput.disabled = this.checked;
         if (this.checked) document.getElementById('quiz-date-error').style.display = 'none';
         quizValidateStep();
       });
