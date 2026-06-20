@@ -1239,16 +1239,56 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       text-align: center;
       margin-bottom: 56px;
     }
+    /* Book: pages touch, shadow under whole book */
     .how-we-work-cols {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
+      gap: 0;
+      border-radius: 5px;
+      box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.30),
+        0 8px 20px rgba(0, 0, 0, 0.18);
     }
     .how-we-work-col {
       background: #faf8f5;
-      padding: 64px 60px;
-      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.20);
-      border-radius: 2px;
+      position: relative;
+    }
+    /* Left page: rounded outer corners, spine + bend shadow on right edge */
+    .how-we-work-col:first-child {
+      padding: 64px 90px 72px 60px;
+      border-radius: 5px 0 0 5px;
+      box-shadow:
+        inset -2px 0 0 rgba(0, 0, 0, 0.18),
+        inset -50px 0 50px -30px rgba(0, 0, 0, 0.07);
+    }
+    /* Right page: rounded outer corners, spine + bend shadow on left edge */
+    .how-we-work-col:last-child {
+      padding: 64px 60px 72px 90px;
+      border-radius: 0 5px 5px 0;
+      box-shadow:
+        inset 2px 0 0 rgba(0, 0, 0, 0.18),
+        inset 50px 0 50px -30px rgba(0, 0, 0, 0.07);
+    }
+    /* Page numbers — bottom outer corners */
+    .how-we-work-col:first-child::after {
+      content: 'I';
+      position: absolute;
+      bottom: 28px;
+      left: 52px;
+      font-family: var(--font-heading);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: rgba(0, 0, 0, 0.22);
+    }
+    .how-we-work-col:last-child::after {
+      content: 'II';
+      position: absolute;
+      bottom: 28px;
+      right: 52px;
+      font-family: var(--font-heading);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: rgba(0, 0, 0, 0.22);
     }
     .how-we-work-item {
       padding-bottom: 40px;
@@ -1425,8 +1465,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .wedding-faq { padding: 60px 24px; }
       .wedding-request { padding: 60px 24px; }
       .how-we-work { padding: 70px 20px; }
-      .how-we-work-cols { grid-template-columns: 1fr; gap: 20px; }
-      .how-we-work-col { padding: 36px 28px; }
+      .how-we-work-cols { grid-template-columns: 1fr; gap: 20px; box-shadow: none; border-radius: 0; }
+      .how-we-work-col { padding: 36px 28px !important; border-radius: 4px !important; box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important; }
+      .how-we-work-col::after { display: none !important; }
       .how-we-work-title { margin-bottom: 36px; }
       .wedding-feature-row { flex-direction: column; height: auto; }
       .wedding-feature-row.reverse { flex-direction: column; }
