@@ -16,6 +16,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Darker+Grotesque:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/de.js"></script>
   <link rel="preload" as="image" href="horyzont.jpg" media="(min-width: 769px)">
   <link rel="preload" as="image" href="wedding-hero.jpg" media="(max-width: 768px)">
 
@@ -1658,7 +1661,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .wedding-grid { grid-template-columns: 1fr 1fr; }
       .wedding-faq { padding: 60px 24px; }
       .wedding-request { padding: 60px 20px; }
-      .quiz-card { padding: 32px 20px 24px; overflow: hidden; }
+      .quiz-card { padding: 32px 20px 24px; overflow: hidden; border: 1px solid rgba(0,0,0,0.09); box-shadow: 0 2px 16px rgba(0,0,0,0.10); }
       .quiz-step { overflow: hidden; }
       .quiz-date-input { display: block !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important; box-sizing: border-box !important; }
       .quiz-choices { grid-template-columns: 1fr; }
@@ -1677,6 +1680,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .wedding-feature-text { flex: none; width: 90%; margin-left: 5%; margin-right: 0; }
     }
 
+    /* flatpickr theme */
+    .flatpickr-calendar { font-family: var(--font-body); border-radius: 3px; box-shadow: 0 8px 32px rgba(0,0,0,0.18); border: none; }
+    .flatpickr-day.selected, .flatpickr-day.selected:hover { background: var(--gold); border-color: var(--gold); color: var(--charcoal); }
+    .flatpickr-day.today { border-color: var(--gold); }
+    .flatpickr-day.today:hover { background: rgba(201,169,110,0.12); color: var(--charcoal); }
+    .flatpickr-months .flatpickr-month { background: var(--charcoal); fill: #fff; color: #fff; border-radius: 3px 3px 0 0; }
+    .flatpickr-weekdays { background: var(--charcoal); }
+    span.flatpickr-weekday { background: var(--charcoal); color: rgba(255,255,255,0.65); }
+    .flatpickr-current-month .flatpickr-monthDropdown-months,
+    .flatpickr-current-month input.cur-year { color: #fff; }
+    .flatpickr-prev-month svg, .flatpickr-next-month svg { fill: #fff; }
+    .flatpickr-day.disabled, .flatpickr-day.disabled:hover { color: rgba(0,0,0,0.2); }
+    .quiz-date-input[readonly] { cursor: pointer; }
+    .quiz-date-input.quiz-date-disabled { opacity: 0.42; pointer-events: none; }
   </style>
 <!-- Facebook Pixel Code -->
 <script>
@@ -1907,9 +1924,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <!-- Schritt 1: Datum -->
           <div class="quiz-step active" data-step="1">
             <h3 class="quiz-question">Wann findet eure Hochzeit statt?</h3>
-            <input type="date" class="quiz-date-input" id="quiz-date">
-            <script>(function(){var d=document.getElementById('quiz-date');if(d)d.setAttribute('min',new Date().toISOString().split('T')[0]);})()</script>
-            <p id="quiz-date-error" style="display:none;color:#c0392b;font-size:13px;margin-top:-8px;margin-bottom:8px;"></p>
+            <input type="text" class="quiz-date-input" id="quiz-date" placeholder="TT.MM.JJJJ" readonly>
+            <p id="quiz-date-error" style="display:none;color:#c0392b;font-size:13px;margin-top:4px;margin-bottom:8px;"></p>
             <label class="quiz-checkbox-label">
               <input type="checkbox" id="quiz-date-unsure"> Noch unsicher — wir wissen es noch nicht genau
             </label>
@@ -2012,26 +2028,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var step = quizState.step;
       var valid = false;
       if (step === 1) {
-        var dateEl = document.getElementById('quiz-date');
-        var unsure = document.getElementById('quiz-date-unsure').checked;
-        var errEl = document.getElementById('quiz-date-error');
-        if (unsure) {
-          errEl.style.display = 'none';
-          valid = true;
-        } else if (dateEl.value !== '') {
-          var todayChk = new Date().toISOString().split('T')[0];
-          if (dateEl.value < todayChk) {
-            errEl.textContent = 'Bitte wählt ein zukünftiges Datum';
-            errEl.style.display = 'block';
-            valid = false;
-          } else {
-            errEl.style.display = 'none';
-            valid = true;
-          }
-        } else {
-          errEl.style.display = 'none';
-          valid = false;
-        }
+        valid = document.getElementById('quiz-date-unsure').checked || quizState.date !== '';
       } else if (step === 2) {
         valid = quizState.location !== '';
       } else if (step === 3) {
@@ -2049,7 +2046,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     function quizNext() {
       var step = quizState.step;
       if (step === 1) {
-        quizState.date = document.getElementById('quiz-date').value;
         quizState.dateUnsure = document.getElementById('quiz-date-unsure').checked;
       } else if (step === 4) {
         quizState.hours = document.getElementById('quiz-hours').value;
@@ -2116,24 +2112,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           quizValidateStep();
         });
       });
-      var todayISO = new Date().toISOString().split('T')[0];
-      var dateInput = document.getElementById('quiz-date');
-      dateInput.setAttribute('min', todayISO);
-      dateInput.addEventListener('input', quizValidateStep);
-      dateInput.addEventListener('change', function() {
-        var today = new Date().toISOString().split('T')[0];
-        if (this.value && this.value < today) {
-          this.value = '';
-          document.getElementById('quiz-date-error').textContent = 'Bitte wählt ein zukünftiges Datum';
-          document.getElementById('quiz-date-error').style.display = 'block';
-          document.getElementById('quiz-next').disabled = true;
-        } else {
+      var quizFlatpickr = flatpickr('#quiz-date', {
+        minDate: 'today',
+        dateFormat: 'd.m.Y',
+        locale: 'de',
+        disableMobile: false,
+        allowInput: false,
+        onChange: function(selectedDates, dateStr) {
+          quizState.date = dateStr;
           quizValidateStep();
         }
       });
       document.getElementById('quiz-date-unsure').addEventListener('change', function() {
-        dateInput.disabled = this.checked;
-        if (this.checked) document.getElementById('quiz-date-error').style.display = 'none';
+        if (this.checked) {
+          quizFlatpickr.clear();
+          quizState.date = '';
+          quizFlatpickr.set('clickOpens', false);
+          document.getElementById('quiz-date').classList.add('quiz-date-disabled');
+        } else {
+          quizFlatpickr.set('clickOpens', true);
+          document.getElementById('quiz-date').classList.remove('quiz-date-disabled');
+        }
         quizValidateStep();
       });
       var slider = document.getElementById('quiz-hours');
