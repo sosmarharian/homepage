@@ -1377,77 +1377,269 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding-bottom: 24px;
     }
 
-    /* Request form */
+    /* Request / Quiz */
     .wedding-request {
-      padding: 80px 40px;
-      background: #fff;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 40px;
       text-align: center;
     }
+    .wedding-request-bg {
+      position: absolute;
+      inset: -40px;
+      background: url('DSC04969-2.jpg') center / cover no-repeat;
+      filter: blur(22px);
+    }
+    .wedding-request-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.38);
+    }
     .wedding-request-inner {
-      max-width: 620px;
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
       margin: 0 auto;
     }
-    .wedding-request .eyebrow { color: var(--gold); }
     .wedding-request h2 {
       font-family: 'Great Vibes', cursive;
       font-size: clamp(40px, 7vw, 68px);
-      color: var(--charcoal);
+      color: #fff;
       font-weight: 400;
-      margin: 8px 0 12px;
+      margin: 0 0 16px;
     }
-    .wedding-request p {
+    .wedding-request-subtitle {
       font-size: 15px;
-      color: var(--gray);
+      color: rgba(255, 255, 255, 0.75);
       margin-bottom: 40px;
       line-height: 1.7;
     }
-    .wedding-form {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+    .quiz-card {
+      background: #faf8f5;
+      border-radius: 4px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32), 0 4px 16px rgba(0, 0, 0, 0.14);
+      padding: 52px 56px 36px;
       text-align: left;
     }
-    .wedding-form input,
-    .wedding-form select {
-      width: 100%;
-      background: #f5f0eb;
-      border: 1px solid rgba(0,0,0,0.12);
-      border-radius: 2px;
-      padding: 16px 20px;
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; }
+    .quiz-question {
+      font-family: var(--font-heading);
+      font-size: clamp(16px, 2.2vw, 22px);
+      font-weight: 400;
       color: var(--charcoal);
+      margin: 0 0 28px;
+      letter-spacing: 0.02em;
+    }
+    .quiz-date-input {
+      width: 100%;
+      background: #f0ece6;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 2px;
+      padding: 14px 18px;
       font-family: var(--font-body);
       font-size: 15px;
+      color: var(--charcoal);
       outline: none;
-      transition: border-color 0.2s;
       box-sizing: border-box;
+      transition: border-color 0.2s;
+      margin-bottom: 16px;
     }
-    .wedding-form input::placeholder { color: var(--gray); }
-    .wedding-form input:focus,
-    .wedding-form select:focus { border-color: var(--charcoal); }
-    .wedding-form select { color: var(--gray); }
-    .wedding-form select option { background: #fff; color: var(--charcoal); }
-    .wedding-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .wedding-submit {
+    .quiz-date-input:focus { border-color: var(--charcoal); }
+    .quiz-checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--gray);
+      cursor: pointer;
+      user-select: none;
+    }
+    .quiz-checkbox-label input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--gold);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .quiz-consent { margin-top: 16px; }
+    .quiz-consent a { color: var(--gold); text-decoration: none; }
+    .quiz-choices {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .quiz-choice {
+      padding: 16px 20px;
+      background: transparent;
+      border: 1.5px solid rgba(0, 0, 0, 0.18);
+      border-radius: 3px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--charcoal);
+      cursor: pointer;
+      transition: all 0.18s ease;
+      text-align: left;
+      line-height: 1.4;
+    }
+    .quiz-choice:hover {
+      border-color: var(--gold);
+      background: rgba(201, 169, 110, 0.07);
+    }
+    .quiz-choice.selected {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--charcoal);
+      font-weight: 600;
+    }
+    .quiz-slider-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+    .quiz-slider {
+      -webkit-appearance: none;
+      appearance: none;
       width: 100%;
-      padding: 18px;
-      background: var(--charcoal);
-      color: #fff;
+      height: 4px;
+      background: linear-gradient(to right, var(--gold) 40%, rgba(0, 0, 0, 0.15) 40%);
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+    }
+    .quiz-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      background: var(--gold);
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.20);
+    }
+    .quiz-slider::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      background: var(--gold);
+      border-radius: 50%;
       border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.20);
+    }
+    .quiz-slider-display {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .quiz-hours-val {
+      font-family: var(--font-heading);
+      font-size: 64px;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+    .quiz-hours-label {
+      font-size: 12px;
+      color: var(--gray);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+    .quiz-input, .quiz-textarea {
+      width: 100%;
+      background: #f0ece6;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 2px;
+      padding: 14px 18px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--charcoal);
+      outline: none;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .quiz-input::placeholder, .quiz-textarea::placeholder { color: var(--gray); }
+    .quiz-input:focus, .quiz-textarea:focus { border-color: var(--charcoal); }
+    .quiz-textarea { resize: vertical; }
+    .quiz-footer {
+      margin-top: 36px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .quiz-progress-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+    .quiz-progress-pct {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .quiz-progress-bar {
+      height: 3px;
+      background: rgba(0, 0, 0, 0.10);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .quiz-progress-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width 0.35s ease;
+    }
+    .quiz-nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .quiz-btn-back {
+      padding: 11px 20px;
+      background: transparent;
+      border: 1.5px solid rgba(0, 0, 0, 0.22);
+      border-radius: 2px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--charcoal);
+      cursor: pointer;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+    .quiz-btn-back:hover { border-color: var(--charcoal); }
+    .quiz-btn-back.hidden { display: none; }
+    .quiz-btn-next {
+      padding: 11px 24px;
+      background: var(--gold);
+      border: 1.5px solid var(--gold);
+      border-radius: 2px;
       font-family: var(--font-body);
       font-size: 13px;
       font-weight: 600;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.10em;
       text-transform: uppercase;
+      color: var(--charcoal);
       cursor: pointer;
-      transition: all 0.25s ease;
-      margin-top: 8px;
+      transition: all 0.18s ease;
+      white-space: nowrap;
     }
-    .wedding-submit:hover { background: var(--gold); color: var(--charcoal); }
-    .wedding-form-note {
-      font-size: 12px;
-      color: var(--gray);
-      text-align: center;
-      margin-top: 8px;
+    .quiz-btn-next:hover { background: #b8924a; border-color: #b8924a; }
+    .quiz-btn-next:disabled {
+      opacity: 0.38;
+      cursor: not-allowed;
+      pointer-events: none;
     }
 
     /* Mobile */
@@ -1461,9 +1653,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .wedding-stat { min-width: 50%; border-right: none; border-bottom: 1px solid rgba(197,154,94,0.15); }
       .wedding-hero-btn { background: #e63030 !important; color: #fff !important; border-color: #e63030 !important; }
       .wedding-grid { grid-template-columns: 1fr 1fr; }
-      .wedding-form-row { grid-template-columns: 1fr; }
       .wedding-faq { padding: 60px 24px; }
-      .wedding-request { padding: 60px 24px; }
+      .wedding-request { padding: 60px 20px; }
+      .quiz-card { padding: 32px 20px 24px; }
+      .quiz-choices { grid-template-columns: 1fr; }
+      .quiz-footer { flex-direction: column; align-items: stretch; gap: 16px; }
+      .quiz-nav { justify-content: flex-end; }
       .how-we-work { padding: 70px 20px; }
       .how-we-work-cols { grid-template-columns: 1fr; gap: 20px; box-shadow: none; border-radius: 0; }
       .how-we-work-col { padding: 36px 28px !important; border-radius: 4px !important; box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important; }
@@ -1696,29 +1891,85 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Request form -->
     <div class="wedding-request" id="wedding-request">
+      <div class="wedding-request-bg"></div>
+      <div class="wedding-request-overlay"></div>
       <div class="wedding-request-inner">
-        <span class="eyebrow">Preisliste</span>
-        <h2>Fordert euer Angebot an</h2>
-        <p>Hinterlasst eure Daten und erhaltet unsere komplette Preisliste als PDF — direkt und unverbindlich.</p>
-        <form class="wedding-form" onsubmit="handleWeddingForm(event)">
-          <div class="wedding-form-row">
-            <input type="text" name="name" placeholder="Euer Name *" required>
-            <input type="email" name="email" placeholder="Eure E-Mail *" required>
+        <h2>Preisanfrage</h2>
+        <p class="wedding-request-subtitle">Festpreis-Garantie — was wir vereinbaren, gilt. Keine versteckten Kosten. Beantwortet ein paar kurze Fragen, wir melden uns innerhalb eines Tages bei euch.</p>
+
+        <div class="quiz-card">
+
+          <!-- Schritt 1: Datum -->
+          <div class="quiz-step active" data-step="1">
+            <h3 class="quiz-question">Wann findet eure Hochzeit statt?</h3>
+            <input type="date" class="quiz-date-input" id="quiz-date">
+            <label class="quiz-checkbox-label">
+              <input type="checkbox" id="quiz-date-unsure"> Noch unsicher — wir wissen es noch nicht genau
+            </label>
           </div>
-          <div class="wedding-form-row">
-            <input type="date" name="date" placeholder="Hochzeitsdatum">
-            <select name="package">
-              <option value="" disabled selected>Woran seid ihr interessiert?</option>
-              <option value="photo-video">Foto + Video kombiniert</option>
-              <option value="photo">Nur Fotografie</option>
-              <option value="video">Nur Videografie</option>
-              <option value="unsure">Noch unsicher</option>
-            </select>
+
+          <!-- Schritt 2: Ort -->
+          <div class="quiz-step" data-step="2">
+            <h3 class="quiz-question">Wo findet eure Hochzeit statt?</h3>
+            <div class="quiz-choices">
+              <button class="quiz-choice" data-value="Hamburg &amp; Umgebung">Hamburg &amp; Umgebung</button>
+              <button class="quiz-choice" data-value="Andere Stadt in Deutschland">Andere Stadt in Deutschland</button>
+              <button class="quiz-choice" data-value="Im Ausland">Im Ausland</button>
+              <button class="quiz-choice" data-value="Noch nicht entschieden">Noch nicht entschieden</button>
+            </div>
           </div>
-          <input type="text" name="location" placeholder="Hochzeitsort / Stadt">
-          <button type="submit" class="wedding-submit">Preisliste als PDF herunterladen →</button>
-          <p class="wedding-form-note">Kein Spam. Wir melden uns persönlich innerhalb von 24 Stunden bei euch.</p>
-        </form>
+
+          <!-- Schritt 3: Leistungen -->
+          <div class="quiz-step" data-step="3">
+            <h3 class="quiz-question">Welche Leistungen interessieren euch?</h3>
+            <div class="quiz-choices">
+              <button class="quiz-choice" data-value="Nur Fotografie">Nur Fotografie</button>
+              <button class="quiz-choice" data-value="Nur Film">Nur Film</button>
+              <button class="quiz-choice" data-value="Foto + Film">Foto + Film</button>
+              <button class="quiz-choice" data-value="Noch unsicher">Noch unsicher</button>
+            </div>
+          </div>
+
+          <!-- Schritt 4: Stunden -->
+          <div class="quiz-step" data-step="4">
+            <h3 class="quiz-question">Wie viele Stunden sollen wir euch begleiten?</h3>
+            <div class="quiz-slider-wrap">
+              <input type="range" class="quiz-slider" id="quiz-hours" min="2" max="12" value="6">
+              <div class="quiz-slider-display">
+                <span class="quiz-hours-val">6</span>
+                <span class="quiz-hours-label">Stunden</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Schritt 5: Kontakt -->
+          <div class="quiz-step" data-step="5">
+            <h3 class="quiz-question">Fast geschafft — wohin dürfen wir das Angebot senden?</h3>
+            <form class="quiz-contact-form" id="quiz-contact-form" onsubmit="return false;">
+              <input type="text" name="names" placeholder="Eure Namen *" required class="quiz-input">
+              <input type="email" name="email" placeholder="E-Mail *" required class="quiz-input">
+              <input type="tel" name="whatsapp" placeholder="WhatsApp-Nummer (optional)" class="quiz-input">
+              <textarea name="comment" placeholder="Möchtet ihr uns noch etwas erzählen? (optional)" class="quiz-textarea" rows="3"></textarea>
+              <label class="quiz-checkbox-label quiz-consent">
+                <input type="checkbox" id="quiz-consent" required>
+                <span>Ich stimme der <a href="/datenschutz">Datenverarbeitung</a> zu</span>
+              </label>
+            </form>
+          </div>
+
+          <!-- Fortschritt + Navigation -->
+          <div class="quiz-footer">
+            <div class="quiz-progress-wrap">
+              <span class="quiz-progress-pct">25%</span>
+              <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:25%"></div></div>
+            </div>
+            <div class="quiz-nav">
+              <button class="quiz-btn-back hidden" id="quiz-back" onclick="quizBack()">&#8592; Zurück</button>
+              <button class="quiz-btn-next" id="quiz-next" onclick="quizNext()" disabled>Weiter &#8594;</button>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
 
@@ -1732,35 +1983,127 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (!isOpen) item.classList.add('open');
     }
 
-    function handleWeddingForm(e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-      data.append('access_key', 'f7f95cd3-8f10-484e-a42e-3975a14980bc');
-      data.append('subject', 'Neue Hochzeitsanfrage von marharian.com (DE)');
+    // ── Quiz ──────────────────────────────────────────────────────────────────
+    var quizState = { step: 1, date: '', dateUnsure: false, location: '', services: '', hours: 6 };
 
+    function quizUpdateUI() {
+      var step = quizState.step;
+      document.querySelectorAll('.quiz-step').forEach(function(el) {
+        el.classList.toggle('active', parseInt(el.dataset.step) === step);
+      });
+      var pcts = [25, 50, 75, 100, 100];
+      document.querySelector('.quiz-progress-pct').textContent = pcts[step - 1] + '%';
+      document.querySelector('.quiz-progress-fill').style.width = pcts[step - 1] + '%';
+      document.getElementById('quiz-back').classList.toggle('hidden', step === 1);
+      var nextBtn = document.getElementById('quiz-next');
+      nextBtn.textContent = step === 5 ? 'ANGEBOT ANFORDERN' : 'Weiter →';
+      quizValidateStep();
+    }
+
+    function quizValidateStep() {
+      var step = quizState.step;
+      var valid = false;
+      if (step === 1) {
+        valid = (document.getElementById('quiz-date').value !== '') || document.getElementById('quiz-date-unsure').checked;
+      } else if (step === 2) {
+        valid = quizState.location !== '';
+      } else if (step === 3) {
+        valid = quizState.services !== '';
+      } else if (step === 4) {
+        valid = true;
+      } else if (step === 5) {
+        var names = document.querySelector('.quiz-contact-form [name="names"]').value.trim();
+        var email = document.querySelector('.quiz-contact-form [name="email"]').value.trim();
+        valid = names !== '' && email !== '' && document.getElementById('quiz-consent').checked;
+      }
+      document.getElementById('quiz-next').disabled = !valid;
+    }
+
+    function quizNext() {
+      var step = quizState.step;
+      if (step === 1) {
+        quizState.date = document.getElementById('quiz-date').value;
+        quizState.dateUnsure = document.getElementById('quiz-date-unsure').checked;
+      } else if (step === 4) {
+        quizState.hours = document.getElementById('quiz-hours').value;
+      }
+      if (step < 5) {
+        quizState.step++;
+        quizUpdateUI();
+      } else {
+        quizSubmit();
+      }
+    }
+
+    function quizBack() {
+      if (quizState.step > 1) {
+        quizState.step--;
+        quizUpdateUI();
+      }
+    }
+
+    function quizSubmit() {
+      var form = document.getElementById('quiz-contact-form');
+      var names = form.querySelector('[name="names"]').value.trim();
+      var email = form.querySelector('[name="email"]').value.trim();
+      var whatsapp = form.querySelector('[name="whatsapp"]').value.trim();
+      var comment = form.querySelector('[name="comment"]').value.trim();
+      var dateStr = quizState.dateUnsure ? 'Noch unsicher' : (quizState.date || 'Nicht angegeben');
+      var message = 'Hochzeitsdatum: ' + dateStr + '\n'
+        + 'Ort: ' + (quizState.location || '—') + '\n'
+        + 'Leistungen: ' + (quizState.services || '—') + '\n'
+        + 'Stunden: ' + quizState.hours + '\n'
+        + 'Namen: ' + names + '\n'
+        + 'WhatsApp: ' + (whatsapp || '—') + '\n'
+        + 'Anmerkung: ' + (comment || '—');
+      var data = new FormData();
+      data.append('access_key', 'f7f95cd3-8f10-484e-a42e-3975a14980bc');
+      data.append('subject', 'Neue Hochzeitsanfrage — marharian.com');
+      data.append('name', names);
+      data.append('email', email);
+      data.append('message', message);
+      var btn = document.getElementById('quiz-next');
+      btn.disabled = true;
+      btn.textContent = 'Wird gesendet…';
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: data,
         headers: { 'Accept': 'application/json' }
-      }).then(res => {
-        const link = document.createElement('a');
-        link.href = 'Marharian-Preisliste-Hochzeit-2026.pdf';
-        link.download = 'Marharian-Preisliste-Hochzeit-2026.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        setTimeout(() => { window.location.href = '/thanks'; }, 1500);
-      }).catch(() => {
-        const link = document.createElement('a');
-        link.href = 'Marharian-Preisliste-Hochzeit-2026.pdf';
-        link.download = 'Marharian-Preisliste-Hochzeit-2026.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        setTimeout(() => { window.location.href = '/thanks'; }, 1500);
+      }).then(function() {
+        window.location.href = '/thanks';
+      }).catch(function() {
+        window.location.href = '/thanks';
       });
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.quiz-choice').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var step = parseInt(this.closest('.quiz-step').dataset.step);
+          this.closest('.quiz-choices').querySelectorAll('.quiz-choice').forEach(function(b) { b.classList.remove('selected'); });
+          this.classList.add('selected');
+          if (step === 2) quizState.location = this.dataset.value;
+          if (step === 3) quizState.services = this.dataset.value;
+          quizValidateStep();
+        });
+      });
+      document.getElementById('quiz-date').addEventListener('input', quizValidateStep);
+      document.getElementById('quiz-date-unsure').addEventListener('change', function() {
+        document.getElementById('quiz-date').disabled = this.checked;
+        quizValidateStep();
+      });
+      var slider = document.getElementById('quiz-hours');
+      var hoursVal = document.querySelector('.quiz-hours-val');
+      slider.addEventListener('input', function() {
+        hoursVal.textContent = this.value;
+        quizState.hours = this.value;
+        var pct = ((this.value - 2) / 10) * 100;
+        this.style.background = 'linear-gradient(to right, var(--gold) ' + pct + '%, rgba(0,0,0,0.15) ' + pct + '%)';
+      });
+      document.querySelector('.quiz-contact-form').addEventListener('input', quizValidateStep);
+      document.getElementById('quiz-consent').addEventListener('change', quizValidateStep);
+      quizUpdateUI();
+    });
   </script>
 
 
