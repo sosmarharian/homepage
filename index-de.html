@@ -171,23 +171,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     #nav.scrolled .nav-links a { color: var(--charcoal); }
     #nav.scrolled .nav-logo img { filter: brightness(1) invert(0); }
-    #nav.scrolled .lang-de,
-    #nav.scrolled .lang-en {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
+    /* Language globe switcher */
+    .lang-switcher { position: relative; display: flex; align-items: center; flex-shrink: 0; }
+    .lang-btn {
+      background: none; border: none; cursor: pointer; padding: 6px;
+      display: flex; align-items: center; justify-content: center;
+      color: #ffffff; transition: color 0.2s;
     }
-    .lang-de, .lang-en {
-      transition: opacity 0.3s ease;
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      white-space: nowrap;
-      flex-shrink: 0;
+    .lang-btn:hover { color: var(--gold); }
+    .lang-dropdown {
+      display: none; position: absolute; top: calc(100% + 8px); left: 50%;
+      transform: translateX(-50%); background: #f5f0eb; border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(26,24,21,0.15); overflow: hidden;
+      min-width: 80px; z-index: 201;
     }
-    .lang-de { color: rgba(255,255,255,0.6); }
-    .lang-en { color: var(--gold); }
+    .lang-dropdown.open { display: block; }
+    .lang-option {
+      display: block; padding: 12px 20px; font-family: var(--font-body);
+      font-size: 14px; font-weight: 600; color: var(--charcoal);
+      text-decoration: none; transition: background 0.15s, color 0.15s;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .lang-option:hover { background: rgba(201,169,110,0.12); color: var(--gold); }
+    .lang-option.lang-active { color: var(--gold); }
+    #nav.scrolled .lang-switcher { opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
     #video-hero {
       position: relative;
       width: 100%;
@@ -766,8 +773,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     @media (max-width: 768px) {
       .hamburger { display: flex !important; margin-left: auto; }
-      .nav-logo { flex: 0 0 auto; justify-content: flex-start; }
+      .nav-logo { flex: 0 0 auto; justify-content: flex-start; margin-left: 6px; }
       #nav { justify-content: flex-start; gap: 8px; }
+      /* Scrolled: logo centered via flex, burger pinned absolute-right */
+      #nav.scrolled .nav-logo {
+        position: absolute; left: 50%; top: 50%;
+        transform: translate(-50%, -50%); margin: 0 !important;
+      }
+      #nav.scrolled .lang-switcher { display: none; }
+      #nav.scrolled .hamburger {
+        position: absolute; right: 16px; top: 50%;
+        transform: translateY(-50%); margin-left: 0;
+      }
     }
 
     @media (max-width: 480px) {
@@ -2080,7 +2097,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="#contact">Kontakt</a></li>
     </ul>
 
-    <a href="index.html" class="lang-en" style="display: inline-flex; align-items: center; gap: 5px;" onclick="sessionStorage.setItem('lang','en')"><span style="font-size: 16px; line-height: 1;">🇬🇧</span><span>EN</span></a>
+    <div class="lang-switcher" id="langSwitcher">
+      <button class="lang-btn" id="langBtn" aria-label="Sprache wählen">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </button>
+      <div class="lang-dropdown" id="langDropdown">
+        <a href="index.html" class="lang-option" onclick="sessionStorage.setItem('lang','en')">EN</a>
+        <a href="index-de.html" class="lang-option lang-active">DE</a>
+      </div>
+    </div>
 
     <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
@@ -2467,6 +2492,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
   document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', closeMobMenu));
   mobBackdrop.addEventListener('click', closeMobMenu);
+
+  /* — Language switcher ──────────────────────────── */
+  const langBtn      = document.getElementById('langBtn');
+  const langDropdown = document.getElementById('langDropdown');
+  langBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    langDropdown.classList.toggle('open');
+  });
+  document.addEventListener('click', () => langDropdown.classList.remove('open'));
 
   /* — Reveal on scroll ───────────────────────────── */
   const obs = new IntersectionObserver(entries => {
