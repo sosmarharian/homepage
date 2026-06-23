@@ -1019,6 +1019,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: var(--gray);
       margin-bottom: 16px;
     }
+    .wedding-about-cta {
+      display: inline-flex; align-items: center; margin-top: 32px;
+      padding: 16px 36px; background: #e63030; color: #fff;
+      border: 2px solid #e63030; border-radius: 8px;
+      font-family: var(--font-body); font-size: 15px; font-weight: 700;
+      letter-spacing: 0.05em; text-decoration: none;
+      transition: background 0.22s, transform 0.22s;
+    }
+    .wedding-about-cta:hover { background: #c42020; border-color: #c42020; transform: translateY(-2px); }
 
     /* Portfolio grid */
     .wedding-portfolio {
@@ -1584,7 +1593,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .wedding-stats { flex-wrap: wrap; }
       .wedding-stat { min-width: 50%; border-bottom: 1px solid rgba(197,154,94,0.15); }
       .wedding-hero-btn { background: #e63030 !important; color: #fff !important; border-color: #e63030 !important; }
-      .wedding-about-img .wedding-hero-btn { display: flex; width: 100%; box-sizing: border-box; justify-content: center; }
+      .wedding-about-cta { display: flex; width: 100%; box-sizing: border-box; justify-content: center; }
       .wedding-grid { grid-template-columns: 1fr 1fr; }
       .wedding-faq { padding: 60px 24px; }
       .wedding-request { padding: 60px 20px; }
@@ -1708,9 +1717,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <img src="R6M20679.jpg" alt="Sos &amp; Yaroslava Marharian" style="opacity:0;">
           <img src="IMG_7577.JPG" alt="Sos &amp; Yaroslava Marharian" style="opacity:0;">
         </div>
-        <div style="text-align:center; margin-top:24px;">
-          <a href="#wedding-request" class="wedding-hero-btn" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'});return false;">Request Price List</a>
-        </div>
       </div>
       <div class="wedding-about-text">
         <div class="wedding-about-script">We are</div>
@@ -1720,6 +1726,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>For us, every wedding is a story to live through with you and carefully preserve. Not staged shots, but real emotions in their most honest moment.</p>
         <p>We work in the Fine Art wedding photography style — quiet, atmospheric, with an eye for detail. Whether boho or classic, vintage-elegant or something entirely your own — we adapt to you, not to a template. When the location calls for it, the drone joins us.</p>
         <p>Based in Hamburg. We photograph across Germany and beyond — wherever your wedding takes place.</p>
+        <a href="#wedding-request" class="wedding-about-cta" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'});return false;">Request Price List</a>
       </div>
     </div>
 
