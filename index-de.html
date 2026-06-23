@@ -273,29 +273,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-    /* Fullscreen mobile menu */
-    .mob-menu {
+    /* Mobile backdrop + slide-in panel */
+    .mob-backdrop {
       display: none;
       position: fixed;
       inset: 0;
       z-index: 199;
-      background: var(--white);
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
+      background: rgba(26,24,21,0.45);
     }
-    .mob-menu.open { display: flex; }
+    .mob-backdrop.open { display: block; }
+    .mob-menu {
+      display: flex;
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: min(300px, 85vw);
+      z-index: 200;
+      background: #f5f0eb;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 0;
+      padding: 80px 32px 48px;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+      overflow-y: auto;
+      box-shadow: -4px 0 32px rgba(26,24,21,0.12);
+    }
+    .mob-menu.open { transform: translateX(0); }
     .mob-menu a {
       font-family: var(--font-heading);
-      font-size: clamp(2rem, 6vw, 3rem);
+      font-size: 1.4rem;
       font-weight: 300;
       color: var(--charcoal);
       letter-spacing: 0.03em;
       transition: color 0.2s;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(26,24,21,0.08);
+      width: 100%;
     }
     .mob-menu a:hover { color: var(--gold); }
-    .mob-menu .btn { margin-top: 8px; font-size: 16px; padding: 14px 36px; }
+    .mob-menu .btn { margin-top: 24px; width: 100%; font-size: 15px; padding: 14px 24px; }
 
     /* ─────────────────────────────────────────────────────
        HERO
@@ -748,7 +765,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     @media (max-width: 768px) {
-      .hamburger { display: none !important; }
+      .hamburger { display: flex !important; margin-left: auto; }
+      .nav-logo { flex: 0 0 auto; justify-content: flex-start; }
+      #nav { justify-content: flex-start; gap: 8px; }
     }
 
     @media (max-width: 480px) {
@@ -2073,13 +2092,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- Mobile menu -->
+<div class="mob-backdrop" id="mobBackdrop"></div>
 <div class="mob-menu" id="mobMenu">
-  <a href="#about"    class="mob-link">About</a>
-  <a href="#services" class="mob-link">Services</a>
-  <a href="#gallery" class="mob-link">Galerie</a>
+  <a href="#weddings" class="mob-link">Hochzeiten</a>
+  <a href="#about"    class="mob-link">Über uns</a>
+  <a href="#services" class="mob-link">Leistungen</a>
+  <a href="#gallery"  class="mob-link">Galerie</a>
   <a href="#contact"  class="mob-link">Kontakt</a>
   <button class="btn btn-gold mob-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Termin buchen</button>
-  <div style="display: flex; align-items: center; gap: 8px; margin-top: 16px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
+  <div style="display: flex; align-items: center; gap: 8px; margin-top: 24px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
     <a href="index.html" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="sessionStorage.setItem('lang','en')">🇬🇧 EN</a>
   </div>
 </div>
@@ -2428,19 +2449,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }, { passive: true });
 
   /* — Mobile menu ────────────────────────────────── */
-  const hamburger = document.getElementById('hamburger');
-  const mobMenu   = document.getElementById('mobMenu');
+  const hamburger   = document.getElementById('hamburger');
+  const mobMenu     = document.getElementById('mobMenu');
+  const mobBackdrop = document.getElementById('mobBackdrop');
 
+  function closeMobMenu() {
+    mobMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    mobBackdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
   hamburger.addEventListener('click', () => {
     const open = mobMenu.classList.toggle('open');
     hamburger.classList.toggle('open', open);
+    mobBackdrop.classList.toggle('open', open);
     document.body.style.overflow = open ? 'hidden' : '';
   });
-  document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
-    mobMenu.classList.remove('open');
-    hamburger.classList.remove('open');
-    document.body.style.overflow = '';
-  }));
+  document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', closeMobMenu));
+  mobBackdrop.addEventListener('click', closeMobMenu);
 
   /* — Reveal on scroll ───────────────────────────── */
   const obs = new IntersectionObserver(entries => {
