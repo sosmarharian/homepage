@@ -193,7 +193,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: none; position: absolute; top: calc(100% + 8px); left: 50%;
       transform: translateX(-50%); background: #f5f0eb; border-radius: 8px;
       box-shadow: 0 4px 20px rgba(26,24,21,0.15); overflow: hidden;
-      min-width: 80px; z-index: 201;
+      min-width: 80px; z-index: 1100;
     }
     .lang-dropdown.open { display: block; }
     .lang-option {
@@ -686,7 +686,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       section { padding: 48px 20px; }
 
       /* NAV */
-      #nav { padding: 0 16px; height: 52px; border-radius: 30px; width: calc(100% - 32px); top: 10px; overflow: hidden; }
+      #nav { padding: 0 16px; height: 52px; border-radius: 30px; width: calc(100% - 32px); top: 10px; overflow: visible; }
       .nav-links { display: none; }
       .nav-logo { flex: 1; justify-content: center; }
       .hamburger { display: flex; }
@@ -781,19 +781,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     @media (max-width: 768px) {
-      .hamburger { display: flex !important; margin-left: auto; }
-      .nav-logo { flex: 0 0 auto; justify-content: flex-start; margin-left: 6px; }
       .nav-logo img { height: 32px; width: auto; }
-      #nav { justify-content: flex-start; gap: 8px; }
-      /* Scrolled: logo centered via flex, burger pinned absolute-right */
-      #nav.scrolled .nav-logo {
+      #nav { overflow: visible; }
+      /* Logo — always centered, both states */
+      .nav-logo {
         position: absolute; left: 50%; top: 50%;
-        transform: translate(-50%, -50%); margin: 0 !important;
+        transform: translate(-50%, -50%); margin: 0;
       }
-      #nav.scrolled .lang-switcher { display: none; }
-      #nav.scrolled .hamburger {
-        position: absolute; right: 16px; top: 50%;
-        transform: translateY(-50%); margin-left: 0;
+      /* Lang — pinned left, visible even when scrolled */
+      .lang-switcher {
+        position: absolute; left: 16px; top: 50%;
+        transform: translateY(-50%); margin: 0;
+        display: flex !important; opacity: 1 !important; pointer-events: auto !important;
+      }
+      /* Burger — pinned right, always */
+      .hamburger {
+        display: flex !important; position: absolute; right: 16px; top: 50%;
+        transform: translateY(-50%); margin: 0;
       }
     }
 
