@@ -2654,8 +2654,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   /* Services videos (data-autoplay) */
   document.querySelectorAll('video[data-autoplay]').forEach(function (v) { io.observe(v); });
 
-  /* Gallery videos — lazy-load + click/hover interaction */
-  var isMobile = window.matchMedia('(max-width: 768px)').matches;
+  /* Gallery videos — lazy-load + click-to-play with sound */
   var galleryVids = Array.prototype.slice.call(document.querySelectorAll('#gallery video'));
 
   galleryVids.forEach(function (v) {
@@ -2674,12 +2673,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         v.pause();
       }
     });
-
-    /* desktop: hover to play/pause */
-    if (!isMobile) {
-      v.addEventListener('mouseenter', function () { playWhenReady(v); });
-      v.addEventListener('mouseleave', function () { v.pause(); });
-    }
 
     v.addEventListener('play',  function () { if (cell) cell.classList.add('playing'); });
     v.addEventListener('pause', function () { if (cell) cell.classList.remove('playing'); });
