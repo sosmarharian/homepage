@@ -2,9 +2,8 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/",
-      "has": [{ "type": "header", "key": "accept-language", "value": ".*de.*" }],
-      "destination": "/index-de.html",
+      "source": "/index-de.html",
+      "destination": "/",
       "permanent": false
     }
   ],
