@@ -323,22 +323,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .mob-menu a:hover { color: var(--gold); }
     .mob-menu .btn { margin-top: 24px; width: 100%; font-size: 15px; padding: 14px 24px; }
 
-    /* Side CTA */
-    .side-cta {
-      position: fixed; left: 0; top: 50%;
-      writing-mode: vertical-rl;
-      transform-origin: center;
-      transform: translateY(-50%) rotate(180deg);
-      background: #ffffff; color: #1a1815;
-      font-family: var(--font-body); font-size: 11px; font-weight: 600;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      padding: 14px 10px; text-decoration: none;
-      border-radius: 0;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-      z-index: 1200; cursor: pointer; transition: background 0.3s ease;
-    }
-    .side-cta:hover { background: #f0f0f0; }
-
     /* Sticky mobile CTA */
     .sticky-cta { display: none; }
     @media (max-width: 768px) {
@@ -2615,7 +2599,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 </script>
 
-<a href="#wedding-request" class="side-cta" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'});return false;">Preisliste anfordern</a>
 
 <script>
 (function () {
