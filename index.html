@@ -8,10 +8,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-K9L4JN9K');</script>
 <!-- End Google Tag Manager -->
-<!-- Language redirect -->
+<!-- Language redirect: fires once per session, only on EN page -->
 <script>
   (function() {
-    if (sessionStorage.getItem('lang') !== 'en') {
+    if (!sessionStorage.getItem('lang_redirected') &&
+        navigator.language && navigator.language.toLowerCase().startsWith('de')) {
+      sessionStorage.setItem('lang_redirected', '1');
       window.location.replace('/index-de.html');
     }
   })();
