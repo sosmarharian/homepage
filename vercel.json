@@ -1,5 +1,13 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "header", "key": "accept-language", "value": ".*de.*" }],
+      "destination": "/index-de.html",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/(.*\\.(?:jpg|JPG|jpeg|png|webp))",
