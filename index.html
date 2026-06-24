@@ -2644,11 +2644,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     io.observe(v);
     var cell = v.closest ? v.closest('.gallery-cell') : v.parentElement;
 
-    /* click: play / pause toggle; pause other cells */
+    /* click: play with sound / pause toggle; mute and pause other cells */
     cell.addEventListener('click', function () {
       if (!v.dataset.loaded) load(v);
       if (v.paused) {
-        galleryVids.forEach(function (o) { if (o !== v && !o.paused) o.pause(); });
+        galleryVids.forEach(function (o) { if (o !== v && !o.paused) { o.pause(); o.muted = true; } });
+        v.muted = false;
+        v.volume = 0.8;
         playWhenReady(v);
       } else {
         v.pause();
