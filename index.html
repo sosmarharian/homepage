@@ -349,6 +349,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .side-cta:hover { background: #f0f0f0; }
 
+    /* Sticky mobile CTA */
+    .sticky-cta { display: none; }
+    @media (max-width: 768px) {
+      .sticky-cta {
+        position: fixed; left: 0; right: 0; bottom: 0; z-index: 150;
+        display: block; text-align: center; text-decoration: none;
+        padding: 17px 16px calc(17px + env(safe-area-inset-bottom));
+        background: #ffffff; color: #1a1815;
+        font-family: var(--font-body); font-size: 15px; font-weight: 600;
+        letter-spacing: 0.15em; text-transform: uppercase;
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.18);
+        transition: transform .3s ease;
+      }
+      .sticky-cta.is-hidden { transform: translateY(110%); }
+      body { padding-bottom: 64px; }
+    }
+
     /* ─────────────────────────────────────────────────────
        HERO
     ───────────────────────────────────────────────────── */
@@ -2640,6 +2657,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     io.observe(v);
     v.addEventListener('click', function () { load(v); if (v.paused) { var pr = v.play(); if (pr && pr.catch) pr.catch(function(){}); } });
   });
+})();
+</script>
+
+<a href="#wedding-request" class="sticky-cta" data-sticky-cta>Request Price List</a>
+
+<script>
+(function(){
+  var cta = document.querySelector('[data-sticky-cta]');
+  if(!cta) return;
+  var quiz = document.getElementById('wedding-request');
+  cta.addEventListener('click', function(e){
+    if(quiz){ e.preventDefault(); quiz.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+  if(quiz && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(en){
+      cta.classList.toggle('is-hidden', en[0].isIntersecting);
+    }, {threshold:0.12}).observe(quiz);
+  }
 })();
 </script>
 
