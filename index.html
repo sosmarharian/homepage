@@ -339,10 +339,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding: 14px 10px; text-decoration: none;
       border-radius: 0;
       box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-      z-index: 1200; cursor: pointer; transition: background 0.3s ease;
+      z-index: 1200; cursor: pointer;
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
     }
-    .side-cta:hover { background: #f0f0f0; }
+    .side-cta:hover {
+      background: #f0f0f0;
+      transform: translateX(5px) translateY(-50%) rotate(180deg);
+      box-shadow: 0 4px 22px rgba(201,169,110,0.45), 0 2px 10px rgba(0,0,0,0.1);
+    }
     @media (max-width: 768px) { .side-cta { display: none !important; } }
+    @keyframes side-cta-breathe {
+      0%, 100% {
+        transform: translateX(0px) translateY(-50%) rotate(180deg);
+        box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      }
+      50% {
+        transform: translateX(3px) translateY(-50%) rotate(180deg);
+        box-shadow: 0 2px 18px rgba(201,169,110,0.28), 0 2px 8px rgba(0,0,0,0.1);
+      }
+    }
+    @media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
+      .side-cta { animation: side-cta-breathe 3s ease-in-out infinite; }
+      .side-cta:hover { animation: none; }
+    }
 
     /* Sticky mobile CTA */
     .sticky-cta { display: none; }
