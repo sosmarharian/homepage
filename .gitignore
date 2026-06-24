@@ -91,3 +91,7 @@
 !IMG_0326.JPG
 !IMG_6176.jpg
 !us.jpg
+
+# Poster frames for lazy-loaded gallery/services videos
+!posters/
+!posters/*.jpg
