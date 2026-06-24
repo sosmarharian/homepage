@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/index-de.html",
+      "source": "/index-de",
       "destination": "/",
       "permanent": false
     }
