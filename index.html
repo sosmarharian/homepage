@@ -2701,12 +2701,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var sideCta = document.querySelector('.side-cta');
   var target  = document.getElementById('wedding-request');
   if(!sideCta || !target) return;
+  var hidden = false;
   function update(){
+    if(hidden) return;
     var rect = target.getBoundingClientRect();
     if(rect.top <= window.innerHeight){
       sideCta.classList.add('side-cta--hidden');
-    } else {
-      sideCta.classList.remove('side-cta--hidden');
+      hidden = true;
+      window.removeEventListener('scroll', update);
     }
   }
   window.addEventListener('scroll', update, {passive:true});
