@@ -2689,9 +2689,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if(quiz){ e.preventDefault(); quiz.scrollIntoView({behavior:'smooth', block:'start'}); }
   });
   if(quiz && 'IntersectionObserver' in window){
-    new IntersectionObserver(function(en){
-      cta.classList.toggle('is-hidden', en[0].isIntersecting);
-    }, {threshold:0.12}).observe(quiz);
+    var io = new IntersectionObserver(function(en){
+      if(en[0].isIntersecting){
+        cta.classList.add('is-hidden');
+        io.disconnect();
+      }
+    }, {threshold:0.12});
+    io.observe(quiz);
   }
 })();
 </script>
