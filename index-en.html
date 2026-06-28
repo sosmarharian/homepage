@@ -828,10 +828,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       /* CONTACT */
       #contact { padding: 48px 20px; }
       .contact-grid { grid-template-columns: 1fr; gap: 32px; grid-template-areas: none; }
-      .contact-grid > .reveal:not(.reveal-delay-1) { order: 1; }
-      .contact-grid > .reveal-delay-1 { order: 2; }
-      .contact-grid > .contact-list { order: 3; }
-      .contact-grid > .social-row { order: 4; }
+      .contact-grid > .contact-info { grid-area: auto; order: 1; }
+      .contact-grid > .contact-form-wrap { grid-area: auto; order: 2; }
+      .contact-grid > .contact-list { grid-area: auto; order: 3; }
+      .contact-grid > .social-row { grid-area: auto; order: 4; }
       .form-row { grid-template-columns: 1fr; }
       .contact-list { gap: 12px; }
       .contact-form input, .contact-form textarea, .contact-form select, .contact-form button { width: 100%; }
