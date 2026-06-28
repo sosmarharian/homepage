@@ -340,8 +340,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border-radius: 0;
       box-shadow: 0 2px 12px rgba(0,0,0,0.15);
       z-index: 1200; cursor: pointer;
-      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease, opacity 0.3s ease, visibility 0.3s ease;
     }
+    .side-cta--hidden { opacity: 0; visibility: hidden; pointer-events: none; }
     .side-cta:hover {
       background: #f0f0f0;
       transform: translateX(5px) translateY(-50%) rotate(180deg);
@@ -2692,6 +2693,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       cta.classList.toggle('is-hidden', en[0].isIntersecting);
     }, {threshold:0.12}).observe(quiz);
   }
+})();
+</script>
+
+<script>
+(function(){
+  var sideCta = document.querySelector('.side-cta');
+  var target  = document.getElementById('wedding-request');
+  if(!sideCta || !target) return;
+  function update(){
+    var rect = target.getBoundingClientRect();
+    if(rect.top <= window.innerHeight){
+      sideCta.classList.add('side-cta--hidden');
+    } else {
+      sideCta.classList.remove('side-cta--hidden');
+    }
+  }
+  window.addEventListener('scroll', update, {passive:true});
+  window.addEventListener('resize', update);
+  update();
 })();
 </script>
 
