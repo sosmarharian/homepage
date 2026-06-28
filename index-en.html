@@ -612,9 +612,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1.1fr;
-      gap: 80px;
+      grid-template-areas:
+        "info   form"
+        "list   form"
+        "social form";
+      column-gap: 80px;
+      row-gap: 0;
       align-items: start;
     }
+    .contact-info      { grid-area: info; }
+    .contact-form-wrap { grid-area: form; }
+    .contact-grid .contact-list { grid-area: list; }
+    .contact-grid .social-row   { grid-area: social; }
     .contact-heading { margin-bottom: 20px; }
     .contact-desc {
       font-size: 17px;
@@ -818,7 +827,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       /* CONTACT */
       #contact { padding: 48px 20px; }
-      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .contact-grid { display: flex; flex-direction: column; gap: 32px; }
+      .contact-grid .contact-list { margin-bottom: 0; }
       .form-row { grid-template-columns: 1fr; }
       .contact-list { gap: 12px; }
       .contact-form input, .contact-form textarea, .contact-form select, .contact-form button { width: 100%; }
@@ -2368,45 +2378,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="contact">
   <div class="contact-grid">
 
-    <div class="reveal">
+    <div class="reveal contact-info">
       <span class="eyebrow">Get in touch</span>
       <h2 class="section-heading contact-heading">Let's create something<br>together</h2>
       <p class="contact-desc">Have a project in mind? Write to us — we'll reply within 24 hours.</p>
-
-      <div class="contact-list">
-        <div class="contact-row">
-          <span class="contact-icon-wrap">📍</span>
-          <span>Hamburg, Germany</span>
-        </div>
-        <div class="contact-row">
-          <span class="contact-icon-wrap">✉</span>
-          <a href="mailto:marharianstudio@gmail.com" style="transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''">marharianstudio@gmail.com</a>
-        </div>
-        <div class="contact-row">
-          <span class="contact-icon-wrap">📸</span>
-          <a href="https://instagram.com/marharian.production" target="_blank" rel="noopener" style="transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''">@marharian.production</a>
-        </div>
-      </div>
-
-      <div class="social-row">
-        <a href="https://instagram.com/marharian.production" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:14px; padding:10px 20px;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="20" rx="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-          </svg>
-          Instagram
-        </a>
-        <a href="https://wa.me/491602741274" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:14px; padding:10px 20px;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-          </svg>
-          WhatsApp
-        </a>
-      </div>
     </div>
 
-    <div class="reveal reveal-delay-1">
+    <div class="reveal reveal-delay-1 contact-form-wrap">
       <form class="contact-form" id="cForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
         <input type="hidden" name="access_key" value="f7f95cd3-8f10-484e-a42e-3975a14980bc">
         <input type="hidden" name="subject" value="Neue Anfrage von marharian.com">
@@ -2433,6 +2411,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <button type="submit" class="btn-submit" id="cSubmit">Send request →</button>
       </form>
+    </div>
+
+    <div class="contact-list">
+      <div class="contact-row">
+        <span class="contact-icon-wrap">📍</span>
+        <span>Hamburg, Germany</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-icon-wrap">✉</span>
+        <a href="mailto:marharianstudio@gmail.com" style="transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''">marharianstudio@gmail.com</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-icon-wrap">📸</span>
+        <a href="https://instagram.com/marharian.production" target="_blank" rel="noopener" style="transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''">@marharian.production</a>
+      </div>
+    </div>
+
+    <div class="social-row">
+      <a href="https://instagram.com/marharian.production" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:14px; padding:10px 20px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        Instagram
+      </a>
+      <a href="https://wa.me/491602741274" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:14px; padding:10px 20px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+        WhatsApp
+      </a>
     </div>
 
   </div>
