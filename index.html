@@ -2094,10 +2094,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         method: 'POST',
         body: data,
         headers: { 'Accept': 'application/json' }
-      }).then(function() {
-        window.location.href = '/danke';
+      }).then(function(res) {
+        if (res.ok) {
+          window.location.href = '/danke';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Anfrage absenden';
+        }
       }).catch(function() {
-        window.location.href = '/danke';
+        btn.disabled = false;
+        btn.textContent = 'Anfrage absenden';
       });
     }
 
