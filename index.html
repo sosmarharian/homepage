@@ -2738,10 +2738,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 (function(){
   var v = document.getElementById('whVideo');
   if(!v) return;
-  var mobile = window.matchMedia('(max-width: 768px)').matches;
-  v.src = mobile
-    ? 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_1880_mobile.mp4'
-    : 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_1880_comp.mp4';
+  v.src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_1880_mobile.mp4';
   v.play().catch(function(){});
 })();
 </script>
