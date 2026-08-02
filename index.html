@@ -23,8 +23,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/de.js"></script>
-  <link rel="preload" as="image" href="horyzont.jpg" media="(min-width: 769px)">
-  <link rel="preload" as="image" href="wedding-hero.jpg" media="(max-width: 768px)">
 
   <style>
     /* ─── Reset ───────────────────────────────────────── */
@@ -1697,6 +1695,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .flatpickr-day.disabled, .flatpickr-day.disabled:hover { color: rgba(0,0,0,0.2); }
     .quiz-date-input[readonly] { cursor: pointer; }
     .quiz-date-input.quiz-date-disabled { opacity: 0.42; pointer-events: none; }
+    /* Simplified single-column contact block (wedding site — no form) */
+    #contact .contact-grid {
+      grid-template-columns: 1fr;
+      grid-template-areas: "info" "list" "social";
+      max-width: 640px;
+      margin: 0 auto;
+      row-gap: 28px;
+    }
   </style>
 <!-- Facebook Pixel Code -->
 <script>
@@ -1715,12 +1721,52 @@ src="https://www.facebook.com/tr?id=935651865930025&ev=PageView&noscript=1"/>
 <!-- End Facebook Pixel Code -->
 </head>
 <body>
+
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9L4JN9K"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-  <!-- ===== WEDDINGS SECTION ===== -->
+  <nav id="nav">
+  <a href="#" class="nav-logo">
+    <img src="marharian.png" alt="Marharian Production">
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#about">Über uns</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#reviews">Bewertungen</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+
+  <div class="lang-switcher" id="langSwitcher">
+    <button class="lang-btn" id="langBtn" aria-label="Select language">DE</button>
+    <div class="lang-dropdown" id="langDropdown">
+      <a href="/index-en.html" class="lang-option" onclick="sessionStorage.setItem('lang','en')">EN</a>
+    </div>
+  </div>
+
+  <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mob-backdrop" id="mobBackdrop"></div>
+<div class="mob-menu" id="mobMenu">
+  <a href="#about"    class="mob-link">Über uns</a>
+  <a href="#portfolio" class="mob-link">Portfolio</a>
+  <a href="#faq"      class="mob-link">FAQ</a>
+  <a href="#reviews"  class="mob-link">Bewertungen</a>
+  <a href="#contact"  class="mob-link">Kontakt</a>
+  <button class="btn btn-gold mob-link" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'})">Preisanfrage</button>
+  <div style="display: flex; align-items: center; gap: 8px; margin-top: 24px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
+    <a href="/index-en.html" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="sessionStorage.setItem('lang','en')">🇬🇧 EN</a>
+  </div>
+</div>
+
+<!-- ===== WEDDINGS SECTION ===== -->
   <section id="weddings">
 
     <!-- Hero -->
@@ -1773,7 +1819,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <!-- Portfolio -->
-    <div class="wedding-portfolio">
+    <div class="wedding-portfolio" id="portfolio">
       <div class="wedding-portfolio-header">
         <span class="eyebrow">Portfolio</span>
         <h2>Geliebte Momente</h2>
@@ -1866,7 +1912,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <!-- FAQ -->
-    <div style="background: #f5f0eb; padding: 80px 40px;">
+    <div style="background: #f5f0eb; padding: 80px 40px;" id="faq">
       <div class="wedding-faq" style="padding: 0;">
         <div class="wedding-faq-header">
           <span class="eyebrow">FAQ</span>
@@ -1902,6 +1948,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
+
+    <!-- Reviews (duplicated from studio) -->
+<section id="reviews">
+  <div class="section-header reveal">
+    <h2 class="section-heading" style="text-transform:uppercase; letter-spacing:2px;">Was unsere Kunden sagen</h2>
+    <p style="font-family:var(--font-body); font-weight:400; text-align:center; margin-top:12px; color:var(--gray);">Echte Bewertungen von Google</p>
+  </div>
+  <div class="reveal" style="max-width:1200px; margin:0 auto; padding:0 20px;">
+    <div class="embedsocial-hashtag" data-ref="50549627e37421988e51150bc7aece73fe67bf11"> <a class="feed-powered-by-es feed-powered-by-es-feed-img es-widget-branding" href="https://embedsocial.com/google-reviews-widget/" target="_blank" title="Embed Google reviews" > <img src="https://embedsocial.com/cdn/icon/embedsocial-logo.webp" alt="EmbedSocial"> <div class="es-widget-branding-text">Embed Google reviews</div> </a> </div> <script> (function(d, s, id) { var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/cdn/ht.js"; d.getElementsByTagName("head")[0].appendChild(js); }(document, "script", "EmbedSocialHashtagScript")); </script>
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────
+     CONTACT
+─────────────────────────────────────────────── -->
 
     <!-- Request form -->
     <div class="wedding-request" id="wedding-request">
@@ -2145,254 +2206,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.getElementById('quiz-consent').addEventListener('change', quizValidateStep);
       quizUpdateUI();
     });
-  </script>
-
-
-<!-- ───────────────────────────────────────────────
-     VIDEO HERO
-─────────────────────────────────────────────── -->
-<div id="video-hero">
-  <video data-hero muted loop playsinline preload="none" poster="horyzont.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/hero_video_final.mp4" type="video/mp4"></video>
-  <div class="video-overlay"></div>
-  <!-- ───────────────────────────────────────────────
-       NAVIGATION
-  ─────────────────────────────────────────────── -->
-  <nav id="nav">
-    <a href="#" class="nav-logo">
-      <img src="marharian.png" alt="Marharian Production">
-    </a>
-
-    <ul class="nav-links">
-      <li><a href="#weddings" class="nav-wedding">Hochzeiten</a></li>
-      <li><a href="#about">Über uns</a></li>
-      <li><a href="#services">Leistungen</a></li>
-      <li><a href="#gallery">Galerie</a></li>
-      <li><a href="#reviews">Bewertungen</a></li>
-      <li><a href="#contact">Kontakt</a></li>
-    </ul>
-
-    <div class="lang-switcher" id="langSwitcher">
-      <button class="lang-btn" id="langBtn" aria-label="Select language">DE</button>
-      <div class="lang-dropdown" id="langDropdown">
-        <a href="/index-en.html" class="lang-option" onclick="sessionStorage.setItem('lang','en')">EN</a>
-      </div>
-    </div>
-
-    <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-</div>
-<div class="eyebrow-gap" style="background:#f5f0eb; display:flex; align-items:center; justify-content:center; padding: 12px 24px; text-align: center;">
-  <span style="font-size: clamp(1.2rem, 2vw, 2rem); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; text-align: center; white-space: normal; word-break: break-word;">Foto- &amp; Videoproduktion in Hamburg</span>
-</div>
-
-<!-- Mobile menu -->
-<div class="mob-backdrop" id="mobBackdrop"></div>
-<div class="mob-menu" id="mobMenu">
-  <a href="#weddings" class="mob-link">Hochzeiten</a>
-  <a href="#about"    class="mob-link">Über uns</a>
-  <a href="#services" class="mob-link">Leistungen</a>
-  <a href="#gallery"  class="mob-link">Galerie</a>
-  <a href="#reviews"  class="mob-link">Bewertungen</a>
-  <a href="#contact"  class="mob-link">Kontakt</a>
-  <button class="btn btn-gold mob-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Termin buchen</button>
-  <div style="display: flex; align-items: center; gap: 8px; margin-top: 24px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
-    <a href="/index-en.html" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="sessionStorage.setItem('lang','en')">🇬🇧 EN</a>
-  </div>
-</div>
-
-<!-- ───────────────────────────────────────────────
-     HERO
-─────────────────────────────────────────────── -->
-<section id="hero">
-  <div class="hero-left">
-    <h1 class="hero-h1">Elegante<br><em>visuelle Geschichten.</em></h1>
-    <div class="hero-btns">
-      <button class="btn btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Termin buchen</button>
-      <a href="https://www.instagram.com/marharian.production/" target="_blank" style="display:inline-flex; align-items:center; padding:16px 32px; border:2px solid var(--gold); color:var(--gold); font-size:14px; font-weight:600; letter-spacing:0.1em; text-decoration:none; border-radius:6px; font-family:inherit;">Instagram</a>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <div id="hero-slideshow">
-      <img src="IMG_6477.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:1; transition:opacity 0.6s ease;">
-      <img src="IMG_6539.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:0; transition:opacity 0.6s ease;">
-      <img src="IMG_8801.jpg" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:0; transition:opacity 0.6s ease;">
-      <img src="R6M20042.jpg" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:0; transition:opacity 0.6s ease;">
-    </div>
-    <div class="scroll-hint">Scroll</div>
-  </div>
-</section>
-
-<!-- ───────────────────────────────────────────────
-     SERVICES
-─────────────────────────────────────────────── -->
-<section id="services">
-  <div class="section-header reveal">
-    <span class="eyebrow">Was wir tun</span>
-    <h2 class="section-heading">Unsere Leistungen</h2>
-    <p class="section-sub">Von intimen Porträts bis zu großen Produktionen — wir bringen die gleiche Hingabe in jedes Projekt.</p>
-  </div>
-
-  <div class="services-grid">
-
-    <div class="svc-card reveal">
-      <div id="individual-slideshow" style="position:absolute; inset:0;">
-        <img src="IMG_2880.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
-        <img src="IMG_5171.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="IMG_5517.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="IMG_2587.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="IMG_3096.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-      </div>
-      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
-      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
-        <svg class="svc-icon" viewBox="0 0 38 38">
-          <circle cx="19" cy="12" r="5"/>
-          <path d="M7 34c0-6.627 5.373-12 12-12s12 5.373 12 12"/>
-          <circle cx="29" cy="10" r="3.5"/>
-          <path d="M33 27c0-4.4-3-7.8-7-9"/>
-        </svg>
-        <div class="svc-title">Individuell</div>
-        <p class="svc-desc">Studio- und Outdoor-Sessions, Porträts und persönliche Geschichten, individuell auf euch zugeschnitten. Cinematische Kurzfilme, Reels und persönliche Videoprojekte mit klarer visueller Handschrift.</p>
-      </div>
-    </div>
-
-    <div class="svc-card reveal reveal-delay-1">
-      <div id="fashion-slideshow" style="position:absolute; inset:0;">
-        <img src="IMG_3265.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
-        <img src="IMG_5173.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="IMG_6583.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="IMG_0560.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="IMG_5034.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="IMG_3253.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="IMG_5618.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="IMG_5029.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-      </div>
-      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
-      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
-        <svg class="svc-icon" viewBox="0 0 38 38">
-          <rect x="5" y="12" width="28" height="20" rx="2"/>
-          <path d="M13 12V9a6 6 0 0 1 12 0v3"/>
-          <circle cx="19" cy="22" r="3"/>
-          <path d="M19 25v3"/>
-          <path d="M26 8l3-3M12 8L9 5"/>
-        </svg>
-        <div class="svc-title">Fashion</div>
-        <p class="svc-desc">Editorial-, Lookbook- und Kampagnen-Shootings. Firmenevents, Partys und Auftritte — vollständige visuelle Begleitung vom ersten bis zum letzten Moment.</p>
-      </div>
-    </div>
-
-    <div class="svc-card reveal reveal-delay-2">
-      <div id="wedding-slideshow" style="position:absolute; inset:0;">
-        <img src="IMG_9115.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
-        <img src="IMG_9044.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="IMG_5904.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="IMG_9089.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="IMG_3251.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="IMG_7252.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-      </div>
-      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
-      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
-        <svg class="svc-icon" viewBox="0 0 38 38">
-          <path d="M19 33S5 24 5 14a14 14 0 0 1 14-6.5A14 14 0 0 1 33 14c0 10-14 19-14 19z"/>
-        </svg>
-        <div class="svc-title">Hochzeiten</div>
-        <p class="svc-desc">Emotionale und elegante Geschichten eures wichtigsten Tages, festgehalten mit unserer cinematischen Handschrift.</p>
-      </div>
-    </div>
-
-    <div class="svc-card reveal">
-      <div id="restaurants-slideshow" style="position:absolute; inset:0;">
-        <img src="IMG_3090.JPG" alt="Restaurants &amp; Food" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
-        <img src="IMG_3091.jpg" alt="Restaurants &amp; Food" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-      </div>
-      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
-      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
-        <svg class="svc-icon" viewBox="0 0 38 38">
-          <circle cx="19" cy="20" r="10"/>
-          <path d="M9 20H4M29 20h5M19 10V5M19 30v5"/>
-          <path d="M12 13l-4-4M26 13l4-4M12 27l-4 4M26 27l4 4"/>
-          <circle cx="19" cy="20" r="4"/>
-        </svg>
-        <div class="svc-title">Restaurants &amp; Food</div>
-        <p class="svc-desc">Speisen, Atmosphäre und Interieurs. Wir erschaffen visuelle Inhalte, die euer Restaurant unvergesslich machen.</p>
-      </div>
-    </div>
-
-    <div class="svc-card reveal reveal-delay-1">
-      <video data-autoplay muted loop playsinline preload="none" poster="posters/IMG_2982.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
-        <source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2982.MP4" type="video/mp4">
-      </video>
-      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
-      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
-        <svg class="svc-icon" viewBox="0 0 38 38">
-          <rect x="4" y="13" width="30" height="20" rx="2"/>
-          <path d="M13 13V9a6 6 0 0 1 12 0v4"/>
-          <path d="M4 21h30"/>
-          <rect x="14" y="18" width="10" height="6" rx="1"/>
-        </svg>
-        <div class="svc-title">Commercial &amp; Brand</div>
-        <p class="svc-desc">Foto- und Videoinhalte für Marken, Werbekampagnen und Social Media. Visuelle Identität, die verkauft.</p>
-      </div>
-    </div>
-
-    <div class="svc-card reveal reveal-delay-2">
-      <video data-autoplay muted loop playsinline preload="none" poster="posters/IMG_3784.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
-        <source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3784.MP4" type="video/mp4">
-      </video>
-      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
-      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
-        <svg class="svc-icon" viewBox="0 0 38 38">
-          <polygon points="19,3 23,14 35,14 25.5,21.5 29,33 19,26 9,33 12.5,21.5 3,14 15,14"/>
-        </svg>
-        <div class="svc-title">Beauty-Industrie</div>
-        <p class="svc-desc">Portfolio-Shootings für Stylisten, Make-up-Artists und Beauty-Marken. Zeigt euer Handwerk mit Bildern, die neue Kunden anziehen.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ───────────────────────────────────────────────
-     GALLERY
-─────────────────────────────────────────────── -->
-<section id="gallery">
-  <div class="section-header reveal">
-    <h2 class="section-heading" style="text-transform:uppercase; letter-spacing:2px;">Unsere Arbeiten</h2>
-    <p style="font-family:var(--font-body); font-weight:400; text-align:center; margin-top:12px; color:var(--gray);">Ausgewählte Projekte aus unserem Portfolio</p>
-  </div>
-
-  <div class="gallery-grid">
-    <div class="gallery-cell reveal"><video muted loop playsinline preload="none" poster="posters/IMG_3381_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3381_comp.mp4" type="video/mp4"></video><span class="gallery-number">01</span></div>
-    <div class="gallery-cell reveal"><video muted loop playsinline preload="none" poster="posters/IMG_9403_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_9403_comp.mp4" type="video/mp4"></video><span class="gallery-number">02</span></div>
-    <div class="gallery-cell reveal"><video muted loop playsinline preload="none" poster="posters/IMG_3261_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3261_comp.mp4" type="video/mp4"></video><span class="gallery-number">03</span></div>
-    <div class="gallery-cell reveal reveal-delay-1"><video muted loop playsinline preload="none" poster="posters/IMG_4745_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_4745_comp.mp4" type="video/mp4"></video><span class="gallery-number">04</span></div>
-    <div class="gallery-cell reveal reveal-delay-1"><video muted loop playsinline preload="none" poster="posters/IMG_2857_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2857_comp.mp4" type="video/mp4"></video><span class="gallery-number">05</span></div>
-    <div class="gallery-cell reveal reveal-delay-1"><video muted loop playsinline preload="none" poster="posters/IMG_3254_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3254_comp.mp4" type="video/mp4"></video><span class="gallery-number">06</span></div>
-    <div class="gallery-cell reveal reveal-delay-2"><video muted loop playsinline preload="none" poster="posters/IMG_7399_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_7399_comp.mp4" type="video/mp4"></video><span class="gallery-number">07</span></div>
-    <div class="gallery-cell reveal reveal-delay-2"><video muted loop playsinline preload="none" poster="posters/IMG_3380_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3380_comp.mp4" type="video/mp4"></video><span class="gallery-number">08</span></div>
-    <div class="gallery-cell reveal reveal-delay-2"><video muted loop playsinline preload="none" poster="posters/IMG_2855_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2855_comp.mp4" type="video/mp4"></video><span class="gallery-number">09</span></div>
-  </div>
-</section>
-
-<!-- ───────────────────────────────────────────────
-     REVIEWS (Google, via EmbedSocial)
-─────────────────────────────────────────────── -->
-<section id="reviews">
-  <div class="section-header reveal">
-    <h2 class="section-heading" style="text-transform:uppercase; letter-spacing:2px;">Was unsere Kunden sagen</h2>
-    <p style="font-family:var(--font-body); font-weight:400; text-align:center; margin-top:12px; color:var(--gray);">Echte Bewertungen von Google</p>
-  </div>
-  <div class="reveal" style="max-width:1200px; margin:0 auto; padding:0 20px;">
-    <div class="embedsocial-hashtag" data-ref="50549627e37421988e51150bc7aece73fe67bf11"> <a class="feed-powered-by-es feed-powered-by-es-feed-img es-widget-branding" href="https://embedsocial.com/google-reviews-widget/" target="_blank" title="Embed Google reviews" > <img src="https://embedsocial.com/cdn/icon/embedsocial-logo.webp" alt="EmbedSocial"> <div class="es-widget-branding-text">Embed Google reviews</div> </a> </div> <script> (function(d, s, id) { var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/cdn/ht.js"; d.getElementsByTagName("head")[0].appendChild(js); }(document, "script", "EmbedSocialHashtagScript")); </script>
-  </div>
-</section>
-
-<!-- ───────────────────────────────────────────────
-     CONTACT
-─────────────────────────────────────────────── -->
-<section id="contact">
+  </script><section id="contact">
   <div class="contact-grid">
 
     <div class="reveal contact-info">
@@ -2401,36 +2215,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="contact-desc">Habt ihr ein Projekt im Kopf? Schreibt uns — wir antworten innerhalb von 24 Stunden.</p>
     </div>
 
-    <div class="reveal reveal-delay-1 contact-form-wrap">
-      <form class="contact-form" id="cForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
-        <input type="hidden" name="access_key" value="f7f95cd3-8f10-484e-a42e-3975a14980bc">
-        <input type="hidden" name="subject" value="Neue Anfrage von marharian.com (DE)">
-        <input type="hidden" name="redirect" value="https://marharian.com/thanks">
-        <div class="fg">
-          <label>NAME *</label>
-          <input type="text" name="name" placeholder="Euer Name" required />
-        </div>
-        <div class="fg">
-          <label for="fEmail">E-Mail *</label>
-          <input type="email" id="fEmail" name="email" placeholder="you@example.com" required />
-        </div>
-        <div class="fg">
-          <label for="fService">Leistung</label>
-          <select id="fService" name="service">
-            <option value="">Bitte auswählen…</option>
-            <option>Individuelles Shooting</option>
-            <option>Video-Session</option>
-            <option>Event</option>
-            <option>Hochzeit</option>
-            <option>Restaurant &amp; Business</option>
-            <option>Beauty-Industrie</option>
-          </select>
-        </div>
-        <button type="submit" class="btn-submit" id="cSubmit">Anfrage senden →</button>
-      </form>
-    </div>
-
-    <div class="contact-list">
+        <div class="contact-list">
       <div class="contact-row">
         <span class="contact-icon-wrap">📍</span>
         <span>Hamburg, Germany</span>
@@ -2481,12 +2266,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </ul>
   </div>
 </footer>
-
 <!-- ───────────────────────────────────────────────
      JAVASCRIPT
 ─────────────────────────────────────────────── -->
 <script>
-  if (window.location.hash) { var _t = document.querySelector(window.location.hash); if (_t) { setTimeout(function(){ _t.scrollIntoView(); }, 50); } } else { window.scrollTo(0, 0); }
+if (window.location.hash) { var _t = document.querySelector(window.location.hash); if (_t) { setTimeout(function(){ _t.scrollIntoView(); }, 50); } } else { window.scrollTo(0, 0); }
 
   /* — Hero slideshow ─────────────────────────────── */
   const slides = document.querySelectorAll('#hero-slideshow img');
@@ -2582,120 +2366,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-  /* — Contact form ───────────────────────────────── */
-  const form   = document.getElementById('cForm');
-  const submit = document.getElementById('cSubmit');
-
-  form.querySelectorAll('input,textarea,select').forEach(f =>
-    f.addEventListener('input', () => f.classList.remove('err'))
-  );
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    let ok = true;
-    form.querySelectorAll('[required]').forEach(f => {
-      const bad = !f.value.trim() || (f.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value));
-      f.classList.toggle('err', bad);
-      if (bad) ok = false;
-    });
-    if (!ok) return;
-    submit.textContent = 'Wird gesendet…';
-    submit.disabled = true;
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    }).then(res => {
-      res.clone().json().then(d => console.log('Formspree response:', res.status, d));
-      if (res.ok) {
-        window.location.href = '/thanks';
-      } else {
-        res.json().then(data => console.error('Formspree error:', data));
-        submit.textContent = 'Fehler — bitte erneut versuchen';
-        submit.disabled = false;
-      }
-    }).catch(err => {
-      console.error('Fetch error:', err);
-      submit.textContent = 'Fehler — bitte erneut versuchen';
-      submit.disabled = false;
-    });
-  });
-
-</script>
-
-
-<script>
-(function () {
-  /* Resolve data-src on <source> or <video>, then call .load() */
-  function load(v) {
-    if (v.dataset.loaded) return;
-    v.dataset.loaded = '1';
-    var s = v.querySelector('source[data-src]');
-    if (s) { s.src = s.dataset.src; } else if (v.dataset.src) { v.src = v.dataset.src; }
-    v.load();
-  }
-
-  /* Defer .play() until canplay fires to avoid mobile AbortError */
-  function playWhenReady(v) {
-    if (v.readyState >= 3) {
-      v.play().catch(function () {});
-    } else {
-      v.addEventListener('canplay', function cb() {
-        v.removeEventListener('canplay', cb);
-        v.play().catch(function () {});
-      });
-    }
-  }
-
-  /* ─── Hero ─── */
-  var hero = document.querySelector('video[data-hero]');
-  if (hero) {
-    function loadHero() { load(hero); playWhenReady(hero); }
-    if ('requestIdleCallback' in window) requestIdleCallback(loadHero, { timeout: 2000 });
-    else window.addEventListener('load', function () { setTimeout(loadHero, 300); });
-  }
-
-  /* ─── Shared IO for services + gallery ─── */
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      var v = e.target;
-      if (e.isIntersecting) {
-        load(v);
-        if (v.hasAttribute('data-autoplay')) playWhenReady(v);
-      } else {
-        if (!v.paused) v.pause();
-      }
-    });
-  }, { rootMargin: '200px 0px' });
-
-  /* Services videos (data-autoplay) */
-  document.querySelectorAll('video[data-autoplay]').forEach(function (v) { io.observe(v); });
-
-  /* Gallery videos — lazy-load + click-to-play with sound */
-  var galleryVids = Array.prototype.slice.call(document.querySelectorAll('#gallery video'));
-
-  galleryVids.forEach(function (v) {
-    io.observe(v);
-    var cell = v.closest ? v.closest('.gallery-cell') : v.parentElement;
-
-    /* click: play with sound / pause toggle; mute and pause other cells */
-    cell.addEventListener('click', function () {
-      if (!v.dataset.loaded) load(v);
-      if (v.paused) {
-        galleryVids.forEach(function (o) { if (o !== v && !o.paused) { o.pause(); o.muted = true; } });
-        v.muted = false;
-        v.volume = 0.8;
-        playWhenReady(v);
-      } else {
-        v.pause();
-      }
-    });
-
-    v.addEventListener('play',  function () { if (cell) cell.classList.add('playing'); });
-    v.addEventListener('pause', function () { if (cell) cell.classList.remove('playing'); });
-  });
-})();
 </script>
 
 <a href="#wedding-request" class="side-cta" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'});return false;">Preisliste anfordern</a>
