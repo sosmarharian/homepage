@@ -1133,6 +1133,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       overflow: hidden;
       border-radius: 4px;
       background: #e8e2db;
+      cursor: pointer;
     }
     .wv-video {
       position: absolute;
@@ -1141,6 +1142,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       height: 100%;
       object-fit: cover;
       object-position: center center;
+    }
+    .wv-play {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.18);
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      transition: opacity 0.3s ease, background 0.3s ease;
+    }
+    .wv-play::before {
+      content: '';
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    }
+    .wv-play::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 13px 0 13px 21px;
+      border-color: transparent transparent transparent #1a1815;
+      margin-left: 6px;
+    }
+    .wv-play:hover { background: rgba(0,0,0,0.28); }
+    .wedding-video-card.is-playing .wv-play {
+      opacity: 0;
+      pointer-events: none;
     }
 
     /* Portfolio grid */
@@ -1878,12 +1915,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="wedding-video">
       <div class="wedding-video-text">
         <div class="wedding-video-script">Mandy &amp; Sven</div>
-        <p>Two people who have known each other for years and still look at one another as if everything were new. Mandy and Sven got married in Hamburg, on one of those days when nothing needs to be staged.</p>
-        <p>We were there for the whole day, from the first glance in the morning to the last song at night. This film is a short glimpse of it.</p>
+        <p>Mandy and Sven are an incredible couple. Married, together for years, and so at ease in front of the camera that there is barely anything left to do but roll.</p>
+        <p>What happens between the two of them cannot be manufactured. That is exactly what we look for on every shoot.</p>
       </div>
       <div class="wedding-video-media">
-        <div class="wedding-video-card">
-          <video class="wv-video" id="wvVideo" muted loop playsinline preload="none" poster="posters/dlya-sayta.jpg"></video>
+        <div class="wedding-video-card" id="wvCard">
+          <video class="wv-video" id="wvVideo" playsinline preload="metadata" poster="posters/dlya-sayta.jpg"></video>
+          <button class="wv-play" id="wvPlay" aria-label="Play video"></button>
         </div>
       </div>
     </div>
@@ -2490,23 +2528,33 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
 
 <script>
 (function(){
-  var v = document.getElementById('wvVideo');
-  if(!v) return;
+  var v    = document.getElementById('wvVideo');
+  var card = document.getElementById('wvCard');
+  if(!v || !card) return;
   var src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/dlya-sayta-web.mp4';
   var loaded = false;
-  function load(){
-    if(loaded) return;
-    loaded = true;
-    v.src = src;
-    v.play().catch(function(){});
+
+  function toggle(){
+    if(!loaded){
+      loaded = true;
+      v.src = src;
+    }
+    if(v.paused){
+      v.muted = false;
+      v.volume = 1;
+      var p = v.play();
+      if(p) p.catch(function(){});
+      card.classList.add('is-playing');
+    } else {
+      v.pause();
+      card.classList.remove('is-playing');
+    }
   }
-  if(!('IntersectionObserver' in window)){ load(); return; }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ load(); io.disconnect(); }
-    });
-  }, { rootMargin: '200px 0px' });
-  io.observe(v);
+
+  card.addEventListener('click', toggle);
+  v.addEventListener('pause',  function(){ card.classList.remove('is-playing'); });
+  v.addEventListener('play',   function(){ card.classList.add('is-playing'); });
+  v.addEventListener('ended',  function(){ card.classList.remove('is-playing'); v.currentTime = 0; });
 })();
 </script>
 
