@@ -1090,6 +1090,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       margin-bottom: 16px;
     }
 
+    /* Video block */
+    .wedding-video {
+      background: #f5f0eb;
+      padding: 40px 40px 80px;
+    }
+    .wedding-video-card {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      aspect-ratio: 2/3;
+      overflow: hidden;
+      border-radius: 4px;
+      background: #e8e2db;
+    }
+    .wv-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      filter: brightness(0.55);
+    }
+    .wedding-video-content {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 24px;
+      pointer-events: none;
+    }
+    .wedding-video-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(38px, 8vw, 62px);
+      color: #fff;
+      line-height: 1.1;
+    }
+
     /* Portfolio grid */
     .wedding-portfolio {
       padding: 80px 0 0;
@@ -1679,6 +1721,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       #wedding-about-slideshow img[src*="us.jpg"] { object-position: center bottom !important; }
       #wedding-about-slideshow img[src*="IMG_7623.JPG"] { object-position: center bottom !important; }
       #wedding-about-slideshow img[src*="IMG_7577"] { object-fit: cover !important; object-position: center bottom !important; }
+      .wedding-video { padding: 24px 24px 50px; }
     }
 
     /* flatpickr theme */
@@ -1815,6 +1858,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Für uns ist jede Hochzeit eine Geschichte, die wir mit euch erleben und behutsam bewahren. Keine gestellten Aufnahmen, sondern echte Emotionen in ihrem ehrlichsten Moment.</p>
         <p>Wir arbeiten im Stil der Fine Art Hochzeitsfotografie — leise, atmosphärisch, mit Blick für das Detail. Ob Boho oder klassisch, vintage-elegant oder etwas ganz Eigenes — wir richten uns nach euch, nicht nach einer Vorlage. Wenn die Location es lohnt, kommt die Drohne mit.</p>
         <p>Basis Hamburg. Wir fotografieren in Deutschland und über die Grenzen hinaus — überall, wo eure Hochzeit stattfindet.</p>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="wedding-video">
+      <div class="wedding-video-card">
+        <video class="wv-video" id="wvVideo" muted loop playsinline preload="none" poster="posters/dlya-sayta.jpg"></video>
+        <div class="wedding-video-content">
+          <div class="wedding-video-script">Mandy &amp; Sven</div>
+        </div>
       </div>
     </div>
 
@@ -2425,6 +2478,28 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
   if(!v) return;
   v.src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_1880_web.mp4';
   v.play().catch(function(){});
+})();
+</script>
+
+<script>
+(function(){
+  var v = document.getElementById('wvVideo');
+  if(!v) return;
+  var src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/dlya-sayta-web.mp4';
+  var loaded = false;
+  function load(){
+    if(loaded) return;
+    loaded = true;
+    v.src = src;
+    v.play().catch(function(){});
+  }
+  if(!('IntersectionObserver' in window)){ load(); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ load(); io.disconnect(); }
+    });
+  }, { rootMargin: '200px 0px' });
+  io.observe(v);
 })();
 </script>
 
