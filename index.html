@@ -1092,14 +1092,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* Video block */
     .wedding-video {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding-top: 40px;
+      padding-bottom: 80px;
+      align-items: flex-start;
       background: #f5f0eb;
-      padding: 40px 40px 80px;
+    }
+    .wedding-video-text {
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #ffffff;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.08);
+    }
+    .wedding-video-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 42px;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .wedding-video-text p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+    .wedding-video-text p:last-child { margin-bottom: 0; }
+    .wedding-video-media {
+      margin-right: 160px;
+      margin-left: auto;
+      width: 100%;
+      max-width: 480px;
     }
     .wedding-video-card {
       position: relative;
       width: 100%;
-      max-width: 480px;
-      margin: 0 auto;
       aspect-ratio: 2/3;
       overflow: hidden;
       border-radius: 4px;
@@ -1112,24 +1142,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       height: 100%;
       object-fit: cover;
       object-position: center center;
-      filter: brightness(0.55);
-    }
-    .wedding-video-content {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 24px;
-      pointer-events: none;
-    }
-    .wedding-video-script {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(38px, 8vw, 62px);
-      color: #fff;
-      line-height: 1.1;
     }
 
     /* Portfolio grid */
@@ -1721,7 +1733,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       #wedding-about-slideshow img[src*="us.jpg"] { object-position: center bottom !important; }
       #wedding-about-slideshow img[src*="IMG_7623.JPG"] { object-position: center bottom !important; }
       #wedding-about-slideshow img[src*="IMG_7577"] { object-fit: cover !important; object-position: center bottom !important; }
-      .wedding-video { padding: 24px 24px 50px; }
+      .wedding-video { grid-template-columns: 1fr; padding-top: 24px; padding-bottom: 50px; }
+      .wedding-video-media { margin: 0 auto; order: 1; }
+      .wedding-video-text { padding: 48px 24px; order: 2; }
     }
 
     /* flatpickr theme */
@@ -1863,10 +1877,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Video -->
     <div class="wedding-video">
-      <div class="wedding-video-card">
-        <video class="wv-video" id="wvVideo" muted loop playsinline preload="none" poster="posters/dlya-sayta.jpg"></video>
-        <div class="wedding-video-content">
-          <div class="wedding-video-script">Mandy &amp; Sven</div>
+      <div class="wedding-video-text">
+        <div class="wedding-video-script">Mandy &amp; Sven</div>
+        <p>Zwei Menschen, die einander seit Jahren kennen und sich trotzdem noch immer so ansehen, als wäre alles neu. Mandy und Sven haben in Hamburg geheiratet, an einem dieser Tage, an denen man nichts inszenieren muss.</p>
+        <p>Wir durften den ganzen Tag dabei sein, vom ersten Blick am Morgen bis zum letzten Lied am Abend. Dieser Film ist ein kurzer Ausschnitt daraus.</p>
+      </div>
+      <div class="wedding-video-media">
+        <div class="wedding-video-card">
+          <video class="wv-video" id="wvVideo" muted loop playsinline preload="none" poster="posters/dlya-sayta.jpg"></video>
         </div>
       </div>
     </div>
