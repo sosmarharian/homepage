@@ -219,21 +219,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       inset: 0;
       background: rgba(0,0,0,0.35);
     }
-    #showreel-video {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      background: #000;
-    }
-    #showreel-video video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-    }
 
     .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
     .nav-logo img { height: 40px; width: auto; display: block; filter: brightness(0) invert(1); }
@@ -1831,14 +1816,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Wir arbeiten im Stil der Fine Art Hochzeitsfotografie — leise, atmosphärisch, mit Blick für das Detail. Ob Boho oder klassisch, vintage-elegant oder etwas ganz Eigenes — wir richten uns nach euch, nicht nach einer Vorlage. Wenn die Location es lohnt, kommt die Drohne mit.</p>
         <p>Basis Hamburg. Wir fotografieren in Deutschland und über die Grenzen hinaus — überall, wo eure Hochzeit stattfindet.</p>
       </div>
-    </div>
-
-    <!-- Showreel -->
-    <div id="showreel-video">
-      <!-- TODO: poster — extract frame: ffmpeg -i "dlya sayta.mp4" -ss 00:00:01 -frames:v 1 -q:v 2 posters/dlya_sayta.jpg — then add poster="posters/dlya_sayta.jpg" to the video tag -->
-      <video muted loop playsinline preload="metadata" data-autoplay>
-        <source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/dlya%20sayta.mp4" type="video/mp4">
-      </video>
     </div>
 
     <!-- Portfolio -->
