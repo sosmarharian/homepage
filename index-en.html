@@ -2213,20 +2213,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
     }
 
-    // Sends the lead event to dataLayer (GTM -> Facebook Pixel "Lead", GA4)
-    // and only then redirects to the thank-you page, so the tags can fire.
-    // Fallback: if GTM does not respond within 1.5s, redirect anyway.
-    function quizTrackLeadAndRedirect(url) {
+    function quizGetCookie(name) {
+      var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+      return m ? m.pop() : undefined;
+    }
+
+    function quizEventId() {
+      if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();
+      return 'lead-' + Date.now() + '-' + Math.random().toString(16).slice(2);
+    }
+
+    // Sends the lead event through TWO channels sharing one event_id:
+    //   1) browser pixel via GTM (dataLayer -> "FB Pixel — Lead" tag)
+    //   2) server via Conversions API (/api/capi)
+    // Meta deduplicates them by event_id, so no double counting.
+    // The server channel matters because browser events are widely lost
+    // on iPhone: Apple ITP, tracking opt-out, ad blockers.
+    function quizTrackLeadAndRedirect(url, contact) {
       var done = false;
       function go() {
         if (done) return;
         done = true;
         window.location.href = url;
       }
+
+      var eventId = quizEventId();
+
+      try {
+        fetch('/api/capi', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          keepalive: true,
+          body: JSON.stringify({
+            event_name: 'Lead',
+            event_id: eventId,
+            email: contact && contact.email,
+            phone: contact && contact.phone,
+            fbp: quizGetCookie('_fbp'),
+            fbc: quizGetCookie('_fbc'),
+            event_source_url: window.location.href
+          })
+        }).catch(function () {});
+      } catch (e) {}
+
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: 'lead_form_submit',
         form_name: 'wedding_quiz',
+        event_id: eventId,
         eventTimeout: 1500,
         eventCallback: go
       });
@@ -2264,7 +2298,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         headers: { 'Accept': 'application/json' }
       }).then(function(res) {
         if (res.ok) {
-          quizTrackLeadAndRedirect('/thanks');
+          quizTrackLeadAndRedirect('/thanks', { email: email, phone: whatsapp });
         } else {
           btn.disabled = false;
           btn.textContent = 'REQUEST OFFER';

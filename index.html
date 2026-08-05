@@ -2217,20 +2217,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
     }
 
-    // Отправляет событие лида в dataLayer (GTM -> Facebook Pixel "Lead", GA4)
-    // и уводит на страницу благодарности только после того, как теги отработали.
-    // Страховка: если GTM не ответил за 1,5 сек, редирект происходит принудительно.
-    function quizTrackLeadAndRedirect(url) {
+    function quizGetCookie(name) {
+      var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+      return m ? m.pop() : undefined;
+    }
+
+    function quizEventId() {
+      if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();
+      return 'lead-' + Date.now() + '-' + Math.random().toString(16).slice(2);
+    }
+
+    // Отправляет событие лида ДВУМЯ путями с одинаковым event_id:
+    //   1) браузерный пиксель через GTM (dataLayer -> тег "FB Pixel — Lead")
+    //   2) сервер через Conversions API (/api/capi)
+    // Meta склеивает их по event_id, поэтому дублей в отчётах не будет.
+    // Серверный канал нужен потому, что на iPhone браузерные события
+    // massово теряются: ITP от Apple, отказ от отслеживания, блокировщики.
+    //
+    // Редирект на страницу благодарности происходит после отработки тегов,
+    // страховка — принудительно через 1,5 сек.
+    function quizTrackLeadAndRedirect(url, contact) {
       var done = false;
       function go() {
         if (done) return;
         done = true;
         window.location.href = url;
       }
+
+      var eventId = quizEventId();
+
+      // keepalive: запрос не оборвётся при уходе со страницы
+      try {
+        fetch('/api/capi', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          keepalive: true,
+          body: JSON.stringify({
+            event_name: 'Lead',
+            event_id: eventId,
+            email: contact && contact.email,
+            phone: contact && contact.phone,
+            fbp: quizGetCookie('_fbp'),
+            fbc: quizGetCookie('_fbc'),
+            event_source_url: window.location.href
+          })
+        }).catch(function () {});
+      } catch (e) {}
+
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: 'lead_form_submit',
         form_name: 'wedding_quiz',
+        event_id: eventId,
         eventTimeout: 1500,
         eventCallback: go
       });
@@ -2268,7 +2306,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         headers: { 'Accept': 'application/json' }
       }).then(function(res) {
         if (res.ok) {
-          quizTrackLeadAndRedirect('/danke');
+          quizTrackLeadAndRedirect('/danke', { email: email, phone: whatsapp });
         } else {
           btn.disabled = false;
           btn.textContent = 'Anfrage absenden';
