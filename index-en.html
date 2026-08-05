@@ -2213,6 +2213,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
     }
 
+    // Sends the lead event to dataLayer (GTM -> Facebook Pixel "Lead", GA4)
+    // and only then redirects to the thank-you page, so the tags can fire.
+    // Fallback: if GTM does not respond within 1.5s, redirect anyway.
+    function quizTrackLeadAndRedirect(url) {
+      var done = false;
+      function go() {
+        if (done) return;
+        done = true;
+        window.location.href = url;
+      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'lead_form_submit',
+        form_name: 'wedding_quiz',
+        eventTimeout: 1500,
+        eventCallback: go
+      });
+      setTimeout(go, 1500);
+    }
+
     function quizSubmit() {
       var form = document.getElementById('quiz-contact-form');
       var names = form.querySelector('[name="names"]').value.trim();
@@ -2242,10 +2262,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         method: 'POST',
         body: data,
         headers: { 'Accept': 'application/json' }
-      }).then(function() {
-        window.location.href = '/thanks';
+      }).then(function(res) {
+        if (res.ok) {
+          quizTrackLeadAndRedirect('/thanks');
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'REQUEST OFFER';
+        }
       }).catch(function() {
-        window.location.href = '/thanks';
+        btn.disabled = false;
+        btn.textContent = 'REQUEST OFFER';
       });
     }
 
