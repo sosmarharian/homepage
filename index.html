@@ -8,6 +8,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-K9L4JN9K');</script>
 <!-- End Google Tag Manager -->
+<script>
+(function(){
+  if(localStorage.getItem('lang')) return;
+  var ua = navigator.userAgent.toLowerCase();
+  if(/googlebot|bingbot|yandexbot|facebookexternalhit|twitterbot|rogerbot|linkedinbot|slackbot|whatsapp|applebot|duckduckbot|petalbot/.test(ua)) return;
+  var lang = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+  if(lang && !lang.toLowerCase().startsWith('de')) window.location.replace('/index-en.html');
+})();
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="canonical" href="https://marharian.com/">
@@ -1827,7 +1836,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="lang-switcher" id="langSwitcher">
     <button class="lang-btn" id="langBtn" aria-label="Select language">DE</button>
     <div class="lang-dropdown" id="langDropdown">
-      <a href="/index-en.html" class="lang-option" onclick="sessionStorage.setItem('lang','en')">EN</a>
+      <a href="/index-en.html" class="lang-option" onclick="localStorage.setItem('lang','en')">EN</a>
     </div>
   </div>
 
@@ -1846,7 +1855,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#contact"  class="mob-link">Kontakt</a>
   <button class="btn btn-gold mob-link" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'})">Preisanfrage</button>
   <div style="display: flex; align-items: center; gap: 8px; margin-top: 24px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
-    <a href="/index-en.html" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="sessionStorage.setItem('lang','en')">🇬🇧 EN</a>
+    <a href="/index-en.html" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="localStorage.setItem('lang','en')">🇬🇧 EN</a>
   </div>
 </div>
 
