@@ -72,23 +72,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* ── Hero ── */
     .lp-hero {
-      padding: 72px 40px 64px;
+      padding: 28px 40px 20px;
       max-width: 900px; margin: 0 auto;
       text-align: center;
     }
     .lp-eyebrow {
       display: block; font-size: 11px; font-weight: 700;
       letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 20px;
+      color: var(--gold); margin-bottom: 12px;
     }
     .lp-hero h1 {
       font-family: var(--font-heading); font-weight: 400;
-      font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.15;
-      margin-bottom: 20px;
+      font-size: clamp(1.2rem, 2.2vw, 1.75rem); line-height: 1.2;
+      margin-bottom: 10px;
     }
     .lp-hero-sub {
-      font-size: 17px; font-weight: 300; color: var(--gray);
-      line-height: 1.75; max-width: 620px; margin: 0 auto 48px;
+      font-size: 15px; font-weight: 300; color: var(--gray);
+      line-height: 1.6; max-width: 620px; margin: 0 auto 0;
     }
     .lp-features {
       display: grid; grid-template-columns: 1fr 1fr;
@@ -104,10 +104,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .lp-feature-icon { font-size: 20px; flex-shrink: 0; line-height: 1; margin-top: 2px; }
     .lp-feature-text { font-size: 14px; line-height: 1.55; color: var(--charcoal); font-weight: 400; }
 
+    /* ── Features section (below quiz) ── */
+    .lp-features-section {
+      padding: 48px 40px; background: #f5f0eb;
+    }
+
     /* ── Quiz (from main page) ── */
     .wedding-request {
       position: relative; overflow: hidden;
-      padding: 80px 40px; text-align: center;
+      padding: 48px 40px; text-align: center;
     }
     .wedding-request-bg {
       position: absolute; inset: -40px;
@@ -260,9 +265,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* ── Mobile ── */
     @media (max-width: 768px) {
       .lp-header { padding: 0 20px; }
-      .lp-hero { padding: 48px 20px 40px; }
+      .lp-hero { padding: 16px 20px 12px; }
       .lp-features { grid-template-columns: 1fr; }
-      .wedding-request { padding: 60px 20px; }
+      .lp-features-section { padding: 32px 20px; }
+      .wedding-request { padding: 36px 20px; }
       .wedding-request-inner { width: 100%; max-width: 100%; }
       .quiz-card { padding: 32px 20px 24px; width: 100%; }
       .quiz-choices { grid-template-columns: 1fr; }
@@ -294,26 +300,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Hero -->
 <section class="lp-hero">
   <span class="lp-eyebrow">Hamburg · 2026 / 2027</span>
-  <h1>Hochzeitsfotografie &amp; Video in Hamburg —<br>euer individuelles Angebot</h1>
-  <p class="lp-hero-sub">Foto und Film aus einer Hand. Ein eingespieltes Duo, ein Stil. Wir nehmen Buchungen für 2026 und 2027 an.</p>
-  <div class="lp-features">
-    <div class="lp-feature">
-      <span class="lp-feature-icon">🎞</span>
-      <span class="lp-feature-text">Foto und Video aus einer Hand — ein Team, ein Stil</span>
-    </div>
-    <div class="lp-feature">
-      <span class="lp-feature-icon">🎨</span>
-      <span class="lp-feature-text">Schnitt und Farbkorrektur machen wir selbst</span>
-    </div>
-    <div class="lp-feature">
-      <span class="lp-feature-icon">💛</span>
-      <span class="lp-feature-text">Keine gestellten Posen, nur echte Momente</span>
-    </div>
-    <div class="lp-feature">
-      <span class="lp-feature-icon">⚡</span>
-      <span class="lp-feature-text">Antwort auf eure Anfrage innerhalb von 24 Stunden</span>
-    </div>
-  </div>
+  <h1>Hochzeitsfotografie &amp; Video in Hamburg — euer individuelles Angebot</h1>
+  <p class="lp-hero-sub">Foto und Film aus einer Hand. Festpreis-Garantie. Buchungen für 2026 und 2027.</p>
 </section>
 
 <!-- Quiz form -->
@@ -401,6 +389,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </div>
+
+<!-- Features -->
+<section class="lp-features-section">
+  <div class="lp-features">
+    <div class="lp-feature">
+      <span class="lp-feature-icon">🎞</span>
+      <span class="lp-feature-text">Foto und Video aus einer Hand — ein Team, ein Stil</span>
+    </div>
+    <div class="lp-feature">
+      <span class="lp-feature-icon">🎨</span>
+      <span class="lp-feature-text">Schnitt und Farbkorrektur machen wir selbst</span>
+    </div>
+    <div class="lp-feature">
+      <span class="lp-feature-icon">💛</span>
+      <span class="lp-feature-text">Keine gestellten Posen, nur echte Momente</span>
+    </div>
+    <div class="lp-feature">
+      <span class="lp-feature-icon">⚡</span>
+      <span class="lp-feature-text">Antwort auf eure Anfrage innerhalb von 24 Stunden</span>
+    </div>
+  </div>
+</section>
 
 <!-- Photo grid -->
 <section class="lp-photos">
