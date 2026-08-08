@@ -1480,6 +1480,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     /* Request / Quiz */
+    #anfrage { scroll-margin-top: 80px; }
     .wedding-request {
       position: relative;
       overflow: hidden;
@@ -1831,6 +1832,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#reviews">Bewertungen</a></li>
     <li><a href="#contact">Kontakt</a></li>
+    <li><a href="#anfrage">Anfragen</a></li>
   </ul>
 
   <div class="lang-switcher" id="langSwitcher">
@@ -1853,6 +1855,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#faq"      class="mob-link">FAQ</a>
   <a href="#reviews"  class="mob-link">Bewertungen</a>
   <a href="#contact"  class="mob-link">Kontakt</a>
+  <a href="#anfrage"  class="mob-link">Anfragen</a>
   <button class="btn btn-gold mob-link" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'})">Preisanfrage</button>
   <div style="display: flex; align-items: center; gap: 8px; margin-top: 24px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
     <a href="/index-en" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="localStorage.setItem('lang','en')">🇬🇧 EN</a>
@@ -2073,6 +2076,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 ─────────────────────────────────────────────── -->
 
     <!-- Request form -->
+    <div id="anfrage"></div>
     <div class="wedding-request" id="wedding-request">
       <div class="wedding-request-bg"></div>
       <div class="wedding-request-overlay"></div>
@@ -2181,7 +2185,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.querySelector('.quiz-progress-fill').style.width = pcts[step - 1] + '%';
       document.getElementById('quiz-back').classList.toggle('hidden', step === 1);
       var nextBtn = document.getElementById('quiz-next');
-      nextBtn.textContent = step === 5 ? 'ANGEBOT ANFORDERN' : 'Weiter →';
+      nextBtn.textContent = step === 5 ? 'ANGEBOT ANFRAGEN' : 'Weiter →';
       quizValidateStep();
     }
 
@@ -2534,9 +2538,9 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 
-<a href="#wedding-request" class="side-cta" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'});return false;">Preisliste anfordern</a>
+<a href="#wedding-request" class="side-cta" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'});return false;">Preisliste anfragen</a>
 
-<a href="#wedding-request" class="sticky-cta" data-sticky-cta>Preisliste anfordern</a>
+<a href="#wedding-request" class="sticky-cta" data-sticky-cta>Preisliste anfragen</a>
 
 <script>
 (function(){
