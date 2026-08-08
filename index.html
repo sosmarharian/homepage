@@ -15,7 +15,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   if(/googlebot|bingbot|yandexbot|facebookexternalhit|twitterbot|rogerbot|linkedinbot|slackbot|whatsapp|applebot|duckduckbot|petalbot/.test(ua)) return;
   var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
   var hasGerman = Array.prototype.some.call(langs, function(l){ return (l||'').toLowerCase().indexOf('de') === 0; });
-  if(!hasGerman) window.location.replace('/index-en');
+  var firstIsEnglish = (langs[0] || '').toLowerCase().indexOf('en') === 0;
+  if(!hasGerman && firstIsEnglish) window.location.replace('/index-en');
 })();
 </script>
   <meta charset="UTF-8" />
