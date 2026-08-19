@@ -2063,28 +2063,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Reviews -->
 <section id="reviews">
   <style>
-    #reviews { padding-left: 0 !important; padding-right: 0 !important; }
-    .reviews-track-wrapper { position: relative; overflow: hidden; }
-    .reviews-track-wrapper::before,
-    .reviews-track-wrapper::after {
-      content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
+    /* Reviews slider */
+    .rv-viewport { overflow: hidden; }
+    .rv-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .reviews-track-wrapper::before { left: 0;  background: linear-gradient(to right, #f5f0eb 15%, transparent); }
-    .reviews-track-wrapper::after  { right: 0; background: linear-gradient(to left,  #f5f0eb 15%, transparent); }
-    .reviews-track {
-      display: flex; gap: 20px; width: max-content;
-      padding: 12px 20px 28px;
-      animation: reviews-scroll 55s linear infinite;
+    .rv-slide {
+      flex: 0 0 calc(50% - 10px);
+      box-sizing: border-box;
     }
-    .reviews-track-wrapper:hover .reviews-track { animation-play-state: paused; }
-    @keyframes reviews-scroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+    @media (max-width: 700px) {
+      .rv-slide { flex: 0 0 100%; }
     }
     .review-card {
-      flex: 0 0 290px; background: #fff;
-      border: 1px solid rgba(0,0,0,.07); border-radius: 14px;
-      padding: 22px; box-shadow: 0 2px 16px rgba(0,0,0,.06);
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.07);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.06);
+      height: 100%;
+      box-sizing: border-box;
     }
     .review-card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
     .review-avatar {
@@ -2102,11 +2102,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .review-date { font-size: 11px; color: #888580; margin-top: 1px; font-family: var(--font-body); }
     .review-stars { color: #fbbc04; font-size: 14px; letter-spacing: 2px; margin-bottom: 10px; }
     .review-text { font-size: 13px; line-height: 1.68; color: #3a3632; font-family: var(--font-body); }
-    @media (max-width: 600px) {
-      .review-card { flex: 0 0 250px; padding: 18px; }
-      .reviews-track-wrapper::before,
-      .reviews-track-wrapper::after { width: 40px; }
+    .rv-dots {
+      display: flex; justify-content: center; gap: 8px;
+      margin-top: 28px;
     }
+    .rv-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,0,0,.18); border: none; padding: 0;
+      cursor: pointer; transition: background 0.25s, transform 0.25s;
+    }
+    .rv-dot.active { background: var(--gold, #c9a96e); transform: scale(1.35); }
   </style>
 
   <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
@@ -2118,148 +2123,149 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </symbol>
   </svg>
 
-  <div class="section-header reveal" style="padding: 0 20px;">
+  <div class="section-header reveal">
     <h2 class="section-heading" style="text-transform:uppercase; letter-spacing:2px;">Was unsere Kunden sagen</h2>
     <p style="font-family:var(--font-body); font-weight:400; text-align:center; margin-top:12px; color:var(--gray);">Echte Bewertungen von Google</p>
   </div>
 
-  <div class="reviews-track-wrapper">
-    <div class="reviews-track">
+  <div class="rv-viewport" id="rv-viewport">
+    <div class="rv-track" id="rv-track">
 
-      <!-- ── Set 1 ── -->
-      <div class="review-card">
-        <div class="review-card-top">
-          <div class="review-avatar" style="background:#c9a96e;">N</div>
-          <div class="review-meta">
-            <div class="review-name">Nadine Müller</div>
-            <div class="review-date">Vor 2 Wochen</div>
+      <div class="rv-slide">
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="review-avatar" style="background:#a87e6e;">V</div>
+            <div class="review-meta">
+              <div class="review-name">Vanessa Dötter</div>
+              <div class="review-date">Vor 3 Wochen</div>
+            </div>
+            <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
           </div>
-          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Absolute Profis auf ihrem Gebiet! Die beiden arbeiten detailorientiert, bringen fantastische kreative Ideen ein und die gesamte Zusammenarbeit lief reibungslos und professionell ab. Das hochwertige Bild- und Videomaterial wurde sehr schnell bearbeitet und geliefert. Verdiente 5 Sterne und eine uneingeschränkte Empfehlung.</p>
         </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Marharian Produktion ist einer der besten Entscheidungen die ich für mich gemacht habe. Das Team ist super lieb und sehr professionell in ihrem Handwerk. Ich habe mich wohl gefühlt. Es sind tolle Bilder entstanden.</p>
       </div>
 
-      <div class="review-card">
-        <div class="review-card-top">
-          <div class="review-avatar" style="background:#7b9e87;">Щ</div>
-          <div class="review-meta">
-            <div class="review-name">Щепа Диана</div>
-            <div class="review-date">Vor 2 Wochen</div>
+      <div class="rv-slide">
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="review-avatar" style="background:#c9a96e;">N</div>
+            <div class="review-meta">
+              <div class="review-name">Nadine Müller</div>
+              <div class="review-date">Vor 2 Wochen</div>
+            </div>
+            <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
           </div>
-          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Marharian Produktion ist einer der besten Entscheidungen die ich für mich gemacht habe. Das Team ist super lieb und sehr professionell in ihrem Handwerk. Ich habe mich wohl gefühlt. Es sind tolle Bilder entstanden.</p>
         </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Снимали с ребятами впервые, результат оказался лучше в 1000 раз, чем я ожидала. Очень понравилась коммуникация, сразу расслабляешься и наслаждаешься процессом. Если вдруг вы не умеете позировать, то вам все подскажут и помогут. Жду уже следующей фотосессии ❤️❤️❤️</p>
       </div>
 
-      <div class="review-card">
-        <div class="review-card-top">
-          <div class="review-avatar" style="background:#a87e6e;">V</div>
-          <div class="review-meta">
-            <div class="review-name">Vanessa Dötter</div>
-            <div class="review-date">Vor 3 Wochen</div>
+      <div class="rv-slide">
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="review-avatar" style="background:#7b9e87;">Щ</div>
+            <div class="review-meta">
+              <div class="review-name">Щепа Диана</div>
+              <div class="review-date">Vor 2 Wochen</div>
+            </div>
+            <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
           </div>
-          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Wir haben zum ersten Mal mit den Jungs gedreht, das Ergebnis war 1000-mal besser, als ich erwartet hatte. Die Kommunikation hat mir sehr gut gefallen, man entspannt sich sofort und genießt den Prozess. Und falls ihr nicht wisst, wie man posiert — man zeigt und hilft euch bei allem. Ich freue mich schon auf das nächste Fotoshooting ❤️❤️❤️</p>
         </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Absolute Profis auf ihrem Gebiet! Die beiden arbeiten detailorientiert, bringen fantastische kreative Ideen ein und die gesamte Zusammenarbeit lief reibungslos und professionell ab. Das hochwertige Bild- und Videomaterial wurde sehr schnell bearbeitet und geliefert. Verdiente 5 Sterne und eine uneingeschränkte Empfehlung.</p>
       </div>
 
-      <div class="review-card">
-        <div class="review-card-top">
-          <div class="review-avatar" style="background:#6e8aa8;">V</div>
-          <div class="review-meta">
-            <div class="review-name">Valeria Brünemann</div>
-            <div class="review-date">Vor einem Monat</div>
+      <div class="rv-slide">
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="review-avatar" style="background:#8a6ea8;">М</div>
+            <div class="review-meta">
+              <div class="review-name">Максим Алиев</div>
+              <div class="review-date">Vor einer Woche</div>
+            </div>
+            <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
           </div>
-          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Ich bin sehr zufrieden mit der Zusammenarbeit mit den Jungs. Es war super entspannt und unkompliziert, als würden wir nicht zum ersten Mal zusammenarbeiten. Und was für ein geiles Video dabei entstanden ist.</p>
         </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Die Videos sind wundervoll geworden, qualitativ hochwertig, toll geschnitten. Danke!</p>
-      </div>
-
-      <div class="review-card">
-        <div class="review-card-top">
-          <div class="review-avatar" style="background:#8a6ea8;">М</div>
-          <div class="review-meta">
-            <div class="review-name">Максим Алиев</div>
-            <div class="review-date">Vor einer Woche</div>
-          </div>
-          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Ich bin sehr zufrieden mit der Zusammenarbeit mit den Jungs. Es war super entspannt und unkompliziert, als würden wir nicht zum ersten Mal zusammenarbeiten. Und was für ein geiles Video dabei entstanden ist.</p>
-      </div>
-
-      <!-- ── Set 2 (duplicate for seamless loop) ── -->
-      <div class="review-card">
-        <div class="review-card-top">
-          <div class="review-avatar" style="background:#c9a96e;">N</div>
-          <div class="review-meta">
-            <div class="review-name">Nadine Müller</div>
-            <div class="review-date">Vor 2 Wochen</div>
-          </div>
-          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Marharian Produktion ist einer der besten Entscheidungen die ich für mich gemacht habe. Das Team ist super lieb und sehr professionell in ihrem Handwerk. Ich habe mich wohl gefühlt. Es sind tolle Bilder entstanden.</p>
-      </div>
-
-      <div class="review-card">
-        <div class="review-card-top">
-          <div class="review-avatar" style="background:#7b9e87;">Щ</div>
-          <div class="review-meta">
-            <div class="review-name">Щепа Диана</div>
-            <div class="review-date">Vor 2 Wochen</div>
-          </div>
-          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Снимали с ребятами впервые, результат оказался лучше в 1000 раз, чем я ожидала. Очень понравилась коммуникация, сразу расслабляешься и наслаждаешься процессом. Если вдруг вы не умеете позировать, то вам все подскажут и помогут. Жду уже следующей фотосессии ❤️❤️❤️</p>
-      </div>
-
-      <div class="review-card">
-        <div class="review-card-top">
-          <div class="review-avatar" style="background:#a87e6e;">V</div>
-          <div class="review-meta">
-            <div class="review-name">Vanessa Dötter</div>
-            <div class="review-date">Vor 3 Wochen</div>
-          </div>
-          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Absolute Profis auf ihrem Gebiet! Die beiden arbeiten detailorientiert, bringen fantastische kreative Ideen ein und die gesamte Zusammenarbeit lief reibungslos und professionell ab. Das hochwertige Bild- und Videomaterial wurde sehr schnell bearbeitet und geliefert. Verdiente 5 Sterne und eine uneingeschränkte Empfehlung.</p>
-      </div>
-
-      <div class="review-card">
-        <div class="review-card-top">
-          <div class="review-avatar" style="background:#6e8aa8;">V</div>
-          <div class="review-meta">
-            <div class="review-name">Valeria Brünemann</div>
-            <div class="review-date">Vor einem Monat</div>
-          </div>
-          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Die Videos sind wundervoll geworden, qualitativ hochwertig, toll geschnitten. Danke!</p>
-      </div>
-
-      <div class="review-card">
-        <div class="review-card-top">
-          <div class="review-avatar" style="background:#8a6ea8;">М</div>
-          <div class="review-meta">
-            <div class="review-name">Максим Алиев</div>
-            <div class="review-date">Vor einer Woche</div>
-          </div>
-          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Ich bin sehr zufrieden mit der Zusammenarbeit mit den Jungs. Es war super entspannt und unkompliziert, als würden wir nicht zum ersten Mal zusammenarbeiten. Und was für ein geiles Video dabei entstanden ist.</p>
       </div>
 
     </div>
   </div>
+
+  <div class="rv-dots" id="rv-dots">
+    <button class="rv-dot active" data-idx="0" aria-label="Bewertung 1"></button>
+    <button class="rv-dot" data-idx="1" aria-label="Bewertung 2"></button>
+    <button class="rv-dot" data-idx="2" aria-label="Bewertung 3"></button>
+    <button class="rv-dot" data-idx="3" aria-label="Bewertung 4"></button>
+  </div>
+
+  <script>
+  (function(){
+    var viewport = document.getElementById('rv-viewport');
+    var track    = document.getElementById('rv-track');
+    var dots     = document.querySelectorAll('#rv-dots .rv-dot');
+    var TOTAL    = 4;
+    var idx      = 0;
+    var paused   = false;
+
+    function visibleCount() { return viewport.clientWidth >= 700 ? 2 : 1; }
+    function maxIdx()       { return TOTAL - visibleCount(); }
+
+    function slideWidth() {
+      var gap = parseFloat(getComputedStyle(track).gap) || 20;
+      return track.firstElementChild.offsetWidth + gap;
+    }
+
+    function renderDots() {
+      var vis = visibleCount();
+      dots.forEach(function(d, i) {
+        d.classList.toggle('active', i >= idx && i < idx + vis);
+      });
+    }
+
+    function goTo(n, instant) {
+      idx = Math.max(0, Math.min(n, maxIdx()));
+      var tx = idx * slideWidth();
+      if (instant) {
+        track.style.transition = 'none';
+        track.style.transform  = 'translateX(-' + tx + 'px)';
+        track.offsetWidth; // force reflow
+        track.style.transition = '';
+      } else {
+        track.style.transform = 'translateX(-' + tx + 'px)';
+      }
+      renderDots();
+    }
+
+    function next() {
+      if (paused) return;
+      if (idx >= maxIdx()) {
+        goTo(0, true);
+      } else {
+        goTo(idx + 1);
+      }
+    }
+
+    viewport.addEventListener('mouseenter', function(){ paused = true; });
+    viewport.addEventListener('mouseleave', function(){ paused = false; });
+
+    dots.forEach(function(d) {
+      d.addEventListener('click', function(){
+        goTo(Math.min(parseInt(d.dataset.idx, 10), maxIdx()));
+        paused = true;
+        clearTimeout(d._resume);
+        d._resume = setTimeout(function(){ paused = false; }, 6000);
+      });
+    });
+
+    window.addEventListener('resize', function(){ goTo(idx, true); });
+
+    goTo(0, true);
+    setInterval(next, 5000);
+  })();
+  </script>
 </section>
 
 <!-- ───────────────────────────────────────────────
