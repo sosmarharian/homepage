@@ -1979,6 +1979,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
+    <!-- Video: Asmik & Kirill -->
+    <div class="wedding-video reverse">
+      <div class="wedding-video-media">
+        <div class="wedding-video-card" id="wvCard2">
+          <video class="wv-video" id="wvVideo2" playsinline preload="metadata" poster="posters/IMG_9403_comp.jpg"></video>
+          <button class="wv-play" id="wvPlay2" aria-label="Play video"></button>
+        </div>
+      </div>
+      <div class="wedding-video-text">
+        <div class="wedding-video-script">Asmik &amp; Kirill</div>
+        <p>Asmik and Kirill are a couple you simply cannot take your eyes off. Every glance between them tells a story.</p>
+        <p>On their day we mostly did one thing: watch. And that was enough to capture everything.</p>
+      </div>
+    </div>
+
     <!-- Video: Krissy & Kai -->
     <div class="wedding-video">
       <div class="wedding-video-text">
@@ -1987,9 +2002,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>What connects them is hard to put into words. But on video — you sense it instantly.</p>
       </div>
       <div class="wedding-video-media">
-        <div class="wedding-video-card" id="wvCard2">
-          <video class="wv-video" id="wvVideo2" playsinline preload="metadata" poster="posters/Krissy und Kai_comp.jpg"></video>
-          <button class="wv-play" id="wvPlay2" aria-label="Play video"></button>
+        <div class="wedding-video-card" id="wvCard3">
+          <video class="wv-video" id="wvVideo3" playsinline preload="metadata" poster="posters/Krissy und Kai_comp.jpg"></video>
+          <button class="wv-play" id="wvPlay3" aria-label="Play video"></button>
         </div>
       </div>
     </div>
@@ -1997,9 +2012,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Video: Anastasia & Jeremi -->
     <div class="wedding-video reverse">
       <div class="wedding-video-media">
-        <div class="wedding-video-card" id="wvCard3">
-          <video class="wv-video" id="wvVideo3" playsinline preload="metadata" poster="posters/anastasia und jeremy_comp.jpg"></video>
-          <button class="wv-play" id="wvPlay3" aria-label="Play video"></button>
+        <div class="wedding-video-card" id="wvCard4">
+          <video class="wv-video" id="wvVideo4" playsinline preload="metadata" poster="posters/anastasia und jeremy_comp.jpg"></video>
+          <button class="wv-play" id="wvPlay4" aria-label="Play video"></button>
         </div>
       </div>
       <div class="wedding-video-text">
@@ -3207,7 +3222,7 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
   var v    = document.getElementById('wvVideo2');
   var card = document.getElementById('wvCard2');
   if(!v || !card) return;
-  var src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/Krissy und Kai_comp.mp4';
+  var src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_9403_comp.mp4';
   var loaded = false;
 
   function toggle(){
@@ -3234,6 +3249,34 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
 (function(){
   var v    = document.getElementById('wvVideo3');
   var card = document.getElementById('wvCard3');
+  if(!v || !card) return;
+  var src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/Krissy und Kai_comp.mp4';
+  var loaded = false;
+
+  function toggle(){
+    if(!loaded){ loaded = true; v.src = src; }
+    if(v.paused){
+      v.muted = false; v.volume = 1;
+      var p = v.play();
+      if(p) p.catch(function(){});
+      card.classList.add('is-playing');
+    } else {
+      v.pause();
+      card.classList.remove('is-playing');
+    }
+  }
+
+  card.addEventListener('click', toggle);
+  v.addEventListener('pause',  function(){ card.classList.remove('is-playing'); });
+  v.addEventListener('play',   function(){ card.classList.add('is-playing'); });
+  v.addEventListener('ended',  function(){ card.classList.remove('is-playing'); v.currentTime = 0; });
+})();
+</script>
+
+<script>
+(function(){
+  var v    = document.getElementById('wvVideo4');
+  var card = document.getElementById('wvCard4');
   if(!v || !card) return;
   var src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/anastasia und jeremy_comp.mp4';
   var loaded = false;
