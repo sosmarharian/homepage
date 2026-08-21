@@ -1194,6 +1194,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       opacity: 0;
       pointer-events: none;
     }
+    .wedding-video.reverse .wedding-video-media {
+      margin-left: auto;
+      margin-right: 60px;
+    }
+    .wedding-video.reverse .wedding-video-text {
+      margin-left: 60px;
+      margin-right: auto;
+    }
 
     /* Portfolio grid */
     .wedding-portfolio {
@@ -1914,21 +1922,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <!-- Video -->
-    <div class="wedding-video">
-      <div class="wedding-video-text">
-        <div class="wedding-video-script">Mandy &amp; Sven</div>
-        <p>Mandy und Sven sind ein unglaubliches Paar. Vor der Kamera so ungezwungen, dass kaum etwas zu tun bleibt außer draufzuhalten.</p>
-        <p>Zwischen den beiden ist etwas, das man sofort sieht. Genau darauf kommt es uns bei jedem Dreh an.</p>
-      </div>
-      <div class="wedding-video-media">
-        <div class="wedding-video-card" id="wvCard">
-          <video class="wv-video" id="wvVideo" playsinline preload="metadata" poster="posters/dlya-sayta.jpg"></video>
-          <button class="wv-play" id="wvPlay" aria-label="Video abspielen"></button>
-        </div>
-      </div>
-    </div>
-
     <!-- Portfolio -->
     <div class="wedding-portfolio" id="portfolio">
       <div class="wedding-portfolio-header">
@@ -1980,6 +1973,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="wedding-feature-photo"><img src="DSC08642.jpg" alt="The Ceremony" style="transform: scale(1.25); transform-origin: center 75%; object-fit: cover; width: 100%; height: 100%;"></div>
           <div class="wedding-feature-text"><h3>Die Zeremonie</h3><p>Ein heiliger Moment, bezeugt von den Menschen, die am meisten zählen.</p></div>
         </div>
+      </div>
+    </div>
+
+    <!-- Video: Mandy & Sven -->
+    <div class="wedding-video">
+      <div class="wedding-video-text">
+        <div class="wedding-video-script">Mandy &amp; Sven</div>
+        <p>Mandy und Sven sind ein unglaubliches Paar. Vor der Kamera so ungezwungen, dass kaum etwas zu tun bleibt außer draufzuhalten.</p>
+        <p>Zwischen den beiden ist etwas, das man sofort sieht. Genau darauf kommt es uns bei jedem Dreh an.</p>
+      </div>
+      <div class="wedding-video-media">
+        <div class="wedding-video-card" id="wvCard">
+          <video class="wv-video" id="wvVideo" playsinline preload="metadata" poster="posters/dlya-sayta.jpg"></video>
+          <button class="wv-play" id="wvPlay" aria-label="Video abspielen"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video: Krissy & Kai -->
+    <div class="wedding-video">
+      <div class="wedding-video-text">
+        <div class="wedding-video-script">Krissy &amp; Kai</div>
+        <p>Krissy und Kai haben uns von Anfang an begeistert. Ihre Leichtigkeit vor der Kamera ist ansteckend – und genau das sieht man in jedem einzelnen Bild.</p>
+        <p>Was die beiden verbindet, lässt sich nicht in Worte fassen. Aber auf Video – da spürt man es sofort.</p>
+      </div>
+      <div class="wedding-video-media">
+        <div class="wedding-video-card" id="wvCard2">
+          <video class="wv-video" id="wvVideo2" playsinline preload="metadata" poster="posters/Krissy und Kai_comp.jpg"></video>
+          <button class="wv-play" id="wvPlay2" aria-label="Video abspielen"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video: Anastasia & Jeremi -->
+    <div class="wedding-video reverse">
+      <div class="wedding-video-media">
+        <div class="wedding-video-card" id="wvCard3">
+          <video class="wv-video" id="wvVideo3" playsinline preload="metadata" poster="posters/anastasia und jeremy_comp.jpg"></video>
+          <button class="wv-play" id="wvPlay3" aria-label="Video abspielen"></button>
+        </div>
+      </div>
+      <div class="wedding-video-text">
+        <div class="wedding-video-script">Anastasia &amp; Jeremi</div>
+        <p>Anastasia und Jeremi – zwei Menschen, die einfach füreinander gemacht sind. Ihre Hochzeit war voller Emotionen, die wir kaum zu fassen wagten.</p>
+        <p>Wir haben versucht, das einzufangen, was Worte nicht können. Das Ergebnis spricht für sich.</p>
       </div>
     </div>
 
@@ -3151,6 +3189,62 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     if(v.paused){
       v.muted = false;
       v.volume = 1;
+      var p = v.play();
+      if(p) p.catch(function(){});
+      card.classList.add('is-playing');
+    } else {
+      v.pause();
+      card.classList.remove('is-playing');
+    }
+  }
+
+  card.addEventListener('click', toggle);
+  v.addEventListener('pause',  function(){ card.classList.remove('is-playing'); });
+  v.addEventListener('play',   function(){ card.classList.add('is-playing'); });
+  v.addEventListener('ended',  function(){ card.classList.remove('is-playing'); v.currentTime = 0; });
+})();
+</script>
+
+<script>
+(function(){
+  var v    = document.getElementById('wvVideo2');
+  var card = document.getElementById('wvCard2');
+  if(!v || !card) return;
+  var src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/Krissy und Kai_comp.mp4';
+  var loaded = false;
+
+  function toggle(){
+    if(!loaded){ loaded = true; v.src = src; }
+    if(v.paused){
+      v.muted = false; v.volume = 1;
+      var p = v.play();
+      if(p) p.catch(function(){});
+      card.classList.add('is-playing');
+    } else {
+      v.pause();
+      card.classList.remove('is-playing');
+    }
+  }
+
+  card.addEventListener('click', toggle);
+  v.addEventListener('pause',  function(){ card.classList.remove('is-playing'); });
+  v.addEventListener('play',   function(){ card.classList.add('is-playing'); });
+  v.addEventListener('ended',  function(){ card.classList.remove('is-playing'); v.currentTime = 0; });
+})();
+</script>
+
+<script>
+(function(){
+  var v    = document.getElementById('wvVideo3');
+  var card = document.getElementById('wvCard3');
+  if(!v || !card) return;
+  var src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/anastasia und jeremy_comp.mp4';
+  var loaded = false;
+
+  function toggle(){
+    if(!loaded){ loaded = true; v.src = src; }
+    if(v.paused){
+      v.muted = false; v.volume = 1;
       var p = v.play();
       if(p) p.catch(function(){});
       card.classList.add('is-playing');
