@@ -11,7 +11,7 @@
   var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
   var hasGerman = Array.prototype.some.call(langs, function(l){ return (l||'').toLowerCase().indexOf('de') === 0; });
   var firstIsEnglish = (langs[0] || '').toLowerCase().indexOf('en') === 0;
-  if(!hasGerman && firstIsEnglish) window.location.replace('/index-en');
+  if(!hasGerman && firstIsEnglish) window.location.replace('/studio/index-en');
 })();
 </script>
 <!-- Google Consent Mode v2 — default (denied), must be before GTM -->
@@ -37,19 +37,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-K9L4JN9K');</script>
 <!-- End Google Tag Manager -->
-  <link rel="canonical" href="https://marharian.com/">
-  <link rel="alternate" hreflang="de" href="https://marharian.com/">
-  <link rel="alternate" hreflang="en" href="https://marharian.com/index-en.html">
-  <link rel="alternate" hreflang="x-default" href="https://marharian.com/">
-  <title>Marharian Production · Hochzeitsfotografie &amp; Video Hamburg</title>
-  <meta name="description" content="Marharian Production — Professionelle Hochzeitsfotografie und cinematische Videografie in Hamburg. Hochzeiten, Porträts, Events und kommerzielle Shootings." />
+  <link rel="canonical" href="https://marharian.com/studio">
+  <link rel="alternate" hreflang="de" href="https://marharian.com/studio">
+  <link rel="alternate" hreflang="en" href="https://marharian.com/studio/index-en">
+  <link rel="alternate" hreflang="x-default" href="https://marharian.com/studio">
+  <title>Marharian Production · Foto &amp; Videoproduktion Hamburg</title>
+  <meta name="description" content="Marharian Production — Foto- und Videoproduktion in Hamburg. Individuelle Shootings, Fashion, Restaurants &amp; Food, Commercial und Beauty." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Darker+Grotesque:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/de.js"></script>
+  <link rel="preload" as="image" href="horyzont.jpg" media="(min-width: 769px)">
+  <link rel="preload" as="image" href="wedding-hero.jpg" media="(max-width: 768px)">
 
   <style>
     /* ─── Reset ───────────────────────────────────────── */
@@ -1117,108 +1116,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       margin-bottom: 16px;
     }
 
-    /* Video block */
-    .wedding-video {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      padding-top: 40px;
-      padding-bottom: 80px;
-      align-items: center;
-      background: #f5f0eb;
-    }
-    .wedding-video-text {
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: 60px;
-      padding: 48px 44px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: #ffffff;
-      box-shadow: 0 4px 40px rgba(0,0,0,0.08);
-    }
-    .wedding-video-script {
-      font-family: 'Great Vibes', cursive;
-      font-size: 42px;
-      color: var(--gold);
-      margin-bottom: 8px;
-    }
-    .wedding-video-text p {
-      font-size: 16px;
-      line-height: 1.8;
-      color: var(--gray);
-      margin-bottom: 16px;
-    }
-    .wedding-video-text p:last-child { margin-bottom: 0; }
-    .wedding-video-media {
-      margin-right: 160px;
-      margin-left: auto;
-      width: 100%;
-      max-width: 480px;
-    }
-    .wedding-video-card {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 2/3;
-      overflow: hidden;
-      border-radius: 4px;
-      background: #e8e2db;
-      cursor: pointer;
-    }
-    .wv-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-    }
-    .wv-play {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0,0,0,0.18);
-      border: 0;
-      padding: 0;
-      cursor: pointer;
-      transition: opacity 0.3s ease, background 0.3s ease;
-    }
-    .wv-play::before {
-      content: '';
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.92);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.25);
-    }
-    .wv-play::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 13px 0 13px 21px;
-      border-color: transparent transparent transparent #1a1815;
-      margin-left: 6px;
-    }
-    .wv-play:hover { background: rgba(0,0,0,0.28); }
-    .wedding-video-card.is-playing .wv-play {
-      opacity: 0;
-      pointer-events: none;
-    }
-    .wedding-video.reverse .wedding-video-media {
-      margin-left: auto;
-      margin-right: 60px;
-    }
-    .wedding-video.reverse .wedding-video-text {
-      margin-left: 60px;
-      margin-right: auto;
-    }
-
     /* Portfolio grid */
     .wedding-portfolio {
       padding: 80px 0 0;
@@ -1506,7 +1403,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     /* Request / Quiz */
-    #anfrage { scroll-margin-top: 80px; }
     .wedding-request {
       position: relative;
       overflow: hidden;
@@ -1806,11 +1702,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .wedding-feature-photo img { object-position: center 60%; }
       .wedding-feature-text { flex: none; width: 90%; margin-left: 5%; margin-right: 0; }
       #wedding-about-slideshow img { height: 100% !important; object-fit: cover !important; }
+      #wedding-about-slideshow img[src*="us.jpg"] { object-position: center bottom !important; }
       #wedding-about-slideshow img[src*="IMG_7623.JPG"] { object-position: center bottom !important; }
       #wedding-about-slideshow img[src*="IMG_7577"] { object-fit: cover !important; object-position: center bottom !important; }
-      .wedding-video { grid-template-columns: 1fr; padding-top: 24px; padding-bottom: 50px; }
-      .wedding-video-media { margin: 0 auto; order: 1; }
-      .wedding-video-text { max-width: 480px; margin: 0 auto; padding: 40px 24px; order: 2; }
     }
 
     /* flatpickr theme */
@@ -1827,377 +1721,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .flatpickr-day.disabled, .flatpickr-day.disabled:hover { color: rgba(0,0,0,0.2); }
     .quiz-date-input[readonly] { cursor: pointer; }
     .quiz-date-input.quiz-date-disabled { opacity: 0.42; pointer-events: none; }
-    /* Simplified single-column contact block (wedding site — no form) */
-    #contact .contact-grid {
-      grid-template-columns: 1fr;
-      grid-template-areas: "info" "list" "social";
-      max-width: 640px;
-      margin: 0 auto;
-      row-gap: 28px;
-    }
-  </style>
-<!-- Facebook Pixel: удалён дублирующий пиксель 935651865930025.
-     Единственный активный пиксель 973100958791977 грузится через GTM-K9L4JN9K. -->
-</head>
-<body>
-
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9L4JN9K"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-  <nav id="nav">
-  <a href="#" class="nav-logo">
-    <img src="marharian.png" alt="Marharian Production">
-  </a>
-
-  <ul class="nav-links">
-    <li><a href="#about">Über uns</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#reviews">Bewertungen</a></li>
-    <li><a href="#contact">Kontakt</a></li>
-    <li><a href="#anfrage">Anfragen</a></li>
-    <li><a href="/studio">Studio</a></li>
-  </ul>
-
-  <div class="lang-switcher" id="langSwitcher">
-    <button class="lang-btn" id="langBtn" aria-label="Select language">DE</button>
-    <div class="lang-dropdown" id="langDropdown">
-      <a href="/index-en" class="lang-option" onclick="localStorage.setItem('lang','en')">EN</a>
-    </div>
-  </div>
-
-  <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- Mobile menu -->
-<div class="mob-backdrop" id="mobBackdrop"></div>
-<div class="mob-menu" id="mobMenu">
-  <a href="#about"    class="mob-link">Über uns</a>
-  <a href="#portfolio" class="mob-link">Portfolio</a>
-  <a href="#faq"      class="mob-link">FAQ</a>
-  <a href="#reviews"  class="mob-link">Bewertungen</a>
-  <a href="#contact"  class="mob-link">Kontakt</a>
-  <a href="#anfrage"  class="mob-link">Anfragen</a>
-  <a href="/studio"   class="mob-link">Studio</a>
-  <button class="btn btn-gold mob-link" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'})">Preisanfrage</button>
-  <div style="display: flex; align-items: center; gap: 8px; margin-top: 24px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
-    <a href="/index-en" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="localStorage.setItem('lang','en')">🇬🇧 EN</a>
-  </div>
-</div>
-
-<!-- ===== WEDDINGS SECTION ===== -->
-  <section id="weddings">
-
-    <!-- Hero -->
-    <div class="wedding-hero">
-      <video class="wh-video" id="whVideo" autoplay muted loop playsinline poster="posters/IMG_1880_comp.jpg"></video>
-      <div class="wedding-hero-content">
-        <div class="wedding-hero-script">Euer Tag. Unser Handwerk.</div>
-        <div class="wedding-hero-sub">Hochzeitsfotografie &amp; Film · Hamburg &amp; Deutschlandweit</div>
-
-      </div>
-    </div>
-
-    <!-- Stats -->
-    <div class="wedding-stats">
-      <div class="wedding-stat">
-        <div class="wedding-stat-num">8+</div>
-        <div class="wedding-stat-label">Jahre Erfahrung</div>
-      </div>
-      <div class="wedding-stat">
-        <div class="wedding-stat-num">50+</div>
-        <div class="wedding-stat-label">Hochzeiten festgehalten</div>
-      </div>
-      <div class="wedding-stat">
-        <div class="wedding-stat-num">2</div>
-        <div class="wedding-stat-label">Kreative, eine Vision</div>
-      </div>
-    </div>
-
-    <!-- About -->
-    <div class="wedding-about" id="about">
-      <div class="wedding-about-img">
-        <div class="wedding-about-photo" id="wedding-about-slideshow">
-          <img src="IMG_7623.JPG" alt="Sos &amp; Yaroslava Marharian" style="opacity:1; object-position:center bottom !important;">
-          <img src="IMG_9775.JPG" alt="Sos &amp; Yaroslava Marharian" style="opacity:0;">
-          <img src="R6M20675.jpg" alt="Sos &amp; Yaroslava Marharian" style="opacity:0;">
-          <img src="R6M20679.jpg" alt="Sos &amp; Yaroslava Marharian" style="opacity:0;">
-          <img src="IMG_7577.JPG" alt="Sos &amp; Yaroslava Marharian" style="opacity:0;">
-        </div>
-      </div>
-      <div class="wedding-about-text">
-        <div class="wedding-about-script">Wir sind</div>
-        <h2>Marharian Production</h2>
-        <p>Wir könnten mit Zahlen beginnen — über 50 Hochzeiten, professionelle Ausrüstung, Jahre hinter der Kamera. Und darauf sind wir stolz. Doch das ist nicht das, worauf es an eurem Tag ankommt.</p>
-        <p>Worauf es ankommt, ist etwas anderes — das Auge, das Gespür für den Moment, der Geschmack. Dinge, die nur mit Erfahrung kommen: die Fähigkeit, einen Augenblick eine Sekunde vor seinem Eintreten zu erfassen und nie zu verpassen.</p>
-        <p>Für uns ist jede Hochzeit eine Geschichte, die wir mit euch erleben und behutsam bewahren. Keine gestellten Aufnahmen, sondern echte Emotionen in ihrem ehrlichsten Moment.</p>
-        <p>Wir arbeiten im Stil der Fine Art Hochzeitsfotografie — leise, atmosphärisch, mit Blick für das Detail. Ob Boho oder klassisch, vintage-elegant oder etwas ganz Eigenes — wir richten uns nach euch, nicht nach einer Vorlage. Wenn die Location es lohnt, kommt die Drohne mit.</p>
-        <p>Basis Hamburg. Wir fotografieren in Deutschland und über die Grenzen hinaus — überall, wo eure Hochzeit stattfindet.</p>
-      </div>
-    </div>
-
-    <!-- Portfolio -->
-    <div class="wedding-portfolio" id="portfolio">
-      <div class="wedding-portfolio-header">
-        <span class="eyebrow">Portfolio</span>
-        <h2>Geliebte Momente</h2>
-      </div>
-
-    <!-- Video: Mandy & Sven -->
-    <div class="wedding-video">
-      <div class="wedding-video-text">
-        <div class="wedding-video-script">Mandy &amp; Sven</div>
-        <p>Mandy und Sven sind ein unglaubliches Paar. Vor der Kamera so ungezwungen, dass kaum etwas zu tun bleibt außer draufzuhalten.</p>
-        <p>Zwischen den beiden ist etwas, das man sofort sieht. Genau darauf kommt es uns bei jedem Dreh an.</p>
-      </div>
-      <div class="wedding-video-media">
-        <div class="wedding-video-card" id="wvCard">
-          <video class="wv-video" id="wvVideo" playsinline preload="metadata" poster="posters/dlya-sayta.jpg"></video>
-          <button class="wv-play" id="wvPlay" aria-label="Video abspielen"></button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Video: Krissy & Kai -->
-    <div class="wedding-video reverse">
-      <div class="wedding-video-media">
-        <div class="wedding-video-card" id="wvCard2">
-          <video class="wv-video" id="wvVideo2" playsinline preload="metadata" poster="posters/Krissy und Kai_comp.jpg"></video>
-          <button class="wv-play" id="wvPlay2" aria-label="Video abspielen"></button>
-        </div>
-      </div>
-      <div class="wedding-video-text">
-        <div class="wedding-video-script">Krissy &amp; Kai</div>
-        <p>Krissy und Kai haben uns von Anfang an begeistert. Ihre Leichtigkeit vor der Kamera ist ansteckend – und genau das sieht man in jedem einzelnen Bild.</p>
-        <p>Was die beiden verbindet, lässt sich nicht in Worte fassen. Aber auf Video – da spürt man es sofort.</p>
-      </div>
-    </div>
-
-    <!-- Video: Anastasia & Jeremi -->
-    <div class="wedding-video">
-      <div class="wedding-video-text">
-        <div class="wedding-video-script">Anastasia &amp; Jeremi</div>
-        <p>Anastasia und Jeremi – zwei Menschen, die einfach füreinander gemacht sind. Ihre Hochzeit war voller Emotionen, die wir kaum zu fassen wagten.</p>
-        <p>Wir haben versucht, das einzufangen, was Worte nicht können. Das Ergebnis spricht für sich.</p>
-      </div>
-      <div class="wedding-video-media">
-        <div class="wedding-video-card" id="wvCard3">
-          <video class="wv-video" id="wvVideo3" playsinline preload="metadata" poster="posters/anastasia und jeremy_comp.jpg"></video>
-          <button class="wv-play" id="wvPlay3" aria-label="Video abspielen"></button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Video: Asmik & Kirill -->
-    <div class="wedding-video reverse">
-      <div class="wedding-video-media">
-        <div class="wedding-video-card" id="wvCard4">
-          <video class="wv-video" id="wvVideo4" playsinline preload="metadata" poster="posters/IMG_9403_comp.jpg"></video>
-          <button class="wv-play" id="wvPlay4" aria-label="Video abspielen"></button>
-        </div>
-      </div>
-      <div class="wedding-video-text">
-        <div class="wedding-video-script">Asmik &amp; Kirill</div>
-        <p>Asmik und Kirill sind ein Paar, das man einfach nicht aus den Augen lassen kann. Jeder Blick zwischen den beiden erzählt eine Geschichte.</p>
-        <p>An ihrem Tag haben wir vor allem eines getan: zugeschaut. Und genau das reichte, um alles einzufangen.</p>
-      </div>
-    </div>
-
-      <div class="wedding-feature-rows">
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="IMG_0389.JPG" alt="Creative Duo" style="object-position: center top;"></div>
-          <div class="wedding-feature-text"><h3>Kreatives Duo</h3><p>Foto &amp; Film aus einem Team — perfekt aufeinander abgestimmt, keine Kommunikationslücken, voller Fokus auf euren Tag.</p></div>
-        </div>
-        <div class="wedding-feature-row reverse">
-          <div class="wedding-feature-photo"><img src="DSC04400.jpg" alt="Cinematic Style"></div>
-          <div class="wedding-feature-text"><h3>Cinematischer Stil</h3><p>Jedes Bild gestaltet mit dem Auge eines Regisseurs — emotional, zeitlos, cinematisch.</p></div>
-        </div>
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="DSC03319.jpg" alt="All of Germany"></div>
-          <div class="wedding-feature-text"><h3>Ganz Deutschland</h3><p>Basis Hamburg — wir reisen durch ganz Deutschland und darüber hinaus für eure Hochzeit, ohne versteckte Kosten.</p></div>
-        </div>
-        <div class="wedding-feature-row reverse">
-          <div class="wedding-feature-photo"><img src="R6M20121-2.jpg" alt="Your Moment"></div>
-          <div class="wedding-feature-text"><h3>Euer Moment</h3><p>Jeder Blick, jede Träne, jedes Lachen — eingefangen, bevor er vergeht. Dafür leben wir.</p></div>
-        </div>
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="IMG_0599.JPG" alt="Echte Emotionen"></div>
-          <div class="wedding-feature-text"><h3>Echte Emotionen</h3><p>Keine einstudierten Posen. Wir warten auf den Moment, in dem ihr die Kamera vergesst — da entstehen die Bilder, die bleiben.</p></div>
-        </div>
-        <div class="wedding-feature-row reverse">
-          <div class="wedding-feature-photo"><img src="IMG_0428.JPG" alt="Together" style="object-position: center top;"></div>
-          <div class="wedding-feature-text"><h3>Zusammen</h3><p>Stirn an Stirn, Herzen noch näher. Echt und ungestellt.</p></div>
-        </div>
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="IMG_9102.JPG" alt="Zeitlos schön" style="object-fit: contain; background: #f5f0eb;"></div>
-          <div class="wedding-feature-text"><h3>Zeitlos schön</h3><p>Ein Kleid, eine Frisur, ein Detail am Rand — und plötzlich könnte die Aufnahme aus den Sechzigern stammen. Genau solche Bilder altern nie.</p></div>
-        </div>
-        <div class="wedding-feature-row reverse">
-          <div class="wedding-feature-photo"><img src="IMG_0326.JPG" alt="Hand in Hand"></div>
-          <div class="wedding-feature-text"><h3>Zwischen den Tropfen</h3><p>Wir warten immer auf den Regen. Er bewirkt etwas in Menschen — nimmt alles Gestellte und lässt nur das Echte zurück.</p></div>
-        </div>
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="IMG_2414.jpg" alt="The First Kiss"></div>
-          <div class="wedding-feature-text"><h3>Der erste Kuss</h3><p>Sanft, zart, unvergesslich — genau so, wie er sein soll.</p></div>
-        </div>
-        <div class="wedding-feature-row reverse">
-          <div class="wedding-feature-photo"><img src="R6M20137-2.jpg" alt="Just Married" style="object-position: center top;"></div>
-          <div class="wedding-feature-text"><h3>Soeben getraut</h3><p>Der Anfang der Ewigkeit — in einem einzigen Bild festgehalten.</p></div>
-        </div>
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="DSC08642.jpg" alt="The Ceremony" style="transform: scale(1.25); transform-origin: center 75%; object-fit: cover; width: 100%; height: 100%;"></div>
-          <div class="wedding-feature-text"><h3>Die Zeremonie</h3><p>Ein heiliger Moment, bezeugt von den Menschen, die am meisten zählen.</p></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- How We Work -->
-    <div class="how-we-work" id="how-we-work">
-      <div class="how-we-work-bg"></div>
-      <div class="how-we-work-overlay"></div>
-      <div class="how-we-work-inner">
-        <h2 class="how-we-work-title">So arbeiten wir</h2>
-        <div class="how-we-work-cols">
-          <div class="how-we-work-col">
-            <div class="how-we-work-item">
-              <h4>1. KENNENLERNEN</h4>
-              <p>Schreibt uns über das Formular oder direkt per WhatsApp — wir melden uns innerhalb eines Tages bei euch. In einem entspannten Call lernen wir uns kennen, hören eurer Geschichte zu und finden gemeinsam heraus, was zu eurer Hochzeit passt.</p>
-            </div>
-            <div class="how-we-work-item">
-              <h4>2. ANGEBOT &amp; BUCHUNG</h4>
-              <p>Wenn das Gefühl auf beiden Seiten stimmt, stellen wir euch ein individuelles Angebot zusammen. Mit unterschriebenem Vertrag und einer kleinen Anzahlung ist euer Termin fest in unserem Kalender — der Rest wird erst nach der Hochzeit fällig.</p>
-            </div>
-            <div class="how-we-work-item">
-              <h4>3. VORBEREITUNG</h4>
-              <p>In den Wochen vor der Hochzeit bleiben wir im Austausch — über Ablauf, Locations, Lieblingsmomente und kleine Wünsche. Kurz vor dem Tag setzen wir uns nochmal zusammen und gehen die Timeline durch, damit am großen Tag wirklich nichts hektisch wird.</p>
-            </div>
-          </div>
-          <div class="how-we-work-col">
-            <div class="how-we-work-item">
-              <h4>4. EUER TAG</h4>
-              <p>Wir kommen früh, oft schon zum Getting-Ready, und begleiten euch ruhig durch den Tag — ohne Inszenierung, ohne Druck. Als eingespieltes Team zu zweit verpassen wir keinen Blick und keinen ehrlichen Moment zwischen euch.</p>
-            </div>
-            <div class="how-we-work-item">
-              <h4>5. KENNENLERN-SHOOT (OPTIONAL)</h4>
-              <p>Wer mag, kommt vorab zu einem kleinen Shooting mit uns vorbei — eine schöne Gelegenheit, sich vor der Kamera wohlzufühlen, bevor es am Hochzeitstag wirklich zählt. Viele unserer Paare sagen danach: das hat den Tag selbst spürbar entspannter gemacht.</p>
-            </div>
-            <div class="how-we-work-item">
-              <h4>6. EURE GALERIE</h4>
-              <p>Innerhalb von 4–6 Wochen bekommt ihr eure private Online-Galerie zum Anschauen, Teilen und Herunterladen. Beim Film begleitet euch eine Feedback-Runde, bis der Edit genau so klingt und sich anfühlt, wie ihr es euch vorgestellt habt.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FAQ -->
-    <div style="background: #f5f0eb; padding: 80px 40px;" id="faq">
-      <div class="wedding-faq" style="padding: 0;">
-        <div class="wedding-faq-header">
-          <span class="eyebrow">FAQ</span>
-          <h2>Alles, was ihr wissen müsst</h2>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            In welchen Regionen fotografiert ihr Hochzeiten?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">Unsere Basis ist Hamburg, und wir begleiten Hochzeiten in ganz Deutschland — von Hamburg über München, Berlin und Köln hinaus. Reisekosten für Standorte außerhalb Hamburgs besprechen wir individuell.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Bietet ihr Foto und Video zusammen an?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">Ja — wir bieten nur Fotografie, nur Videografie oder beides kombiniert an. Besonders beliebt sind unsere Kombi-Pakete, denn ihr erhaltet ein perfekt abgestimmtes Ergebnis aus einer kreativen Hand.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Wie läuft der Buchungsprozess ab?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">Ihr sendet uns eine Anfrage über das untenstehende Formular, wir melden uns innerhalb von 24 Stunden für ein Beratungsgespräch zurück und bestätigen euren Termin mit Vertrag und Anzahlung. Einfach und stressfrei.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Wie würdet ihr euren Stil beschreiben?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">Cinematisch und emotional. Wir konzentrieren uns auf echte Momente, authentische Gefühle und künstlerische Komposition. Jede Hochzeit ist einzigartig — wir passen uns eurem Stil an, nicht umgekehrt.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Reviews -->
-<section id="reviews">
-  <style>
-    /* ── Reviews carousel ───────────────────── */
-    .rv-viewport { overflow: hidden; }
-    .rv-track {
-      display: flex;
-      gap: 16px;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    /* card wrapper – width set by breakpoint */
-    .rv-card { flex: 0 0 calc(25% - 12px); box-sizing: border-box; }
-    @media (max-width: 900px) { .rv-card { flex: 0 0 calc(50% - 8px); } }
-    @media (max-width: 560px) { .rv-card { flex: 0 0 100%; } }
-
-    /* card itself */
-    .review-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 18px 18px 16px;
-      box-shadow: 0 1px 8px rgba(0,0,0,.09), 0 0 0 1px rgba(0,0,0,.05);
-      display: flex; flex-direction: column;
-      height: 100%; box-sizing: border-box;
-    }
-    .review-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-    .review-avatar {
-      width: 42px; height: 42px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 17px; font-weight: 700; color: #fff;
-      flex-shrink: 0; font-family: var(--font-body); user-select: none;
-    }
-    .review-meta { flex: 1; min-width: 0; }
-    .review-name {
-      font-size: 13.5px; font-weight: 700; color: #1a1815;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-      font-family: var(--font-body);
-    }
-    .review-date { font-size: 11px; color: #888580; margin-top: 2px; font-family: var(--font-body); }
-    .rv-google-icon { flex-shrink: 0; display: block; }
-    .review-stars { color: #fbbc04; font-size: 14px; letter-spacing: 2px; margin-bottom: 10px; }
-    .review-body { flex: 1; display: flex; flex-direction: column; }
-    .review-text {
-      font-size: 13px; line-height: 1.65; color: #3a3632;
-      font-family: var(--font-body);
-      display: -webkit-box;
-      -webkit-line-clamp: 5;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    .review-text.rv-expanded { display: block; overflow: visible; -webkit-line-clamp: unset; }
-    .rv-more {
-      display: none; margin-top: 6px;
-      background: none; border: none; padding: 0;
-      font-size: 12px; color: var(--gold, #c9a96e);
-      font-family: var(--font-body); cursor: pointer;
-      text-decoration: underline; text-align: left;
-    }
-    /* dots */
-    .rv-dots { display: flex; justify-content: center; gap: 8px; margin-top: 28px; }
-    .rv-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: rgba(0,0,0,.18); border: none; padding: 0;
-      cursor: pointer; transition: background .25s, transform .25s;
-    }
-    .rv-dot.active { background: var(--gold, #c9a96e); transform: scale(1.35); }
-
     /* ─── Cookie Consent ─────────────────────────────── */
     #cc-overlay {
       position: fixed; inset: 0;
@@ -2348,6 +1871,310 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       .cc-btn-all, .cc-btn-necessary { flex: 1; text-align: center; }
     }
   </style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9L4JN9K"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <!-- ───────────────────────────────────────────────
+     VIDEO HERO
+─────────────────────────────────────────────── -->
+<div id="video-hero">
+  <video data-hero muted loop playsinline preload="none" poster="horyzont.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/hero_video_final.mp4" type="video/mp4"></video>
+  <div class="video-overlay"></div>
+  <!-- ───────────────────────────────────────────────
+       NAVIGATION
+  ─────────────────────────────────────────────── -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">
+      <img src="marharian.png" alt="Marharian Production">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#services">Leistungen</a></li>
+      <li><a href="#gallery">Galerie</a></li>
+      <li><a href="#reviews">Bewertungen</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+      <li><a href="/">Hochzeiten</a></li>
+    </ul>
+
+    <div class="lang-switcher" id="langSwitcher">
+      <button class="lang-btn" id="langBtn" aria-label="Select language">DE</button>
+      <div class="lang-dropdown" id="langDropdown">
+        <a href="/studio/index-en" class="lang-option" onclick="localStorage.setItem('lang','en')">EN</a>
+      </div>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</div>
+<div class="eyebrow-gap" style="background:#f5f0eb; display:flex; align-items:center; justify-content:center; padding: 12px 24px; text-align: center;">
+  <span style="font-size: clamp(1.2rem, 2vw, 2rem); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; text-align: center; white-space: normal; word-break: break-word;">Foto- &amp; Videoproduktion in Hamburg</span>
+</div>
+
+<!-- Mobile menu -->
+<div class="mob-backdrop" id="mobBackdrop"></div>
+<div class="mob-menu" id="mobMenu">
+  <a href="#services" class="mob-link">Leistungen</a>
+  <a href="#gallery"  class="mob-link">Galerie</a>
+  <a href="#reviews"  class="mob-link">Bewertungen</a>
+  <a href="#contact"  class="mob-link">Kontakt</a>
+  <a href="/"         class="mob-link">Hochzeiten</a>
+  <button class="btn btn-gold mob-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Termin buchen</button>
+  <div style="display: flex; align-items: center; gap: 8px; margin-top: 24px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
+    <a href="/studio/index-en" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="localStorage.setItem('lang','en')">🇬🇧 EN</a>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────────────
+     HERO
+─────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-left">
+    <h1 class="hero-h1">Elegante<br><em>visuelle Geschichten.</em></h1>
+    <div class="hero-btns">
+      <button class="btn btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Termin buchen</button>
+      <a href="https://www.instagram.com/marharian.production/" target="_blank" style="display:inline-flex; align-items:center; padding:16px 32px; border:2px solid var(--gold); color:var(--gold); font-size:14px; font-weight:600; letter-spacing:0.1em; text-decoration:none; border-radius:6px; font-family:inherit;">Instagram</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div id="hero-slideshow">
+      <img src="IMG_6477.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:1; transition:opacity 0.6s ease;">
+      <img src="IMG_6539.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:0; transition:opacity 0.6s ease;">
+      <img src="IMG_8801.jpg" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:0; transition:opacity 0.6s ease;">
+      <img src="R6M20042.jpg" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:0; transition:opacity 0.6s ease;">
+    </div>
+    <div class="scroll-hint">Scroll</div>
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────
+     SERVICES
+─────────────────────────────────────────────── -->
+<section id="services">
+  <div class="section-header reveal">
+    <span class="eyebrow">Was wir tun</span>
+    <h2 class="section-heading">Unsere Leistungen</h2>
+    <p class="section-sub">Von intimen Porträts bis zu großen Produktionen — wir bringen die gleiche Hingabe in jedes Projekt.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="svc-card reveal">
+      <div id="individual-slideshow" style="position:absolute; inset:0;">
+        <img src="IMG_2880.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+        <img src="IMG_5171.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5517.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_2587.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_3096.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      </div>
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <circle cx="19" cy="12" r="5"/>
+          <path d="M7 34c0-6.627 5.373-12 12-12s12 5.373 12 12"/>
+          <circle cx="29" cy="10" r="3.5"/>
+          <path d="M33 27c0-4.4-3-7.8-7-9"/>
+        </svg>
+        <div class="svc-title">Individuell</div>
+        <p class="svc-desc">Studio- und Outdoor-Sessions, Porträts und persönliche Geschichten, individuell auf euch zugeschnitten. Cinematische Kurzfilme, Reels und persönliche Videoprojekte mit klarer visueller Handschrift.</p>
+      </div>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-1">
+      <div id="fashion-slideshow" style="position:absolute; inset:0;">
+        <img src="IMG_3265.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+        <img src="IMG_5173.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_6583.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_0560.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5034.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_3253.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5618.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5029.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      </div>
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <rect x="5" y="12" width="28" height="20" rx="2"/>
+          <path d="M13 12V9a6 6 0 0 1 12 0v3"/>
+          <circle cx="19" cy="22" r="3"/>
+          <path d="M19 25v3"/>
+          <path d="M26 8l3-3M12 8L9 5"/>
+        </svg>
+        <div class="svc-title">Fashion</div>
+        <p class="svc-desc">Editorial-, Lookbook- und Kampagnen-Shootings. Firmenevents, Partys und Auftritte — vollständige visuelle Begleitung vom ersten bis zum letzten Moment.</p>
+      </div>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-2">
+      <div id="wedding-slideshow" style="position:absolute; inset:0;">
+        <img src="IMG_9115.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+        <img src="IMG_9044.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_5904.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_9089.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_3251.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="IMG_7252.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      </div>
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <path d="M19 33S5 24 5 14a14 14 0 0 1 14-6.5A14 14 0 0 1 33 14c0 10-14 19-14 19z"/>
+        </svg>
+        <div class="svc-title">Hochzeiten</div>
+        <p class="svc-desc">Emotionale und elegante Geschichten eures wichtigsten Tages, festgehalten mit unserer cinematischen Handschrift.</p>
+      </div>
+    </div>
+
+    <div class="svc-card reveal">
+      <div id="restaurants-slideshow" style="position:absolute; inset:0;">
+        <img src="IMG_3090.JPG" alt="Restaurants &amp; Food" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+        <img src="IMG_3091.jpg" alt="Restaurants &amp; Food" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+      </div>
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <circle cx="19" cy="20" r="10"/>
+          <path d="M9 20H4M29 20h5M19 10V5M19 30v5"/>
+          <path d="M12 13l-4-4M26 13l4-4M12 27l-4 4M26 27l4 4"/>
+          <circle cx="19" cy="20" r="4"/>
+        </svg>
+        <div class="svc-title">Restaurants &amp; Food</div>
+        <p class="svc-desc">Speisen, Atmosphäre und Interieurs. Wir erschaffen visuelle Inhalte, die euer Restaurant unvergesslich machen.</p>
+      </div>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-1">
+      <video data-autoplay muted loop playsinline preload="none" poster="posters/IMG_2982.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
+        <source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2982.MP4" type="video/mp4">
+      </video>
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <rect x="4" y="13" width="30" height="20" rx="2"/>
+          <path d="M13 13V9a6 6 0 0 1 12 0v4"/>
+          <path d="M4 21h30"/>
+          <rect x="14" y="18" width="10" height="6" rx="1"/>
+        </svg>
+        <div class="svc-title">Commercial &amp; Brand</div>
+        <p class="svc-desc">Foto- und Videoinhalte für Marken, Werbekampagnen und Social Media. Visuelle Identität, die verkauft.</p>
+      </div>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-2">
+      <video data-autoplay muted loop playsinline preload="none" poster="posters/IMG_3784.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
+        <source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3784.MP4" type="video/mp4">
+      </video>
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
+        <svg class="svc-icon" viewBox="0 0 38 38">
+          <polygon points="19,3 23,14 35,14 25.5,21.5 29,33 19,26 9,33 12.5,21.5 3,14 15,14"/>
+        </svg>
+        <div class="svc-title">Beauty-Industrie</div>
+        <p class="svc-desc">Portfolio-Shootings für Stylisten, Make-up-Artists und Beauty-Marken. Zeigt euer Handwerk mit Bildern, die neue Kunden anziehen.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────
+     GALLERY
+─────────────────────────────────────────────── -->
+<section id="gallery">
+  <div class="section-header reveal">
+    <h2 class="section-heading" style="text-transform:uppercase; letter-spacing:2px;">Unsere Arbeiten</h2>
+    <p style="font-family:var(--font-body); font-weight:400; text-align:center; margin-top:12px; color:var(--gray);">Ausgewählte Projekte aus unserem Portfolio</p>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-cell reveal"><video muted loop playsinline preload="none" poster="posters/IMG_3381_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3381_comp.mp4" type="video/mp4"></video><span class="gallery-number">01</span></div>
+    <div class="gallery-cell reveal"><video muted loop playsinline preload="none" poster="posters/IMG_9403_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_9403_comp.mp4" type="video/mp4"></video><span class="gallery-number">02</span></div>
+    <div class="gallery-cell reveal"><video muted loop playsinline preload="none" poster="posters/IMG_3261_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3261_comp.mp4" type="video/mp4"></video><span class="gallery-number">03</span></div>
+    <div class="gallery-cell reveal reveal-delay-1"><video muted loop playsinline preload="none" poster="posters/IMG_4745_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_4745_comp.mp4" type="video/mp4"></video><span class="gallery-number">04</span></div>
+    <div class="gallery-cell reveal reveal-delay-1"><video muted loop playsinline preload="none" poster="posters/IMG_2857_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2857_comp.mp4" type="video/mp4"></video><span class="gallery-number">05</span></div>
+    <div class="gallery-cell reveal reveal-delay-1"><video muted loop playsinline preload="none" poster="posters/IMG_3254_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3254_comp.mp4" type="video/mp4"></video><span class="gallery-number">06</span></div>
+    <div class="gallery-cell reveal reveal-delay-2"><video muted loop playsinline preload="none" poster="posters/IMG_7399_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_7399_comp.mp4" type="video/mp4"></video><span class="gallery-number">07</span></div>
+    <div class="gallery-cell reveal reveal-delay-2"><video muted loop playsinline preload="none" poster="posters/IMG_3380_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3380_comp.mp4" type="video/mp4"></video><span class="gallery-number">08</span></div>
+    <div class="gallery-cell reveal reveal-delay-2"><video muted loop playsinline preload="none" poster="posters/IMG_2855_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2855_comp.mp4" type="video/mp4"></video><span class="gallery-number">09</span></div>
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────
+     REVIEWS (Google, custom carousel)
+─────────────────────────────────────────────── -->
+<section id="reviews">
+  <div class="section-header reveal center">
+    <h2 class="section-heading" style="text-transform:uppercase; letter-spacing:2px;">Was unsere Kunden sagen</h2>
+    <p style="font-family:var(--font-body); font-weight:400; text-align:center; margin-top:12px; color:var(--gray);">Echte Bewertungen von Google</p>
+  </div>
+  <div class="reveal" style="max-width:1200px; margin:0 auto; padding:0 20px;">
+    <style>
+    /* ── Reviews carousel ───────────────────── */
+    .rv-viewport { overflow: hidden; }
+    .rv-track {
+      display: flex;
+      gap: 16px;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .rv-card { flex: 0 0 calc(25% - 12px); box-sizing: border-box; }
+    @media (max-width: 900px) { .rv-card { flex: 0 0 calc(50% - 8px); } }
+    @media (max-width: 560px) { .rv-card { flex: 0 0 100%; } }
+
+    .review-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 1px 8px rgba(0,0,0,.09), 0 0 0 1px rgba(0,0,0,.05);
+      display: flex; flex-direction: column;
+      height: 100%; box-sizing: border-box;
+    }
+    .review-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .review-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; font-weight: 700; color: #fff;
+      flex-shrink: 0; font-family: var(--font-body); user-select: none;
+    }
+    .review-meta { flex: 1; min-width: 0; }
+    .review-name {
+      font-size: 13.5px; font-weight: 700; color: #1a1815;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      font-family: var(--font-body);
+    }
+    .review-date { font-size: 11px; color: #888580; margin-top: 2px; font-family: var(--font-body); }
+    .rv-google-icon { flex-shrink: 0; display: block; }
+    .review-stars { color: #fbbc04; font-size: 14px; letter-spacing: 2px; margin-bottom: 10px; }
+    .review-body { flex: 1; display: flex; flex-direction: column; }
+    .review-text {
+      font-size: 13px; line-height: 1.65; color: #3a3632;
+      font-family: var(--font-body);
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .review-text.rv-expanded { display: block; overflow: visible; -webkit-line-clamp: unset; }
+    .rv-more {
+      display: none; margin-top: 6px;
+      background: none; border: none; padding: 0;
+      font-size: 12px; color: var(--gold, #c9a96e);
+      font-family: var(--font-body); cursor: pointer;
+      text-decoration: underline; text-align: left;
+    }
+    .rv-dots { display: flex; justify-content: center; gap: 8px; margin-top: 28px; }
+    .rv-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,0,0,.18); border: none; padding: 0;
+      cursor: pointer; transition: background .25s, transform .25s;
+    }
+    .rv-dot.active { background: var(--gold, #c9a96e); transform: scale(1.35); }
+  </style>
 
   <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
     <symbol id="google-g" viewBox="0 0 24 24">
@@ -2357,11 +2184,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
     </symbol>
   </svg>
-
-  <div class="section-header reveal center">
-    <h2 class="section-heading" style="text-transform:uppercase; letter-spacing:2px;">Was unsere Kunden sagen</h2>
-    <p style="font-family:var(--font-body); font-weight:400; text-align:center; margin-top:12px; color:var(--gray);">Echte Bewertungen von Google</p>
-  </div>
 
   <div class="rv-viewport" id="rv-viewport">
     <div class="rv-track" id="rv-track">
@@ -2733,7 +2555,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     function totalPages() { return Math.ceil(TOTAL / cpp()); }
 
-    /* position of first card on a given page, relative to track start */
     function pageOffset(p) {
       var firstIdx = p * cpp();
       if (firstIdx >= TOTAL) firstIdx = TOTAL - 1;
@@ -2801,7 +2622,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }, 80);
     });
 
-    /* "Mehr lesen" — run after fonts settle */
     function initReadMore() {
       Array.prototype.forEach.call(document.querySelectorAll('#rv-track .review-text'), function(el) {
         if (el.scrollHeight > el.offsetHeight + 2) {
@@ -2828,314 +2648,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   })();
   </script>
+  </div>
 </section>
 
 <!-- ───────────────────────────────────────────────
      CONTACT
 ─────────────────────────────────────────────── -->
-
-    <!-- Request form -->
-    <div id="anfrage"></div>
-    <div class="wedding-request" id="wedding-request">
-      <div class="wedding-request-bg"></div>
-      <div class="wedding-request-overlay"></div>
-      <div class="wedding-request-inner">
-        <h2>Preisanfrage</h2>
-        <p class="wedding-request-subtitle">Festpreis-Garantie — was wir vereinbaren, gilt. Keine versteckten Kosten. Beantwortet ein paar kurze Fragen, wir melden uns innerhalb eines Tages bei euch.</p>
-
-        <div class="quiz-card">
-
-          <!-- Schritt 1: Datum -->
-          <div class="quiz-step active" data-step="1">
-            <h3 class="quiz-question">Wann findet eure Hochzeit statt?</h3>
-            <input type="text" class="quiz-date-input" id="quiz-date" placeholder="TT.MM.JJJJ" readonly>
-            <p id="quiz-date-error" style="display:none;color:#c0392b;font-size:13px;margin-top:4px;margin-bottom:8px;"></p>
-            <label class="quiz-checkbox-label">
-              <input type="checkbox" id="quiz-date-unsure"> Noch unsicher — wir wissen es noch nicht genau
-            </label>
-          </div>
-
-          <!-- Schritt 2: Ort -->
-          <div class="quiz-step" data-step="2">
-            <h3 class="quiz-question">Wo findet eure Hochzeit statt?</h3>
-            <div class="quiz-choices">
-              <button class="quiz-choice" data-value="Hamburg &amp; Umgebung">Hamburg &amp; Umgebung</button>
-              <button class="quiz-choice" data-value="Andere Stadt in Deutschland">Andere Stadt in Deutschland</button>
-              <button class="quiz-choice" data-value="Im Ausland">Im Ausland</button>
-              <button class="quiz-choice" data-value="Noch nicht entschieden">Noch nicht entschieden</button>
-            </div>
-          </div>
-
-          <!-- Schritt 3: Leistungen -->
-          <div class="quiz-step" data-step="3">
-            <h3 class="quiz-question">Welche Leistungen interessieren euch?</h3>
-            <div class="quiz-choices">
-              <button class="quiz-choice" data-value="Nur Fotografie">Nur Fotografie</button>
-              <button class="quiz-choice" data-value="Nur Film">Nur Film</button>
-              <button class="quiz-choice" data-value="Foto + Film">Foto + Film</button>
-              <button class="quiz-choice" data-value="Noch unsicher">Noch unsicher</button>
-            </div>
-          </div>
-
-          <!-- Schritt 4: Stunden -->
-          <div class="quiz-step" data-step="4">
-            <h3 class="quiz-question">Wie viele Stunden sollen wir euch begleiten?</h3>
-            <div class="quiz-slider-wrap">
-              <input type="range" class="quiz-slider" id="quiz-hours" min="2" max="12" value="6">
-              <div class="quiz-slider-display">
-                <span class="quiz-hours-val">6</span>
-                <span class="quiz-hours-label">Stunden</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Schritt 5: Kontakt -->
-          <div class="quiz-step" data-step="5">
-            <h3 class="quiz-question">Fast geschafft — wohin dürfen wir das Angebot senden?</h3>
-            <form class="quiz-contact-form" id="quiz-contact-form" onsubmit="return false;">
-              <input type="text" name="names" placeholder="Eure Namen *" required class="quiz-input">
-              <input type="email" name="email" placeholder="E-Mail *" required class="quiz-input">
-              <input type="tel" name="whatsapp" placeholder="WhatsApp-Nummer (optional)" class="quiz-input">
-              <input type="text" name="instagram" placeholder="Instagram (optional)" class="quiz-input">
-              <textarea name="comment" placeholder="Möchtet ihr uns noch etwas erzählen? (optional)" class="quiz-textarea" rows="3"></textarea>
-              <label class="quiz-checkbox-label quiz-consent">
-                <input type="checkbox" id="quiz-consent" required>
-                <span>Ich stimme der <a href="/datenschutz">Datenverarbeitung</a> zu</span>
-              </label>
-            </form>
-          </div>
-
-          <!-- Fortschritt + Navigation -->
-          <div class="quiz-footer">
-            <div class="quiz-progress-wrap">
-              <span class="quiz-progress-pct">25%</span>
-              <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:25%"></div></div>
-            </div>
-            <div class="quiz-nav">
-              <button class="quiz-btn-back hidden" id="quiz-back" onclick="quizBack()">&#8592; Zurück</button>
-              <button class="quiz-btn-next" id="quiz-next" onclick="quizNext()" disabled>Weiter &#8594;</button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <script>
-    function toggleFaq(btn) {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    }
-
-    // ── Quiz ──────────────────────────────────────────────────────────────────
-    var quizState = { step: 1, date: '', dateUnsure: false, location: '', services: '', hours: 6 };
-
-    function quizUpdateUI() {
-      var step = quizState.step;
-      document.querySelectorAll('.quiz-step').forEach(function(el) {
-        el.classList.toggle('active', parseInt(el.dataset.step) === step);
-      });
-      var pcts = [25, 50, 75, 100, 100];
-      document.querySelector('.quiz-progress-pct').textContent = pcts[step - 1] + '%';
-      document.querySelector('.quiz-progress-fill').style.width = pcts[step - 1] + '%';
-      document.getElementById('quiz-back').classList.toggle('hidden', step === 1);
-      var nextBtn = document.getElementById('quiz-next');
-      nextBtn.textContent = step === 5 ? 'ANGEBOT ANFRAGEN' : 'Weiter →';
-      quizValidateStep();
-    }
-
-    function quizValidateStep() {
-      var step = quizState.step;
-      var valid = false;
-      if (step === 1) {
-        valid = document.getElementById('quiz-date-unsure').checked || quizState.date !== '';
-      } else if (step === 2) {
-        valid = quizState.location !== '';
-      } else if (step === 3) {
-        valid = quizState.services !== '';
-      } else if (step === 4) {
-        valid = true;
-      } else if (step === 5) {
-        var names = document.querySelector('.quiz-contact-form [name="names"]').value.trim();
-        var email = document.querySelector('.quiz-contact-form [name="email"]').value.trim();
-        valid = names !== '' && email !== '' && document.getElementById('quiz-consent').checked;
-      }
-      document.getElementById('quiz-next').disabled = !valid;
-    }
-
-    function quizNext() {
-      var step = quizState.step;
-      if (step === 1) {
-        quizState.dateUnsure = document.getElementById('quiz-date-unsure').checked;
-      } else if (step === 4) {
-        quizState.hours = document.getElementById('quiz-hours').value;
-      }
-      if (step < 5) {
-        quizState.step++;
-        quizUpdateUI();
-      } else {
-        quizSubmit();
-      }
-    }
-
-    function quizBack() {
-      if (quizState.step > 1) {
-        quizState.step--;
-        quizUpdateUI();
-      }
-    }
-
-    function quizGetCookie(name) {
-      var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-      return m ? m.pop() : undefined;
-    }
-
-    function quizEventId() {
-      if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();
-      return 'lead-' + Date.now() + '-' + Math.random().toString(16).slice(2);
-    }
-
-    // Отправляет событие лида ДВУМЯ путями с одинаковым event_id:
-    //   1) браузерный пиксель через GTM (dataLayer -> тег "FB Pixel — Lead")
-    //   2) сервер через Conversions API (/api/capi)
-    // Meta склеивает их по event_id, поэтому дублей в отчётах не будет.
-    // Серверный канал нужен потому, что на iPhone браузерные события
-    // massово теряются: ITP от Apple, отказ от отслеживания, блокировщики.
-    //
-    // Редирект на страницу благодарности происходит после отработки тегов,
-    // страховка — принудительно через 1,5 сек.
-    function quizTrackLeadAndRedirect(url, contact) {
-      var done = false;
-      function go() {
-        if (done) return;
-        done = true;
-        window.location.href = url;
-      }
-
-      var eventId = quizEventId();
-
-      // keepalive: запрос не оборвётся при уходе со страницы
-      try {
-        fetch('/api/capi', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          keepalive: true,
-          body: JSON.stringify({
-            event_name: 'Lead',
-            event_id: eventId,
-            email: contact && contact.email,
-            phone: contact && contact.phone,
-            fbp: quizGetCookie('_fbp'),
-            fbc: quizGetCookie('_fbc'),
-            event_source_url: window.location.href
-          })
-        }).catch(function () {});
-      } catch (e) {}
-
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'lead_form_submit',
-        form_name: 'wedding_quiz',
-        event_id: eventId,
-        eventTimeout: 1500,
-        eventCallback: go
-      });
-      setTimeout(go, 1500);
-    }
-
-    function quizSubmit() {
-      var form = document.getElementById('quiz-contact-form');
-      var names = form.querySelector('[name="names"]').value.trim();
-      var email = form.querySelector('[name="email"]').value.trim();
-      var whatsapp = form.querySelector('[name="whatsapp"]').value.trim();
-      var instagram = form.querySelector('[name="instagram"]').value.trim();
-      var comment = form.querySelector('[name="comment"]').value.trim();
-      var dateStr = quizState.dateUnsure ? 'Noch unsicher' : (quizState.date || 'Nicht angegeben');
-      var message = 'Hochzeitsdatum: ' + dateStr + '\n'
-        + 'Ort: ' + (quizState.location || '—') + '\n'
-        + 'Leistungen: ' + (quizState.services || '—') + '\n'
-        + 'Stunden: ' + quizState.hours + '\n'
-        + 'Namen: ' + names + '\n'
-        + 'WhatsApp: ' + (whatsapp || '—') + '\n'
-        + 'Instagram: ' + (instagram || '—') + '\n'
-        + 'Anmerkung: ' + (comment || '—');
-      var data = new FormData();
-      data.append('access_key', 'f7f95cd3-8f10-484e-a42e-3975a14980bc');
-      data.append('subject', 'Neue Hochzeitsanfrage — marharian.com');
-      data.append('name', names);
-      data.append('email', email);
-      data.append('message', message);
-      var btn = document.getElementById('quiz-next');
-      btn.disabled = true;
-      btn.textContent = 'Wird gesendet…';
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(function(res) {
-        if (res.ok) {
-          quizTrackLeadAndRedirect('/danke', { email: email, phone: whatsapp });
-        } else {
-          btn.disabled = false;
-          btn.textContent = 'Anfrage absenden';
-        }
-      }).catch(function() {
-        btn.disabled = false;
-        btn.textContent = 'Anfrage absenden';
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.quiz-choice').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var step = parseInt(this.closest('.quiz-step').dataset.step);
-          this.closest('.quiz-choices').querySelectorAll('.quiz-choice').forEach(function(b) { b.classList.remove('selected'); });
-          this.classList.add('selected');
-          if (step === 2) quizState.location = this.dataset.value;
-          if (step === 3) quizState.services = this.dataset.value;
-          quizValidateStep();
-        });
-      });
-      var quizFlatpickr = flatpickr('#quiz-date', {
-        minDate: 'today',
-        dateFormat: 'd.m.Y',
-        locale: 'de',
-        disableMobile: true,
-        allowInput: false,
-        onChange: function(selectedDates, dateStr) {
-          quizState.date = dateStr;
-          quizValidateStep();
-        }
-      });
-      document.getElementById('quiz-date-unsure').addEventListener('change', function() {
-        if (this.checked) {
-          quizFlatpickr.clear();
-          quizState.date = '';
-          quizFlatpickr.set('clickOpens', false);
-          document.getElementById('quiz-date').classList.add('quiz-date-disabled');
-        } else {
-          quizFlatpickr.set('clickOpens', true);
-          document.getElementById('quiz-date').classList.remove('quiz-date-disabled');
-        }
-        quizValidateStep();
-      });
-      var slider = document.getElementById('quiz-hours');
-      var hoursVal = document.querySelector('.quiz-hours-val');
-      slider.addEventListener('input', function() {
-        hoursVal.textContent = this.value;
-        quizState.hours = this.value;
-        var pct = ((this.value - 2) / 10) * 100;
-        this.style.background = 'linear-gradient(to right, var(--gold) ' + pct + '%, rgba(0,0,0,0.15) ' + pct + '%)';
-      });
-      document.querySelector('.quiz-contact-form').addEventListener('input', quizValidateStep);
-      document.getElementById('quiz-consent').addEventListener('change', quizValidateStep);
-      quizUpdateUI();
-    });
-  </script><section id="contact">
+<section id="contact">
   <div class="contact-grid">
 
     <div class="reveal contact-info">
@@ -3144,7 +2663,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="contact-desc">Habt ihr ein Projekt im Kopf? Schreibt uns — wir antworten innerhalb von 24 Stunden.</p>
     </div>
 
-        <div class="contact-list">
+    <div class="reveal reveal-delay-1 contact-form-wrap">
+      <form class="contact-form" id="cForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="f7f95cd3-8f10-484e-a42e-3975a14980bc">
+        <input type="hidden" name="subject" value="Neue Anfrage von marharian.com/studio (DE)">
+        <input type="hidden" name="redirect" value="https://marharian.com/studio/thanks">
+        <div class="fg">
+          <label>NAME *</label>
+          <input type="text" name="name" placeholder="Euer Name" required />
+        </div>
+        <div class="fg">
+          <label for="fEmail">E-Mail *</label>
+          <input type="email" id="fEmail" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="fg">
+          <label for="fService">Leistung</label>
+          <select id="fService" name="service">
+            <option value="">Bitte auswählen…</option>
+            <option>Individuelles Shooting</option>
+            <option>Video-Session</option>
+            <option>Event</option>
+            <option>Hochzeit</option>
+            <option>Restaurant &amp; Business</option>
+            <option>Beauty-Industrie</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-submit" id="cSubmit">Anfrage senden →</button>
+      </form>
+    </div>
+
+    <div class="contact-list">
       <div class="contact-row">
         <span class="contact-icon-wrap">📍</span>
         <span>Hamburg, Germany</span>
@@ -3296,181 +2844,160 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
 
-<a href="#wedding-request" class="side-cta" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'});return false;">Preisliste anfragen</a>
+/* — Contact form ───────────────────────────────── */
+  const form   = document.getElementById('cForm');
+  const submit = document.getElementById('cSubmit');
 
-<a href="#wedding-request" class="sticky-cta" data-sticky-cta>Preisliste anfragen</a>
+  form.querySelectorAll('input,textarea,select').forEach(f =>
+    f.addEventListener('input', () => f.classList.remove('err'))
+  );
 
-<script>
-(function(){
-  var cta = document.querySelector('[data-sticky-cta]');
-  if(!cta) return;
-  var quiz = document.getElementById('wedding-request');
-  cta.addEventListener('click', function(e){
-    if(quiz){ e.preventDefault(); quiz.scrollIntoView({behavior:'smooth', block:'start'}); }
+  /* — Lead-Tracking: Browser-Pixel (GTM) + Server (CAPI), dedupliziert per event_id ─── */
+  function studioGetCookie(name) {
+    var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return m ? m.pop() : undefined;
+  }
+  function studioEventId() {
+    if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();
+    return 'lead-' + Date.now() + '-' + Math.random().toString(16).slice(2);
+  }
+  function studioTrackLeadAndRedirect(url, contact) {
+    var done = false;
+    function go() { if (done) return; done = true; window.location.href = url; }
+    var eventId = studioEventId();
+    try {
+      fetch('/api/capi', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        keepalive: true,
+        body: JSON.stringify({
+          event_name: 'Lead',
+          event_id: eventId,
+          email: contact && contact.email,
+          fbp: studioGetCookie('_fbp'),
+          fbc: studioGetCookie('_fbc'),
+          event_source_url: window.location.href
+        })
+      }).catch(function () {});
+    } catch (e) {}
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'lead_form_submit',
+      form_name: 'studio_contact',
+      event_id: eventId,
+      eventTimeout: 1500,
+      eventCallback: go
+    });
+    setTimeout(go, 1500);
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let ok = true;
+    form.querySelectorAll('[required]').forEach(f => {
+      const bad = !f.value.trim() || (f.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value));
+      f.classList.toggle('err', bad);
+      if (bad) ok = false;
+    });
+    if (!ok) return;
+    submit.textContent = 'Wird gesendet…';
+    submit.disabled = true;
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(res => {
+      res.clone().json().then(d => console.log('Formspree response:', res.status, d));
+      if (res.ok) {
+        studioTrackLeadAndRedirect('/studio/thanks', {
+          email: (form.querySelector('[name="email"]') || {}).value
+        });
+      } else {
+        res.json().then(data => console.error('Formspree error:', data));
+        submit.textContent = 'Fehler — bitte erneut versuchen';
+        submit.disabled = false;
+      }
+    }).catch(err => {
+      console.error('Fetch error:', err);
+      submit.textContent = 'Fehler — bitte erneut versuchen';
+      submit.disabled = false;
+    });
   });
-  if(!quiz) return;
-  var hidden = false;
-  function check(){
-    if(hidden) return;
-    var rect = quiz.getBoundingClientRect();
-    if(rect.top <= window.innerHeight){
-      cta.classList.add('is-hidden');
-      hidden = true;
-      window.removeEventListener('scroll', check);
-    }
+
+
+</script>
+
+<script>
+(function () {
+  /* Resolve data-src on <source> or <video>, then call .load() */
+  function load(v) {
+    if (v.dataset.loaded) return;
+    v.dataset.loaded = '1';
+    var s = v.querySelector('source[data-src]');
+    if (s) { s.src = s.dataset.src; } else if (v.dataset.src) { v.src = v.dataset.src; }
+    v.load();
   }
-  window.addEventListener('scroll', check, {passive:true});
-  window.addEventListener('resize', check);
-  window.addEventListener('load', check);
-  check();
-})();
-</script>
 
-<script>
-(function(){
-  var sideCta = document.querySelector('.side-cta');
-  var target  = document.getElementById('wedding-request');
-  if(!sideCta || !target) return;
-  var hidden = false;
-  function update(){
-    if(hidden) return;
-    var rect = target.getBoundingClientRect();
-    if(rect.top <= window.innerHeight){
-      sideCta.classList.add('side-cta--hidden');
-      hidden = true;
-      window.removeEventListener('scroll', update);
-    }
-  }
-  window.addEventListener('scroll', update, {passive:true});
-  window.addEventListener('resize', update);
-  update();
-})();
-</script>
-
-<script>
-(function(){
-  var v = document.getElementById('whVideo');
-  if(!v) return;
-  v.src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_1880_web.mp4';
-  v.play().catch(function(){});
-})();
-</script>
-
-<script>
-(function(){
-  var v    = document.getElementById('wvVideo');
-  var card = document.getElementById('wvCard');
-  if(!v || !card) return;
-  var src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/dlya-sayta-web.mp4';
-  var loaded = false;
-
-  function toggle(){
-    if(!loaded){
-      loaded = true;
-      v.src = src;
-    }
-    if(v.paused){
-      v.muted = false;
-      v.volume = 1;
-      var p = v.play();
-      if(p) p.catch(function(){});
-      card.classList.add('is-playing');
+  /* Defer .play() until canplay fires to avoid mobile AbortError */
+  function playWhenReady(v) {
+    if (v.readyState >= 3) {
+      v.play().catch(function () {});
     } else {
-      v.pause();
-      card.classList.remove('is-playing');
+      v.addEventListener('canplay', function cb() {
+        v.removeEventListener('canplay', cb);
+        v.play().catch(function () {});
+      });
     }
   }
 
-  card.addEventListener('click', toggle);
-  v.addEventListener('pause',  function(){ card.classList.remove('is-playing'); });
-  v.addEventListener('play',   function(){ card.classList.add('is-playing'); });
-  v.addEventListener('ended',  function(){ card.classList.remove('is-playing'); v.currentTime = 0; });
-})();
-</script>
-
-<script>
-(function(){
-  var v    = document.getElementById('wvVideo2');
-  var card = document.getElementById('wvCard2');
-  if(!v || !card) return;
-  var src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/Krissy und Kai_comp.mp4';
-  var loaded = false;
-
-  function toggle(){
-    if(!loaded){ loaded = true; v.src = src; }
-    if(v.paused){
-      v.muted = false; v.volume = 1;
-      var p = v.play();
-      if(p) p.catch(function(){});
-      card.classList.add('is-playing');
-    } else {
-      v.pause();
-      card.classList.remove('is-playing');
-    }
+  /* ─── Hero ─── */
+  var hero = document.querySelector('video[data-hero]');
+  if (hero) {
+    function loadHero() { load(hero); playWhenReady(hero); }
+    if ('requestIdleCallback' in window) requestIdleCallback(loadHero, { timeout: 2000 });
+    else window.addEventListener('load', function () { setTimeout(loadHero, 300); });
   }
 
-  card.addEventListener('click', toggle);
-  v.addEventListener('pause',  function(){ card.classList.remove('is-playing'); });
-  v.addEventListener('play',   function(){ card.classList.add('is-playing'); });
-  v.addEventListener('ended',  function(){ card.classList.remove('is-playing'); v.currentTime = 0; });
-})();
-</script>
+  /* ─── Shared IO for services + gallery ─── */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting) {
+        load(v);
+        if (v.hasAttribute('data-autoplay')) playWhenReady(v);
+      } else {
+        if (!v.paused) v.pause();
+      }
+    });
+  }, { rootMargin: '200px 0px' });
 
-<script>
-(function(){
-  var v    = document.getElementById('wvVideo3');
-  var card = document.getElementById('wvCard3');
-  if(!v || !card) return;
-  var src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/anastasia und jeremy_comp.mp4';
-  var loaded = false;
+  /* Services videos (data-autoplay) */
+  document.querySelectorAll('video[data-autoplay]').forEach(function (v) { io.observe(v); });
 
-  function toggle(){
-    if(!loaded){ loaded = true; v.src = src; }
-    if(v.paused){
-      v.muted = false; v.volume = 1;
-      var p = v.play();
-      if(p) p.catch(function(){});
-      card.classList.add('is-playing');
-    } else {
-      v.pause();
-      card.classList.remove('is-playing');
-    }
-  }
+  /* Gallery videos — lazy-load + click-to-play with sound */
+  var galleryVids = Array.prototype.slice.call(document.querySelectorAll('#gallery video'));
 
-  card.addEventListener('click', toggle);
-  v.addEventListener('pause',  function(){ card.classList.remove('is-playing'); });
-  v.addEventListener('play',   function(){ card.classList.add('is-playing'); });
-  v.addEventListener('ended',  function(){ card.classList.remove('is-playing'); v.currentTime = 0; });
-})();
-</script>
+  galleryVids.forEach(function (v) {
+    io.observe(v);
+    var cell = v.closest ? v.closest('.gallery-cell') : v.parentElement;
 
-<script>
-(function(){
-  var v    = document.getElementById('wvVideo4');
-  var card = document.getElementById('wvCard4');
-  if(!v || !card) return;
-  var src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_9403_comp.mp4';
-  var loaded = false;
+    /* click: play with sound / pause toggle; mute and pause other cells */
+    cell.addEventListener('click', function () {
+      if (!v.dataset.loaded) load(v);
+      if (v.paused) {
+        galleryVids.forEach(function (o) { if (o !== v && !o.paused) { o.pause(); o.muted = true; } });
+        v.muted = false;
+        v.volume = 0.8;
+        playWhenReady(v);
+      } else {
+        v.pause();
+      }
+    });
 
-  function toggle(){
-    if(!loaded){ loaded = true; v.src = src; }
-    if(v.paused){
-      v.muted = false; v.volume = 1;
-      var p = v.play();
-      if(p) p.catch(function(){});
-      card.classList.add('is-playing');
-    } else {
-      v.pause();
-      card.classList.remove('is-playing');
-    }
-  }
-
-  card.addEventListener('click', toggle);
-  v.addEventListener('pause',  function(){ card.classList.remove('is-playing'); });
-  v.addEventListener('play',   function(){ card.classList.add('is-playing'); });
-  v.addEventListener('ended',  function(){ card.classList.remove('is-playing'); v.currentTime = 0; });
+    v.addEventListener('play',  function () { if (cell) cell.classList.add('playing'); });
+    v.addEventListener('pause', function () { if (cell) cell.classList.remove('playing'); });
+  });
 })();
 </script>
 

@@ -102,3 +102,7 @@
 # Poster frames for lazy-loaded gallery/services videos
 !posters/
 !posters/*.jpg
+
+# Studio page (marharian.com/studio) — постеры видео лежат в своей папке
+!studio/posters/
+!studio/posters/*.jpg
