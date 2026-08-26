@@ -1,6 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Consent Mode v2 — default (denied), must be before GTM -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage':           'denied',
+    'ad_user_data':         'denied',
+    'ad_personalization':   'denied',
+    'analytics_storage':    'denied',
+    'functionality_storage':'granted',
+    'security_storage':     'granted',
+    'wait_for_update':      500
+  });
+  gtag('set', 'ads_data_redaction', true);
+  gtag('set', 'url_passthrough', true);
+  /* Ранее сделанный выбор действует на всём домене. Восстанавливаем его
+     здесь — до загрузки GTM, — чтобы служебные страницы (благодарность,
+     Impressum, посадочные) вели себя так же, как страницы с баннером. */
+  try {
+    var ccStored = JSON.parse(localStorage.getItem('cookie_consent_v1') || 'null');
+    if (ccStored) gtag('consent', 'update', {
+      'analytics_storage':  ccStored.analytics ? 'granted' : 'denied',
+      'ad_storage':         ccStored.marketing ? 'granted' : 'denied',
+      'ad_user_data':       ccStored.marketing ? 'granted' : 'denied',
+      'ad_personalization': ccStored.marketing ? 'granted' : 'denied'
+    });
+  } catch (e) {}
+</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -158,6 +186,154 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .lp-photos-grid { grid-template-columns: 1fr 1fr; }
       .lp-reviews { padding: 48px 20px; }
       .lp-contact { padding: 48px 20px; }
+    }
+    /* ─── Cookie Consent ─────────────────────────────── */
+    #cc-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.38);
+      z-index: 9998;
+      opacity: 1; transition: opacity .3s ease;
+      pointer-events: auto;
+    }
+    #cc-overlay.cc-hidden { opacity: 0; pointer-events: none; }
+
+    #cc-banner {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      z-index: 9999;
+      background: var(--charcoal, #1a1815);
+      color: #fff;
+      font-family: var(--font-body, 'DM Sans', sans-serif);
+      padding: 28px 48px;
+      transform: translateY(0); opacity: 1;
+      transition: transform .3s ease, opacity .3s ease;
+    }
+    #cc-banner.cc-hidden { transform: translateY(110%); opacity: 0; pointer-events: none; }
+
+    .cc-inner { max-width: 1200px; margin: 0 auto; }
+
+    #cc-main {
+      display: flex; align-items: center;
+      gap: 32px; flex-wrap: wrap;
+    }
+
+    .cc-text { flex: 1; min-width: 260px; }
+
+    .cc-title {
+      display: block; font-size: 11px; font-weight: 700;
+      color: #fff; margin-bottom: 7px;
+      letter-spacing: .12em; text-transform: uppercase;
+    }
+
+    .cc-desc {
+      font-size: 13px; line-height: 1.65;
+      color: rgba(255,255,255,.55); margin-bottom: 7px;
+    }
+
+    .cc-links { font-size: 11px; color: rgba(255,255,255,.3); }
+    .cc-links a { color: var(--gold, #c9a96e); text-decoration: none; }
+    .cc-links a:hover { text-decoration: underline; }
+
+    .cc-actions {
+      display: flex; align-items: center;
+      gap: 10px; flex-shrink: 0; flex-wrap: wrap;
+    }
+
+    .cc-btn-all {
+      background: var(--gold, #c9a96e);
+      color: var(--charcoal, #1a1815);
+      border: none; padding: 11px 24px;
+      font-family: var(--font-body, 'DM Sans', sans-serif);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      cursor: pointer; border-radius: 2px;
+      transition: background .2s; white-space: nowrap;
+    }
+    .cc-btn-all:hover { background: var(--gold-light, #e2c89a); }
+
+    .cc-btn-necessary {
+      background: transparent;
+      color: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.55);
+      padding: 10px 23px;
+      font-family: var(--font-body, 'DM Sans', sans-serif);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      cursor: pointer; border-radius: 2px;
+      transition: border-color .2s, color .2s; white-space: nowrap;
+    }
+    .cc-btn-necessary:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+
+    .cc-btn-settings {
+      background: none; border: none;
+      color: rgba(255,255,255,.75);
+      font-family: var(--font-body, 'DM Sans', sans-serif);
+      font-size: 11px; font-weight: 500; letter-spacing: .06em; cursor: pointer;
+      padding: 10px 6px; text-decoration: underline;
+      transition: color .2s; white-space: nowrap;
+    }
+    .cc-btn-settings:hover { color: rgba(255,255,255,.75); }
+
+    #cc-panel {
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      margin-top: 20px;
+    }
+
+    .cc-categories { display: flex; flex-direction: column; margin-bottom: 20px; }
+
+    .cc-category {
+      display: flex; align-items: flex-start;
+      gap: 16px; padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .cc-category:last-child { border-bottom: none; }
+
+    .cc-cat-info { flex: 1; }
+
+    .cc-cat-name {
+      font-size: 12px; font-weight: 600; color: #fff;
+      margin-bottom: 3px; display: flex; align-items: center; gap: 8px;
+    }
+
+    .cc-always-on {
+      font-size: 9px; font-weight: 500;
+      color: var(--gold, #c9a96e); text-transform: uppercase;
+      letter-spacing: .08em;
+      border: 1px solid rgba(201,169,110,.35);
+      padding: 1px 5px; border-radius: 2px;
+    }
+
+    .cc-cat-desc { font-size: 11px; color: rgba(255,255,255,.4); line-height: 1.55; }
+
+    .cc-toggle {
+      position: relative; display: inline-block;
+      width: 38px; height: 21px; flex-shrink: 0; margin-top: 2px;
+    }
+    .cc-toggle input { opacity: 0; width: 0; height: 0; }
+    .cc-slider {
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,.15); border-radius: 21px;
+      cursor: pointer; transition: background .2s;
+    }
+    .cc-slider::before {
+      content: ''; position: absolute;
+      width: 15px; height: 15px;
+      left: 3px; bottom: 3px;
+      background: rgba(255,255,255,.55); border-radius: 50%;
+      transition: transform .2s, background .2s;
+    }
+    .cc-toggle input:checked + .cc-slider { background: var(--gold, #c9a96e); }
+    .cc-toggle input:checked + .cc-slider::before { transform: translateX(17px); background: #fff; }
+    .cc-toggle input:disabled + .cc-slider { opacity: .45; cursor: not-allowed; }
+    .cc-toggle input:disabled + .cc-slider::before { background: rgba(255,255,255,.85); transform: translateX(17px); }
+
+    .cc-panel-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+    @media (max-width: 720px) {
+      #cc-banner { padding: 22px 20px; }
+      #cc-main { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .cc-actions { width: 100%; }
+      .cc-btn-all, .cc-btn-necessary { flex: 1; text-align: center; }
     }
   </style>
 </head>
@@ -868,7 +1044,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       marharianstudio@gmail.com
     </a>
   </div>
-  <p class="lp-footer-note"><a href="/index-en">← Back to homepage</a> &nbsp;·&nbsp; <a href="/privacy">Privacy policy</a> &nbsp;·&nbsp; <a href="/impressum">Impressum</a></p>
+  <p class="lp-footer-note"><a href="/index-en">← Back to homepage</a> &nbsp;·&nbsp; <a href="/privacy">Privacy policy</a> &nbsp;·&nbsp; <a href="/impressum">Impressum</a> &nbsp;·&nbsp; <a href="#" id="cc-open">Cookie Settings</a></p>
 </section>
 
 <script>
@@ -931,12 +1107,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     return 'lead-' + Date.now() + '-' + Math.random().toString(16).slice(2);
   }
 
+  /* Серверное событие в Meta — маркетинг, поэтому требует согласия.
+     Ключ тот же, что использует cookie-баннер. */
+  function hasMarketingConsent() {
+    try {
+      var c = JSON.parse(localStorage.getItem('cookie_consent_v1') || 'null');
+      return !!c && c.marketing === true;
+    } catch (e) { return false; }
+  }
+
   function quizTrackLeadAndRedirect(url, contact) {
     var done = false;
     function go() { if (done) return; done = true; window.location.href = url; }
     var eventId = quizEventId();
     try {
-      fetch('/api/capi', {
+      if (hasMarketingConsent()) fetch('/api/capi', {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
         body: JSON.stringify({ event_name: 'Lead', event_id: eventId, email: contact && contact.email, phone: contact && contact.phone, fbp: quizGetCookie('_fbp'), fbc: quizGetCookie('_fbc'), event_source_url: window.location.href })
       }).catch(function(){});
@@ -1023,5 +1208,153 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     quizUpdateUI();
   });
 </script>
+<!-- ─── Cookie Consent Banner ──────────────────────── -->
+<div id="cc-overlay" style="display:none"></div>
+<div id="cc-banner" role="dialog" aria-modal="true" aria-label="Cookie Settings" style="display:none">
+  <div class="cc-inner">
+
+    <div id="cc-main">
+      <div class="cc-text">
+        <strong class="cc-title">Privacy Settings</strong>
+        <p class="cc-desc">We use cookies and similar technologies to improve our website and show you personalised content. Some are essential for the site to work; others help us analyse and enhance your experience.</p>
+        <p class="cc-links">Learn more in our <a href="/privacy">Privacy Policy</a> and <a href="impressum.html">Imprint</a>.</p>
+      </div>
+      <div class="cc-actions">
+        <button class="cc-btn-all" id="cc-btn-all">Accept all</button>
+        <button class="cc-btn-necessary" id="cc-btn-necessary">Only necessary</button>
+        <button class="cc-btn-settings" id="cc-btn-settings">Settings</button>
+      </div>
+    </div>
+
+    <div id="cc-panel" hidden>
+      <div class="cc-categories">
+        <div class="cc-category">
+          <div class="cc-cat-info">
+            <div class="cc-cat-name">Necessary <span class="cc-always-on">Always on</span></div>
+            <p class="cc-cat-desc">Technically essential cookies that enable core website functions (language selection, contact forms). Cannot be disabled.</p>
+          </div>
+          <label class="cc-toggle" aria-label="Necessary cookies">
+            <input type="checkbox" checked disabled>
+            <span class="cc-slider"></span>
+          </label>
+        </div>
+        <div class="cc-category">
+          <div class="cc-cat-info">
+            <div class="cc-cat-name">Analytics</div>
+            <p class="cc-cat-desc">Help us understand how visitors use the website (Google Analytics). Data is collected anonymously.</p>
+          </div>
+          <label class="cc-toggle" aria-label="Analytics cookies">
+            <input type="checkbox" id="cc-analytics">
+            <span class="cc-slider"></span>
+          </label>
+        </div>
+        <div class="cc-category">
+          <div class="cc-cat-info">
+            <div class="cc-cat-name">Marketing</div>
+            <p class="cc-cat-desc">Enable personalised advertising and remarketing via Google Ads and similar services.</p>
+          </div>
+          <label class="cc-toggle" aria-label="Marketing cookies">
+            <input type="checkbox" id="cc-marketing">
+            <span class="cc-slider"></span>
+          </label>
+        </div>
+      </div>
+      <div class="cc-panel-actions">
+        <button class="cc-btn-all" id="cc-btn-all-2">Accept all</button>
+        <button class="cc-btn-necessary" id="cc-btn-save">Save selection</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY = 'cookie_consent_v1';
+  var overlay  = document.getElementById('cc-overlay');
+  var banner   = document.getElementById('cc-banner');
+  var mainView = document.getElementById('cc-main');
+  var panel    = document.getElementById('cc-panel');
+  var analyticsEl = document.getElementById('cc-analytics');
+  var marketingEl = document.getElementById('cc-marketing');
+
+  function applyConsent(analytics, marketing) {
+    if (typeof gtag !== 'function') return;
+    gtag('consent', 'update', {
+      'analytics_storage':  analytics  ? 'granted' : 'denied',
+      'ad_storage':         marketing  ? 'granted' : 'denied',
+      'ad_user_data':       marketing  ? 'granted' : 'denied',
+      'ad_personalization': marketing  ? 'granted' : 'denied'
+    });
+  }
+
+  function saveConsent(analytics, marketing) {
+    try {
+      localStorage.setItem(KEY, JSON.stringify({ analytics: analytics, marketing: marketing, timestamp: Date.now() }));
+    } catch(e) {}
+    applyConsent(analytics, marketing);
+    hideBanner();
+  }
+
+  function hideBanner() {
+    banner.classList.add('cc-hidden');
+    overlay.classList.add('cc-hidden');
+    setTimeout(function(){ banner.style.display = 'none'; overlay.style.display = 'none'; }, 320);
+  }
+
+  function showBanner(openPanel) {
+    banner.style.display = '';
+    overlay.style.display = '';
+    mainView.hidden = !!openPanel;
+    panel.hidden = !openPanel;
+    if (openPanel) {
+      var s = getStored();
+      if (analyticsEl) analyticsEl.checked = s ? s.analytics : false;
+      if (marketingEl) marketingEl.checked = s ? s.marketing : false;
+    }
+    requestAnimationFrame(function(){
+      banner.classList.remove('cc-hidden');
+      overlay.classList.remove('cc-hidden');
+    });
+  }
+
+  function getStored() {
+    try { return JSON.parse(localStorage.getItem(KEY)); } catch(e) { return null; }
+  }
+
+  var stored = getStored();
+  if (stored) {
+    applyConsent(stored.analytics, stored.marketing);
+  } else {
+    showBanner(false);
+  }
+
+  document.getElementById('cc-btn-all').addEventListener('click', function(){ saveConsent(true, true); });
+  document.getElementById('cc-btn-necessary').addEventListener('click', function(){ saveConsent(false, false); });
+  document.getElementById('cc-btn-settings').addEventListener('click', function(){
+    mainView.hidden = true;
+    panel.hidden = false;
+    var s = getStored();
+    if (analyticsEl) analyticsEl.checked = s ? s.analytics : false;
+    if (marketingEl) marketingEl.checked = s ? s.marketing : false;
+  });
+  document.getElementById('cc-btn-all-2').addEventListener('click', function(){ saveConsent(true, true); });
+  document.getElementById('cc-btn-save').addEventListener('click', function(){
+    saveConsent(
+      analyticsEl ? analyticsEl.checked : false,
+      marketingEl ? marketingEl.checked : false
+    );
+  });
+
+  var reopenBtn = document.getElementById('cc-open');
+  if (reopenBtn) {
+    reopenBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      showBanner(true);
+    });
+  }
+})();
+</script>
+
 </body>
 </html>

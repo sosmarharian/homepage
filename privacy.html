@@ -16,6 +16,18 @@
   });
   gtag('set', 'ads_data_redaction', true);
   gtag('set', 'url_passthrough', true);
+  /* Ранее сделанный выбор действует на всём домене. Восстанавливаем его
+     здесь — до загрузки GTM, — чтобы служебные страницы (благодарность,
+     Impressum, посадочные) вели себя так же, как страницы с баннером. */
+  try {
+    var ccStored = JSON.parse(localStorage.getItem('cookie_consent_v1') || 'null');
+    if (ccStored) gtag('consent', 'update', {
+      'analytics_storage':  ccStored.analytics ? 'granted' : 'denied',
+      'ad_storage':         ccStored.marketing ? 'granted' : 'denied',
+      'ad_user_data':       ccStored.marketing ? 'granted' : 'denied',
+      'ad_personalization': ccStored.marketing ? 'granted' : 'denied'
+    });
+  } catch (e) {}
 </script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

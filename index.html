@@ -29,6 +29,18 @@
   });
   gtag('set', 'ads_data_redaction', true);
   gtag('set', 'url_passthrough', true);
+  /* Ранее сделанный выбор действует на всём домене. Восстанавливаем его
+     здесь — до загрузки GTM, — чтобы служебные страницы (благодарность,
+     Impressum, посадочные) вели себя так же, как страницы с баннером. */
+  try {
+    var ccStored = JSON.parse(localStorage.getItem('cookie_consent_v1') || 'null');
+    if (ccStored) gtag('consent', 'update', {
+      'analytics_storage':  ccStored.analytics ? 'granted' : 'denied',
+      'ad_storage':         ccStored.marketing ? 'granted' : 'denied',
+      'ad_user_data':       ccStored.marketing ? 'granted' : 'denied',
+      'ad_personalization': ccStored.marketing ? 'granted' : 'denied'
+    });
+  } catch (e) {}
 </script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -2270,12 +2282,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     .cc-btn-necessary {
       background: transparent;
-      color: rgba(255,255,255,.70);
-      border: 1px solid rgba(255,255,255,.22);
-      padding: 10px 22px;
+      color: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.55);
+      padding: 10px 23px;
       font-family: var(--font-body, 'DM Sans', sans-serif);
-      font-size: 11px; font-weight: 500;
-      letter-spacing: .04em;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
       cursor: pointer; border-radius: 2px;
       transition: border-color .2s, color .2s; white-space: nowrap;
     }
@@ -2283,9 +2295,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     .cc-btn-settings {
       background: none; border: none;
-      color: rgba(255,255,255,.38);
+      color: rgba(255,255,255,.75);
       font-family: var(--font-body, 'DM Sans', sans-serif);
-      font-size: 12px; cursor: pointer;
+      font-size: 11px; font-weight: 500; letter-spacing: .06em; cursor: pointer;
       padding: 10px 6px; text-decoration: underline;
       transition: color .2s; white-space: nowrap;
     }
@@ -3015,6 +3027,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     //
     // Редирект на страницу благодарности происходит после отработки тегов,
     // страховка — принудительно через 1,5 сек.
+    /* Серверное событие в Meta — маркетинг, поэтому требует согласия.
+       Ключ тот же, что использует cookie-баннер. */
+    function hasMarketingConsent() {
+      try {
+        var c = JSON.parse(localStorage.getItem('cookie_consent_v1') || 'null');
+        return !!c && c.marketing === true;
+      } catch (e) { return false; }
+    }
+
     function quizTrackLeadAndRedirect(url, contact) {
       var done = false;
       function go() {
@@ -3027,7 +3048,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       // keepalive: запрос не оборвётся при уходе со страницы
       try {
-        fetch('/api/capi', {
+        if (hasMarketingConsent()) fetch('/api/capi', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           keepalive: true,
