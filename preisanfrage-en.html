@@ -107,8 +107,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .quiz-choice { padding: 16px 20px; background: transparent; border: 1.5px solid rgba(0,0,0,0.18); border-radius: 3px; font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--charcoal); cursor: pointer; transition: all 0.18s ease; text-align: left; line-height: 1.4; }
     .quiz-choice:hover { border-color: var(--gold); background: rgba(201,169,110,0.07); }
     .quiz-choice.selected { background: var(--gold); border-color: var(--gold); color: var(--charcoal); font-weight: 600; }
+    .quiz-city-input { display: none; margin-top: 14px; }
+    .quiz-city-input.show { display: block; }
     .quiz-slider-wrap { display: flex; flex-direction: column; align-items: center; gap: 24px; }
-    .quiz-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; background: linear-gradient(to right, var(--gold) 40%, rgba(0,0,0,0.15) 40%); border-radius: 2px; outline: none; cursor: pointer; }
+    .quiz-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; background: linear-gradient(to right, var(--gold) 28.57%, rgba(0,0,0,0.15) 28.57%); border-radius: 2px; outline: none; cursor: pointer; }
     .quiz-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; background: var(--gold); border-radius: 50%; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.20); }
     .quiz-slider::-moz-range-thumb { width: 22px; height: 22px; background: var(--gold); border-radius: 50%; border: none; cursor: pointer; }
     .quiz-slider-display { display: flex; flex-direction: column; align-items: center; }
@@ -217,20 +219,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="quiz-step active" data-step="1">
         <h3 class="quiz-question">When is your wedding?</h3>
         <input type="text" class="quiz-date-input" id="quiz-date" placeholder="DD.MM.YYYY" readonly>
-        <p id="quiz-date-error" style="display:none;color:#c0392b;font-size:13px;margin-top:4px;margin-bottom:8px;"></p>
-        <label class="quiz-checkbox-label">
-          <input type="checkbox" id="quiz-date-unsure"> Not sure yet — we haven't decided on a date
-        </label>
       </div>
 
       <div class="quiz-step" data-step="2">
         <h3 class="quiz-question">Where will your wedding take place?</h3>
         <div class="quiz-choices">
-          <button class="quiz-choice" data-value="Hamburg &amp; surroundings">Hamburg &amp; surroundings</button>
+          <button class="quiz-choice" data-value="Hamburg">Hamburg</button>
           <button class="quiz-choice" data-value="Another city in Germany">Another city in Germany</button>
           <button class="quiz-choice" data-value="Abroad">Abroad</button>
-          <button class="quiz-choice" data-value="Not decided yet">Not decided yet</button>
         </div>
+        <input type="text" class="quiz-input quiz-city-input" id="quiz-city-input" placeholder="City name *">
       </div>
 
       <div class="quiz-step" data-step="3">
@@ -239,14 +237,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <button class="quiz-choice" data-value="Photography only">Photography only</button>
           <button class="quiz-choice" data-value="Film only">Film only</button>
           <button class="quiz-choice" data-value="Photo + Film">Photo + Film</button>
-          <button class="quiz-choice" data-value="Not sure yet">Not sure yet</button>
         </div>
       </div>
 
       <div class="quiz-step" data-step="4">
+        <h3 class="quiz-question">How long should your wedding film be? (Optional)</h3>
+        <div class="quiz-choices">
+          <button class="quiz-choice" data-value="Up to 10 min">Up to 10 min</button>
+          <button class="quiz-choice" data-value="Up to 20 min">Up to 20 min</button>
+          <button class="quiz-choice" data-value="Up to 40 min">Up to 40 min</button>
+          <button class="quiz-choice" data-value="Up to 60 min">Up to 60 min</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="5">
         <h3 class="quiz-question">How many hours should we cover?</h3>
         <div class="quiz-slider-wrap">
-          <input type="range" class="quiz-slider" id="quiz-hours" min="2" max="12" value="6">
+          <input type="range" class="quiz-slider" id="quiz-hours" min="2" max="16" value="6">
           <div class="quiz-slider-display">
             <span class="quiz-hours-val">6</span>
             <span class="quiz-hours-label">hours</span>
@@ -254,12 +261,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <div class="quiz-step" data-step="5">
+      <div class="quiz-step" data-step="6">
         <h3 class="quiz-question">Almost done — where should we send your quote?</h3>
         <form class="quiz-contact-form" id="quiz-contact-form" onsubmit="return false;">
           <input type="text" name="names" placeholder="Your names *" required class="quiz-input">
           <input type="email" name="email" placeholder="E-mail *" required class="quiz-input">
-          <input type="tel" name="whatsapp" placeholder="WhatsApp number (optional)" class="quiz-input">
+          <input type="tel" name="whatsapp" placeholder="WhatsApp number *" required class="quiz-input">
+          <input type="text" name="heard" placeholder="How did you hear about us? *" required class="quiz-input">
           <input type="text" name="instagram" placeholder="Instagram (optional)" class="quiz-input">
           <textarea name="comment" placeholder="Anything else you'd like to tell us? (optional)" class="quiz-textarea" rows="3"></textarea>
           <label class="quiz-checkbox-label quiz-consent">
@@ -895,19 +903,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <script>
-  var quizState = { step: 1, date: '', dateUnsure: false, location: '', services: '', hours: 6 };
+  var quizState = { step: 1, date: '', location: '', services: '', filmLength: '', hours: 6 };
+
+  // Step 4 (film length) is skipped for photography-only inquiries.
+  function quizSkipsStep4() { return quizState.services === 'Photography only'; }
+  function quizNextStep(current) { return (current === 3 && quizSkipsStep4()) ? 5 : current + 1; }
+  function quizPrevStep(current) { return (current === 5 && quizSkipsStep4()) ? 3 : current - 1; }
 
   function quizUpdateUI() {
     var step = quizState.step;
     document.querySelectorAll('.quiz-step').forEach(function(el) {
       el.classList.toggle('active', parseInt(el.dataset.step) === step);
     });
-    var pcts = [25, 50, 75, 100, 100];
+    var pcts = [17, 33, 50, 67, 100, 100];
     document.querySelector('.quiz-progress-pct').textContent = pcts[step - 1] + '%';
     document.querySelector('.quiz-progress-fill').style.width = pcts[step - 1] + '%';
     document.getElementById('quiz-back').classList.toggle('hidden', step === 1);
     var nextBtn = document.getElementById('quiz-next');
-    nextBtn.textContent = step === 5 ? 'SEND INQUIRY' : 'Next →';
+    nextBtn.textContent = step === 6 ? 'SEND INQUIRY' : 'Next →';
     quizValidateStep();
   }
 
@@ -915,33 +928,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var step = quizState.step;
     var valid = false;
     if (step === 1) {
-      valid = document.getElementById('quiz-date-unsure').checked || quizState.date !== '';
+      valid = quizState.date !== '';
     } else if (step === 2) {
-      valid = quizState.location !== '';
+      if (quizState.location === 'Another city in Germany') {
+        valid = document.getElementById('quiz-city-input').value.trim() !== '';
+      } else {
+        valid = quizState.location !== '';
+      }
     } else if (step === 3) {
       valid = quizState.services !== '';
     } else if (step === 4) {
       valid = true;
     } else if (step === 5) {
+      valid = true;
+    } else if (step === 6) {
       var names = document.querySelector('.quiz-contact-form [name="names"]').value.trim();
       var email = document.querySelector('.quiz-contact-form [name="email"]').value.trim();
-      valid = names !== '' && email !== '' && document.getElementById('quiz-consent').checked;
+      var whatsapp = document.querySelector('.quiz-contact-form [name="whatsapp"]').value.trim();
+      var heard = document.querySelector('.quiz-contact-form [name="heard"]').value.trim();
+      valid = names !== '' && email !== '' && whatsapp !== '' && heard !== '' && document.getElementById('quiz-consent').checked;
     }
     document.getElementById('quiz-next').disabled = !valid;
   }
 
   function quizNext() {
     var step = quizState.step;
-    if (step === 1) {
-      quizState.dateUnsure = document.getElementById('quiz-date-unsure').checked;
-    } else if (step === 4) {
+    if (step === 5) {
       quizState.hours = document.getElementById('quiz-hours').value;
     }
-    if (step < 5) { quizState.step++; quizUpdateUI(); } else { quizSubmit(); }
+    if (step < 6) { quizState.step = quizNextStep(step); quizUpdateUI(); } else { quizSubmit(); }
   }
 
   function quizBack() {
-    if (quizState.step > 1) { quizState.step--; quizUpdateUI(); }
+    if (quizState.step > 1) { quizState.step = quizPrevStep(quizState.step); quizUpdateUI(); }
   }
 
   function quizGetCookie(name) {
@@ -988,15 +1007,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var names = form.querySelector('[name="names"]').value.trim();
     var email = form.querySelector('[name="email"]').value.trim();
     var whatsapp = form.querySelector('[name="whatsapp"]').value.trim();
+    var heard = form.querySelector('[name="heard"]').value.trim();
     var instagram = form.querySelector('[name="instagram"]').value.trim();
     var comment = form.querySelector('[name="comment"]').value.trim();
-    var dateStr = quizState.dateUnsure ? 'Not sure yet' : (quizState.date || 'Not specified');
+    var dateStr = quizState.date || 'Not specified';
+    var locationStr = quizState.location;
+    if (locationStr === 'Another city in Germany') {
+      var cityName = document.getElementById('quiz-city-input').value.trim();
+      locationStr = 'Another city in Germany (' + cityName + ')';
+    }
     var message = 'Wedding date: ' + dateStr + '\n'
-      + 'Location: ' + (quizState.location || '—') + '\n'
+      + 'Location: ' + (locationStr || '—') + '\n'
       + 'Services: ' + (quizState.services || '—') + '\n'
+      + 'Film length: ' + (quizState.filmLength || '—') + '\n'
       + 'Hours: ' + quizState.hours + '\n'
       + 'Names: ' + names + '\n'
-      + 'WhatsApp: ' + (whatsapp || '—') + '\n'
+      + 'WhatsApp: ' + whatsapp + '\n'
+      + 'How they heard about us: ' + heard + '\n'
       + 'Instagram: ' + (instagram || '—') + '\n'
       + 'Comment: ' + (comment || '—');
     var data = new FormData();
@@ -1012,7 +1039,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       method: 'POST', body: data, headers: { 'Accept': 'application/json' }
     }).then(function(res) {
       if (res.ok) {
-        quizTrackLeadAndRedirect('/danke', { email: email, phone: whatsapp });
+        quizTrackLeadAndRedirect('/thanks', { email: email, phone: whatsapp });
       } else {
         btn.disabled = false; btn.textContent = 'Send inquiry';
       }
@@ -1027,32 +1054,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         var step = parseInt(this.closest('.quiz-step').dataset.step);
         this.closest('.quiz-choices').querySelectorAll('.quiz-choice').forEach(function(b){ b.classList.remove('selected'); });
         this.classList.add('selected');
-        if (step === 2) quizState.location = this.dataset.value;
+        if (step === 2) {
+          quizState.location = this.dataset.value;
+          var cityInput = document.getElementById('quiz-city-input');
+          if (this.dataset.value === 'Another city in Germany') {
+            cityInput.classList.add('show'); cityInput.focus();
+          } else {
+            cityInput.classList.remove('show'); cityInput.value = '';
+          }
+        }
         if (step === 3) quizState.services = this.dataset.value;
+        if (step === 4) quizState.filmLength = this.dataset.value;
         quizValidateStep();
       });
     });
+    document.getElementById('quiz-city-input').addEventListener('input', quizValidateStep);
     var quizFlatpickr = flatpickr('#quiz-date', {
       minDate: 'today', dateFormat: 'd.m.Y', disableMobile: true, allowInput: false,
       onChange: function(selectedDates, dateStr) { quizState.date = dateStr; quizValidateStep(); }
-    });
-    document.getElementById('quiz-date-unsure').addEventListener('change', function() {
-      if (this.checked) {
-        quizFlatpickr.clear(); quizState.date = '';
-        quizFlatpickr.set('clickOpens', false);
-        document.getElementById('quiz-date').classList.add('quiz-date-disabled');
-      } else {
-        quizFlatpickr.set('clickOpens', true);
-        document.getElementById('quiz-date').classList.remove('quiz-date-disabled');
-      }
-      quizValidateStep();
     });
     var slider = document.getElementById('quiz-hours');
     var hoursVal = document.querySelector('.quiz-hours-val');
     slider.addEventListener('input', function() {
       hoursVal.textContent = this.value;
       quizState.hours = this.value;
-      var pct = ((this.value - 2) / 10) * 100;
+      var pct = ((this.value - 2) / 14) * 100;
       this.style.background = 'linear-gradient(to right, var(--gold) ' + pct + '%, rgba(0,0,0,0.15) ' + pct + '%)';
     });
     document.querySelector('.quiz-contact-form').addEventListener('input', quizValidateStep);
