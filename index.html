@@ -57,6 +57,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/de.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1/bundle/libphonenumber-js.min.js"></script>
 
   <style>
     /* ─── Reset ───────────────────────────────────────── */
@@ -1616,7 +1617,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
-    .quiz-choices .quiz-choice:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .quiz-choices .quiz-choice:last-child:nth-child(odd) { grid-column: 1 / -1; text-align: center; }
     .quiz-choice {
       padding: 16px 20px;
       background: transparent;
@@ -2857,9 +2858,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         var email = document.querySelector('.quiz-contact-form [name="email"]').value.trim();
         var whatsapp = document.querySelector('.quiz-contact-form [name="whatsapp"]').value.trim();
         var heard = document.querySelector('.quiz-contact-form [name="heard"]').value.trim();
-        var phoneDigits = whatsapp.replace(/[^0-9]/g, '');
-        var phoneFormatOk = /^\+?[0-9\s\-()]+$/.test(whatsapp) && phoneDigits.length >= 7 && phoneDigits.length <= 15;
-        valid = names !== '' && email !== '' && phoneFormatOk && heard !== '' && document.getElementById('quiz-consent').checked;
+        var europeanCountries = ['DE','AT','CH','FR','IT','ES','NL','BE','PL',
+          'GB','IE','DK','SE','NO','FI','PT','GR','CZ','HU','RO','BG','HR',
+          'SI','SK','LT','LV','EE','LU','MT','CY','IS','LI'];
+        var phoneOk = false;
+        try {
+          var parsed = window.libphonenumber &&
+            window.libphonenumber.parsePhoneNumberFromString(whatsapp, 'DE');
+          phoneOk = !!(parsed && parsed.isValid() &&
+            europeanCountries.indexOf(parsed.country) !== -1);
+        } catch (e) { phoneOk = false; }
+        valid = names !== '' && email !== '' && phoneOk && heard !== '' && document.getElementById('quiz-consent').checked;
       }
       document.getElementById('quiz-next').disabled = !valid;
     }
