@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<!-- Google Consent Mode v2 — default (denied), must be before GTM -->
+<!-- Google Consent Mode v2 — default (denied), muss vor CCM19 und GTM stehen -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -16,19 +16,14 @@
   });
   gtag('set', 'ads_data_redaction', true);
   gtag('set', 'url_passthrough', true);
-  /* Ранее сделанный выбор действует на всём домене. Восстанавливаем его
-     здесь — до загрузки GTM, — чтобы служебные страницы (благодарность,
-     Impressum, посадочные) вели себя так же, как страницы с баннером. */
-  try {
-    var ccStored = JSON.parse(localStorage.getItem('cookie_consent_v1') || 'null');
-    if (ccStored) gtag('consent', 'update', {
-      'analytics_storage':  ccStored.analytics ? 'granted' : 'denied',
-      'ad_storage':         ccStored.marketing ? 'granted' : 'denied',
-      'ad_user_data':       ccStored.marketing ? 'granted' : 'denied',
-      'ad_personalization': ccStored.marketing ? 'granted' : 'denied'
-    });
-  } catch (e) {}
+  /* Диалог согласия, сохранение выбора и команды consent update
+     берёт на себя CCM19 — он грузится сразу следом.
+     Этот блок нужен как подстраховка: он встроен в страницу и
+     срабатывает мгновенно, а CCM19 приходит по сети. */
 </script>
+<!-- Cookie Consent Manager CCM19 -->
+<script src="https://cloud.ccm19.de/app.js?apiKey=7e592170d83ce250381db17922acc4a086ef5e5ab2c1ab3c&amp;domain=6a8e82436eab1b90910d76c2" referrerpolicy="origin"></script>
+<!-- End CCM19 -->
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
