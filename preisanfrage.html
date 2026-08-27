@@ -178,6 +178,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .quiz-consent { margin-top: 16px; }
     .quiz-consent a { color: var(--gold); }
     .quiz-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .quiz-choices .quiz-choice:last-child:nth-child(odd) { grid-column: 1 / -1; }
     .quiz-choice {
       padding: 16px 20px; background: transparent;
       border: 1.5px solid rgba(0,0,0,0.18); border-radius: 3px;
@@ -187,8 +188,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .quiz-choice:hover { border-color: var(--gold); background: rgba(201,169,110,0.07); }
     .quiz-choice.selected { background: var(--gold); border-color: var(--gold); color: var(--charcoal); font-weight: 600; }
-    .quiz-city-input { display: none; margin-top: 14px; }
-    .quiz-city-input.show { display: block; }
+    .quiz-input.quiz-city-input { display: none; margin-top: 14px; }
+    .quiz-input.quiz-city-input.show { display: block; }
     .quiz-slider-wrap { display: flex; flex-direction: column; align-items: center; gap: 24px; }
     .quiz-slider {
       -webkit-appearance: none; appearance: none; width: 100%; height: 4px;
@@ -368,7 +369,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- Schritt 4: Filmlänge -->
       <div class="quiz-step" data-step="4">
-        <h3 class="quiz-question">Wie lang soll euer Hochzeitsfilm sein? (Optional)</h3>
+        <h3 class="quiz-question">Wie lang soll euer Hochzeitsfilm sein?</h3>
         <div class="quiz-choices">
           <button class="quiz-choice" data-value="Bis 10 Min">Bis 10 Min</button>
           <button class="quiz-choice" data-value="Bis 20 Min">Bis 20 Min</button>
@@ -395,7 +396,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <form class="quiz-contact-form" id="quiz-contact-form" onsubmit="return false;">
           <input type="text" name="names" placeholder="Eure Namen *" required class="quiz-input">
           <input type="email" name="email" placeholder="E-Mail *" required class="quiz-input">
-          <input type="tel" name="whatsapp" placeholder="WhatsApp-Nummer *" required class="quiz-input">
+          <input type="tel" name="whatsapp" placeholder="WhatsApp-Nummer *" required class="quiz-input" pattern="[0-9+\s\-()]{6,20}">
           <input type="text" name="heard" placeholder="Wie habt ihr von uns erfahren? *" required class="quiz-input">
           <input type="text" name="instagram" placeholder="Instagram (optional)" class="quiz-input">
           <textarea name="comment" placeholder="Möchtet ihr uns noch etwas erzählen? (optional)" class="quiz-textarea" rows="3"></textarea>
@@ -1049,7 +1050,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     } else if (step === 3) {
       valid = quizState.services !== '';
     } else if (step === 4) {
-      valid = true;
+      valid = quizState.filmLength !== '';
     } else if (step === 5) {
       valid = true;
     } else if (step === 6) {
@@ -1057,7 +1058,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var email = document.querySelector('.quiz-contact-form [name="email"]').value.trim();
       var whatsapp = document.querySelector('.quiz-contact-form [name="whatsapp"]').value.trim();
       var heard = document.querySelector('.quiz-contact-form [name="heard"]').value.trim();
-      valid = names !== '' && email !== '' && whatsapp !== '' && heard !== '' && document.getElementById('quiz-consent').checked;
+      var phoneDigits = whatsapp.replace(/[^0-9]/g, '');
+      var phoneFormatOk = /^\+?[0-9\s\-()]+$/.test(whatsapp) && phoneDigits.length >= 7 && phoneDigits.length <= 15;
+      valid = names !== '' && email !== '' && phoneFormatOk && heard !== '' && document.getElementById('quiz-consent').checked;
     }
     document.getElementById('quiz-next').disabled = !valid;
   }
