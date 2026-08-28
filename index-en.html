@@ -2925,6 +2925,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       } catch (e) { return false; }
     }
 
+    function quizIsTestMode() {
+      try { return new URLSearchParams(window.location.search).get('test') === '1'; } catch (e) { return false; }
+    }
+
     function quizTrackLeadAndRedirect(url, contact) {
       var done = false;
       function go() {
@@ -2936,7 +2940,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var eventId = quizEventId();
 
       try {
-        if (hasMarketingConsent()) fetch('/api/capi', {
+        if (!quizIsTestMode() && hasMarketingConsent()) fetch('/api/capi', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           keepalive: true,
@@ -2954,8 +2958,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        event: 'lead_form_submit',
-        form_name: 'wedding_quiz',
+        event: quizIsTestMode() ? 'lead_form_submit_test' : 'lead_form_submit',
+        form_name: quizIsTestMode() ? 'wedding_quiz_test' : 'wedding_quiz',
         event_id: eventId,
         eventTimeout: 1500,
         eventCallback: go
@@ -2989,7 +2993,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         + 'Comment: ' + (comment || '—');
       var data = new FormData();
       data.append('access_key', 'f7f95cd3-8f10-484e-a42e-3975a14980bc');
-      data.append('subject', 'New Wedding Inquiry — marharian.com');
+      var subject = 'New Wedding Inquiry — marharian.com';
+      if (quizIsTestMode()) subject = '[TEST] ' + subject;
+      data.append('subject', subject);
       data.append('name', names);
       data.append('email', email);
       data.append('message', message);
