@@ -1812,8 +1812,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .ivent-row .gallery-cell { flex: 0 0 300px; margin: 0; }
     .ivent-row .ivent-text { flex: 1; }
     .ivent-row .ivent-num {
-      display: block; font-family: var(--font-body); font-size: 13px; font-weight: 700;
-      letter-spacing: 0.2em; color: var(--gold); margin-bottom: 14px;
+      /* Visually hidden by request — kept in the markup so the card
+         number is easy to find when editing content. */
+      display: none;
     }
     .ivent-row .ivent-caption {
       font-family: var(--font-body); font-weight: 300; font-size: 18px;
