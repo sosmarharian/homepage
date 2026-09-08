@@ -106,3 +106,7 @@
 # Studio page (marharian.com/studio) — постеры видео лежат в своей папке
 !studio/posters/
 !studio/posters/*.jpg
+
+# Events page (marharian.com/events) — постеры видео лежат в своей папке
+!events/posters/
+!events/posters/*.jpg

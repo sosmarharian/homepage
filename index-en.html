@@ -250,7 +250,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: flex;
       align-items: center;
       height: 100%;
-      gap: 28px;
+      gap: 18px;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -259,10 +259,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: flex;
       align-items: center;
       line-height: 1;
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 500;
       color: rgba(255,255,255,0.85);
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       transition: color 0.2s;
       font-family: var(--font-body);
       text-transform: uppercase;
@@ -766,6 +766,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @media (min-width: 901px) {
       .hero-left { background: #ffffff; }
       #about { background: var(--white); }
+    }
+
+    /* Intermediate range: full 7-item desktop nav no longer fits the
+       1200px pill — use the hamburger instead of wrapping/overlapping. */
+    @media (min-width: 901px) and (max-width: 1200px) {
+      .nav-links { display: none; }
+      .nav-logo { flex: 1; justify-content: center; }
+      .hamburger { display: flex; }
     }
 
     @media (max-width: 900px) {
@@ -1865,6 +1873,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#anfrage">Inquire</a></li>
     <li><a href="/studio/index-en" class="nav-cross">Studio</a></li>
+    <li><a href="/events/index-en" class="nav-cross">Events</a></li>
   </ul>
 
   <div class="lang-switcher" id="langSwitcher">
@@ -1889,6 +1898,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#contact"  class="mob-link">Contact</a>
   <a href="#anfrage"  class="mob-link">Inquire</a>
   <a href="/studio/index-en" class="mob-link nav-cross">Studio</a>
+  <a href="/events/index-en" class="mob-link nav-cross">Events</a>
   <button class="btn btn-gold mob-link" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'})">Get Price List</button>
   <div style="display: flex; align-items: center; gap: 8px; margin-top: 24px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
     <a href="/" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="localStorage.setItem('lang','de')">🇩🇪 DE</a>
