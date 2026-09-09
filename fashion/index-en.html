@@ -2436,10 +2436,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 ─────────────────────────────────────────────── -->
 <section id="gallery">
   <style>
-    .ivent-rows { display: flex; flex-direction: column; gap: 64px; max-width: 1000px; margin: 56px auto 0; }
+    .ivent-rows { display: flex; flex-direction: column; gap: 64px; max-width: 1000px; margin: 56px auto 0; counter-reset: gallery-num; }
     .ivent-row { display: flex; align-items: center; gap: 48px; }
     .ivent-row:nth-child(even) { flex-direction: row-reverse; }
     .ivent-row .gallery-cell { flex: 0 0 300px; margin: 0; }
+    .ivent-row .gallery-cell::before { counter-increment: gallery-num; content: counter(gallery-num, decimal-leading-zero); position: absolute; top: 10px; left: 10px; z-index: 4; font-family: var(--font-heading); font-size: 13px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.52); padding: 2px 8px; border-radius: 4px; letter-spacing: 1px; pointer-events: none; }
     .ivent-row .ivent-text { flex: 1; }
     .ivent-row .ivent-num { display: none; }
     .ivent-row .ivent-caption {
