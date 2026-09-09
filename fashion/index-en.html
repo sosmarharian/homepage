@@ -2754,12 +2754,16 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     } catch (e) { return false; }
   }
 
+  function studioIsTestMode() {
+    try { return new URLSearchParams(window.location.search).get('test') === '1'; } catch (e) { return false; }
+  }
+
   function studioTrackLeadAndRedirect(url, contact) {
     var done = false;
     function go() { if (done) return; done = true; window.location.href = url; }
     var eventId = studioEventId();
     try {
-      if (hasMarketingConsent()) fetch('/api/capi', {
+      if (!studioIsTestMode() && hasMarketingConsent()) fetch('/api/capi', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         keepalive: true,
@@ -2775,8 +2779,8 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     } catch (e) {}
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      event: 'lead_form_submit',
-      form_name: 'studio_contact',
+      event: studioIsTestMode() ? 'lead_form_submit_test' : 'lead_form_submit',
+      form_name: studioIsTestMode() ? 'fashion_contact_test' : 'fashion_contact',
       event_id: eventId,
       eventTimeout: 1500,
       eventCallback: go
@@ -2795,6 +2799,10 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     if (!ok) return;
     submit.textContent = 'Sending…';
     submit.disabled = true;
+    if (studioIsTestMode()) {
+      var subjectInput = form.querySelector('[name="subject"]');
+      if (subjectInput && subjectInput.value.indexOf('[TEST]') !== 0) subjectInput.value = '[TEST] ' + subjectInput.value;
+    }
     fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       body: new FormData(form),
