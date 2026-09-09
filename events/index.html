@@ -1819,137 +1819,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ───────────────────────────────────────────────
      GALLERY (Ivent-Reel)
 ─────────────────────────────────────────────── -->
-<section id="gallery">
-  <style>
-    .ivent-rows { display: flex; flex-direction: column; gap: 64px; max-width: 1000px; margin: 56px auto 0; }
-    .ivent-row { display: flex; align-items: center; gap: 48px; }
-    .ivent-row:nth-child(even) { flex-direction: row-reverse; }
-    .ivent-row .gallery-cell { flex: 0 0 300px; margin: 0; }
-    .ivent-row .ivent-text { flex: 1; }
-    .ivent-row .ivent-num {
-      /* Визуально скрыт по просьбе — оставлен в разметке, чтобы легко
-         ориентироваться по номеру карточки при правках контента. */
-      display: none;
-    }
-    .ivent-row .ivent-caption {
-      font-family: var(--font-body); font-weight: 300; font-size: 18px;
-      line-height: 1.75; color: var(--charcoal);
-    }
-    @media (max-width: 768px) {
-      .ivent-row, .ivent-row:nth-child(even) { flex-direction: column; gap: 20px; }
-      .ivent-row .gallery-cell { flex: 0 0 auto; width: 100%; max-width: 280px; margin: 0 auto; }
-      .ivent-row .ivent-text { text-align: center; }
-    }
-  </style>
-
-  <div class="section-header reveal center">
-    <span class="eyebrow">Ivent-Reel</span>
-    <h2 class="section-heading" style="text-transform:uppercase; letter-spacing:2px;">Unsere Arbeiten</h2>
-    <p class="section-sub" style="margin:0 auto;">Wir entwickeln uns mit jedem Event weiter — schärfen die Technik und werden dabei stetig schneller im Schnitt.</p>
-  </div>
-
-  <div class="ivent-rows">
-    <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-8.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-8.mp4" type="video/mp4"></video></div>
-      <div class="ivent-text">
-        <span class="ivent-num">01</span>
-        <p class="ivent-caption">Event „Bloger Naiznanku“ von Inna Fedotova.</p>
-      </div>
-    </div>
-
-    <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-13.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-13.mp4" type="video/mp4"></video></div>
-      <div class="ivent-text">
-        <span class="ivent-num">02</span>
-        <p class="ivent-caption">Workshop mit Alex Dusheiko in Warschau.</p>
-      </div>
-    </div>
-
-    <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-9.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-9.mp4" type="video/mp4"></video></div>
-      <div class="ivent-text">
-        <span class="ivent-num">03</span>
-        <p class="ivent-caption">Event „Sila Buti Soboyu“ von Solomia Paustian.</p>
-      </div>
-    </div>
-
-    <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-12.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-12.mp4" type="video/mp4"></video></div>
-      <div class="ivent-text">
-        <span class="ivent-num">04</span>
-        <p class="ivent-caption">Workshop mit Alex Dusheiko in Dubai.</p>
-      </div>
-    </div>
-
-    <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-10.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-10.mp4" type="video/mp4"></video></div>
-      <div class="ivent-text">
-        <span class="ivent-num">05</span>
-        <p class="ivent-caption">Event „Blue Explosion“ von Ella Deck.</p>
-      </div>
-    </div>
-
-    <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-7.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-7.mp4" type="video/mp4"></video></div>
-      <div class="ivent-text">
-        <span class="ivent-num">06</span>
-        <p class="ivent-caption">Workshop mit Alex Dusheiko in Hannover.</p>
-      </div>
-    </div>
-
-    <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-4.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-4.mp4" type="video/mp4"></video></div>
-      <div class="ivent-text">
-        <span class="ivent-num">07</span>
-        <p class="ivent-caption">Workshop mit Alex Dusheiko zum Thema Fashion-Fotografie.</p>
-      </div>
-    </div>
-
-    <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-2.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-2.mp4" type="video/mp4"></video></div>
-      <div class="ivent-text">
-        <span class="ivent-num">08</span>
-        <p class="ivent-caption">Der Trailer vom Event in Tschechien ist fertig 🎥<br>Wie gefällt er euch? 😎</p>
-      </div>
-    </div>
-
-    <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-3.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-3.mp4" type="video/mp4"></video></div>
-      <div class="ivent-text">
-        <span class="ivent-num">09</span>
-        <p class="ivent-caption">Firmenevent in Hamburg — Atmosphäre und Details im Blick.</p>
-      </div>
-    </div>
-
-    <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-5.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-5.mp4" type="video/mp4"></video></div>
-      <div class="ivent-text">
-        <span class="ivent-num">10</span>
-        <p class="ivent-caption">European Fashion Days in Rozvadov.</p>
-      </div>
-    </div>
-
-    <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-6.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-6.mp4" type="video/mp4"></video></div>
-      <div class="ivent-text">
-        <span class="ivent-num">11</span>
-        <p class="ivent-caption">Am 14.03.2026 fand unser erster BukRem Fashion Day in Hamburg statt.</p>
-      </div>
-    </div>
-
-    <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-11.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-11.mp4" type="video/mp4"></video></div>
-      <div class="ivent-text">
-        <span class="ivent-num">12</span>
-        <p class="ivent-caption">Event des Bizon Business Club.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ───────────────────────────────────────────────
-     REVIEWS (Google, custom carousel)
-─────────────────────────────────────────────── -->
 <section id="reviews">
   <div class="section-header reveal center">
     <h2 class="section-heading" style="text-transform:uppercase; letter-spacing:2px;">Was unsere Kunden sagen</h2>
@@ -2492,6 +2361,138 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </script>
   </div>
 </section>
+
+<section id="gallery">
+  <style>
+    .ivent-rows { display: flex; flex-direction: column; gap: 64px; max-width: 1000px; margin: 56px auto 0; }
+    .ivent-row { display: flex; align-items: center; gap: 48px; }
+    .ivent-row:nth-child(even) { flex-direction: row-reverse; }
+    .ivent-row .gallery-cell { flex: 0 0 300px; margin: 0; }
+    .ivent-row .ivent-text { flex: 1; }
+    .ivent-row .ivent-num {
+      /* Визуально скрыт по просьбе — оставлен в разметке, чтобы легко
+         ориентироваться по номеру карточки при правках контента. */
+      display: none;
+    }
+    .ivent-row .ivent-caption {
+      font-family: var(--font-body); font-weight: 300; font-size: 18px;
+      line-height: 1.75; color: var(--charcoal);
+    }
+    @media (max-width: 768px) {
+      .ivent-row, .ivent-row:nth-child(even) { flex-direction: column; gap: 20px; }
+      .ivent-row .gallery-cell { flex: 0 0 auto; width: 100%; max-width: 280px; margin: 0 auto; }
+      .ivent-row .ivent-text { text-align: center; }
+    }
+  </style>
+
+  <div class="section-header reveal center">
+    <span class="eyebrow">Ivent-Reel</span>
+    <h2 class="section-heading" style="text-transform:uppercase; letter-spacing:2px;">Unsere Arbeiten</h2>
+    <p class="section-sub" style="margin:0 auto;">Wir entwickeln uns mit jedem Event weiter — schärfen die Technik und werden dabei stetig schneller im Schnitt.</p>
+  </div>
+
+  <div class="ivent-rows">
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-8.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-8.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">01</span>
+        <p class="ivent-caption">Event „Bloger Naiznanku“ von Inna Fedotova.</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-13.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-13.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">02</span>
+        <p class="ivent-caption">Workshop mit Alex Dusheiko in Warschau.</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-9.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-9.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">03</span>
+        <p class="ivent-caption">Event „Sila Buti Soboyu“ von Solomia Paustian.</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-12.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-12.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">04</span>
+        <p class="ivent-caption">Workshop mit Alex Dusheiko in Dubai.</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-10.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-10.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">05</span>
+        <p class="ivent-caption">Event „Blue Explosion“ von Ella Deck.</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-7.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-7.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">06</span>
+        <p class="ivent-caption">Workshop mit Alex Dusheiko in Hannover.</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-4.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-4.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">07</span>
+        <p class="ivent-caption">Workshop mit Alex Dusheiko zum Thema Fashion-Fotografie.</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-2.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-2.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">08</span>
+        <p class="ivent-caption">Der Trailer vom Event in Tschechien ist fertig 🎥<br>Wie gefällt er euch? 😎</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-3.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-3.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">09</span>
+        <p class="ivent-caption">Firmenevent in Hamburg — Atmosphäre und Details im Blick.</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-5.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-5.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">10</span>
+        <p class="ivent-caption">European Fashion Days in Rozvadov.</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-6.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-6.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">11</span>
+        <p class="ivent-caption">Am 14.03.2026 fand unser erster BukRem Fashion Day in Hamburg statt.</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/events/posters/ivent-11.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-11.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">12</span>
+        <p class="ivent-caption">Event des Bizon Business Club.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────
+     REVIEWS (Google, custom carousel)
+─────────────────────────────────────────────── -->
 
 <!-- ───────────────────────────────────────────────
      CONTACT
