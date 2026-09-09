@@ -5,26 +5,6 @@
       "source": "/index-de",
       "destination": "/",
       "permanent": false
-    },
-    {
-      "source": "/studio",
-      "destination": "/fashion",
-      "permanent": true
-    },
-    {
-      "source": "/studio/index-en",
-      "destination": "/fashion/index-en",
-      "permanent": true
-    },
-    {
-      "source": "/studio/thanks",
-      "destination": "/fashion/thanks",
-      "permanent": true
-    },
-    {
-      "source": "/studio/impressum",
-      "destination": "/fashion/impressum",
-      "permanent": true
     }
   ],
   "headers": [
