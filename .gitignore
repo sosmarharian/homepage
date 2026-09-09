@@ -103,9 +103,9 @@
 !posters/
 !posters/*.jpg
 
-# Studio page (marharian.com/studio) — постеры видео лежат в своей папке
-!studio/posters/
-!studio/posters/*.jpg
+# Fashion page (marharian.com/fashion) — постеры видео лежат в своей папке
+!fashion/posters/
+!fashion/posters/*.jpg
 
 # Events page (marharian.com/events) — постеры видео лежат в своей папке
 !events/posters/

@@ -1,19 +1,6 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script>
-(function(){
-  if(localStorage.getItem('lang')) return;
-  var ua = navigator.userAgent.toLowerCase();
-  if(/googlebot|bingbot|yandexbot|facebookexternalhit|twitterbot|rogerbot|linkedinbot|slackbot|whatsapp|applebot|duckduckbot|petalbot/.test(ua)) return;
-  var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
-  var hasGerman = Array.prototype.some.call(langs, function(l){ return (l||'').toLowerCase().indexOf('de') === 0; });
-  var firstIsEnglish = (langs[0] || '').toLowerCase().indexOf('en') === 0;
-  if(!hasGerman && firstIsEnglish) window.location.replace('/studio/index-en');
-})();
-</script>
 <!-- Google Consent Mode v2 — default (denied), muss vor CCM19 und GTM stehen -->
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -44,18 +31,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-K9L4JN9K');</script>
 <!-- End Google Tag Manager -->
-  <link rel="canonical" href="https://marharian.com/studio">
-  <link rel="alternate" hreflang="de" href="https://marharian.com/studio">
-  <link rel="alternate" hreflang="en" href="https://marharian.com/studio/index-en">
-  <link rel="alternate" hreflang="x-default" href="https://marharian.com/studio">
-  <title>Marharian Production · Foto &amp; Videoproduktion Hamburg</title>
-  <meta name="description" content="Marharian Production — Foto- und Videoproduktion in Hamburg. Individuelle Shootings, Fashion, Restaurants &amp; Food, Commercial und Beauty." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://marharian.com/fashion/index-en">
+  <link rel="alternate" hreflang="de" href="https://marharian.com/fashion">
+  <link rel="alternate" hreflang="en" href="https://marharian.com/fashion/index-en">
+  <link rel="alternate" hreflang="x-default" href="https://marharian.com/fashion">
+  <title>Marharian Production · Photo &amp; Video Production Hamburg</title>
+  <meta name="description" content="Marharian Production — Photo and video production in Hamburg. Individual shoots, fashion, restaurants &amp; food, commercial and beauty." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Darker+Grotesque:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="/studio/posters/hero-video-poster.jpg" media="(min-width: 769px)">
-  <link rel="preload" as="image" href="/studio/posters/hero-video-poster.jpg" media="(max-width: 768px)">
+  <link rel="preload" as="image" href="/fashion/posters/hero-video-poster.jpg" media="(min-width: 769px)">
+  <link rel="preload" as="image" href="/fashion/posters/hero-video-poster.jpg" media="(max-width: 768px)">
 
   <style>
     /* ─── Reset ───────────────────────────────────────── */
@@ -529,7 +518,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
       gap: 20px;
     }
     .svc-card {
@@ -778,8 +767,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       #about { background: var(--white); }
     }
 
-    /* Zwischenbereich: Desktop-Nav passt nicht mehr in die 1200px-Pill —
-       hier Hamburger statt Umbruch/Überlappung. */
+    /* Intermediate range: desktop nav no longer fits the 1200px pill —
+       use the hamburger instead of wrapping/overlapping. */
     @media (min-width: 901px) and (max-width: 1200px) {
       .nav-links { display: none; }
       .nav-logo { flex: 1; justify-content: center; }
@@ -1757,53 +1746,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      VIDEO HERO
 ─────────────────────────────────────────────── -->
 <div id="video-hero">
-  <video data-hero muted loop playsinline preload="none" poster="/studio/posters/hero-video-poster.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/hero_video_trimmed.mp4" type="video/mp4"></video>
+  <video data-hero muted loop playsinline preload="none" poster="/fashion/posters/hero-video-poster.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/hero_video_trimmed.mp4" type="video/mp4"></video>
   <div class="video-overlay"></div>
   <!-- ───────────────────────────────────────────────
        NAVIGATION
   ─────────────────────────────────────────────── -->
   <nav id="nav">
     <a href="#" class="nav-logo">
-      <img src="/studio/marharian.png" alt="Marharian Production">
+      <img src="/fashion/marharian.png" alt="Marharian Production">
     </a>
 
     <ul class="nav-links">
-      <li><a href="#services">Leistungen</a></li>
-      <li><a href="#gallery">Galerie</a></li>
-      <li><a href="#reviews">Bewertungen</a></li>
-      <li><a href="#contact">Kontakt</a></li>
-      <li><a href="/" class="nav-cross">Hochzeiten</a></li>
-      <li><a href="/events" class="nav-cross">Events</a></li>
+      <li><a href="#services">What we do</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="/index-en" class="nav-cross">Weddings</a></li>
+      <li><a href="/events/index-en" class="nav-cross">Events</a></li>
     </ul>
 
     <div class="lang-switcher" id="langSwitcher">
-      <button class="lang-btn" id="langBtn" aria-label="Select language">DE</button>
+      <button class="lang-btn" id="langBtn" aria-label="Sprache wählen">EN</button>
       <div class="lang-dropdown" id="langDropdown">
-        <a href="/studio/index-en" class="lang-option" onclick="localStorage.setItem('lang','en')">EN</a>
+        <a href="/fashion" class="lang-option" onclick="localStorage.setItem('lang','de')">DE</a>
       </div>
     </div>
 
-    <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 </div>
 <div class="eyebrow-gap" style="background:#f5f0eb; display:flex; align-items:center; justify-content:center; padding: 12px 24px; text-align: center;">
-  <span style="font-size: clamp(1.2rem, 2vw, 2rem); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; text-align: center; white-space: normal; word-break: break-word;">Foto- &amp; Videoproduktion in Hamburg</span>
+  <span style="font-size: clamp(1.2rem, 2vw, 2rem); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; text-align: center; white-space: normal; word-break: break-word;">Photo &amp; Video Production in Hamburg</span>
 </div>
 
 <!-- Mobile menu -->
 <div class="mob-backdrop" id="mobBackdrop"></div>
 <div class="mob-menu" id="mobMenu">
-  <a href="#services" class="mob-link">Leistungen</a>
-  <a href="#gallery"  class="mob-link">Galerie</a>
-  <a href="#reviews"  class="mob-link">Bewertungen</a>
-  <a href="#contact"  class="mob-link">Kontakt</a>
-  <a href="/"         class="mob-link nav-cross">Hochzeiten</a>
-  <a href="/events"   class="mob-link nav-cross">Events</a>
-  <button class="btn btn-gold mob-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Termin buchen</button>
+  <a href="#services" class="mob-link">What we do</a>
+  <a href="#gallery"  class="mob-link">Gallery</a>
+  <a href="#reviews"  class="mob-link">Reviews</a>
+  <a href="#contact"  class="mob-link">Contact</a>
+  <a href="/index-en" class="mob-link nav-cross">Weddings</a>
+  <a href="/events/index-en" class="mob-link nav-cross">Events</a>
+  <button class="btn btn-gold mob-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a session</button>
   <div style="display: flex; align-items: center; gap: 8px; margin-top: 24px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
-    <a href="/studio/index-en" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="localStorage.setItem('lang','en')">🇬🇧 EN</a>
+    <a href="/fashion" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="localStorage.setItem('lang','de')">🇩🇪 DE</a>
   </div>
 </div>
 
@@ -1812,19 +1801,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 ─────────────────────────────────────────────── -->
 <section id="hero">
   <div class="hero-left">
-    <h1 class="hero-h1">Elegante<br><em>visuelle Geschichten.</em></h1>
+    <h1 class="hero-h1">Creating elegant<br><em>visual stories.</em></h1>
     <div class="hero-btns">
-      <button class="btn btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Termin buchen</button>
+      <button class="btn btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a session</button>
       <a href="https://www.instagram.com/marharian.production/" target="_blank" style="display:inline-flex; align-items:center; padding:16px 32px; border:2px solid var(--gold); color:var(--gold); font-size:14px; font-weight:600; letter-spacing:0.1em; text-decoration:none; border-radius:6px; font-family:inherit;">Instagram</a>
     </div>
   </div>
 
   <div class="hero-right">
     <div id="hero-slideshow">
-      <img src="/studio/IMG_6477.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:1; transition:opacity 0.6s ease;">
-      <img src="/studio/IMG_6539.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:0; transition:opacity 0.6s ease;">
-      <img src="/studio/IMG_8801.jpg" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:0; transition:opacity 0.6s ease;">
-      <img src="/studio/R6M20042.jpg" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:0; transition:opacity 0.6s ease;">
+      <img src="/fashion/IMG_1326.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:1; transition:opacity 0.6s ease;">
+      <img src="/fashion/IMG_6477.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:0; transition:opacity 0.6s ease;">
+      <img src="/fashion/IMG_6539.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:0; transition:opacity 0.6s ease;">
+      <img src="/fashion/IMG_8801.jpg" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:0; transition:opacity 0.6s ease;">
+      <img src="/fashion/R6M20042.jpg" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:0; transition:opacity 0.6s ease;">
     </div>
     <div class="scroll-hint">Scroll</div>
   </div>
@@ -1835,44 +1825,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 ─────────────────────────────────────────────── -->
 <section id="services">
   <div class="section-header reveal">
-    <span class="eyebrow">Was wir tun</span>
-    <h2 class="section-heading">Unsere Leistungen</h2>
-    <p class="section-sub">Von intimen Porträts bis zu großen Produktionen — wir bringen die gleiche Hingabe in jedes Projekt.</p>
+    <span class="eyebrow">What we do</span>
+    <h2 class="section-heading">Our services</h2>
+    <p class="section-sub">From intimate portraits to large-scale productions — we bring the same dedication to every project.</p>
   </div>
 
   <div class="services-grid">
 
-    <div class="svc-card reveal">
-      <div id="individual-slideshow" style="position:absolute; inset:0;">
-        <img src="/studio/IMG_2880.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_5171.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_5517.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_2587.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_3096.JPG" alt="Individual" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-      </div>
-      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
-      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
-        <svg class="svc-icon" viewBox="0 0 38 38">
-          <circle cx="19" cy="12" r="5"/>
-          <path d="M7 34c0-6.627 5.373-12 12-12s12 5.373 12 12"/>
-          <circle cx="29" cy="10" r="3.5"/>
-          <path d="M33 27c0-4.4-3-7.8-7-9"/>
-        </svg>
-        <div class="svc-title">Individuell</div>
-        <p class="svc-desc">Studio- und Outdoor-Sessions, Porträts und persönliche Geschichten, individuell auf euch zugeschnitten. Cinematische Kurzfilme, Reels und persönliche Videoprojekte mit klarer visueller Handschrift.</p>
-      </div>
-    </div>
-
     <div class="svc-card reveal reveal-delay-1">
       <div id="fashion-slideshow" style="position:absolute; inset:0;">
-        <img src="/studio/IMG_3265.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_5173.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_6583.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_0560.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_5034.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_3253.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_5618.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_5029.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="/fashion/IMG_3265.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
+        <img src="/fashion/IMG_5173.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="/fashion/IMG_6583.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="/fashion/IMG_0560.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="/fashion/IMG_5034.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="/fashion/IMG_3253.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="/fashion/IMG_5618.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
+        <img src="/fashion/IMG_5029.JPG" alt="Fashion" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
       </div>
       <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
       <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
@@ -1884,75 +1853,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <path d="M26 8l3-3M12 8L9 5"/>
         </svg>
         <div class="svc-title">Fashion</div>
-        <p class="svc-desc">Editorial-, Lookbook- und Kampagnen-Shootings. Firmenevents, Partys und Auftritte — vollständige visuelle Begleitung vom ersten bis zum letzten Moment.</p>
-      </div>
-    </div>
-
-    <div class="svc-card reveal reveal-delay-2">
-      <div id="wedding-slideshow" style="position:absolute; inset:0;">
-        <img src="/studio/IMG_9115.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_9044.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_5904.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_9089.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_3251.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_7252.JPG" alt="Weddings" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-      </div>
-      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
-      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
-        <svg class="svc-icon" viewBox="0 0 38 38">
-          <path d="M19 33S5 24 5 14a14 14 0 0 1 14-6.5A14 14 0 0 1 33 14c0 10-14 19-14 19z"/>
-        </svg>
-        <div class="svc-title">Hochzeiten</div>
-        <p class="svc-desc">Emotionale und elegante Geschichten eures wichtigsten Tages, festgehalten mit unserer cinematischen Handschrift.</p>
-      </div>
-    </div>
-
-    <div class="svc-card reveal">
-      <div id="restaurants-slideshow" style="position:absolute; inset:0;">
-        <img src="/studio/IMG_3090.JPG" alt="Restaurants &amp; Food" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:1; transition:opacity 0.6s ease;">
-        <img src="/studio/IMG_3091.jpg" alt="Restaurants &amp; Food" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; opacity:0; transition:opacity 0.6s ease;">
-      </div>
-      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
-      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
-        <svg class="svc-icon" viewBox="0 0 38 38">
-          <circle cx="19" cy="20" r="10"/>
-          <path d="M9 20H4M29 20h5M19 10V5M19 30v5"/>
-          <path d="M12 13l-4-4M26 13l4-4M12 27l-4 4M26 27l4 4"/>
-          <circle cx="19" cy="20" r="4"/>
-        </svg>
-        <div class="svc-title">Restaurants &amp; Food</div>
-        <p class="svc-desc">Speisen, Atmosphäre und Interieurs. Wir erschaffen visuelle Inhalte, die euer Restaurant unvergesslich machen.</p>
-      </div>
-    </div>
-
-    <div class="svc-card reveal reveal-delay-1">
-      <video data-autoplay muted loop playsinline preload="none" poster="/studio/posters/IMG_2982.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
-        <source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2982.MP4" type="video/mp4">
-      </video>
-      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
-      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
-        <svg class="svc-icon" viewBox="0 0 38 38">
-          <rect x="4" y="13" width="30" height="20" rx="2"/>
-          <path d="M13 13V9a6 6 0 0 1 12 0v4"/>
-          <path d="M4 21h30"/>
-          <rect x="14" y="18" width="10" height="6" rx="1"/>
-        </svg>
-        <div class="svc-title">Commercial &amp; Brand</div>
-        <p class="svc-desc">Foto- und Videoinhalte für Marken, Werbekampagnen und Social Media. Visuelle Identität, die verkauft.</p>
-      </div>
-    </div>
-
-    <div class="svc-card reveal reveal-delay-2">
-      <video data-autoplay muted loop playsinline preload="none" poster="/studio/posters/IMG_3784.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
-        <source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3784.MP4" type="video/mp4">
-      </video>
-      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); border-radius:10px;"></div>
-      <div style="position:absolute; bottom:0; left:0; right:0; padding:28px; z-index:2;">
-        <svg class="svc-icon" viewBox="0 0 38 38">
-          <polygon points="19,3 23,14 35,14 25.5,21.5 29,33 19,26 9,33 12.5,21.5 3,14 15,14"/>
-        </svg>
-        <div class="svc-title">Beauty-Industrie</div>
-        <p class="svc-desc">Portfolio-Shootings für Stylisten, Make-up-Artists und Beauty-Marken. Zeigt euer Handwerk mit Bildern, die neue Kunden anziehen.</p>
+        <p class="svc-desc">Editorial, lookbook and campaign shoots. Corporate events, parties and performances — full visual coverage from first to last moment.</p>
       </div>
     </div>
 
@@ -1960,24 +1861,105 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- ───────────────────────────────────────────────
-     GALLERY
+     GALLERY (Fashion-Reel)
 ─────────────────────────────────────────────── -->
 <section id="gallery">
-  <div class="section-header reveal">
-    <h2 class="section-heading" style="text-transform:uppercase; letter-spacing:2px;">Unsere Arbeiten</h2>
-    <p style="font-family:var(--font-body); font-weight:400; text-align:center; margin-top:12px; color:var(--gray);">Ausgewählte Projekte aus unserem Portfolio</p>
+  <style>
+    .ivent-rows { display: flex; flex-direction: column; gap: 64px; max-width: 1000px; margin: 56px auto 0; }
+    .ivent-row { display: flex; align-items: center; gap: 48px; }
+    .ivent-row:nth-child(even) { flex-direction: row-reverse; }
+    .ivent-row .gallery-cell { flex: 0 0 300px; margin: 0; }
+    .ivent-row .ivent-text { flex: 1; }
+    .ivent-row .ivent-num { display: none; }
+    .ivent-row .ivent-caption {
+      font-family: var(--font-body); font-weight: 300; font-size: 18px;
+      line-height: 1.75; color: var(--charcoal);
+    }
+    @media (max-width: 768px) {
+      .ivent-row, .ivent-row:nth-child(even) { flex-direction: column; gap: 20px; }
+      .ivent-row .gallery-cell { flex: 0 0 auto; width: 100%; max-width: 280px; margin: 0 auto; }
+      .ivent-row .ivent-text { text-align: center; }
+    }
+  </style>
+
+  <div class="section-header reveal center">
+    <span class="eyebrow">Fashion-Reel</span>
+    <h2 class="section-heading" style="text-transform:uppercase; letter-spacing:2px;">Our Work</h2>
+    <p class="section-sub" style="margin:0 auto;">Selected projects from our Fashion portfolio</p>
   </div>
 
-  <div class="gallery-grid">
-    <div class="gallery-cell reveal"><video muted loop playsinline preload="none" poster="/studio/posters/IMG_3381_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3381_comp.mp4" type="video/mp4"></video><span class="gallery-number">01</span></div>
-    <div class="gallery-cell reveal"><video muted loop playsinline preload="none" poster="/studio/posters/IMG_9403_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_9403_comp.mp4" type="video/mp4"></video><span class="gallery-number">02</span></div>
-    <div class="gallery-cell reveal"><video muted loop playsinline preload="none" poster="/studio/posters/IMG_3261_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3261_comp.mp4" type="video/mp4"></video><span class="gallery-number">03</span></div>
-    <div class="gallery-cell reveal reveal-delay-1"><video muted loop playsinline preload="none" poster="/studio/posters/IMG_4745_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_4745_comp.mp4" type="video/mp4"></video><span class="gallery-number">04</span></div>
-    <div class="gallery-cell reveal reveal-delay-1"><video muted loop playsinline preload="none" poster="/studio/posters/IMG_2857_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2857_comp.mp4" type="video/mp4"></video><span class="gallery-number">05</span></div>
-    <div class="gallery-cell reveal reveal-delay-1"><video muted loop playsinline preload="none" poster="/studio/posters/IMG_3254_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3254_comp.mp4" type="video/mp4"></video><span class="gallery-number">06</span></div>
-    <div class="gallery-cell reveal reveal-delay-2"><video muted loop playsinline preload="none" poster="/studio/posters/IMG_7399_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_7399_comp.mp4" type="video/mp4"></video><span class="gallery-number">07</span></div>
-    <div class="gallery-cell reveal reveal-delay-2"><video muted loop playsinline preload="none" poster="/studio/posters/IMG_3380_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3380_comp.mp4" type="video/mp4"></video><span class="gallery-number">08</span></div>
-    <div class="gallery-cell reveal reveal-delay-2"><video muted loop playsinline preload="none" poster="/studio/posters/IMG_2855_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2855_comp.mp4" type="video/mp4"></video><span class="gallery-number">09</span></div>
+  <div class="ivent-rows">
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/IMG_3381_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3381_comp.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">01</span>
+        <p class="ivent-caption">Selected projects from our Fashion portfolio</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/IMG_9403_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_9403_comp.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">02</span>
+        <p class="ivent-caption">Selected projects from our Fashion portfolio</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/IMG_3261_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3261_comp.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">03</span>
+        <p class="ivent-caption">Selected projects from our Fashion portfolio</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/IMG_4745_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_4745_comp.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">04</span>
+        <p class="ivent-caption">Selected projects from our Fashion portfolio</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/IMG_2857_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2857_comp.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">05</span>
+        <p class="ivent-caption">Selected projects from our Fashion portfolio</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/IMG_3254_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3254_comp.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">06</span>
+        <p class="ivent-caption">Selected projects from our Fashion portfolio</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/IMG_7399_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_7399_comp.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">07</span>
+        <p class="ivent-caption">Selected projects from our Fashion portfolio</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/IMG_3380_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3380_comp.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">08</span>
+        <p class="ivent-caption">Selected projects from our Fashion portfolio</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/IMG_2855_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_2855_comp.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">09</span>
+        <p class="ivent-caption">Selected projects from our Fashion portfolio</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1986,36 +1968,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 ─────────────────────────────────────────────── -->
 <section id="reviews">
   <div class="section-header reveal center">
-    <h2 class="section-heading" style="text-transform:uppercase; letter-spacing:2px;">Was unsere Kunden sagen</h2>
-    <p style="font-family:var(--font-body); font-weight:400; text-align:center; margin-top:12px; color:var(--gray);">Echte Bewertungen von Google</p>
+    <h2 class="section-heading" style="text-transform:uppercase; letter-spacing:2px;">What our clients say</h2>
+    <p style="font-family:var(--font-body); font-weight:400; text-align:center; margin-top:12px; color:var(--gray);">Real reviews from Google</p>
   </div>
   <div class="reveal" style="max-width:1200px; margin:0 auto; padding:0 20px;">
     <style>
-    /* ── Reviews carousel ───────────────────── */
-    .rv-viewport { overflow: hidden; }
-    .rv-track {
-      display: flex;
-      gap: 16px;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    .reviews-track-wrapper { position: relative; overflow: hidden; }
+    .reviews-track-wrapper::before,
+    .reviews-track-wrapper::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
     }
-    .rv-card { flex: 0 0 calc(25% - 12px); box-sizing: border-box; }
-    @media (max-width: 900px) { .rv-card { flex: 0 0 calc(50% - 8px); } }
-    @media (max-width: 560px) { .rv-card { flex: 0 0 100%; } }
-
+    .reviews-track-wrapper::before { left: 0;  background: linear-gradient(to right, #fff 15%, transparent); }
+    .reviews-track-wrapper::after  { right: 0; background: linear-gradient(to left,  #fff 15%, transparent); }
+    .reviews-track {
+      display: flex; gap: 20px; width: max-content;
+      padding: 12px 4px 8px;
+      animation: reviews-scroll 209s linear infinite;
+    }
+    .reviews-track-wrapper:hover .reviews-track { animation-play-state: paused; }
+    @keyframes reviews-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
     .review-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 18px 18px 16px;
-      box-shadow: 0 1px 8px rgba(0,0,0,.09), 0 0 0 1px rgba(0,0,0,.05);
-      display: flex; flex-direction: column;
-      height: 100%; box-sizing: border-box;
+      flex: 0 0 290px; background: #fff;
+      border: 1px solid rgba(0,0,0,.07); border-radius: 14px;
+      padding: 22px; box-shadow: 0 2px 16px rgba(0,0,0,.06);
     }
-    .review-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .review-card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
     .review-avatar {
-      width: 42px; height: 42px; border-radius: 50%;
+      width: 38px; height: 38px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 17px; font-weight: 700; color: #fff;
-      flex-shrink: 0; font-family: var(--font-body); user-select: none;
+      font-size: 16px; font-weight: 700; color: #fff; flex-shrink: 0;
+      font-family: var(--font-body); user-select: none;
     }
     .review-meta { flex: 1; min-width: 0; }
     .review-name {
@@ -2023,33 +2008,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
       font-family: var(--font-body);
     }
-    .review-date { font-size: 11px; color: #888580; margin-top: 2px; font-family: var(--font-body); }
-    .rv-google-icon { flex-shrink: 0; display: block; }
+    .review-date { font-size: 11px; color: #888580; margin-top: 1px; font-family: var(--font-body); }
     .review-stars { color: #fbbc04; font-size: 14px; letter-spacing: 2px; margin-bottom: 10px; }
-    .review-body { flex: 1; display: flex; flex-direction: column; }
-    .review-text {
-      font-size: 13px; line-height: 1.65; color: #3a3632;
-      font-family: var(--font-body);
-      display: -webkit-box;
-      -webkit-line-clamp: 5;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+    .review-text { font-size: 13px; line-height: 1.68; color: #3a3632; font-family: var(--font-body); }
+    @media (max-width: 600px) {
+      .review-card { flex: 0 0 250px; padding: 18px; }
+      .reviews-track-wrapper::before,
+      .reviews-track-wrapper::after { width: 40px; }
     }
-    .review-text.rv-expanded { display: block; overflow: visible; -webkit-line-clamp: unset; }
-    .rv-more {
-      display: none; margin-top: 6px;
-      background: none; border: none; padding: 0;
-      font-size: 12px; color: var(--gold, #c9a96e);
-      font-family: var(--font-body); cursor: pointer;
-      text-decoration: underline; text-align: left;
-    }
-    .rv-dots { display: flex; justify-content: center; gap: 8px; margin-top: 28px; }
-    .rv-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: rgba(0,0,0,.18); border: none; padding: 0;
-      cursor: pointer; transition: background .25s, transform .25s;
-    }
-    .rv-dot.active { background: var(--gold, #c9a96e); transform: scale(1.35); }
   </style>
 
   <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
@@ -2061,510 +2027,545 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </symbol>
   </svg>
 
-  <div class="rv-viewport" id="rv-viewport">
-    <div class="rv-track" id="rv-track">
+  <div class="reviews-track-wrapper">
+    <div class="reviews-track">
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#a87e6e;">V</div>
-            <div class="review-meta">
-              <div class="review-name">Vanessa Dötter</div>
-              <div class="review-date">Vor 3 Wochen</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <!-- ── Set 1 ── -->
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#a87e6e;">V</div>
+          <div class="review-meta">
+            <div class="review-name">Vanessa Dötter</div>
+            <div class="review-date">3 weeks ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Absolute Profis auf ihrem Gebiet! Wir haben bei einem gemeinsamen Projekt zusammengearbeitet und ich bin restlos begeistert. Die beiden arbeiten detailorientiert, bringen fantastische kreative Ideen ein und die gesamte Zusammenarbeit lief reibungslos und professionell ab. Auch das Ergebnis hat mich beeindruckt: Das hochwertige Bild- und Videomaterial wurde sehr schnell bearbeitet und geliefert. Hinter der Kamera fühlen sie sich zu 100 % wohl, diese Leidenschaft und Professionalität spürt man in jedem Moment. Mit ihrer mitreißenden, motivierenden Art ermutigen sie die Models, schaffen eine wunderbare Wohlfühlatmosphäre am Set und sind zudem einfach super sympathisch. Verdiente 5 Sterne und eine uneingeschränkte Empfehlung!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Absolute professionals in their field! We worked together on a joint project and I'm completely thrilled. The two of them work with great attention to detail, bring fantastic creative ideas, and the entire collaboration ran smoothly and professionally. The result impressed me too: the high-quality photo and video material was edited and delivered very quickly. Behind the camera they are 100% in their element — you can feel that passion and professionalism in every moment. With their inspiring, motivating manner they encourage the models, create a wonderful, comfortable atmosphere on set, and are simply great to work with. Well-deserved 5 stars and an unreserved recommendation!</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#c9a96e;">T</div>
-            <div class="review-meta">
-              <div class="review-name">Tatjana Genrich</div>
-              <div class="review-date">Vor 3 Wochen</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#c9a96e;">T</div>
+          <div class="review-meta">
+            <div class="review-name">Tatjana Genrich</div>
+            <div class="review-date">3 weeks ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Absolut begeistert! Wer auf der Suche nach einem professionellen Foto- und Videografen-Team ist, ist hier genau richtig. Die beiden arbeiten unglaublich harmonisch zusammen und ergänzen sich perfekt – man merkt sofort, dass sie ein eingespieltes Team sind. Von der ersten Minute an habe ich mich wohlgefühlt. Die Atmosphäre war entspannt, gleichzeitig wurde mit viel Leidenschaft, Kreativität und einem Auge fürs Detail gearbeitet. Das Ergebnis hat meine Erwartungen sogar übertroffen. Die Fotos und Videos wirken hochwertig, emotional und professionell – genau das, was man sich wünscht. Für mich ganz klar eines der stärksten Foto- und Videografen-Teams überhaupt. Absolute Herzensempfehlung für alle, die Wert auf Qualität, Zuverlässigkeit und außergewöhnliche Ergebnisse legen. Ich würde jederzeit wieder mit euch zusammenarbeiten. Vielen Dank für eure großartige Arbeit!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Absolutely thrilled! If you're looking for a professional photo and video team, this is exactly the right place. The two of them work together incredibly harmoniously and complement each other perfectly — you can tell right away they're a well-rehearsed team. I felt comfortable from the very first minute. The atmosphere was relaxed, yet they worked with great passion, creativity, and an eye for detail. The result even exceeded my expectations. The photos and videos feel high-quality, emotional, and professional — exactly what you'd hope for. For me, clearly one of the strongest photo and video teams out there. An absolute heartfelt recommendation for anyone who values quality, reliability, and outstanding results. I would work with you again anytime. Thank you for your fantastic work!</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#7b9e87;">N</div>
-            <div class="review-meta">
-              <div class="review-name">Nadine Müller</div>
-              <div class="review-date">Vor 1 Monat</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#7b9e87;">N</div>
+          <div class="review-meta">
+            <div class="review-name">Nadine Müller</div>
+            <div class="review-date">1 month ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Marharian Produktion ist eine der besten Entscheidungen, die ich für mich getroffen habe. Das Team ist super lieb und sehr professionell in seinem Handwerk. Ich habe mich wohlgefühlt. Es sind tolle Bilder entstanden. Eine Wiederholung gibt es auf jeden Fall!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Marharian Production is one of the best decisions I've made for myself. The team is super kind and very professional in their craft. I felt completely at ease. Wonderful photos came out of it. There will definitely be a repeat!</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#8a6ea8;">C</div>
-            <div class="review-meta">
-              <div class="review-name">Claudia Herberger</div>
-              <div class="review-date">Vor 1 Monat</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#8a6ea8;">C</div>
+          <div class="review-meta">
+            <div class="review-name">Claudia Herberger</div>
+            <div class="review-date">1 month ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Die beiden sind unglaublich gut und professionell! Ich habe tolle Portraits bekommen, die Filme sind super und die Zusammenarbeit ist wirklich unglaublich angenehm. Ich kann Yaroslava und Sos uneingeschränkt empfehlen. Ein tolles Team.</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">The two of them are incredibly good and professional! I got wonderful portraits, the films are great, and working together was truly a pleasure from start to finish. I can recommend Yaroslava and Sos without reservation. A fantastic team.</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#6e8aa8;">V</div>
-            <div class="review-meta">
-              <div class="review-name">Valeria Brünemann</div>
-              <div class="review-date">Vor 1 Monat</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#6e8aa8;">V</div>
+          <div class="review-meta">
+            <div class="review-name">Valeria Brünemann</div>
+            <div class="review-date">1 month ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Die Videos sind wundervoll geworden, qualitativ hochwertig, toll geschnitten. Danke!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">The videos turned out wonderful — high quality, beautifully edited. Thank you!</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#b08968;">L</div>
-            <div class="review-meta">
-              <div class="review-name">Ludmila Junghans</div>
-              <div class="review-date">Vor 2 Monaten</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#b08968;">L</div>
+          <div class="review-meta">
+            <div class="review-name">Ludmila Junghans</div>
+            <div class="review-date">2 months ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Ich arbeite schon seit längerer Zeit mit dem Team von Marharian Production im Bereich Foto- und Videografie zusammen und bin jedes Mal aufs Neue begeistert. Die Qualität der Arbeit ist immer hervorragend. Gleichzeitig wird auf alle Wünsche eingegangen, und man fühlt sich während des gesamten Projekts bestens betreut. Besonders schätze ich die Zuverlässigkeit, die schnelle Umsetzung und die unkomplizierte Kommunikation auf Augenhöhe. Was mir außerdem sehr gefällt: Man bekommt nicht nur genau das, was man sich wünscht, sondern auch eine ehrliche und professionelle Beratung. Das Team denkt mit und bringt eigene Ideen ein, um das bestmögliche Ergebnis zu erzielen. Ich kann Marharian Production von Herzen weiterempfehlen. So wünscht man sich eine Zusammenarbeit – professionell, zuverlässig und mit viel Leidenschaft für die eigene Arbeit.</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I've been working with the Marharian Production team on photography and videography for quite a while now, and I'm impressed every single time. The quality of the work is consistently outstanding. At the same time, every wish is taken into account, and you feel well looked after throughout the whole project. I especially value the reliability, the fast turnaround, and the easy, down-to-earth communication. What I also really appreciate: you don't just get exactly what you asked for, but honest, professional advice as well. The team thinks along with you and brings their own ideas to achieve the best possible result. I can wholeheartedly recommend Marharian Production. This is exactly how you want a collaboration to be — professional, reliable, and full of passion for their craft.</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#8f9779;">S</div>
-            <div class="review-meta">
-              <div class="review-name">Svitlana Benyuk</div>
-              <div class="review-date">Vor 2 Monaten</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#8f9779;">S</div>
+          <div class="review-meta">
+            <div class="review-name">Svitlana Benyuk</div>
+            <div class="review-date">2 months ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Ich hatte das Vergnügen, gemeinsam mit euch an einem wirklich großartigen Projekt zu arbeiten. Dabei sind unglaublich schöne Fotos und Videos entstanden – professionell, kreativ und mit viel Liebe zum Detail. Außerdem hatte ich die Möglichkeit, ein individuelles Fotoshooting mit euch zu machen. Die Ergebnisse haben meine Erwartungen übertroffen – die Fotos sind wunderschön geworden! Ich bin rundum zufrieden mit eurer Arbeit und kann euch von Herzen weiterempfehlen. Vielen Dank für die tolle Zusammenarbeit!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I had the pleasure of working with you on a truly great project. It resulted in incredibly beautiful photos and videos — professional, creative, and full of attention to detail. I also had the chance to do an individual photoshoot with you, and the results exceeded my expectations — the photos turned out gorgeous! I'm thoroughly happy with your work and can recommend you from the bottom of my heart. Thank you for the wonderful collaboration!</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#9e7b8a;">A</div>
-            <div class="review-meta">
-              <div class="review-name">Asmik Lyashko</div>
-              <div class="review-date">Vor 2 Monaten</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#9e7b8a;">A</div>
+          <div class="review-meta">
+            <div class="review-name">Asmik Lyashko</div>
+            <div class="review-date">2 months ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Ich bin einfach begeistert! Unsere Hochzeitsfotos und das Video sind wunderschön geworden – jedes Bild erzählt eine Geschichte und hält die Emotionen dieses besonderen Tages perfekt fest. Vom ersten Moment an habe ich mich vor der Kamera wohlgefühlt, weil alles so entspannt, herzlich und professionell war. Vielen Dank für eure großartige Arbeit und dafür, dass ihr uns Erinnerungen geschaffen habt, die wir ein Leben lang mit Freude anschauen werden. Ich kann euch von ganzem Herzen weiterempfehlen!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I'm simply thrilled! Our wedding photos and the video turned out beautiful — every image tells a story and captures the emotions of that special day perfectly. From the very first moment I felt completely at ease in front of the camera, because everything was so relaxed, warm, and professional. Thank you for your wonderful work and for creating memories we'll enjoy looking back on for a lifetime. I can recommend you with all my heart!</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#7a8b99;">P</div>
-            <div class="review-meta">
-              <div class="review-name">Polina Voznova</div>
-              <div class="review-date">Vor 3 Monaten</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#7a8b99;">P</div>
+          <div class="review-meta">
+            <div class="review-name">Polina Voznova</div>
+            <div class="review-date">3 months ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Ich bin wirklich begeistert! Ich war jetzt schon mehrmals bei euch für ein Shooting und bin jedes Mal aufs Neue begeistert. Die Atmosphäre war entspannt, locker und einfach angenehm – genau so, wie man es sich wünscht. Alles wurde schnell und unkompliziert besprochen und am Ende hat einfach alles gepasst. Vielen Dank für die tolle Zusammenarbeit – ich freue mich schon auf das nächste Mal! Ich kann euch wirklich von Herzen weiterempfehlen!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I'm truly thrilled! I've now been to several shoots with you and I'm impressed every single time. The atmosphere was relaxed, easygoing, and simply pleasant — exactly how you'd want it. Everything was discussed quickly and without any fuss, and in the end everything just fit perfectly. Thank you for the great collaboration — I'm already looking forward to next time! I can truly recommend you from the bottom of my heart!</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#ab8b6e;">N</div>
-            <div class="review-meta">
-              <div class="review-name">Nasim Farshi Taghavi</div>
-              <div class="review-date">Vor 3 Monaten</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#ab8b6e;">N</div>
+          <div class="review-meta">
+            <div class="review-name">Nasim Farshi Taghavi</div>
+            <div class="review-date">3 months ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Ich habe schon 2 Projekte mit den Zwei gemacht und bin absolut begeistert! Ich habe mich super wohl gefühlt, die Arbeit wurde sehr professionell und schnell erledigt und hat auch unheimlich Spaß gemacht! Ich plane schon für die nächsten Projekte! Herzlichen Dank für eure herzliche und professionelle Arbeit.</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I've already done 2 projects with the two of them and I'm absolutely thrilled! I felt completely at ease, the work was done very professionally and quickly, and it was also incredibly fun! I'm already planning the next projects! Thank you so much for your warm and professional work.</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#a87e6e;">O</div>
-            <div class="review-meta">
-              <div class="review-name">Othniel Kenou</div>
-              <div class="review-date">Vor 3 Monaten</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#a87e6e;">O</div>
+          <div class="review-meta">
+            <div class="review-name">Othniel Kenou</div>
+            <div class="review-date">3 months ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Super tolles Team! Die Marharian haben mich von Anfang bis Ende professionell begleitet. Die Bilder und Videos sind super geworden. Es war immer schön mit euch zu arbeiten. Danke!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Such a great team! The Marharians guided me professionally from start to finish. The photos and videos turned out awesome. It was always a pleasure working with you. Thanks!</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#c9a96e;">B</div>
-            <div class="review-meta">
-              <div class="review-name">Bogdan Rud</div>
-              <div class="review-date">Vor 4 Monaten</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#c9a96e;">B</div>
+          <div class="review-meta">
+            <div class="review-name">Bogdan Rud</div>
+            <div class="review-date">4 months ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Die beiden haben großartige Arbeit geleistet. Die Kommunikation war von Anfang an unkompliziert und sehr professionell. Während des Shootings habe ich mich die ganze Zeit wohlgefühlt – eine entspannte Atmosphäre, aber gleichzeitig sehr effizient. Die Ergebnisse sind beeindruckend: hohe Qualität, viel Liebe zum Detail und ein perfektes Gespür für Licht und Perspektive. Klare Empfehlung!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">The two of them did a fantastic job. Communication was easy and very professional right from the start. I felt completely comfortable throughout the shoot — a relaxed atmosphere, yet very efficient. The results are impressive: high quality, lots of attention to detail, and a perfect sense for light and perspective. Highly recommended!</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#7b9e87;">J</div>
-            <div class="review-meta">
-              <div class="review-name">Julia Panchenko</div>
-              <div class="review-date">Vor 4 Monaten</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#7b9e87;">J</div>
+          <div class="review-meta">
+            <div class="review-name">Julia Panchenko</div>
+            <div class="review-date">4 months ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Die Zusammenarbeit war absolut professionell. Das Video und die Fotos sind von hervorragender Qualität, und die Bearbeitung erfolgte bereits nach wenigen Tagen – außergewöhnlich schnell. Unsere Ideen und die gewünschte Stimmung wurden perfekt umgesetzt. Wir können dieses Team uneingeschränkt weiterempfehlen und kommen gerne wieder!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">The collaboration was absolutely professional. The video and photos are of outstanding quality, and editing was finished after just a few days — remarkably fast. Our ideas and the mood we wanted were captured perfectly. We can recommend this team without reservation and will gladly come back!</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#8a6ea8;">V</div>
-            <div class="review-meta">
-              <div class="review-name">Vladimir Panchenko</div>
-              <div class="review-date">Vor 4 Monaten</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#8a6ea8;">V</div>
+          <div class="review-meta">
+            <div class="review-name">Vladimir Panchenko</div>
+            <div class="review-date">4 months ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Vielen Dank an das tolle Team von Marharian Production! Es war eine echte Freude mit euch zu arbeiten. Trotz spontaner Änderungen (z. B. plötzlicher Regen) habt ihr immer kreative Lösungen gefunden und sogar noch bessere Szenen gedreht als geplant. Sehr professionell, flexibel und mit tollen Ideen zu Locations, Winkeln und Storytelling. Das Ergebnis hat mich voll überzeugt – in kurzer Zeit ein richtig starker Musikclip! Das war definitiv nicht unsere letzte Zusammenarbeit. Freue mich schon auf die nächsten Projekte! Absolute Empfehlung für alle, die hochwertige Foto- oder Videoproduktionen suchen.</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Many thanks to the great team at Marharian Production! It was a real pleasure working with you. Despite spontaneous changes (like sudden rain), you always found creative solutions and even shot better scenes than originally planned. Very professional, flexible, and full of great ideas for locations, angles, and storytelling. The result completely convinced me — a genuinely strong music clip in a short amount of time! This was definitely not our last collaboration. Already looking forward to the next projects! An absolute recommendation for anyone looking for high-quality photo or video production.</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#6e8aa8;">Y</div>
-            <div class="review-meta">
-              <div class="review-name">Yulia Mohammad</div>
-              <div class="review-date">Vor 5 Monaten</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#6e8aa8;">Y</div>
+          <div class="review-meta">
+            <div class="review-name">Yulia Mohammad</div>
+            <div class="review-date">5 months ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Talentierte und sehr sympathische Leute. Vielen Dank für eure Arbeit und die aufmerksame Betreuung!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Talented and very likeable people. Thank you for your work and the attentive care!</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#b08968;">M</div>
-            <div class="review-meta">
-              <div class="review-name">Maksim Aliev</div>
-              <div class="review-date">Vor 5 Monaten</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#b08968;">M</div>
+          <div class="review-meta">
+            <div class="review-name">Maksim Aliev</div>
+            <div class="review-date">5 months ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Ich bin sehr zufrieden mit der Zusammenarbeit mit den Jungs. Es war super entspannt und unkompliziert, als würden wir nicht zum ersten Mal zusammenarbeiten. Und was für ein geiles Video dabei entstanden ist!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I'm very happy with how the collaboration with the guys went. It was super relaxed and easy, as if it wasn't our first time working together. And what an amazing video came out of it!</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#8f9779;">D</div>
-            <div class="review-meta">
-              <div class="review-name">Diana Shchepa</div>
-              <div class="review-date">Vor 5 Monaten</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#8f9779;">D</div>
+          <div class="review-meta">
+            <div class="review-name">Diana Shchepa</div>
+            <div class="review-date">5 months ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Wir haben zum ersten Mal mit den Jungs geshootet und das Ergebnis war 1000-mal besser, als ich erwartet hatte. Die Kommunikation war sehr angenehm und entspannt, und sie haben sofort eine lockere Atmosphäre geschaffen. Auch wenn man nicht weiß, wie man posieren soll, bekommt man immer Tipps und Hilfe. Ich freue mich schon auf das nächste Fotoshooting ❤️❤️❤️</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">We shot with the guys for the first time and the result was 1000 times better than I expected. The communication was very pleasant and relaxed, and they created an easygoing atmosphere right away. Even if you don't know how to pose, you always get tips and help. I'm already looking forward to the next photoshoot!</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#9e7b8a;">M</div>
-            <div class="review-meta">
-              <div class="review-name">Marianna Sapon</div>
-              <div class="review-date">Vor 6 Monaten</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#9e7b8a;">M</div>
+          <div class="review-meta">
+            <div class="review-name">Marianna Sapon</div>
+            <div class="review-date">6 months ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Das beste Foto- und Videoteam in Hamburg! Ich hatte bereits mehrere Foto- und Videoshootings mit ihnen und das Ergebnis war jedes Mal einfach unglaublich. Ihre Vorbereitung, Professionalität und die schnelle Arbeitsweise beeindrucken mich immer wieder. Mit ihnen zu arbeiten macht einfach Spaß – sie unterstützen einen jederzeit, geben wertvolle Tipps und wissen genau, was man tun kann, damit jede Aufnahme noch besser aussieht. Ich komme immer wieder gerne zu ihnen zurück und kann sie von Herzen weiterempfehlen!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">The best photo and video team in Hamburg! I've already had several photo and video shoots with them and the result was simply incredible every single time. Their preparation, professionalism, and fast turnaround impress me again and again. Working with them is just fun — they support you at every step, give valuable tips, and know exactly what to do to make every shot look even better. I keep coming back to them gladly and can recommend them wholeheartedly!</p>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#7a8b99;">D</div>
-            <div class="review-meta">
-              <div class="review-name">Darina Pavlenko</div>
-              <div class="review-date">Vor 6 Monaten</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#7a8b99;">D</div>
+          <div class="review-meta">
+            <div class="review-name">Darina Pavlenko</div>
+            <div class="review-date">6 months ago</div>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Ich hatte ein Fotoshooting am Meer und war absolut begeistert! Was mir als Erstes besonders gefallen hat, war die lockere, entspannte Atmosphäre. Während des Shootings haben sie mir geholfen, mich wohlzufühlen, mich sicher und frei zu bewegen und dabei wirklich professionelle Aufnahmen zu machen! Besonders wertvoll war für mich, dass die Fotografin mich genauso gesehen hat, wie ich mich selbst fühle und sehe – als die schönste Version meiner selbst. Das ist wirklich etwas Besonderes. Die Fotos haben nicht nur mir gefallen, sondern auch meiner ganzen Familie – und das ist für mich der beste Beweis. Vielen Dank für dieses herzliche Shooting und das großartige Ergebnis! Ich kann euch von ganzem Herzen weiterempfehlen!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
         </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I had a photoshoot by the sea and was absolutely thrilled! What I loved most right away was the easygoing, relaxed atmosphere. During the shoot they helped me feel comfortable, move freely and confidently, while still capturing truly professional shots! What was especially valuable to me was that the photographer saw me exactly the way I see and feel myself — as the most beautiful version of myself. That's really something special. Not only did I love the photos, but so did my entire family — and to me, that's the best proof. Thank you for this heartfelt shoot and the wonderful result! I can recommend you with all my heart!</p>
+      </div>
+
+      <!-- ── Set 2 (duplicate for seamless loop) ── -->
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#a87e6e;">V</div>
+          <div class="review-meta">
+            <div class="review-name">Vanessa Dötter</div>
+            <div class="review-date">3 weeks ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Absolute professionals in their field! We worked together on a joint project and I'm completely thrilled. The two of them work with great attention to detail, bring fantastic creative ideas, and the entire collaboration ran smoothly and professionally. The result impressed me too: the high-quality photo and video material was edited and delivered very quickly. Behind the camera they are 100% in their element — you can feel that passion and professionalism in every moment. With their inspiring, motivating manner they encourage the models, create a wonderful, comfortable atmosphere on set, and are simply great to work with. Well-deserved 5 stars and an unreserved recommendation!</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#c9a96e;">T</div>
+          <div class="review-meta">
+            <div class="review-name">Tatjana Genrich</div>
+            <div class="review-date">3 weeks ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Absolutely thrilled! If you're looking for a professional photo and video team, this is exactly the right place. The two of them work together incredibly harmoniously and complement each other perfectly — you can tell right away they're a well-rehearsed team. I felt comfortable from the very first minute. The atmosphere was relaxed, yet they worked with great passion, creativity, and an eye for detail. The result even exceeded my expectations. The photos and videos feel high-quality, emotional, and professional — exactly what you'd hope for. For me, clearly one of the strongest photo and video teams out there. An absolute heartfelt recommendation for anyone who values quality, reliability, and outstanding results. I would work with you again anytime. Thank you for your fantastic work!</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#7b9e87;">N</div>
+          <div class="review-meta">
+            <div class="review-name">Nadine Müller</div>
+            <div class="review-date">1 month ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Marharian Production is one of the best decisions I've made for myself. The team is super kind and very professional in their craft. I felt completely at ease. Wonderful photos came out of it. There will definitely be a repeat!</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#8a6ea8;">C</div>
+          <div class="review-meta">
+            <div class="review-name">Claudia Herberger</div>
+            <div class="review-date">1 month ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">The two of them are incredibly good and professional! I got wonderful portraits, the films are great, and working together was truly a pleasure from start to finish. I can recommend Yaroslava and Sos without reservation. A fantastic team.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#6e8aa8;">V</div>
+          <div class="review-meta">
+            <div class="review-name">Valeria Brünemann</div>
+            <div class="review-date">1 month ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">The videos turned out wonderful — high quality, beautifully edited. Thank you!</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#b08968;">L</div>
+          <div class="review-meta">
+            <div class="review-name">Ludmila Junghans</div>
+            <div class="review-date">2 months ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I've been working with the Marharian Production team on photography and videography for quite a while now, and I'm impressed every single time. The quality of the work is consistently outstanding. At the same time, every wish is taken into account, and you feel well looked after throughout the whole project. I especially value the reliability, the fast turnaround, and the easy, down-to-earth communication. What I also really appreciate: you don't just get exactly what you asked for, but honest, professional advice as well. The team thinks along with you and brings their own ideas to achieve the best possible result. I can wholeheartedly recommend Marharian Production. This is exactly how you want a collaboration to be — professional, reliable, and full of passion for their craft.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#8f9779;">S</div>
+          <div class="review-meta">
+            <div class="review-name">Svitlana Benyuk</div>
+            <div class="review-date">2 months ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I had the pleasure of working with you on a truly great project. It resulted in incredibly beautiful photos and videos — professional, creative, and full of attention to detail. I also had the chance to do an individual photoshoot with you, and the results exceeded my expectations — the photos turned out gorgeous! I'm thoroughly happy with your work and can recommend you from the bottom of my heart. Thank you for the wonderful collaboration!</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#9e7b8a;">A</div>
+          <div class="review-meta">
+            <div class="review-name">Asmik Lyashko</div>
+            <div class="review-date">2 months ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I'm simply thrilled! Our wedding photos and the video turned out beautiful — every image tells a story and captures the emotions of that special day perfectly. From the very first moment I felt completely at ease in front of the camera, because everything was so relaxed, warm, and professional. Thank you for your wonderful work and for creating memories we'll enjoy looking back on for a lifetime. I can recommend you with all my heart!</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#7a8b99;">P</div>
+          <div class="review-meta">
+            <div class="review-name">Polina Voznova</div>
+            <div class="review-date">3 months ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I'm truly thrilled! I've now been to several shoots with you and I'm impressed every single time. The atmosphere was relaxed, easygoing, and simply pleasant — exactly how you'd want it. Everything was discussed quickly and without any fuss, and in the end everything just fit perfectly. Thank you for the great collaboration — I'm already looking forward to next time! I can truly recommend you from the bottom of my heart!</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#ab8b6e;">N</div>
+          <div class="review-meta">
+            <div class="review-name">Nasim Farshi Taghavi</div>
+            <div class="review-date">3 months ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I've already done 2 projects with the two of them and I'm absolutely thrilled! I felt completely at ease, the work was done very professionally and quickly, and it was also incredibly fun! I'm already planning the next projects! Thank you so much for your warm and professional work.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#a87e6e;">O</div>
+          <div class="review-meta">
+            <div class="review-name">Othniel Kenou</div>
+            <div class="review-date">3 months ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Such a great team! The Marharians guided me professionally from start to finish. The photos and videos turned out awesome. It was always a pleasure working with you. Thanks!</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#c9a96e;">B</div>
+          <div class="review-meta">
+            <div class="review-name">Bogdan Rud</div>
+            <div class="review-date">4 months ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">The two of them did a fantastic job. Communication was easy and very professional right from the start. I felt completely comfortable throughout the shoot — a relaxed atmosphere, yet very efficient. The results are impressive: high quality, lots of attention to detail, and a perfect sense for light and perspective. Highly recommended!</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#7b9e87;">J</div>
+          <div class="review-meta">
+            <div class="review-name">Julia Panchenko</div>
+            <div class="review-date">4 months ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">The collaboration was absolutely professional. The video and photos are of outstanding quality, and editing was finished after just a few days — remarkably fast. Our ideas and the mood we wanted were captured perfectly. We can recommend this team without reservation and will gladly come back!</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#8a6ea8;">V</div>
+          <div class="review-meta">
+            <div class="review-name">Vladimir Panchenko</div>
+            <div class="review-date">4 months ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Many thanks to the great team at Marharian Production! It was a real pleasure working with you. Despite spontaneous changes (like sudden rain), you always found creative solutions and even shot better scenes than originally planned. Very professional, flexible, and full of great ideas for locations, angles, and storytelling. The result completely convinced me — a genuinely strong music clip in a short amount of time! This was definitely not our last collaboration. Already looking forward to the next projects! An absolute recommendation for anyone looking for high-quality photo or video production.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#6e8aa8;">Y</div>
+          <div class="review-meta">
+            <div class="review-name">Yulia Mohammad</div>
+            <div class="review-date">5 months ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Talented and very likeable people. Thank you for your work and the attentive care!</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#b08968;">M</div>
+          <div class="review-meta">
+            <div class="review-name">Maksim Aliev</div>
+            <div class="review-date">5 months ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I'm very happy with how the collaboration with the guys went. It was super relaxed and easy, as if it wasn't our first time working together. And what an amazing video came out of it!</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#8f9779;">D</div>
+          <div class="review-meta">
+            <div class="review-name">Diana Shchepa</div>
+            <div class="review-date">5 months ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">We shot with the guys for the first time and the result was 1000 times better than I expected. The communication was very pleasant and relaxed, and they created an easygoing atmosphere right away. Even if you don't know how to pose, you always get tips and help. I'm already looking forward to the next photoshoot!</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#9e7b8a;">M</div>
+          <div class="review-meta">
+            <div class="review-name">Marianna Sapon</div>
+            <div class="review-date">6 months ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">The best photo and video team in Hamburg! I've already had several photo and video shoots with them and the result was simply incredible every single time. Their preparation, professionalism, and fast turnaround impress me again and again. Working with them is just fun — they support you at every step, give valuable tips, and know exactly what to do to make every shot look even better. I keep coming back to them gladly and can recommend them wholeheartedly!</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-avatar" style="background:#7a8b99;">D</div>
+          <div class="review-meta">
+            <div class="review-name">Darina Pavlenko</div>
+            <div class="review-date">6 months ago</div>
+          </div>
+          <svg width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I had a photoshoot by the sea and was absolutely thrilled! What I loved most right away was the easygoing, relaxed atmosphere. During the shoot they helped me feel comfortable, move freely and confidently, while still capturing truly professional shots! What was especially valuable to me was that the photographer saw me exactly the way I see and feel myself — as the most beautiful version of myself. That's really something special. Not only did I love the photos, but so did my entire family — and to me, that's the best proof. Thank you for this heartfelt shoot and the wonderful result! I can recommend you with all my heart!</p>
       </div>
 
     </div>
   </div>
-
-  <div class="rv-dots" id="rv-dots"></div>
-
-  <script>
-  (function(){
-    var viewport = document.getElementById('rv-viewport');
-    var track    = document.getElementById('rv-track');
-    var dotsWrap = document.getElementById('rv-dots');
-    var cards    = track.children;
-    var TOTAL    = cards.length;
-    var page     = 0;
-    var paused   = false;
-    var dots     = [];
-    var resizeT;
-
-    function cpp() {
-      var w = viewport.clientWidth;
-      if (w >= 900) return 4;
-      if (w >= 560) return 2;
-      return 1;
-    }
-    function totalPages() { return Math.ceil(TOTAL / cpp()); }
-
-    function pageOffset(p) {
-      var firstIdx = p * cpp();
-      if (firstIdx >= TOTAL) firstIdx = TOTAL - 1;
-      var card     = cards[firstIdx];
-      var gap      = parseFloat(getComputedStyle(track).gap) || 16;
-      return firstIdx * (card.offsetWidth + gap);
-    }
-
-    function buildDots() {
-      dotsWrap.innerHTML = '';
-      dots = [];
-      var n = totalPages();
-      for (var i = 0; i < n; i++) {
-        var btn = document.createElement('button');
-        btn.className = 'rv-dot' + (i === page ? ' active' : '');
-        btn.setAttribute('aria-label', 'Seite ' + (i + 1));
-        (function(idx) {
-          btn.addEventListener('click', function() {
-            goTo(idx);
-            paused = true;
-            clearTimeout(btn._r);
-            btn._r = setTimeout(function(){ paused = false; }, 7000);
-          });
-        })(i);
-        dotsWrap.appendChild(btn);
-        dots.push(btn);
-      }
-    }
-
-    function updateDots() {
-      dots.forEach(function(d, i){ d.classList.toggle('active', i === page); });
-    }
-
-    function goTo(n, instant) {
-      var tp = totalPages();
-      page   = ((n % tp) + tp) % tp;
-      var tx = pageOffset(page);
-      if (instant) {
-        track.style.transition = 'none';
-        track.style.transform  = 'translateX(-' + tx + 'px)';
-        track.offsetWidth;
-        track.style.transition = '';
-      } else {
-        track.style.transform = 'translateX(-' + tx + 'px)';
-      }
-      updateDots();
-    }
-
-    function next() {
-      if (paused) return;
-      if (page + 1 >= totalPages()) {
-        goTo(0, true);
-      } else {
-        goTo(page + 1);
-      }
-    }
-
-    viewport.addEventListener('mouseenter', function(){ paused = true; });
-    viewport.addEventListener('mouseleave', function(){ paused = false; });
-
-    window.addEventListener('resize', function(){
-      clearTimeout(resizeT);
-      resizeT = setTimeout(function(){
-        page = 0; buildDots(); goTo(0, true);
-      }, 80);
-    });
-
-    function initReadMore() {
-      Array.prototype.forEach.call(document.querySelectorAll('#rv-track .review-text'), function(el) {
-        if (el.scrollHeight > el.offsetHeight + 2) {
-          var btn = el.nextElementSibling;
-          if (btn && btn.classList.contains('rv-more')) {
-            btn.style.display = 'block';
-            btn.addEventListener('click', function() {
-              el.classList.add('rv-expanded');
-              btn.style.display = 'none';
-            });
-          }
-        }
-      });
-    }
-
-    buildDots();
-    goTo(0, true);
-    setInterval(next, 6000);
-
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(initReadMore);
-    } else {
-      setTimeout(initReadMore, 400);
-    }
-  })();
-  </script>
   </div>
 </section>
 
-<!-- ───────────────────────────────────────────────
-     CONTACT
-─────────────────────────────────────────────── -->
 <section id="contact">
   <div class="contact-grid">
 
     <div class="reveal contact-info">
-      <span class="eyebrow">Kontakt</span>
-      <h2 class="section-heading contact-heading">Lasst uns etwas<br>gemeinsam erschaffen</h2>
-      <p class="contact-desc">Habt ihr ein Projekt im Kopf? Schreibt uns — wir antworten innerhalb von 24 Stunden.</p>
+      <span class="eyebrow">Get in touch</span>
+      <h2 class="section-heading contact-heading">Let's create something<br>together</h2>
+      <p class="contact-desc">Have a project in mind? Write to us — we'll reply within 24 hours.</p>
     </div>
 
     <div class="reveal reveal-delay-1 contact-form-wrap">
       <form class="contact-form" id="cForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
         <input type="hidden" name="access_key" value="f7f95cd3-8f10-484e-a42e-3975a14980bc">
-        <input type="hidden" name="subject" value="Neue Anfrage von marharian.com/studio (DE)">
-        <input type="hidden" name="redirect" value="https://marharian.com/studio/thanks">
+        <input type="hidden" name="subject" value="Neue Anfrage von marharian.com/fashion (EN)">
+        <input type="hidden" name="redirect" value="https://marharian.com/fashion/thanks">
         <div class="fg">
           <label>NAME *</label>
-          <input type="text" name="name" placeholder="Euer Name" required />
+          <input type="text" name="name" placeholder="Your Name" required />
         </div>
         <div class="fg">
-          <label for="fEmail">E-Mail *</label>
+          <label for="fEmail">Email *</label>
           <input type="email" id="fEmail" name="email" placeholder="you@example.com" required />
         </div>
         <div class="fg">
-          <label for="fService">Leistung</label>
+          <label for="fService">Service</label>
           <select id="fService" name="service">
-            <option value="">Bitte auswählen…</option>
-            <option>Individuelles Shooting</option>
-            <option>Video-Session</option>
+            <option value="">Please select…</option>
+            <option>Individual Shooting</option>
+            <option>Video Session</option>
             <option>Event</option>
-            <option>Hochzeit</option>
+            <option>Wedding</option>
             <option>Restaurant &amp; Business</option>
-            <option>Beauty-Industrie</option>
+            <option>Beauty Industry</option>
           </select>
         </div>
-        <button type="submit" class="btn-submit" id="cSubmit">Anfrage senden →</button>
+        <button type="submit" class="btn-submit" id="cSubmit">Send request →</button>
       </form>
     </div>
 
@@ -2609,14 +2610,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
-      <img src="/studio/marharian.png" alt="Marharian Production" style="height: 28px; filter: brightness(0) invert(1);">
+      <img src="/fashion/marharian.png" alt="Marharian Production" style="height: 28px; filter: brightness(0) invert(1);">
     </div>
     <div class="footer-copy">© 2026 Marharian Production. Hamburg, Germany.</div>
     <ul class="footer-links">
-      <li><a href="/datenschutz">Datenschutz</a></li>
-      <li><a href="/studio/impressum">Impressum</a></li>
+      <li><a href="/privacy">Privacy Policy</a></li>
+      <li><a href="/fashion/impressum">Impressum</a></li>
       <li><a href="https://instagram.com/marharian.production" target="_blank" rel="noopener">Instagram</a></li>
-      <li><a href="#" id="cc-open" onclick="if(window.CCM){CCM.openWidget();}return false;">Cookie-Einstellungen</a></li>
+      <li><a href="#" id="cc-open" onclick="if(window.CCM){CCM.openWidget();}return false;">Cookie Settings</a></li>
     </ul>
   </div>
 </footer>
@@ -2729,7 +2730,7 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     f.addEventListener('input', () => f.classList.remove('err'))
   );
 
-  /* — Lead-Tracking: Browser-Pixel (GTM) + Server (CAPI), dedupliziert per event_id ─── */
+  /* — Lead tracking: browser pixel (GTM) + server (CAPI), deduplicated by event_id ─── */
   function studioGetCookie(name) {
     var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
     return m ? m.pop() : undefined;
@@ -2791,7 +2792,7 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
       if (bad) ok = false;
     });
     if (!ok) return;
-    submit.textContent = 'Wird gesendet…';
+    submit.textContent = 'Sending…';
     submit.disabled = true;
     fetch('https://api.web3forms.com/submit', {
       method: 'POST',
@@ -2800,17 +2801,17 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     }).then(res => {
       res.clone().json().then(d => console.log('Formspree response:', res.status, d));
       if (res.ok) {
-        studioTrackLeadAndRedirect('/studio/thanks', {
+        studioTrackLeadAndRedirect('/fashion/thanks', {
           email: (form.querySelector('[name="email"]') || {}).value
         });
       } else {
         res.json().then(data => console.error('Formspree error:', data));
-        submit.textContent = 'Fehler — bitte erneut versuchen';
+        submit.textContent = 'Error — try again';
         submit.disabled = false;
       }
     }).catch(err => {
       console.error('Fetch error:', err);
-      submit.textContent = 'Fehler — bitte erneut versuchen';
+      submit.textContent = 'Error — try again';
       submit.disabled = false;
     });
   });
