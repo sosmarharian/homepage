@@ -2822,6 +2822,7 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
           event_name: 'Lead',
           event_id: eventId,
           email: contact && contact.email,
+          phone: contact && contact.phone,
           fbp: studioGetCookie('_fbp'),
           fbc: studioGetCookie('_fbc'),
           event_source_url: window.location.href
@@ -2862,7 +2863,8 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
       res.clone().json().then(d => console.log('Formspree response:', res.status, d));
       if (res.ok) {
         studioTrackLeadAndRedirect('/fashion/thanks', {
-          email: (form.querySelector('[name="email"]') || {}).value
+          email: (form.querySelector('[name="email"]') || {}).value,
+          phone: (form.querySelector('[name="phone"]') || {}).value
         });
       } else {
         res.json().then(data => console.error('Formspree error:', data));
