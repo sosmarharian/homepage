@@ -106,10 +106,12 @@
 # Poster frames for lazy-loaded gallery/services videos
 !posters/
 !posters/*.jpg
+!posters/*.jpeg
 
 # Fashion page (marharian.com/fashion) — постеры видео лежат в своей папке
 !fashion/posters/
 !fashion/posters/*.jpg
+!fashion/posters/*.jpeg
 
 # Events page (marharian.com/events) — постеры видео лежат в своей папке
 !events/posters/
