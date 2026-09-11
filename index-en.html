@@ -2516,8 +2516,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2>Beloved Moments</h2>
       </div>
 
-    <!-- Video: Mandy & Sven -->
+    <!-- Video: Christina & Tobi -->
     <div class="wedding-video">
+      <div class="wedding-video-text">
+        <div class="wedding-video-script">Christina &amp; Tobi</div>
+        <p>Christina & Tobi — timeless elegance and a very special connection.</p>
+      </div>
+      <div class="wedding-video-media">
+        <div class="wedding-video-card" id="wvCard0">
+          <video class="wv-video" id="wvVideo0" playsinline preload="metadata"></video>
+          <button class="wv-play" id="wvPlay0" aria-label="Play video"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video: Mandy & Sven -->
+    <div class="wedding-video reverse">
       <div class="wedding-video-text">
         <div class="wedding-video-script">Mandy &amp; Sven</div>
         <p>Mandy and Sven are an incredible couple. So at ease in front of the camera that there is barely anything left to do but roll.</p>
@@ -3284,6 +3298,32 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
   if(!v) return;
   v.src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_1880_web.mp4';
   v.play().catch(function(){});
+})();
+</script>
+
+<script>
+(function(){
+  var v    = document.getElementById('wvVideo0');
+  var card = document.getElementById('wvCard0');
+  if(!v || !card) return;
+  var src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/hochzeit-new.mp4';
+  var loaded = false;
+
+  function toggle(){
+    if(!loaded){ loaded = true; v.src = src; }
+    if(v.paused){
+      v.muted = false; v.volume = 1;
+      var p = v.play(); if(p) p.catch(function(){});
+      card.classList.add('is-playing');
+    } else {
+      v.pause(); card.classList.remove('is-playing');
+    }
+  }
+
+  card.addEventListener('click', toggle);
+  v.addEventListener('pause',  function(){ card.classList.remove('is-playing'); });
+  v.addEventListener('play',   function(){ card.classList.add('is-playing'); });
+  v.addEventListener('ended',  function(){ card.classList.remove('is-playing'); v.currentTime = 0; });
 })();
 </script>
 
