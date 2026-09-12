@@ -48,6 +48,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-K9L4JN9K');</script>
 <!-- End Google Tag Manager -->
+<!-- CCM19→GCM bridge: CCM19 иногда не пушит consent update в dataLayer,
+     из-за чего GTM не загружает FB Pixel и fbq не инициализируется.
+     Этот скрипт сам читает CCM.acceptedEmbeddings и форсирует update + fbq init. -->
+<script>
+(function () {
+  var FB_PIXEL_ID = '973100958791977';
+  var done = false;
+  function bridge() {
+    if (done) return;
+    try {
+      if (!window.CCM) return;
+      var emb = CCM.acceptedEmbeddings || [];
+      var ok = false;
+      for (var i = 0; i < emb.length; i++) {
+        if ((emb[i].name || '') === 'Meta Pixel') { ok = true; break; }
+      }
+      if (!ok) ok = (CCM.acceptedCookies || []).indexOf('_fbp') !== -1;
+      if (!ok) return;
+      done = true;
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      gtag('consent', 'update', {
+        ad_storage: 'granted', ad_user_data: 'granted',
+        ad_personalization: 'granted', analytics_storage: 'granted'
+      });
+      if (typeof window.fbq !== 'function') {
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', FB_PIXEL_ID);
+        fbq('track', 'PageView');
+      }
+    } catch(e) {}
+  }
+  setTimeout(bridge, 50);
+  var n = 0, t = setInterval(function () {
+    bridge(); if (done || ++n >= 30) clearInterval(t);
+  }, 200);
+})();
+</script>
+<!-- End CCM19→GCM bridge -->
   <link rel="canonical" href="https://marharian.com/">
   <link rel="alternate" hreflang="de" href="https://marharian.com/">
   <link rel="alternate" hreflang="en" href="https://marharian.com/index-en.html">
@@ -2968,6 +3007,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           })
         }).catch(function () {});
       } catch (e) {}
+
+      // Прямой вызов pixel — резерв, если GTM+CCM19 не инициализировали fbq вовремя.
+      // eventID совпадает с CAPI и GTM-тегом → Meta дедуплицирует все три.
+      if (!quizIsTestMode() && hasMarketingConsent() && typeof window.fbq === 'function') {
+        try { window.fbq('track', 'Lead', { value: 1, currency: 'EUR' }, { eventID: eventId }); } catch(e) {}
+      }
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
