@@ -1771,6 +1771,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- ───────────────────────────────────────────────
        NAVIGATION
   ─────────────────────────────────────────────── -->
+  <style>
+    .nav-dd { position: relative; }
+    .nav-dd > a::after { content: '▾'; font-size: 10px; margin-left: 5px; opacity: .7; }
+    .nav-dd-panel {
+      position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(4px);
+      background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 4px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12); padding: 8px; min-width: 180px;
+      opacity: 0; visibility: hidden; transition: opacity .18s ease, transform .18s ease;
+      z-index: 50;
+    }
+    .nav-dd:hover .nav-dd-panel { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .nav-dd-panel a {
+      display: block; padding: 10px 16px; font-family: var(--font-body); font-size: 14px;
+      color: var(--charcoal); white-space: nowrap; border-radius: 3px; transition: background .15s, color .15s;
+    }
+    .nav-dd-panel a:hover { background: #f5f0eb; color: var(--gold); }
+  </style>
   <nav id="nav">
     <a href="/" class="nav-logo">
       <img src="/immobilien/marharian.png" alt="Marharian Production">
@@ -1779,11 +1796,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <ul class="nav-links">
       <li><a href="#about">Über uns</a></li>
       <li><a href="#contact">Kontakt</a></li>
+      <li class="nav-dd">
+        <a href="#">Leistungen</a>
+        <div class="nav-dd-panel">
+          <a href="/hochzeit">Hochzeit</a>
+          <a href="/fashion">Fashion</a>
+          <a href="/business">Business</a>
+          <a href="/events">Events</a>
+          <a href="/immobilien">Immobilien</a>
+        </div>
+      </li>
       <li><a href="/" class="nav-cross">Startseite</a></li>
-      <li><a href="/hochzeit" class="nav-cross">Hochzeit</a></li>
-      <li><a href="/fashion" class="nav-cross">Fashion</a></li>
-      <li><a href="/business" class="nav-cross">Business</a></li>
-      <li><a href="/events" class="nav-cross">Events</a></li>
     </ul>
 
     <div class="lang-switcher" id="langSwitcher">
@@ -1807,11 +1830,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="mob-menu" id="mobMenu">
   <a href="#about"    class="mob-link">Über uns</a>
   <a href="#contact"  class="mob-link">Kontakt</a>
+  <span class="mob-link" style="opacity:.5; font-size:13px; letter-spacing:1px; text-transform:uppercase; cursor:default;">Leistungen</span>
+  <a href="/hochzeit"  class="mob-link nav-cross" style="padding-left:16px;">Hochzeit</a>
+  <a href="/fashion"   class="mob-link nav-cross" style="padding-left:16px;">Fashion</a>
+  <a href="/business"  class="mob-link nav-cross" style="padding-left:16px;">Business</a>
+  <a href="/events"   class="mob-link nav-cross" style="padding-left:16px;">Events</a>
+  <a href="/immobilien" class="mob-link nav-cross" style="padding-left:16px;">Immobilien</a>
   <a href="/"         class="mob-link nav-cross">Startseite</a>
-  <a href="/hochzeit"  class="mob-link nav-cross">Hochzeit</a>
-  <a href="/fashion"   class="mob-link nav-cross">Fashion</a>
-  <a href="/business"  class="mob-link nav-cross">Business</a>
-  <a href="/events"   class="mob-link nav-cross">Events</a>
   <button class="btn btn-gold mob-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Termin buchen</button>
   <div style="display: flex; align-items: center; gap: 8px; margin-top: 24px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
     <a href="/immobilien/index-en" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="localStorage.setItem('lang','en')">🇬🇧 EN</a>
