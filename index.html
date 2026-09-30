@@ -1897,14 +1897,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .flatpickr-day.disabled, .flatpickr-day.disabled:hover { color: rgba(0,0,0,0.2); }
     .quiz-date-input[readonly] { cursor: pointer; }
     .quiz-date-input.quiz-date-disabled { opacity: 0.42; pointer-events: none; }
-    /* Simplified single-column contact block (wedding site — no form) */
-    #contact .contact-grid {
-      grid-template-columns: 1fr;
-      grid-template-areas: "info" "list" "social";
-      max-width: 640px;
-      margin: 0 auto;
-      row-gap: 28px;
-    }
   </style>
 <!-- Facebook Pixel: удалён дублирующий пиксель 935651865930025.
      Единственный активный пиксель 973100958791977 грузится через GTM-K9L4JN9K. -->
@@ -2574,6 +2566,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="contact-desc">Habt ihr ein Projekt im Kopf? Schreibt uns — wir antworten innerhalb von 24 Stunden.</p>
     </div>
 
+    <div class="reveal reveal-delay-1 contact-form-wrap">
+      <form class="contact-form" id="cForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="f7f95cd3-8f10-484e-a42e-3975a14980bc">
+        <input type="hidden" name="subject" value="Neue Anfrage von marharian.com (DE)">
+        <input type="hidden" name="redirect" value="https://marharian.com/danke">
+        <div class="fg">
+          <label>NAME *</label>
+          <input type="text" name="name" placeholder="Euer Name" required />
+        </div>
+        <div class="fg">
+          <label for="fEmail">E-Mail *</label>
+          <input type="email" id="fEmail" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="fg">
+          <label for="fPhone">Telefon *</label>
+          <input type="tel" id="fPhone" name="phone" placeholder="+49 …" required />
+        </div>
+        <div class="fg">
+          <label for="fSource">Wie haben Sie von uns erfahren?</label>
+          <select id="fSource" name="source">
+            <option value="">Bitte auswählen…</option>
+            <option>Instagram</option>
+            <option>Google</option>
+            <option>Empfehlung</option>
+            <option>Facebook</option>
+            <option>Sonstiges</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="fService">Leistung</label>
+          <select id="fService" name="service">
+            <option value="">Bitte auswählen…</option>
+            <option>Hochzeit</option>
+            <option>Fashion</option>
+            <option>Business</option>
+            <option>Event</option>
+            <option>Immobilien</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-submit" id="cSubmit">Anfrage senden →</button>
+      </form>
+    </div>
+
         <div class="contact-list">
       <div class="contact-row">
         <span class="contact-icon-wrap">📍</span>
@@ -2730,17 +2765,121 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* — Contact form ───────────────────────────────── */
+  const form   = document.getElementById('cForm');
+  const submit = document.getElementById('cSubmit');
+
+  form.querySelectorAll('input,textarea,select').forEach(f =>
+    f.addEventListener('input', () => f.classList.remove('err'))
+  );
+
+  /* — Lead-Tracking: Browser-Pixel (GTM) + Server (CAPI), dedupliziert per event_id ─── */
+  function rootGetCookie(name) {
+    var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return m ? m.pop() : undefined;
+  }
+  function rootEventId() {
+    if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();
+    return 'lead-' + Date.now() + '-' + Math.random().toString(16).slice(2);
+  }
+  /* Серверное событие в Meta — маркетинг, поэтому требует согласия.
+     Источник истины — CCM19: смотрим, принята ли интеграция Meta Pixel.
+     Если CCM19 не загрузился, считаем что согласия нет. */
+  function hasMarketingConsent() {
+    try {
+      if (!window.CCM) return false;
+      var emb = CCM.acceptedEmbeddings || [];
+      for (var i = 0; i < emb.length; i++) {
+        if ((emb[i].name || '') === 'Meta Pixel') return true;
+      }
+      return (CCM.acceptedCookies || []).indexOf('_fbp') !== -1;
+    } catch (e) { return false; }
+  }
+
+  function rootIsTestMode() {
+    try { return new URLSearchParams(window.location.search).get('test') === '1'; } catch (e) { return false; }
+  }
+
+  function rootTrackLeadAndRedirect(url, contact) {
+    var done = false;
+    function go() { if (done) return; done = true; window.location.href = url; }
+    var eventId = rootEventId();
+    try {
+      if (!rootIsTestMode() && hasMarketingConsent()) fetch('/api/capi', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        keepalive: true,
+        body: JSON.stringify({
+          event_name: 'Lead',
+          event_id: eventId,
+          email: contact && contact.email,
+          phone: contact && contact.phone,
+          fbp: rootGetCookie('_fbp'),
+          fbc: rootGetCookie('_fbc'),
+          event_source_url: window.location.href
+        })
+      }).catch(function () {});
+    } catch (e) {}
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: rootIsTestMode() ? 'lead_form_submit_test' : 'lead_form_submit',
+      form_name: rootIsTestMode() ? 'root_contact_test' : 'root_contact',
+      event_id: eventId,
+      eventTimeout: 1500,
+      eventCallback: go
+    });
+    setTimeout(go, 1500);
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let ok = true;
+    form.querySelectorAll('[required]').forEach(f => {
+      const bad = !f.value.trim() || (f.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value));
+      f.classList.toggle('err', bad);
+      if (bad) ok = false;
+    });
+    if (!ok) return;
+    submit.textContent = 'Wird gesendet…';
+    submit.disabled = true;
+    if (rootIsTestMode()) {
+      var subjectInput = form.querySelector('[name="subject"]');
+      if (subjectInput && subjectInput.value.indexOf('[TEST]') !== 0) subjectInput.value = '[TEST] ' + subjectInput.value;
+    }
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(res => {
+      res.clone().json().then(d => console.log('Formspree response:', res.status, d));
+      if (res.ok) {
+        rootTrackLeadAndRedirect('/danke', {
+          email: (form.querySelector('[name="email"]') || {}).value,
+          phone: (form.querySelector('[name="phone"]') || {}).value
+        });
+      } else {
+        res.json().then(data => console.error('Formspree error:', data));
+        submit.textContent = 'Fehler — bitte erneut versuchen';
+        submit.disabled = false;
+      }
+    }).catch(err => {
+      console.error('Fetch error:', err);
+      submit.textContent = 'Fehler — bitte erneut versuchen';
+      submit.disabled = false;
+    });
+  });
 </script>
 
-<a href="#wedding-request" class="side-cta" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'});return false;">Preisliste anfragen</a>
+<a href="#contact" class="side-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Preisliste anfragen</a>
 
-<a href="#wedding-request" class="sticky-cta" data-sticky-cta>Preisliste anfragen</a>
+<a href="#contact" class="sticky-cta" data-sticky-cta>Preisliste anfragen</a>
 
 <script>
 (function(){
   var cta = document.querySelector('[data-sticky-cta]');
   if(!cta) return;
-  var quiz = document.getElementById('wedding-request');
+  var quiz = document.getElementById('contact');
   cta.addEventListener('click', function(e){
     if(quiz){ e.preventDefault(); quiz.scrollIntoView({behavior:'smooth', block:'start'}); }
   });
@@ -2765,7 +2904,7 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
 <script>
 (function(){
   var sideCta = document.querySelector('.side-cta');
-  var target  = document.getElementById('wedding-request');
+  var target  = document.getElementById('contact');
   if(!sideCta || !target) return;
   var hidden = false;
   function update(){
