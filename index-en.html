@@ -85,7 +85,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Darker+Grotesque:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Darker+Grotesque:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=Bricolage+Grotesque:wght@500;700;800&family=Fraunces:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1/bundle/libphonenumber-js.min.js"></script>
@@ -1913,9 +1913,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     .nav-dd-panel a:hover { background: #f5f0eb; color: var(--gold); }
   </style>
+    <style>
+    .logo-sy { font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:21px; letter-spacing:-0.01em; color:#fff; transition:color .3s; }
+    .logo-surname { font-family:'Bricolage Grotesque',sans-serif; font-weight:500; font-size:21px; letter-spacing:0.02em; color:rgba(255,255,255,0.75); margin-left:3px; transition:color .3s; }
+    #nav.scrolled .logo-sy { color: var(--charcoal); }
+    #nav.scrolled .logo-surname { color: var(--gray); }
+    .footer-logo .logo-sy { color:#fff; }
+    .footer-logo .logo-surname { color:rgba(255,255,255,0.65); }
+    @media (max-width: 480px) { .logo-sy, .logo-surname { font-size:17px; } }
+  </style>
   <nav id="nav">
   <a href="#" class="nav-logo">
-    <img src="marharian.png" alt="Marharian Production">
+    <span class="logo-sy">S.Y.</span><span class="logo-surname">MARHARIAN</span>
   </a>
 
   <ul class="nav-links">
@@ -1970,7 +1979,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="wedding-hero">
       <img class="wh-video" src="/IMG_7623.JPG" alt="Marharian Production" style="object-position:center bottom;">
       <div class="wedding-hero-content">
-        <div class="wedding-hero-script">Stories that stay.</div>
+        <style>
+          .hero-title-new { font-size: clamp(42px, 8vw, 84px); line-height: 0.95; margin-bottom: 16px; }
+          .hero-title-new .caps { font-family:'Bricolage Grotesque',sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:-0.02em; color:#fff; }
+          .hero-title-new .accent { font-family:'Fraunces',serif; font-style:italic; font-weight:400; color:rgba(255,255,255,0.8); }
+        </style>
+        <div class="hero-title-new">
+          <span class="caps">Two views,</span><br>
+          <span class="accent">one story.</span>
+        </div>
         <div class="wedding-hero-sub">Photography &amp; Film in Hamburg — Wedding, Fashion, Business, Event &amp; Real Estate</div>
       </div>
     </div>
@@ -2659,7 +2676,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
-      <img src="marharian.png" alt="Marharian Production" style="height: 28px; filter: brightness(0) invert(1);">
+      <span class="logo-sy">S.Y.</span><span class="logo-surname">MARHARIAN</span>
     </div>
     <div class="footer-copy">© 2026 Marharian Production. Hamburg, Germany.</div>
     <ul class="footer-links">
