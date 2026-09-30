@@ -91,8 +91,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="alternate" hreflang="de" href="https://marharian.com/">
   <link rel="alternate" hreflang="en" href="https://marharian.com/index-en.html">
   <link rel="alternate" hreflang="x-default" href="https://marharian.com/">
-  <title>Marharian Production · Hochzeitsfotografie &amp; Video Hamburg</title>
-  <meta name="description" content="Marharian Production — Professionelle Hochzeitsfotografie und cinematische Videografie in Hamburg. Hochzeiten, Porträts, Events und kommerzielle Shootings." />
+  <title>Marharian Production · Fotografie &amp; Video Hamburg</title>
+  <meta name="description" content="Marharian Production — Fotografie- und Filmstudio in Hamburg. Hochzeit, Fashion, Business, Event &amp; Immobilien — ein Team, ein Qualitätsanspruch." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -1923,12 +1923,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <ul class="nav-links">
     <li><a href="#about">Über uns</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#leistungen">Leistungen</a></li>
     <li><a href="#reviews">Bewertungen</a></li>
     <li><a href="#contact">Kontakt</a></li>
-    <li><a href="#anfrage">Anfragen</a></li>
+    <li><a href="/hochzeit" class="nav-cross">Hochzeit</a></li>
     <li><a href="/fashion" class="nav-cross">Fashion</a></li>
+    <li><a href="/business" class="nav-cross">Business</a></li>
     <li><a href="/events" class="nav-cross">Events</a></li>
+    <li><a href="/immobilien" class="nav-cross">Immobilien</a></li>
   </ul>
 
   <div class="lang-switcher" id="langSwitcher">
@@ -1947,31 +1949,83 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="mob-backdrop" id="mobBackdrop"></div>
 <div class="mob-menu" id="mobMenu">
   <a href="#about"    class="mob-link">Über uns</a>
-  <a href="#portfolio" class="mob-link">Portfolio</a>
-  <a href="#faq"      class="mob-link">FAQ</a>
+  <a href="#leistungen" class="mob-link">Leistungen</a>
   <a href="#reviews"  class="mob-link">Bewertungen</a>
   <a href="#contact"  class="mob-link">Kontakt</a>
-  <a href="#anfrage"  class="mob-link">Anfragen</a>
+  <a href="/hochzeit"  class="mob-link nav-cross">Hochzeit</a>
   <a href="/fashion"   class="mob-link nav-cross">Fashion</a>
+  <a href="/business"  class="mob-link nav-cross">Business</a>
   <a href="/events"   class="mob-link nav-cross">Events</a>
-  <button class="btn btn-gold mob-link" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'})">Preisanfrage</button>
+  <a href="/immobilien" class="mob-link nav-cross">Immobilien</a>
+  <button class="btn btn-gold mob-link" onclick="var t=document.getElementById('leistungen'); if(t) t.scrollIntoView({behavior:'smooth'})">Leistungen entdecken</button>
   <div style="display: flex; align-items: center; gap: 8px; margin-top: 24px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
     <a href="/index-en" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="localStorage.setItem('lang','en')">🇬🇧 EN</a>
   </div>
 </div>
 
-<!-- ===== WEDDINGS SECTION ===== -->
+<!-- ===== HOME / ÜBER UNS SECTION ===== -->
   <section id="weddings">
 
     <!-- Hero -->
     <div class="wedding-hero">
-      <video class="wh-video" id="whVideo" autoplay muted loop playsinline poster="posters/IMG_1880_comp.jpg"></video>
+      <video class="wh-video" autoplay muted loop playsinline poster="/posters/dlya-sayta.jpg" src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/dlya-sayta-web.mp4"></video>
       <div class="wedding-hero-content">
-        <div class="wedding-hero-script">Euer Tag. Unser Handwerk.</div>
-        <div class="wedding-hero-sub">Hochzeitsfotografie &amp; Film · Hamburg &amp; Deutschlandweit</div>
-
+        <div class="wedding-hero-script">Geschichten, die bleiben.</div>
+        <div class="wedding-hero-sub">Fotografie &amp; Film in Hamburg — Hochzeit, Fashion, Business, Event &amp; Immobilien</div>
       </div>
     </div>
+
+    <!-- Leistungen -->
+    <style>
+      #leistungen { background:#f5f0eb; padding:80px 24px; }
+      #leistungen .section-header { max-width:700px; margin:0 auto 48px; text-align:center; }
+      .leistungen-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; }
+      .leistung-card { position:relative; display:block; background:#fff; border:1px solid rgba(0,0,0,0.08); border-radius:4px; padding:32px 24px; text-decoration:none; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+      .leistung-card:hover { transform:translateY(-4px); box-shadow:0 12px 30px rgba(0,0,0,0.08); border-color:var(--gold); }
+      .leistung-num { font-family:var(--font-body); font-size:12px; letter-spacing:2px; color:var(--gold); font-weight:700; }
+      .leistung-title { font-family:var(--font-heading); font-size:24px; margin:12px 0 8px; color:var(--charcoal); }
+      .leistung-desc { font-family:var(--font-body); font-size:14px; line-height:1.5; color:var(--gray); }
+      .leistung-arrow { position:absolute; top:28px; right:24px; color:var(--gold); font-size:18px; opacity:0; transition:opacity .2s, transform .2s; }
+      .leistung-card:hover .leistung-arrow { opacity:1; transform:translateX(4px); }
+    </style>
+    <section id="leistungen">
+      <div class="section-header reveal center">
+        <span class="eyebrow">Unsere Leistungen</span>
+        <h2 class="section-heading">Wähle deinen Bereich.</h2>
+      </div>
+      <div class="leistungen-grid">
+        <a href="/hochzeit" class="leistung-card reveal">
+          <span class="leistung-arrow">→</span>
+          <div class="leistung-num">01</div>
+          <div class="leistung-title">Hochzeit</div>
+          <div class="leistung-desc">Fine-Art-Hochzeitsfotografie &amp; Film — echte Emotionen, leise erzählt.</div>
+        </a>
+        <a href="/fashion" class="leistung-card reveal">
+          <span class="leistung-arrow">→</span>
+          <div class="leistung-num">02</div>
+          <div class="leistung-title">Fashion</div>
+          <div class="leistung-desc">Editorial &amp; Brand-Shootings mit klarer visueller Handschrift.</div>
+        </a>
+        <a href="/business" class="leistung-card reveal">
+          <span class="leistung-arrow">→</span>
+          <div class="leistung-num">03</div>
+          <div class="leistung-title">Business</div>
+          <div class="leistung-desc">Corporate-Fotografie &amp; Video für Marken und Unternehmen.</div>
+        </a>
+        <a href="/events" class="leistung-card reveal">
+          <span class="leistung-arrow">→</span>
+          <div class="leistung-num">04</div>
+          <div class="leistung-title">Event</div>
+          <div class="leistung-desc">Firmenevents, Konzerte &amp; besondere Anlässe, dokumentiert.</div>
+        </a>
+        <a href="/immobilien" class="leistung-card reveal">
+          <span class="leistung-arrow">→</span>
+          <div class="leistung-num">05</div>
+          <div class="leistung-title">Immobilien</div>
+          <div class="leistung-desc">Architektur- &amp; Immobilienfotografie, die Räume wirken lässt.</div>
+        </a>
+      </div>
+    </section>
 
     <!-- Reviews -->
 <section id="reviews">
@@ -2525,605 +2579,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="wedding-about" id="about">
       <div class="wedding-about-img">
         <div class="wedding-about-photo" id="wedding-about-slideshow">
-          <img src="IMG_7623.JPG" alt="Sos &amp; Yaroslava Marharian" style="opacity:1; object-position:center bottom !important;">
-          <img src="IMG_9775.JPG" alt="Sos &amp; Yaroslava Marharian" style="opacity:0;">
-          <img src="R6M20675.jpg" alt="Sos &amp; Yaroslava Marharian" style="opacity:0;">
-          <img src="R6M20679.jpg" alt="Sos &amp; Yaroslava Marharian" style="opacity:0;">
-          <img src="IMG_7577.JPG" alt="Sos &amp; Yaroslava Marharian" style="opacity:0;">
+          <img src="/IMG_7623.JPG" alt="Sos &amp; Yaroslava Marharian" style="opacity:1; object-position:center bottom !important;">
+          <img src="/IMG_9775.JPG" alt="Sos &amp; Yaroslava Marharian" style="opacity:0;">
+          <img src="/R6M20675.jpg" alt="Sos &amp; Yaroslava Marharian" style="opacity:0;">
+          <img src="/R6M20679.jpg" alt="Sos &amp; Yaroslava Marharian" style="opacity:0;">
+          <img src="/IMG_7577.JPG" alt="Sos &amp; Yaroslava Marharian" style="opacity:0;">
         </div>
       </div>
       <div class="wedding-about-text">
         <div class="wedding-about-script">Wir sind</div>
         <h2>Marharian Production</h2>
-        <p>Wir könnten mit Zahlen beginnen — über 50 Hochzeiten, professionelle Ausrüstung, Jahre hinter der Kamera. Und darauf sind wir stolz. Doch das ist nicht das, worauf es an eurem Tag ankommt.</p>
-        <p>Worauf es ankommt, ist etwas anderes — das Auge, das Gespür für den Moment, der Geschmack. Dinge, die nur mit Erfahrung kommen: die Fähigkeit, einen Augenblick eine Sekunde vor seinem Eintreten zu erfassen und nie zu verpassen.</p>
-        <p>Für uns ist jede Hochzeit eine Geschichte, die wir mit euch erleben und behutsam bewahren. Keine gestellten Aufnahmen, sondern echte Emotionen in ihrem ehrlichsten Moment.</p>
-        <p>Wir arbeiten im Stil der Fine Art Hochzeitsfotografie — leise, atmosphärisch, mit Blick für das Detail. Ob Boho oder klassisch, vintage-elegant oder etwas ganz Eigenes — wir richten uns nach euch, nicht nach einer Vorlage. Wenn die Location es lohnt, kommt die Drohne mit.</p>
-        <p>Basis Hamburg. Wir fotografieren in Deutschland und über die Grenzen hinaus — überall, wo eure Hochzeit stattfindet.</p>
-      </div>
-    </div>
-
-    <!-- Portfolio -->
-    <div class="wedding-portfolio" id="portfolio">
-      <div class="wedding-portfolio-header">
-        <span class="eyebrow">Portfolio</span>
-        <h2>Geliebte Momente</h2>
-      </div>
-
-    <!-- Video: Christina & Tobi -->
-    <div class="wedding-video">
-      <div class="wedding-video-text">
-        <div class="wedding-video-script">Christina &amp; Tobi</div>
-        <p>Christina & Tobi — zeitlose Eleganz und eine besondere Verbindung.</p>
-      </div>
-      <div class="wedding-video-media">
-        <div class="wedding-video-card" id="wvCard0">
-          <video class="wv-video" id="wvVideo0" playsinline preload="metadata" poster="posters/IMG_3575.JPG"></video>
-          <button class="wv-play" id="wvPlay0" aria-label="Video abspielen"></button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Video: Mandy & Sven -->
-    <div class="wedding-video reverse">
-      <div class="wedding-video-media">
-        <div class="wedding-video-card" id="wvCard">
-          <video class="wv-video" id="wvVideo" playsinline preload="metadata" poster="posters/dlya-sayta.jpg"></video>
-          <button class="wv-play" id="wvPlay" aria-label="Video abspielen"></button>
-        </div>
-      </div>
-      <div class="wedding-video-text">
-        <div class="wedding-video-script">Mandy &amp; Sven</div>
-        <p>Mandy und Sven sind ein unglaubliches Paar. Vor der Kamera so ungezwungen, dass kaum etwas zu tun bleibt außer draufzuhalten.</p>
-        <p>Zwischen den beiden ist etwas, das man sofort sieht. Genau darauf kommt es uns bei jedem Dreh an.</p>
-      </div>
-    </div>
-
-    <!-- Video: Krissy & Kai -->
-    <div class="wedding-video">
-      <div class="wedding-video-text">
-        <div class="wedding-video-script">Krissy &amp; Kai</div>
-        <p>Krissy und Kai haben uns von Anfang an begeistert. Ihre Leichtigkeit vor der Kamera ist ansteckend – und genau das sieht man in jedem einzelnen Bild.</p>
-        <p>Was die beiden verbindet, lässt sich nicht in Worte fassen. Aber auf Video – da spürt man es sofort.</p>
-      </div>
-      <div class="wedding-video-media">
-        <div class="wedding-video-card" id="wvCard2">
-          <video class="wv-video" id="wvVideo2" playsinline preload="metadata" poster="posters/Krissy und Kai_comp.jpg"></video>
-          <button class="wv-play" id="wvPlay2" aria-label="Video abspielen"></button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Video: Anastasia & Jeremi -->
-    <div class="wedding-video reverse">
-      <div class="wedding-video-media">
-        <div class="wedding-video-card" id="wvCard3">
-          <video class="wv-video" id="wvVideo3" playsinline preload="metadata" poster="posters/anastasia und jeremy_comp.jpg"></video>
-          <button class="wv-play" id="wvPlay3" aria-label="Video abspielen"></button>
-        </div>
-      </div>
-      <div class="wedding-video-text">
-        <div class="wedding-video-script">Anastasia &amp; Jeremi</div>
-        <p>Anastasia und Jeremi – zwei Menschen, die einfach füreinander gemacht sind. Ihre Hochzeit war voller Emotionen, die wir kaum zu fassen wagten.</p>
-        <p>Wir haben versucht, das einzufangen, was Worte nicht können. Das Ergebnis spricht für sich.</p>
-      </div>
-    </div>
-
-    <!-- Video: Asmik & Kirill -->
-    <div class="wedding-video">
-      <div class="wedding-video-text">
-        <div class="wedding-video-script">Asmik &amp; Kirill</div>
-        <p>Asmik und Kirill sind ein Paar, das man einfach nicht aus den Augen lassen kann. Jeder Blick zwischen den beiden erzählt eine Geschichte.</p>
-        <p>An ihrem Tag haben wir vor allem eines getan: zugeschaut. Und genau das reichte, um alles einzufangen.</p>
-      </div>
-      <div class="wedding-video-media">
-        <div class="wedding-video-card" id="wvCard4">
-          <video class="wv-video" id="wvVideo4" playsinline preload="metadata" poster="posters/IMG_9403_comp.jpg"></video>
-          <button class="wv-play" id="wvPlay4" aria-label="Video abspielen"></button>
-        </div>
-      </div>
-    </div>
-
-      <div class="wedding-feature-rows">
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="IMG_0389.JPG" alt="Creative Duo" style="object-position: center top;"></div>
-          <div class="wedding-feature-text"><h3>Kreatives Duo</h3><p>Foto &amp; Film aus einem Team — perfekt aufeinander abgestimmt, keine Kommunikationslücken, voller Fokus auf euren Tag.</p></div>
-        </div>
-        <div class="wedding-feature-row reverse">
-          <div class="wedding-feature-photo"><img src="DSC04400.jpg" alt="Cinematic Style"></div>
-          <div class="wedding-feature-text"><h3>Cinematischer Stil</h3><p>Jedes Bild gestaltet mit dem Auge eines Regisseurs — emotional, zeitlos, cinematisch.</p></div>
-        </div>
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="DSC03319.jpg" alt="All of Germany"></div>
-          <div class="wedding-feature-text"><h3>Ganz Deutschland</h3><p>Basis Hamburg — wir reisen durch ganz Deutschland und darüber hinaus für eure Hochzeit, ohne versteckte Kosten.</p></div>
-        </div>
-        <div class="wedding-feature-row reverse">
-          <div class="wedding-feature-photo"><img src="R6M20121-2.jpg" alt="Your Moment"></div>
-          <div class="wedding-feature-text"><h3>Euer Moment</h3><p>Jeder Blick, jede Träne, jedes Lachen — eingefangen, bevor er vergeht. Dafür leben wir.</p></div>
-        </div>
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="IMG_0599.JPG" alt="Echte Emotionen"></div>
-          <div class="wedding-feature-text"><h3>Echte Emotionen</h3><p>Keine einstudierten Posen. Wir warten auf den Moment, in dem ihr die Kamera vergesst — da entstehen die Bilder, die bleiben.</p></div>
-        </div>
-        <div class="wedding-feature-row reverse">
-          <div class="wedding-feature-photo"><img src="IMG_0428.JPG" alt="Together" style="object-position: center top;"></div>
-          <div class="wedding-feature-text"><h3>Zusammen</h3><p>Stirn an Stirn, Herzen noch näher. Echt und ungestellt.</p></div>
-        </div>
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="IMG_9102.JPG" alt="Zeitlos schön" style="object-fit: contain; background: #f5f0eb;"></div>
-          <div class="wedding-feature-text"><h3>Zeitlos schön</h3><p>Ein Kleid, eine Frisur, ein Detail am Rand — und plötzlich könnte die Aufnahme aus den Sechzigern stammen. Genau solche Bilder altern nie.</p></div>
-        </div>
-        <div class="wedding-feature-row reverse">
-          <div class="wedding-feature-photo"><img src="IMG_0326.JPG" alt="Hand in Hand"></div>
-          <div class="wedding-feature-text"><h3>Zwischen den Tropfen</h3><p>Wir warten immer auf den Regen. Er bewirkt etwas in Menschen — nimmt alles Gestellte und lässt nur das Echte zurück.</p></div>
-        </div>
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="IMG_2414.jpg" alt="The First Kiss"></div>
-          <div class="wedding-feature-text"><h3>Der erste Kuss</h3><p>Sanft, zart, unvergesslich — genau so, wie er sein soll.</p></div>
-        </div>
-        <div class="wedding-feature-row reverse">
-          <div class="wedding-feature-photo"><img src="R6M20137-2.jpg" alt="Just Married" style="object-position: center top;"></div>
-          <div class="wedding-feature-text"><h3>Soeben getraut</h3><p>Der Anfang der Ewigkeit — in einem einzigen Bild festgehalten.</p></div>
-        </div>
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="DSC08642.jpg" alt="The Ceremony" style="transform: scale(1.25); transform-origin: center 75%; object-fit: cover; width: 100%; height: 100%;"></div>
-          <div class="wedding-feature-text"><h3>Die Zeremonie</h3><p>Ein heiliger Moment, bezeugt von den Menschen, die am meisten zählen.</p></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- How We Work -->
-    <div class="how-we-work" id="how-we-work">
-      <div class="how-we-work-bg"></div>
-      <div class="how-we-work-overlay"></div>
-      <div class="how-we-work-inner">
-        <h2 class="how-we-work-title">So arbeiten wir</h2>
-        <div class="how-we-work-cols">
-          <div class="how-we-work-col">
-            <div class="how-we-work-item">
-              <h4>1. KENNENLERNEN</h4>
-              <p>Schreibt uns über das Formular oder direkt per WhatsApp — wir melden uns innerhalb eines Tages bei euch. In einem entspannten Call lernen wir uns kennen, hören eurer Geschichte zu und finden gemeinsam heraus, was zu eurer Hochzeit passt.</p>
-            </div>
-            <div class="how-we-work-item">
-              <h4>2. ANGEBOT &amp; BUCHUNG</h4>
-              <p>Wenn das Gefühl auf beiden Seiten stimmt, stellen wir euch ein individuelles Angebot zusammen. Mit unterschriebenem Vertrag und einer kleinen Anzahlung ist euer Termin fest in unserem Kalender — der Rest wird erst nach der Hochzeit fällig.</p>
-            </div>
-            <div class="how-we-work-item">
-              <h4>3. VORBEREITUNG</h4>
-              <p>In den Wochen vor der Hochzeit bleiben wir im Austausch — über Ablauf, Locations, Lieblingsmomente und kleine Wünsche. Kurz vor dem Tag setzen wir uns nochmal zusammen und gehen die Timeline durch, damit am großen Tag wirklich nichts hektisch wird.</p>
-            </div>
-          </div>
-          <div class="how-we-work-col">
-            <div class="how-we-work-item">
-              <h4>4. EUER TAG</h4>
-              <p>Wir kommen früh, oft schon zum Getting-Ready, und begleiten euch ruhig durch den Tag — ohne Inszenierung, ohne Druck. Als eingespieltes Team zu zweit verpassen wir keinen Blick und keinen ehrlichen Moment zwischen euch.</p>
-            </div>
-            <div class="how-we-work-item">
-              <h4>5. KENNENLERN-SHOOT (OPTIONAL)</h4>
-              <p>Wer mag, kommt vorab zu einem kleinen Shooting mit uns vorbei — eine schöne Gelegenheit, sich vor der Kamera wohlzufühlen, bevor es am Hochzeitstag wirklich zählt. Viele unserer Paare sagen danach: das hat den Tag selbst spürbar entspannter gemacht.</p>
-            </div>
-            <div class="how-we-work-item">
-              <h4>6. EURE GALERIE</h4>
-              <p>Innerhalb von 4–6 Wochen bekommt ihr eure private Online-Galerie zum Anschauen, Teilen und Herunterladen. Beim Film begleitet euch eine Feedback-Runde, bis der Edit genau so klingt und sich anfühlt, wie ihr es euch vorgestellt habt.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FAQ -->
-    <div style="background: #f5f0eb; padding: 80px 40px;" id="faq">
-      <div class="wedding-faq" style="padding: 0;">
-        <div class="wedding-faq-header">
-          <span class="eyebrow">FAQ</span>
-          <h2>Alles, was ihr wissen müsst</h2>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            In welchen Regionen fotografiert ihr Hochzeiten?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">Unsere Basis ist Hamburg, und wir begleiten Hochzeiten in ganz Deutschland — von Hamburg über München, Berlin und Köln hinaus. Reisekosten für Standorte außerhalb Hamburgs besprechen wir individuell.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Bietet ihr Foto und Video zusammen an?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">Ja — wir bieten nur Fotografie, nur Videografie oder beides kombiniert an. Besonders beliebt sind unsere Kombi-Pakete, denn ihr erhaltet ein perfekt abgestimmtes Ergebnis aus einer kreativen Hand.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Wie läuft der Buchungsprozess ab?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">Ihr sendet uns eine Anfrage über das untenstehende Formular, wir melden uns innerhalb von 24 Stunden für ein Beratungsgespräch zurück und bestätigen euren Termin mit Vertrag und Anzahlung. Einfach und stressfrei.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Wie würdet ihr euren Stil beschreiben?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">Cinematisch und emotional. Wir konzentrieren uns auf echte Momente, authentische Gefühle und künstlerische Komposition. Jede Hochzeit ist einzigartig — wir passen uns eurem Stil an, nicht umgekehrt.</div>
-        </div>
-      </div>
-    </div>
-
-<!-- ───────────────────────────────────────────────
-     CONTACT
-─────────────────────────────────────────────── -->
-
-    <!-- Request form -->
-    <div id="anfrage"></div>
-    <div class="wedding-request" id="wedding-request">
-      <div class="wedding-request-bg"></div>
-      <div class="wedding-request-overlay"></div>
-      <div class="wedding-request-inner">
-        <h2>Preisanfrage</h2>
-        <p class="wedding-request-subtitle">Festpreis-Garantie — was wir vereinbaren, gilt. Keine versteckten Kosten. Beantwortet ein paar kurze Fragen, wir melden uns innerhalb eines Tages bei euch.</p>
-
-        <div class="quiz-card">
-
-          <!-- Schritt 1: Datum -->
-          <div class="quiz-step active" data-step="1">
-            <h3 class="quiz-question">Wann findet eure Hochzeit statt?</h3>
-            <input type="text" class="quiz-date-input" id="quiz-date" placeholder="TT.MM.JJJJ" readonly>
-          </div>
-
-          <!-- Schritt 2: Ort -->
-          <div class="quiz-step" data-step="2">
-            <h3 class="quiz-question">Wo findet eure Hochzeit statt?</h3>
-            <div class="quiz-choices">
-              <button class="quiz-choice" data-value="Hamburg">Hamburg</button>
-              <button class="quiz-choice" data-value="Andere Stadt in Deutschland">Andere Stadt in Deutschland</button>
-              <button class="quiz-choice" data-value="Im Ausland">Im Ausland</button>
-            </div>
-            <input type="text" class="quiz-input quiz-city-input" id="quiz-city-input" placeholder="Name der Stadt *">
-          </div>
-
-          <!-- Schritt 3: Leistungen -->
-          <div class="quiz-step" data-step="3">
-            <h3 class="quiz-question">Welche Leistungen interessieren euch?</h3>
-            <div class="quiz-choices">
-              <button class="quiz-choice" data-value="Nur Fotografie">Nur Fotografie</button>
-              <button class="quiz-choice" data-value="Nur Film">Nur Film</button>
-              <button class="quiz-choice" data-value="Foto + Film">Foto + Film</button>
-            </div>
-          </div>
-
-          <!-- Schritt 4: Filmlänge -->
-          <div class="quiz-step" data-step="4">
-            <h3 class="quiz-question">Wie lang soll euer Hochzeitsfilm sein?</h3>
-            <div class="quiz-choices">
-              <button class="quiz-choice" data-value="Bis 10 Min">Bis 10 Min</button>
-              <button class="quiz-choice" data-value="Bis 20 Min">Bis 20 Min</button>
-              <button class="quiz-choice" data-value="Bis 40 Min">Bis 40 Min</button>
-              <button class="quiz-choice" data-value="Bis 60 Min">Bis 60 Min</button>
-            </div>
-          </div>
-
-          <!-- Schritt 5: Stunden -->
-          <div class="quiz-step" data-step="5">
-            <h3 class="quiz-question">Wie viele Stunden sollen wir euch begleiten?</h3>
-            <div class="quiz-slider-wrap">
-              <input type="range" class="quiz-slider" id="quiz-hours" min="2" max="16" value="6">
-              <div class="quiz-slider-display">
-                <span class="quiz-hours-val">6</span>
-                <span class="quiz-hours-label">Stunden</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Schritt 6: Kontakt -->
-          <div class="quiz-step" data-step="6">
-            <h3 class="quiz-question">Fast geschafft — wohin dürfen wir das Angebot senden?</h3>
-            <form class="quiz-contact-form" id="quiz-contact-form" onsubmit="return false;">
-              <input type="text" name="names" placeholder="Eure Namen *" required class="quiz-input">
-              <input type="email" name="email" placeholder="E-Mail *" required class="quiz-input">
-              <input type="tel" name="whatsapp" placeholder="WhatsApp-Nummer *" required class="quiz-input" pattern="[0-9+\s\-()]{6,20}">
-              <input type="text" name="heard" placeholder="Wie habt ihr von uns erfahren? *" required class="quiz-input">
-              <input type="text" name="instagram" placeholder="Instagram (optional)" class="quiz-input">
-              <textarea name="comment" placeholder="Möchtet ihr uns noch etwas erzählen? (optional)" class="quiz-textarea" rows="3"></textarea>
-              <label class="quiz-checkbox-label quiz-consent">
-                <input type="checkbox" id="quiz-consent" required>
-                <span>Ich stimme der <a href="/datenschutz">Datenverarbeitung</a> zu</span>
-              </label>
-            </form>
-          </div>
-
-          <!-- Fortschritt + Navigation -->
-          <div class="quiz-footer">
-            <div class="quiz-progress-wrap">
-              <span class="quiz-progress-pct">25%</span>
-              <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:25%"></div></div>
-            </div>
-            <div class="quiz-nav">
-              <button class="quiz-btn-back hidden" id="quiz-back" onclick="quizBack()">&#8592; Zurück</button>
-              <button class="quiz-btn-next" id="quiz-next" onclick="quizNext()" disabled>Weiter &#8594;</button>
-            </div>
-          </div>
-
-        </div>
+        <p>Wir sind Sos &amp; Yaroslava — ein Fotografen- und Filmemacher-Duo aus Hamburg. Wir arbeiten gemeinsam, mit gleichem Anspruch an Fotografie wie an Video, und decken damit jedes Projekt komplett ab.</p>
+        <p>Was uns ausmacht, ist nicht nur die Ausrüstung — auch wenn wir mit professionellem Equipment arbeiten. Es ist das Auge für den Moment, der Geschmack, die Ruhe, mit der wir an jedes Projekt herangehen. Keine gestellten Aufnahmen, sondern echte Emotionen in ihrem ehrlichsten Moment.</p>
+        <p>Wir arbeiten im Stil der Fine Art Fotografie — leise, atmosphärisch, mit Blick für das Detail. Ob Hochzeit, Fashion, Business, Event oder Immobilien: wir richten uns nach euch, nicht nach einer Vorlage.</p>
+        <p>Basis Hamburg. Wir arbeiten in ganz Deutschland und darüber hinaus.</p>
       </div>
     </div>
 
   </section>
-
-  <script>
-    function toggleFaq(btn) {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    }
-
-    // ── Quiz ──────────────────────────────────────────────────────────────────
-    var quizState = { step: 1, date: '', location: '', services: '', filmLength: '', hours: 6 };
-
-    // Schritt 4 (Filmlänge) wird übersprungen, wenn nur Fotografie gewünscht ist —
-    // dann ist die Frage nach der Filmlänge gegenstandslos.
-    function quizSkipsStep4() { return quizState.services === 'Nur Fotografie'; }
-    function quizNextStep(current) {
-      if (current === 3 && quizSkipsStep4()) return 5;
-      return current + 1;
-    }
-    function quizPrevStep(current) {
-      if (current === 5 && quizSkipsStep4()) return 3;
-      return current - 1;
-    }
-
-    function quizUpdateUI() {
-      var step = quizState.step;
-      document.querySelectorAll('.quiz-step').forEach(function(el) {
-        el.classList.toggle('active', parseInt(el.dataset.step) === step);
-      });
-      var pcts = [17, 33, 50, 67, 100, 100];
-      document.querySelector('.quiz-progress-pct').textContent = pcts[step - 1] + '%';
-      document.querySelector('.quiz-progress-fill').style.width = pcts[step - 1] + '%';
-      document.getElementById('quiz-back').classList.toggle('hidden', step === 1);
-      var nextBtn = document.getElementById('quiz-next');
-      nextBtn.textContent = step === 6 ? 'ANGEBOT ANFRAGEN' : 'Weiter →';
-      quizValidateStep();
-    }
-
-    function quizValidateStep() {
-      var step = quizState.step;
-      var valid = false;
-      if (step === 1) {
-        valid = quizState.date !== '';
-      } else if (step === 2) {
-        if (quizState.location === 'Andere Stadt in Deutschland') {
-          valid = document.getElementById('quiz-city-input').value.trim() !== '';
-        } else {
-          valid = quizState.location !== '';
-        }
-      } else if (step === 3) {
-        valid = quizState.services !== '';
-      } else if (step === 4) {
-        valid = quizState.filmLength !== '';
-      } else if (step === 5) {
-        valid = true;
-      } else if (step === 6) {
-        var names = document.querySelector('.quiz-contact-form [name="names"]').value.trim();
-        var email = document.querySelector('.quiz-contact-form [name="email"]').value.trim();
-        var whatsapp = document.querySelector('.quiz-contact-form [name="whatsapp"]').value.trim();
-        var heard = document.querySelector('.quiz-contact-form [name="heard"]').value.trim();
-        var europeanCountries = ['DE','AT','CH','FR','IT','ES','NL','BE','PL',
-          'GB','IE','DK','SE','NO','FI','PT','GR','CZ','HU','RO','BG','HR',
-          'SI','SK','LT','LV','EE','LU','MT','CY','IS','LI'];
-        var phoneOk = false;
-        try {
-          var parsed = window.libphonenumber &&
-            window.libphonenumber.parsePhoneNumberFromString(whatsapp, 'DE');
-          phoneOk = !!(parsed && parsed.isValid() &&
-            europeanCountries.indexOf(parsed.country) !== -1);
-        } catch (e) { phoneOk = false; }
-        valid = names !== '' && email !== '' && phoneOk && heard !== '' && document.getElementById('quiz-consent').checked;
-      }
-      document.getElementById('quiz-next').disabled = !valid;
-    }
-
-    function quizNext() {
-      var step = quizState.step;
-      if (step === 5) {
-        quizState.hours = document.getElementById('quiz-hours').value;
-      }
-      if (step < 6) {
-        quizState.step = quizNextStep(step);
-        quizUpdateUI();
-      } else {
-        quizSubmit();
-      }
-    }
-
-    function quizBack() {
-      if (quizState.step > 1) {
-        quizState.step = quizPrevStep(quizState.step);
-        quizUpdateUI();
-      }
-    }
-
-    function quizGetCookie(name) {
-      var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-      return m ? m.pop() : undefined;
-    }
-
-    function quizEventId() {
-      if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();
-      return 'lead-' + Date.now() + '-' + Math.random().toString(16).slice(2);
-    }
-
-    // Отправляет событие лида ДВУМЯ путями с одинаковым event_id:
-    //   1) браузерный пиксель через GTM (dataLayer -> тег "FB Pixel — Lead")
-    //   2) сервер через Conversions API (/api/capi)
-    // Meta склеивает их по event_id, поэтому дублей в отчётах не будет.
-    // Серверный канал нужен потому, что на iPhone браузерные события
-    // massово теряются: ITP от Apple, отказ от отслеживания, блокировщики.
-    //
-    // Редирект на страницу благодарности происходит после отработки тегов,
-    // страховка — принудительно через 1,5 сек.
-    /* Серверное событие в Meta — маркетинг, поэтому требует согласия.
-       Источник истины — CCM19: смотрим, принята ли интеграция Meta Pixel.
-       Если CCM19 не загрузился, считаем что согласия нет. */
-    function hasMarketingConsent() {
-      try {
-        if (!window.CCM) return false;
-        var emb = CCM.acceptedEmbeddings || [];
-        for (var i = 0; i < emb.length; i++) {
-          if ((emb[i].name || '') === 'Meta Pixel') return true;
-        }
-        return (CCM.acceptedCookies || []).indexOf('_fbp') !== -1;
-      } catch (e) { return false; }
-    }
-
-    function quizIsTestMode() {
-      try { return new URLSearchParams(window.location.search).get('test') === '1'; } catch (e) { return false; }
-    }
-
-    function quizTrackLeadAndRedirect(url, contact) {
-      var done = false;
-      function go() {
-        if (done) return;
-        done = true;
-        window.location.href = url;
-      }
-
-      var eventId = quizEventId();
-
-      // keepalive: запрос не оборвётся при уходе со страницы
-      try {
-        if (!quizIsTestMode() && hasMarketingConsent()) fetch('/api/capi', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          keepalive: true,
-          body: JSON.stringify({
-            event_name: 'Lead',
-            event_id: eventId,
-            email: contact && contact.email,
-            phone: contact && contact.phone,
-            fbp: quizGetCookie('_fbp'),
-            fbc: quizGetCookie('_fbc'),
-            event_source_url: window.location.href
-          })
-        }).catch(function () {});
-      } catch (e) {}
-
-      // Прямой вызов pixel — резерв, если GTM+CCM19 не инициализировали fbq вовремя.
-      // eventID совпадает с CAPI и GTM-тегом → Meta дедуплицирует все три.
-      if (!quizIsTestMode() && hasMarketingConsent() && typeof window.fbq === 'function') {
-        try { window.fbq('track', 'Lead', { value: 1, currency: 'EUR' }, { eventID: eventId }); } catch(e) {}
-      }
-
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: quizIsTestMode() ? 'lead_form_submit_test' : 'lead_form_submit',
-        form_name: quizIsTestMode() ? 'wedding_quiz_test' : 'wedding_quiz',
-        event_id: eventId,
-        eventTimeout: 1500,
-        eventCallback: go
-      });
-      setTimeout(go, 1500);
-    }
-
-    function quizSubmit() {
-      var form = document.getElementById('quiz-contact-form');
-      var names = form.querySelector('[name="names"]').value.trim();
-      var email = form.querySelector('[name="email"]').value.trim();
-      var whatsapp = form.querySelector('[name="whatsapp"]').value.trim();
-      var heard = form.querySelector('[name="heard"]').value.trim();
-      var instagram = form.querySelector('[name="instagram"]').value.trim();
-      var comment = form.querySelector('[name="comment"]').value.trim();
-      var dateStr = quizState.date || 'Nicht angegeben';
-      var locationStr = quizState.location;
-      if (locationStr === 'Andere Stadt in Deutschland') {
-        var cityName = document.getElementById('quiz-city-input').value.trim();
-        locationStr = 'Andere Stadt in Deutschland (' + cityName + ')';
-      }
-      var message = 'Hochzeitsdatum: ' + dateStr + '\n'
-        + 'Ort: ' + (locationStr || '—') + '\n'
-        + 'Leistungen: ' + (quizState.services || '—') + '\n'
-        + 'Filmlänge: ' + (quizState.filmLength || '—') + '\n'
-        + 'Stunden: ' + quizState.hours + '\n'
-        + 'Namen: ' + names + '\n'
-        + 'WhatsApp: ' + whatsapp + '\n'
-        + 'Wie erfahren: ' + heard + '\n'
-        + 'Instagram: ' + (instagram || '—') + '\n'
-        + 'Anmerkung: ' + (comment || '—');
-      var data = new FormData();
-      data.append('access_key', 'f7f95cd3-8f10-484e-a42e-3975a14980bc');
-      var subject = 'Neue Hochzeitsanfrage — marharian.com';
-      if (quizIsTestMode()) subject = '[TEST] ' + subject;
-      data.append('subject', subject);
-      data.append('name', names);
-      data.append('email', email);
-      data.append('message', message);
-      var btn = document.getElementById('quiz-next');
-      btn.disabled = true;
-      btn.textContent = 'Wird gesendet…';
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(function(res) {
-        if (res.ok) {
-          quizTrackLeadAndRedirect('/danke', { email: email, phone: whatsapp });
-        } else {
-          btn.disabled = false;
-          btn.textContent = 'Anfrage absenden';
-        }
-      }).catch(function() {
-        btn.disabled = false;
-        btn.textContent = 'Anfrage absenden';
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.quiz-choice').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var step = parseInt(this.closest('.quiz-step').dataset.step);
-          this.closest('.quiz-choices').querySelectorAll('.quiz-choice').forEach(function(b) { b.classList.remove('selected'); });
-          this.classList.add('selected');
-          if (step === 2) {
-            quizState.location = this.dataset.value;
-            var cityInput = document.getElementById('quiz-city-input');
-            if (this.dataset.value === 'Andere Stadt in Deutschland') {
-              cityInput.classList.add('show');
-              cityInput.focus();
-            } else {
-              cityInput.classList.remove('show');
-              cityInput.value = '';
-            }
-          }
-          if (step === 3) quizState.services = this.dataset.value;
-          if (step === 4) quizState.filmLength = this.dataset.value;
-          quizValidateStep();
-        });
-      });
-      document.getElementById('quiz-city-input').addEventListener('input', quizValidateStep);
-      var quizFlatpickr = flatpickr('#quiz-date', {
-        minDate: 'today',
-        dateFormat: 'd.m.Y',
-        locale: 'de',
-        disableMobile: true,
-        allowInput: false,
-        onChange: function(selectedDates, dateStr) {
-          quizState.date = dateStr;
-          quizValidateStep();
-        }
-      });
-      var slider = document.getElementById('quiz-hours');
-      var hoursVal = document.querySelector('.quiz-hours-val');
-      slider.addEventListener('input', function() {
-        hoursVal.textContent = this.value;
-        quizState.hours = this.value;
-        var pct = ((this.value - 2) / 14) * 100;
-        this.style.background = 'linear-gradient(to right, var(--gold) ' + pct + '%, rgba(0,0,0,0.15) ' + pct + '%)';
-      });
-      document.querySelector('.quiz-contact-form').addEventListener('input', quizValidateStep);
-      document.getElementById('quiz-consent').addEventListener('change', quizValidateStep);
-      quizUpdateUI();
-    });
-  </script><section id="contact">
+<section id="contact">
   <div class="contact-grid">
 
     <div class="reveal contact-info">
