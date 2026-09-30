@@ -1904,21 +1904,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+  <style>
+    .nav-dd { position: relative; }
+    .nav-dd > a::after { content: '▾'; font-size: 10px; margin-left: 5px; opacity: .7; }
+    .nav-dd-panel {
+      position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(4px);
+      background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 4px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12); padding: 8px; min-width: 180px;
+      opacity: 0; visibility: hidden; transition: opacity .18s ease, transform .18s ease;
+      z-index: 50;
+    }
+    .nav-dd:hover .nav-dd-panel { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .nav-dd-panel a {
+      display: block; padding: 10px 16px; font-family: var(--font-body); font-size: 14px;
+      color: var(--charcoal); white-space: nowrap; border-radius: 3px; transition: background .15s, color .15s;
+    }
+    .nav-dd-panel a:hover { background: #f5f0eb; color: var(--gold); }
+  </style>
   <nav id="nav">
   <a href="#" class="nav-logo">
     <img src="marharian.png" alt="Marharian Production">
   </a>
 
   <ul class="nav-links">
-    <li><a href="#about">About us</a></li>
-    <li><a href="#leistungen">Services</a></li>
+    <li class="nav-dd">
+      <a href="#">Services</a>
+      <div class="nav-dd-panel">
+        <a href="/hochzeit/index-en">Wedding</a>
+        <a href="/fashion/index-en">Fashion</a>
+        <a href="/business/index-en">Business</a>
+        <a href="/events/index-en">Events</a>
+        <a href="/immobilien/index-en">Real Estate</a>
+      </div>
+    </li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="/hochzeit/index-en" class="nav-cross">Wedding</a></li>
-    <li><a href="/fashion/index-en" class="nav-cross">Fashion</a></li>
-    <li><a href="/business/index-en" class="nav-cross">Business</a></li>
-    <li><a href="/events/index-en" class="nav-cross">Events</a></li>
-    <li><a href="/immobilien/index-en" class="nav-cross">Real Estate</a></li>
+    <li><a href="#contact">Inquire</a></li>
   </ul>
 
   <div class="lang-switcher" id="langSwitcher">
@@ -1936,16 +1957,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Mobile menu -->
 <div class="mob-backdrop" id="mobBackdrop"></div>
 <div class="mob-menu" id="mobMenu">
-  <a href="#about"    class="mob-link">About us</a>
-  <a href="#leistungen" class="mob-link">Services</a>
+  <span class="mob-link" style="opacity:.5; font-size:13px; letter-spacing:1px; text-transform:uppercase; cursor:default;">Services</span>
+  <a href="/hochzeit/index-en"  class="mob-link nav-cross" style="padding-left:16px;">Wedding</a>
+  <a href="/fashion/index-en" class="mob-link nav-cross" style="padding-left:16px;">Fashion</a>
+  <a href="/business/index-en"  class="mob-link nav-cross" style="padding-left:16px;">Business</a>
+  <a href="/events/index-en" class="mob-link nav-cross" style="padding-left:16px;">Events</a>
+  <a href="/immobilien/index-en" class="mob-link nav-cross" style="padding-left:16px;">Real Estate</a>
   <a href="#reviews"  class="mob-link">Reviews</a>
   <a href="#contact"  class="mob-link">Contact</a>
-  <a href="/hochzeit/index-en"  class="mob-link nav-cross">Wedding</a>
-  <a href="/fashion/index-en" class="mob-link nav-cross">Fashion</a>
-  <a href="/business/index-en"  class="mob-link nav-cross">Business</a>
-  <a href="/events/index-en" class="mob-link nav-cross">Events</a>
-  <a href="/immobilien/index-en" class="mob-link nav-cross">Real Estate</a>
-  <button class="btn btn-gold mob-link" onclick="var t=document.getElementById('leistungen'); if(t) t.scrollIntoView({behavior:'smooth'})">Explore Services</button>
+  <a href="#contact"  class="mob-link">Inquire</a>
   <div style="display: flex; align-items: center; gap: 8px; margin-top: 24px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
     <a href="/" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="localStorage.setItem('lang','de')">🇩🇪 DE</a>
   </div>
@@ -1962,58 +1982,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="wedding-hero-sub">Photography &amp; Film in Hamburg — Wedding, Fashion, Business, Event &amp; Real Estate</div>
       </div>
     </div>
-
-    <!-- Services -->
-    <style>
-      #leistungen { background:#f5f0eb; padding:80px 24px; }
-      #leistungen .section-header { max-width:700px; margin:0 auto 48px; text-align:center; }
-      .leistungen-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; }
-      .leistung-card { position:relative; display:block; background:#fff; border:1px solid rgba(0,0,0,0.08); border-radius:4px; padding:32px 24px; text-decoration:none; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
-      .leistung-card:hover { transform:translateY(-4px); box-shadow:0 12px 30px rgba(0,0,0,0.08); border-color:var(--gold); }
-      .leistung-num { font-family:var(--font-body); font-size:12px; letter-spacing:2px; color:var(--gold); font-weight:700; }
-      .leistung-title { font-family:var(--font-heading); font-size:24px; margin:12px 0 8px; color:var(--charcoal); }
-      .leistung-desc { font-family:var(--font-body); font-size:14px; line-height:1.5; color:var(--gray); }
-      .leistung-arrow { position:absolute; top:28px; right:24px; color:var(--gold); font-size:18px; opacity:0; transition:opacity .2s, transform .2s; }
-      .leistung-card:hover .leistung-arrow { opacity:1; transform:translateX(4px); }
-    </style>
-    <section id="leistungen">
-      <div class="section-header reveal center">
-        <span class="eyebrow">Our Services</span>
-        <h2 class="section-heading">Choose your area.</h2>
-      </div>
-      <div class="leistungen-grid">
-        <a href="/hochzeit/index-en" class="leistung-card reveal">
-          <span class="leistung-arrow">→</span>
-          <div class="leistung-num">01</div>
-          <div class="leistung-title">Wedding</div>
-          <div class="leistung-desc">Fine-art wedding photography &amp; film — real emotion, quietly told.</div>
-        </a>
-        <a href="/fashion/index-en" class="leistung-card reveal">
-          <span class="leistung-arrow">→</span>
-          <div class="leistung-num">02</div>
-          <div class="leistung-title">Fashion</div>
-          <div class="leistung-desc">Editorial &amp; brand shoots with a clear visual signature.</div>
-        </a>
-        <a href="/business/index-en" class="leistung-card reveal">
-          <span class="leistung-arrow">→</span>
-          <div class="leistung-num">03</div>
-          <div class="leistung-title">Business</div>
-          <div class="leistung-desc">Corporate photography &amp; video for brands and companies.</div>
-        </a>
-        <a href="/events/index-en" class="leistung-card reveal">
-          <span class="leistung-arrow">→</span>
-          <div class="leistung-num">04</div>
-          <div class="leistung-title">Event</div>
-          <div class="leistung-desc">Corporate events, concerts &amp; special occasions, documented.</div>
-        </a>
-        <a href="/immobilien/index-en" class="leistung-card reveal">
-          <span class="leistung-arrow">→</span>
-          <div class="leistung-num">05</div>
-          <div class="leistung-title">Real Estate</div>
-          <div class="leistung-desc">Architecture &amp; real estate photography that makes spaces come alive.</div>
-        </a>
-      </div>
-    </section>
 
     <!-- Reviews -->
 <section id="reviews">
