@@ -1695,7 +1695,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      VIDEO HERO
 ─────────────────────────────────────────────── -->
 <div id="video-hero">
-  <video data-hero muted loop playsinline preload="none" poster="/fashion/posters/hero-video-poster.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/hero_video_trimmed.mp4" type="video/mp4"></video>
+  <video data-hero data-poster-mobile="/posters/hero%20fashion%20screen_1.1.1.jpg" muted loop playsinline preload="none" poster="/fashion/posters/hero-video-poster.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/hero_video_trimmed.mp4" data-src-mobile="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/hero%20dlya%20saita%20fashion.mov" type="video/mp4"></video>
   <div class="video-overlay"></div>
   <!-- ───────────────────────────────────────────────
        NAVIGATION
@@ -2442,6 +2442,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="ivent-caption">Backstage vom Shooting mit Marianna.</p>
       </div>
     </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/back%20fashion.MP4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">05</span>
+        <p class="ivent-caption">Backstage vom Fashion-Shooting.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2581,6 +2589,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ivent-text">
         <span class="ivent-num">05</span>
         <p class="ivent-caption">Fashion Shooting von Mutter und Tochter — eine Verbindung aus Eleganz, Stärke und zeitlosem Stil.</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/posters/screen%20fashion%20dub1_1.1.1.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_6554.MP4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">15</span>
+        <p class="ivent-caption">Fashion Editorial mit besonderem Gespür für Licht und Bewegung.</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/posters/%D1%81%D0%BA%D1%80%D0%B8%D0%BD%20%D0%B4%D0%B0%D0%BC%D1%83%D1%80_1.3.1.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_8742.MP4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">16</span>
+        <p class="ivent-caption">Fashion Shooting mit ausdrucksstarkem Styling und moderner Ästhetik.</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/posters/%D0%BD%D0%BE%D0%B0%20%D1%81%D0%BA%D1%80%D0%B8%D0%BD_1.3.2.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/noa%20fashion.MP4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">17</span>
+        <p class="ivent-caption">Fashion Shooting mit Noa — natürlich, selbstbewusst und stilvoll in Szene gesetzt.</p>
       </div>
     </div>
   </div>
@@ -2965,7 +2997,14 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
   /* ─── Hero ─── */
   var hero = document.querySelector('video[data-hero]');
   if (hero) {
-    function loadHero() { load(hero); playWhenReady(hero); }
+    function loadHero() {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        var s = hero.querySelector('source[data-src]');
+        if (s && s.dataset.srcMobile) { s.dataset.src = s.dataset.srcMobile; s.removeAttribute('type'); }
+        if (hero.dataset.posterMobile) { hero.poster = hero.dataset.posterMobile; }
+      }
+      load(hero); playWhenReady(hero);
+    }
     if ('requestIdleCallback' in window) requestIdleCallback(loadHero, { timeout: 2000 });
     else window.addEventListener('load', function () { setTimeout(loadHero, 300); });
   }

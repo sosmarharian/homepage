@@ -1752,7 +1752,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      VIDEO HERO
 ─────────────────────────────────────────────── -->
 <div id="video-hero">
-  <video data-hero muted loop playsinline preload="none" poster="/fashion/posters/hero-video-poster.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/hero_video_trimmed.mp4" type="video/mp4"></video>
+  <video data-hero data-poster-mobile="/posters/hero%20fashion%20screen_1.1.1.jpg" muted loop playsinline preload="none" poster="/fashion/posters/hero-video-poster.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/hero_video_trimmed.mp4" data-src-mobile="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/hero%20dlya%20saita%20fashion.mov" type="video/mp4"></video>
   <div class="video-overlay"></div>
   <!-- ───────────────────────────────────────────────
        NAVIGATION
@@ -3025,7 +3025,14 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
   /* ─── Hero ─── */
   var hero = document.querySelector('video[data-hero]');
   if (hero) {
-    function loadHero() { load(hero); playWhenReady(hero); }
+    function loadHero() {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        var s = hero.querySelector('source[data-src]');
+        if (s && s.dataset.srcMobile) { s.dataset.src = s.dataset.srcMobile; s.removeAttribute('type'); }
+        if (hero.dataset.posterMobile) { hero.poster = hero.dataset.posterMobile; }
+      }
+      load(hero); playWhenReady(hero);
+    }
     if ('requestIdleCallback' in window) requestIdleCallback(loadHero, { timeout: 2000 });
     else window.addEventListener('load', function () { setTimeout(loadHero, 300); });
   }
