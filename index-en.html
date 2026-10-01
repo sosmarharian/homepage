@@ -2842,10 +2842,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       .work-item { position:relative; overflow:hidden; display:block; border-radius:2px; }
       .work-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 1.2s cubic-bezier(.2,.8,.2,1); }
       .work-item:hover img { transform:scale(1.06); }
-      .work-item--a { grid-column: span 7; aspect-ratio: 16/11; }
+      .work-item--a { grid-column: span 8; aspect-ratio: 16/11; }
       .work-item--b { grid-column: span 5; aspect-ratio: 4/5; }
       .work-item--c, .work-item--d, .work-item--e { grid-column: span 4; aspect-ratio: 4/5; }
-      @media (max-width:760px) { .work-item { grid-column: 1 / -1 !important; aspect-ratio: 3/2 !important; } }
+      .work-item--tall { grid-column: span 4; aspect-ratio: 9/16; background: var(--charcoal); }
+      .work-item--tall img { object-fit: contain; }
+      @media (max-width:760px) { .work-item { grid-column: 1 / -1 !important; aspect-ratio: 3/2 !important; } .work-item--tall { aspect-ratio: 9/16 !important; } }
       .work-more { display:flex; justify-content:center; margin-top: clamp(40px,5vw,70px); }
       .work-morelink { display:inline-flex; align-items:center; gap:16px; padding:20px 42px; border-radius:999px; border:1px solid rgba(255,255,255,0.25); color:#fff; font-family:'Bricolage Grotesque',sans-serif; font-size:12px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; transition:background .4s, border-color .4s, gap .4s; }
       .work-morelink:hover { background:#a9b593; border-color:#a9b593; color:var(--charcoal); gap:22px; }
@@ -2860,20 +2862,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="work-grid">
+        <a class="work-item work-item--tall" href="/galerie/index-en">
+          <img src="/IMG_8178.jpeg" alt="Marharian Production — Portfolio" loading="lazy">
+        </a>
         <a class="work-item work-item--a" href="/galerie/index-en">
           <img src="/IMG_2407.JPG" alt="Marharian Production — Portfolio" loading="lazy" style="object-position:center 28%;">
         </a>
-        <a class="work-item work-item--b" href="/galerie/index-en">
-          <img src="/IMG_7618.jpeg" alt="Marharian Production — Portfolio" loading="lazy" style="object-position:center 20%;">
+        <a class="work-item work-item--tall" href="/galerie/index-en">
+          <img src="/IMG_7618.jpeg" alt="Marharian Production — Portfolio" loading="lazy">
         </a>
         <a class="work-item work-item--c" href="/galerie/index-en">
-          <img src="/DSC04382.jpg" alt="Marharian Production — Portfolio" loading="lazy" style="object-position:center 12%;">
+          <img src="/DSC04382.jpg" alt="Marharian Production — Portfolio" loading="lazy" style="object-position:center 0%;">
         </a>
         <a class="work-item work-item--d" href="/galerie/index-en">
-          <img src="/IMG_5102.jpeg" alt="Marharian Production — Portfolio" loading="lazy" style="object-position:center 15%;">
-        </a>
-        <a class="work-item work-item--e" href="/galerie/index-en">
-          <img src="/IMG_8178.jpeg" alt="Marharian Production — Portfolio" loading="lazy" style="object-position:center 15%;">
+          <img src="/IMG_5601.jpeg" alt="Marharian Production — Portfolio" loading="lazy" style="object-position:center 18%;">
         </a>
       </div>
       <div class="work-more">
