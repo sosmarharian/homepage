@@ -2001,7 +2001,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="reviews">
   <style>
     #reviews { padding-left: 0 !important; padding-right: 0 !important; }
-    .reviews-track-wrapper { position: relative; overflow: hidden; }
+    .reviews-track-wrapper { position: relative; overflow: hidden; touch-action: pan-y; cursor: grab; }
+    .reviews-track-wrapper.rv-dragging { cursor: grabbing; }
+    .reviews-track-wrapper.rv-dragging .reviews-track { user-select: none; }
     .reviews-track-wrapper::before,
     .reviews-track-wrapper::after {
       content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
@@ -2011,12 +2013,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .reviews-track {
       display: flex; gap: 20px; width: max-content;
       padding: 12px 20px 28px;
-      animation: reviews-scroll 209s linear infinite;
-    }
-    .reviews-track-wrapper:hover .reviews-track { animation-play-state: paused; }
-    @keyframes reviews-scroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+      will-change: transform;
     }
     .review-card {
       flex: 0 0 290px; background: #fff;
@@ -2721,6 +2718,99 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     </div>
   </div>
+
+  <script>
+  (function(){
+    var wrapper = document.querySelector('.reviews-track-wrapper');
+    var track   = document.querySelector('.reviews-track');
+    if (!wrapper || !track) return;
+
+    var DURATION = 209; /* seconds for one full half-loop, matches the old CSS animation speed */
+    var half = 0, speed = 0;
+    var pos = 0;        /* current translateX, always kept within (-half, 0] */
+    var paused = false;
+    var pointerDown = false, dragging = false;
+    var startX = 0, baseOffset = 0, lastClientX = 0;
+    var DRAG_THRESHOLD = 6;
+    var lastTs = null, resumeT, measureT;
+
+    function measure() {
+      half  = track.scrollWidth / 2;
+      speed = half / DURATION;
+    }
+    function normalize(v) {
+      if (!half) return 0;
+      v = v % half;
+      if (v > 0) v -= half;
+      return v;
+    }
+    function apply() { track.style.transform = 'translateX(' + pos + 'px)'; }
+
+    function tick(ts) {
+      if (lastTs === null) lastTs = ts;
+      var dt = (ts - lastTs) / 1000;
+      lastTs = ts;
+      if (!paused && !dragging && half) {
+        pos = normalize(pos - speed * dt);
+        apply();
+      }
+      requestAnimationFrame(tick);
+    }
+
+    function resumeLater() {
+      clearTimeout(resumeT);
+      resumeT = setTimeout(function(){ paused = false; lastTs = null; }, 7000);
+    }
+
+    function onPointerDown(e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      if (e.pointerType === 'mouse') e.preventDefault(); /* stop native text-selection drag */
+      pointerDown = true;
+      dragging = false;
+      startX = lastClientX = e.clientX;
+      baseOffset = pos;
+      paused = true;
+    }
+    function onPointerMove(e) {
+      if (!pointerDown) return;
+      lastClientX = e.clientX;
+      var dx = lastClientX - startX;
+      if (!dragging) {
+        if (Math.abs(dx) <= DRAG_THRESHOLD) return;
+        dragging = true;
+        wrapper.classList.add('rv-dragging');
+        try { wrapper.setPointerCapture(e.pointerId); } catch(err) {}
+      }
+      pos = normalize(baseOffset + dx);
+      apply();
+    }
+    function onPointerUp() {
+      if (!pointerDown) return;
+      pointerDown = false;
+      if (dragging) {
+        dragging = false;
+        wrapper.classList.remove('rv-dragging');
+      }
+      resumeLater();
+    }
+
+    wrapper.addEventListener('pointerdown', onPointerDown);
+    wrapper.addEventListener('pointermove', onPointerMove);
+    wrapper.addEventListener('pointerup', onPointerUp);
+    wrapper.addEventListener('pointercancel', onPointerUp);
+    wrapper.addEventListener('pointerleave', function(){ if (pointerDown && !dragging) onPointerUp(); });
+    wrapper.addEventListener('mouseenter', function(){ paused = true; });
+    wrapper.addEventListener('mouseleave', function(){ if (!pointerDown) { paused = false; lastTs = null; } });
+
+    window.addEventListener('resize', function(){
+      clearTimeout(measureT);
+      measureT = setTimeout(measure, 150);
+    });
+
+    measure();
+    requestAnimationFrame(tick);
+  })();
+  </script>
 </section>
     <!-- About -->
     <div class="wedding-about" id="about">
