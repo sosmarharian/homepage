@@ -1751,9 +1751,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </button>
   </nav>
 </div>
-<div class="eyebrow-gap" style="background:#f5f0eb; display:flex; align-items:center; justify-content:center; padding: 12px 24px; text-align: center;">
-  <span style="font-size: clamp(1.2rem, 2vw, 2rem); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; text-align: center; white-space: normal; word-break: break-word;">Foto- &amp; Videoproduktion in Hamburg</span>
-</div>
 
 <!-- Mobile menu -->
 <div class="mob-backdrop" id="mobBackdrop"></div>
@@ -1780,10 +1777,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="hero">
   <div class="hero-left">
     <h1 class="hero-h1">Elegante<br><em>visuelle Geschichten.</em></h1>
-    <div class="hero-btns">
-      <button class="btn btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Termin buchen</button>
-      <a href="https://www.instagram.com/marharian.production/" target="_blank" style="display:inline-flex; align-items:center; padding:16px 32px; border:2px solid var(--gold); color:var(--gold); font-size:14px; font-weight:600; letter-spacing:0.1em; text-decoration:none; border-radius:6px; font-family:inherit;">Instagram</a>
-    </div>
   </div>
 
   <div class="hero-right">
@@ -1805,7 +1798,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="reveal" style="max-width:1200px; margin:0 auto; padding:0 20px;">
     <style>
     /* ── Reviews carousel ───────────────────── */
-    .rv-viewport { overflow: hidden; }
+    .rv-viewport { overflow: hidden; touch-action: pan-y; cursor: grab; }
+    .rv-viewport.rv-dragging { cursor: grabbing; }
+    .rv-viewport.rv-dragging .rv-track { user-select: none; }
     .rv-track {
       display: flex;
       gap: 16px;
@@ -2303,6 +2298,67 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     viewport.addEventListener('mouseenter', function(){ paused = true; });
     viewport.addEventListener('mouseleave', function(){ paused = false; });
+
+    /* ── Manual swipe / drag ───────────────────── */
+    var DRAG_THRESHOLD  = 6;   // px of movement before it counts as a drag, not a click
+    var SWIPE_THRESHOLD = 40;  // px needed to trigger a page change
+    var pointerDown = false, dragging = false;
+    var startX = 0, baseTx = 0, lastClientX = 0;
+    var resumeT;
+
+    function resumeLater() {
+      clearTimeout(resumeT);
+      resumeT = setTimeout(function(){ paused = false; }, 7000);
+    }
+
+    function onPointerDown(e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      if (e.pointerType === 'mouse') e.preventDefault(); /* stop native text-selection drag */
+      pointerDown = true;
+      dragging = false;
+      startX = lastClientX = e.clientX;
+      baseTx = pageOffset(page);
+      paused = true;
+    }
+
+    function onPointerMove(e) {
+      if (!pointerDown) return;
+      lastClientX = e.clientX;
+      var dx = lastClientX - startX;
+      if (!dragging) {
+        if (Math.abs(dx) <= DRAG_THRESHOLD) return;
+        dragging = true;
+        track.style.transition = 'none';
+        viewport.classList.add('rv-dragging');
+        try { viewport.setPointerCapture(e.pointerId); } catch(err) {}
+      }
+      track.style.transform = 'translateX(' + (-(baseTx) + dx) + 'px)';
+    }
+
+    function onPointerUp(e) {
+      if (!pointerDown) return;
+      pointerDown = false;
+      if (dragging) {
+        dragging = false;
+        viewport.classList.remove('rv-dragging');
+        track.style.transition = '';
+        var dx = lastClientX - startX;
+        if (dx <= -SWIPE_THRESHOLD) {
+          goTo(page + 1 >= totalPages() ? 0 : page + 1);
+        } else if (dx >= SWIPE_THRESHOLD) {
+          goTo(page - 1 < 0 ? totalPages() - 1 : page - 1);
+        } else {
+          goTo(page);
+        }
+      }
+      resumeLater();
+    }
+
+    viewport.addEventListener('pointerdown', onPointerDown);
+    viewport.addEventListener('pointermove', onPointerMove);
+    viewport.addEventListener('pointerup', onPointerUp);
+    viewport.addEventListener('pointercancel', onPointerUp);
+    viewport.addEventListener('pointerleave', function(e){ if (pointerDown && !dragging) onPointerUp(e); });
 
     window.addEventListener('resize', function(){
       clearTimeout(resizeT);
