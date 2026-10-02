@@ -332,6 +332,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     #nav.scrolled .nav-links a.nav-cross:hover { color: #b8392a; }
     .mob-menu a.nav-cross { color: #d94f3d; font-weight: 500; }
     .mob-menu a.nav-cross:hover { color: #b8392a; }
+    /* Leistungen sub-links in the mobile menu — plain dark text with a
+       cursive accent, not the red "cross-link" highlight (that stays
+       reserved for the actual back-to-home link). */
+    .mob-menu a.nav-leistungen-sub { color: var(--charcoal); font-family: 'Great Vibes', cursive; font-size: 1.7rem; font-weight: 400; }
+    .mob-menu a.nav-leistungen-sub:hover { color: var(--gold); }
 
     .nav-cta {
       padding: 9px 18px;
@@ -1979,11 +1984,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="mob-backdrop" id="mobBackdrop"></div>
 <div class="mob-menu" id="mobMenu">
   <span class="mob-link" style="opacity:.5; font-size:13px; letter-spacing:1px; text-transform:uppercase; cursor:default;">Leistungen</span>
-  <a href="/hochzeit"  class="mob-link nav-cross" style="padding-left:16px;">Hochzeit</a>
-  <a href="/fashion"   class="mob-link nav-cross" style="padding-left:16px;">Fashion</a>
-  <a href="/business"  class="mob-link nav-cross" style="padding-left:16px;">Business</a>
-  <a href="/events"   class="mob-link nav-cross" style="padding-left:16px;">Events</a>
-  <a href="/immobilien" class="mob-link nav-cross" style="padding-left:16px;">Immobilien</a>
+  <a href="/hochzeit"  class="mob-link nav-leistungen-sub" style="padding-left:16px;">Hochzeit</a>
+  <a href="/fashion"   class="mob-link nav-leistungen-sub" style="padding-left:16px;">Fashion</a>
+  <a href="/business"  class="mob-link nav-leistungen-sub" style="padding-left:16px;">Business</a>
+  <a href="/events"   class="mob-link nav-leistungen-sub" style="padding-left:16px;">Events</a>
+  <a href="/immobilien" class="mob-link nav-leistungen-sub" style="padding-left:16px;">Immobilien</a>
   <a href="#reviews"  class="mob-link">Bewertungen</a>
   <a href="#contact"  class="mob-link">Kontakt</a>
   <a href="#contact"  class="mob-link">Anfragen</a>

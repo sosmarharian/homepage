@@ -332,6 +332,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     #nav.scrolled .nav-links a.nav-cross:hover { color: #b8392a; }
     .mob-menu a.nav-cross { color: #d94f3d; font-weight: 500; }
     .mob-menu a.nav-cross:hover { color: #b8392a; }
+    .mob-menu a.nav-leistungen-sub { color: var(--charcoal); font-family: 'Great Vibes', cursive; font-size: 1.7rem; font-weight: 400; }
+    .mob-menu a.nav-leistungen-sub:hover { color: var(--gold); }
+    .nav-links a.nav-glow { position: relative; padding: 4px 12px; border-radius: 999px; }
+    .nav-links a.nav-glow::after {
+      content: ''; position: absolute; inset: 0; border-radius: inherit;
+      border: 1px solid rgba(255,59,48,.85);
+      box-shadow: 0 0 6px 1px rgba(255,59,48,.5), inset 0 0 6px 0 rgba(255,59,48,.3);
+      pointer-events: none;
+      animation: cta-glow-pulse 2.2s ease-in-out infinite;
+    }
+    .mob-menu a.nav-glow { position: relative; }
+    .mob-menu a.nav-glow::after {
+      content: ''; position: absolute; left: 0; right: 0; top: 4px; bottom: 4px; border-radius: 8px;
+      border: 1px solid rgba(255,59,48,.85);
+      box-shadow: 0 0 6px 1px rgba(255,59,48,.5), inset 0 0 6px 0 rgba(255,59,48,.3);
+      pointer-events: none;
+      animation: cta-glow-pulse 2.2s ease-in-out infinite;
+    }
 
     .nav-cta {
       padding: 9px 18px;
@@ -1970,7 +1988,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="/immobilien">Immobilien</a>
       </div>
     </li>
-    <li><a href="/" class="nav-cross">Startseite</a></li>
+    <li><a href="/" class="nav-cross">Home</a></li>
   </ul>
 
   <div class="lang-switcher" id="langSwitcher">
@@ -1994,12 +2012,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#contact"  class="mob-link">Kontakt</a>
   <a href="#anfrage"  class="mob-link">Anfragen</a>
   <span class="mob-link" style="opacity:.5; font-size:13px; letter-spacing:1px; text-transform:uppercase; cursor:default;">Leistungen</span>
-  <a href="/hochzeit"  class="mob-link nav-cross" style="padding-left:16px;">Hochzeit</a>
-  <a href="/fashion"   class="mob-link nav-cross" style="padding-left:16px;">Fashion</a>
-  <a href="/business"  class="mob-link nav-cross" style="padding-left:16px;">Business</a>
-  <a href="/events"   class="mob-link nav-cross" style="padding-left:16px;">Events</a>
-  <a href="/immobilien" class="mob-link nav-cross" style="padding-left:16px;">Immobilien</a>
-  <a href="/"          class="mob-link nav-cross">Startseite</a>
+  <a href="/hochzeit"  class="mob-link nav-leistungen-sub" style="padding-left:16px;">Hochzeit</a>
+  <a href="/fashion"   class="mob-link nav-leistungen-sub" style="padding-left:16px;">Fashion</a>
+  <a href="/business"  class="mob-link nav-leistungen-sub" style="padding-left:16px;">Business</a>
+  <a href="/events"   class="mob-link nav-leistungen-sub" style="padding-left:16px;">Events</a>
+  <a href="/immobilien" class="mob-link nav-leistungen-sub" style="padding-left:16px;">Immobilien</a>
+  <a href="/"          class="mob-link nav-cross">Home</a>
   <button class="btn btn-gold mob-link" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'})">Preisanfrage</button>
   <div style="display: flex; align-items: center; gap: 8px; margin-top: 24px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
     <a href="/hochzeit/index-en" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="localStorage.setItem('lang','en')">🇬🇧 EN</a>
