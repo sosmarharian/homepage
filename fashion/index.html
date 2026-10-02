@@ -1802,6 +1802,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hs-slide"><img src="/fashion/IMG_3459.JPG" alt="Marharian Production"></div>
         <div class="hs-slide"><img src="/fashion/IMG_3477%20(1).JPG" alt="Marharian Production"></div>
         <div class="hs-slide"><img src="/fashion/IMG_3476.JPG" alt="Marharian Production"></div>
+        <div class="hs-slide"><img src="/fashion/IMG_6477.JPG" alt="Marharian Production"></div>
+        <div class="hs-slide"><img src="/fashion/IMG_6539.JPG" alt="Marharian Production"></div>
+        <div class="hs-slide"><img src="/fashion/IMG_8801.jpg" alt="Marharian Production"></div>
+        <div class="hs-slide"><img src="/fashion/R6M20042.jpg" alt="Marharian Production"></div>
       </div>
     </div>
     <div class="scroll-hint">Scroll</div>
@@ -2442,7 +2446,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/%D1%81%D0%BA%D1%80%D0%B8%D0%BD%D1%86%D0%B2%D0%B5%D1%82%D1%8B_1.1.6.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/cveti%20back%20fashion.mp4" type="video/mp4"></video></div>
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/%D1%81%D0%BA%D1%80%D0%B8%D0%BD%D1%86%D0%B2%D0%B5%D1%82%D1%8B_1.1.6.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/cveti-new.mp4" type="video/mp4"></video></div>
       <div class="ivent-text">
         <span class="ivent-num">03</span>
         <p class="ivent-caption">Backstage von einem floralen Blumen-Shooting.</p>
@@ -2815,6 +2819,20 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     var DRAG_THRESHOLD = 6, SWIPE_THRESHOLD = 40;
     var pointerDown = false, dragging = false, startX = 0, baseTx = 0, lastClientX = 0;
 
+    /* Real current on-screen position, even mid auto-advance transition —
+       prevents the track jumping back to a page boundary when grabbed. */
+    function currentTx() {
+      var m = window.getComputedStyle(track).transform;
+      if (m && m !== 'none') {
+        var parts = m.match(/matrix\(([^)]+)\)/);
+        if (parts) {
+          var vals = parts[1].split(',').map(Number);
+          return -vals[4];
+        }
+      }
+      return page * viewport.clientWidth;
+    }
+
     function resumeLater() {
       clearTimeout(resumeT);
       resumeT = setTimeout(function(){ paused = false; }, 7000);
@@ -2825,7 +2843,11 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
       pointerDown = true;
       dragging = false;
       startX = lastClientX = e.clientX;
-      baseTx = page * viewport.clientWidth;
+      baseTx = currentTx();
+      /* Freeze exactly where it visually is right now, killing any in-flight
+         auto-advance transition, so the next move continues from here. */
+      track.style.transition = 'none';
+      track.style.transform = 'translateX(-' + baseTx + 'px)';
       paused = true;
     }
     function onPointerMove(e) {
@@ -2835,7 +2857,6 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
       if (!dragging) {
         if (Math.abs(dx) <= DRAG_THRESHOLD) return;
         dragging = true;
-        track.style.transition = 'none';
         viewport.classList.add('hs-dragging');
         try { viewport.setPointerCapture(e.pointerId); } catch(err) {}
       }
@@ -2844,14 +2865,17 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     function onPointerUp() {
       if (!pointerDown) return;
       pointerDown = false;
+      track.style.transition = '';
+      var fromPage = Math.round(baseTx / viewport.clientWidth);
       if (dragging) {
         dragging = false;
         viewport.classList.remove('hs-dragging');
-        track.style.transition = '';
         var dx = lastClientX - startX;
-        if (dx <= -SWIPE_THRESHOLD) goTo(page + 1);
-        else if (dx >= SWIPE_THRESHOLD) goTo(page - 1);
-        else goTo(page);
+        if (dx <= -SWIPE_THRESHOLD) goTo(fromPage + 1);
+        else if (dx >= SWIPE_THRESHOLD) goTo(fromPage - 1);
+        else goTo(fromPage);
+      } else {
+        goTo(fromPage);
       }
       resumeLater();
     }
