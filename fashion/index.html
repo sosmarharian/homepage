@@ -2784,20 +2784,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 if (window.location.hash) { var _t = document.querySelector(window.location.hash); if (_t) { setTimeout(function(){ _t.scrollIntoView(); }, 50); } } else { window.scrollTo(0, 0); }
 
-  /* — Hero slideshow (swipeable) ─────────────────────────────── */
+  /* — Hero slideshow (swipeable, infinite loop) ─────────────────────── */
   (function(){
     var viewport = document.getElementById('hero-slideshow');
     var track = document.getElementById('hsTrack');
     if (!viewport || !track) return;
-    var slides = track.children;
-    var TOTAL = slides.length;
-    var page = 0;
+    var realSlides = Array.prototype.slice.call(track.children);
+    var TOTAL = realSlides.length;
+    if (TOTAL === 0) return;
+    var loop = TOTAL > 1;
+
+    /* Clone the first/last slide to each opposite end, so advancing past
+       the real last slide (or back past the real first) keeps sliding in
+       the same direction into a visually-identical clone, instead of the
+       track animating all the way back across every slide to reach 0. */
+    if (loop) {
+      var firstClone = realSlides[0].cloneNode(true);
+      var lastClone = realSlides[TOTAL - 1].cloneNode(true);
+      firstClone.setAttribute('aria-hidden', 'true');
+      lastClone.setAttribute('aria-hidden', 'true');
+      track.appendChild(firstClone);
+      track.insertBefore(lastClone, track.firstChild);
+    }
+
+    var index = loop ? 1 : 0; /* position within track.children; 1..TOTAL = real slides */
+    var lastIndex = track.children.length - 1;
     var paused = false;
     var resumeT;
 
-    function goTo(n, instant) {
-      page = ((n % TOTAL) + TOTAL) % TOTAL;
-      var tx = page * viewport.clientWidth;
+    function setTx(idx, instant) {
+      var tx = idx * viewport.clientWidth;
       if (instant) {
         track.style.transition = 'none';
         track.style.transform = 'translateX(-' + tx + 'px)';
@@ -2807,12 +2823,28 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
         track.style.transform = 'translateX(-' + tx + 'px)';
       }
     }
-    function next() { if (!paused) goTo(page + 1); }
+    function goToIndex(n, instant) {
+      index = n;
+      setTx(index, instant);
+    }
+    /* If currently resting on a clone, snap (invisibly — the clone looks
+       identical to the real slide it stands in for) to the matching real
+       index before queuing the next move. */
+    function normalize() {
+      if (!loop) return;
+      if (index === 0) { index = TOTAL; setTx(index, true); }
+      else if (index === lastIndex) { index = 1; setTx(index, true); }
+    }
+    function next() {
+      if (paused) return;
+      normalize();
+      goToIndex(index + 1);
+    }
 
     var resizeT;
     window.addEventListener('resize', function(){
       clearTimeout(resizeT);
-      resizeT = setTimeout(function(){ goTo(page, true); }, 80);
+      resizeT = setTimeout(function(){ setTx(index, true); }, 80);
     });
 
     /* — Manual swipe / drag — */
@@ -2830,7 +2862,7 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
           return -vals[4];
         }
       }
-      return page * viewport.clientWidth;
+      return index * viewport.clientWidth;
     }
 
     function resumeLater() {
@@ -2840,6 +2872,7 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     function onPointerDown(e) {
       if (e.pointerType === 'mouse' && e.button !== 0) return;
       if (e.pointerType === 'mouse') e.preventDefault();
+      normalize();
       pointerDown = true;
       dragging = false;
       startX = lastClientX = e.clientX;
@@ -2866,16 +2899,16 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
       if (!pointerDown) return;
       pointerDown = false;
       track.style.transition = '';
-      var fromPage = Math.round(baseTx / viewport.clientWidth);
+      var fromIndex = Math.round(baseTx / viewport.clientWidth);
       if (dragging) {
         dragging = false;
         viewport.classList.remove('hs-dragging');
         var dx = lastClientX - startX;
-        if (dx <= -SWIPE_THRESHOLD) goTo(fromPage + 1);
-        else if (dx >= SWIPE_THRESHOLD) goTo(fromPage - 1);
-        else goTo(fromPage);
+        if (dx <= -SWIPE_THRESHOLD) goToIndex(fromIndex + 1);
+        else if (dx >= SWIPE_THRESHOLD) goToIndex(fromIndex - 1);
+        else goToIndex(fromIndex);
       } else {
-        goTo(fromPage);
+        goToIndex(fromIndex);
       }
       resumeLater();
     }
@@ -2888,10 +2921,8 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     viewport.addEventListener('mouseenter', function(){ paused = true; });
     viewport.addEventListener('mouseleave', function(){ if (!pointerDown) paused = false; });
 
-    if (TOTAL > 0) {
-      goTo(0, true);
-      setInterval(next, 4000);
-    }
+    goToIndex(index, true);
+    setInterval(next, 4000);
   })();
 
   /* — Wedding slideshow ────────────────────────── */
