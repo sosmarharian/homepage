@@ -512,8 +512,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       object-position: center center !important;
       display: block;
     }
-    #hero-slideshow img { object-fit: contain !important; object-position: center center !important; }
-    #hero-slideshow { position:absolute; inset:0; width:100%; height:100%; overflow:hidden; }
+    #hero-slideshow { position:absolute; inset:0; width:100%; height:100%; overflow:hidden; touch-action: pan-y; cursor: grab; }
+    #hero-slideshow.hs-dragging { cursor: grabbing; }
+    #hero-slideshow.hs-dragging .hs-slide { user-select: none; }
+    .hs-track { display:flex; width:100%; height:100%; transition: transform 0.6s cubic-bezier(.4,0,.2,1); }
+    .hs-slide { flex:0 0 100%; width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+    .hs-slide img { width:100%; height:100%; object-fit:contain !important; object-position:center center !important; display:block; }
 
     .scroll-hint::after {
       content: '';
@@ -1786,10 +1790,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="hero-right">
     <div id="hero-slideshow">
-      <img src="/fashion/IMG_6477.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:1; transition:opacity 0.6s ease;">
-      <img src="/fashion/IMG_6539.JPG" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:0; transition:opacity 0.6s ease;">
-      <img src="/fashion/IMG_8801.jpg" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:0; transition:opacity 0.6s ease;">
-      <img src="/fashion/R6M20042.jpg" alt="Marharian Production" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; opacity:0; transition:opacity 0.6s ease;">
+      <div class="hs-track" id="hsTrack">
+        <div class="hs-slide"><img src="/fashion/DSC02159.jpg" alt="Marharian Production"></div>
+        <div class="hs-slide"><img src="/fashion/DSC02049.jpg" alt="Marharian Production"></div>
+        <div class="hs-slide"><img src="/fashion/IMG_1745.JPG" alt="Marharian Production"></div>
+        <div class="hs-slide"><img src="/fashion/IMG_1750.JPG" alt="Marharian Production"></div>
+        <div class="hs-slide"><img src="/fashion/IMG_1752.JPG" alt="Marharian Production"></div>
+        <div class="hs-slide"><img src="/fashion/IMG_1762.JPG" alt="Marharian Production"></div>
+        <div class="hs-slide"><img src="/fashion/IMG_1763.JPG" alt="Marharian Production"></div>
+        <div class="hs-slide"><img src="/fashion/IMG_3474.JPG" alt="Marharian Production"></div>
+        <div class="hs-slide"><img src="/fashion/IMG_3459.JPG" alt="Marharian Production"></div>
+        <div class="hs-slide"><img src="/fashion/IMG_3477%20(1).JPG" alt="Marharian Production"></div>
+        <div class="hs-slide"><img src="/fashion/IMG_3476.JPG" alt="Marharian Production"></div>
+      </div>
     </div>
     <div class="scroll-hint">Scroll</div>
   </div>
@@ -2413,42 +2426,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="ivent-rows">
     <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/jevelin-beck.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/jevelin%20beck.mp4" type="video/mp4"></video></div>
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/posters/%D1%81%D0%BA%D1%80%D0%B8%D0%BD%20%D0%BD%D0%BE%D0%B3%D0%B0_1.1.4.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/marianna-noga%20fashion.mp4" type="video/mp4"></video></div>
       <div class="ivent-text">
         <span class="ivent-num">01</span>
-        <p class="ivent-caption">Backstage vom Shooting an der Elbphilharmonie.</p>
+        <p class="ivent-caption">Weitere Einblicke vom Shooting mit Marianna.</p>
       </div>
     </div>
 
     <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/blumen-beck.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/blumen%20beck.mp4" type="video/mp4"></video></div>
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/backscreenstudio_1.1.6.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/back%20fashion.MP4" type="video/mp4"></video></div>
       <div class="ivent-text">
         <span class="ivent-num">02</span>
+        <p class="ivent-caption">Backstage vom Fashion-Shooting.</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/%D1%81%D0%BA%D1%80%D0%B8%D0%BD%D1%86%D0%B2%D0%B5%D1%82%D1%8B_1.1.6.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/cveti%20back%20fashion.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">03</span>
         <p class="ivent-caption">Backstage von einem floralen Blumen-Shooting.</p>
+      </div>
+    </div>
+
+    <div class="ivent-row reveal">
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/jevelin-beck.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/jevelin%20beck.mp4" type="video/mp4"></video></div>
+      <div class="ivent-text">
+        <span class="ivent-num">04</span>
+        <p class="ivent-caption">Backstage vom Shooting an der Elbphilharmonie.</p>
       </div>
     </div>
 
     <div class="ivent-row reveal">
       <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/beck-diana.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/beck%20diana.mp4" type="video/mp4"></video></div>
       <div class="ivent-text">
-        <span class="ivent-num">03</span>
+        <span class="ivent-num">05</span>
         <p class="ivent-caption">Backstage vom Shooting mit Diana.</p>
       </div>
     </div>
 
     <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/marianna-back.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/marianna%20back.mp4" type="video/mp4"></video></div>
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/posters/%D1%81%D0%BA%D1%80%D0%B8%D0%BD%20%D0%BA%D0%BE%D1%88%D0%B0%D0%BA%20%D0%BC%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D0%BD%D0%B0_1.1.5.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/marianna%20back.mp4" type="video/mp4"></video></div>
       <div class="ivent-text">
-        <span class="ivent-num">04</span>
+        <span class="ivent-num">06</span>
         <p class="ivent-caption">Backstage vom Shooting mit Marianna.</p>
-      </div>
-    </div>
-
-    <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/back%20fashion.MP4" type="video/mp4"></video></div>
-      <div class="ivent-text">
-        <span class="ivent-num">05</span>
-        <p class="ivent-caption">Backstage vom Fashion-Shooting.</p>
       </div>
     </div>
   </div>
@@ -2549,7 +2570,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="ivent-row reveal">
-      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/fashion/posters/IMG_3381_comp.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3381_comp.mp4" type="video/mp4"></video></div>
+      <div class="gallery-cell"><video muted loop playsinline preload="none" poster="/posters/marianna%20screen_1.1.4.jpg"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_3381_comp.mp4" type="video/mp4"></video></div>
       <div class="ivent-text">
         <span class="ivent-num">09</span>
         <p class="ivent-caption">Editorial Fashion Shooting mit klassischer Eleganz, starken Kontrasten und modernen Details.</p>
@@ -2759,10 +2780,95 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 if (window.location.hash) { var _t = document.querySelector(window.location.hash); if (_t) { setTimeout(function(){ _t.scrollIntoView(); }, 50); } } else { window.scrollTo(0, 0); }
 
-  /* — Hero slideshow ─────────────────────────────── */
-  const slides = document.querySelectorAll('#hero-slideshow img');
-  let current = 0;
-  if (slides.length > 0) { setInterval(() => { slides[current].style.opacity = '0'; current = (current + 1) % slides.length; slides[current].style.opacity = '1'; }, 4000); }
+  /* — Hero slideshow (swipeable) ─────────────────────────────── */
+  (function(){
+    var viewport = document.getElementById('hero-slideshow');
+    var track = document.getElementById('hsTrack');
+    if (!viewport || !track) return;
+    var slides = track.children;
+    var TOTAL = slides.length;
+    var page = 0;
+    var paused = false;
+    var resumeT;
+
+    function goTo(n, instant) {
+      page = ((n % TOTAL) + TOTAL) % TOTAL;
+      var tx = page * viewport.clientWidth;
+      if (instant) {
+        track.style.transition = 'none';
+        track.style.transform = 'translateX(-' + tx + 'px)';
+        track.offsetWidth;
+        track.style.transition = '';
+      } else {
+        track.style.transform = 'translateX(-' + tx + 'px)';
+      }
+    }
+    function next() { if (!paused) goTo(page + 1); }
+
+    var resizeT;
+    window.addEventListener('resize', function(){
+      clearTimeout(resizeT);
+      resizeT = setTimeout(function(){ goTo(page, true); }, 80);
+    });
+
+    /* — Manual swipe / drag — */
+    var DRAG_THRESHOLD = 6, SWIPE_THRESHOLD = 40;
+    var pointerDown = false, dragging = false, startX = 0, baseTx = 0, lastClientX = 0;
+
+    function resumeLater() {
+      clearTimeout(resumeT);
+      resumeT = setTimeout(function(){ paused = false; }, 7000);
+    }
+    function onPointerDown(e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      if (e.pointerType === 'mouse') e.preventDefault();
+      pointerDown = true;
+      dragging = false;
+      startX = lastClientX = e.clientX;
+      baseTx = page * viewport.clientWidth;
+      paused = true;
+    }
+    function onPointerMove(e) {
+      if (!pointerDown) return;
+      lastClientX = e.clientX;
+      var dx = lastClientX - startX;
+      if (!dragging) {
+        if (Math.abs(dx) <= DRAG_THRESHOLD) return;
+        dragging = true;
+        track.style.transition = 'none';
+        viewport.classList.add('hs-dragging');
+        try { viewport.setPointerCapture(e.pointerId); } catch(err) {}
+      }
+      track.style.transform = 'translateX(' + (-(baseTx) + dx) + 'px)';
+    }
+    function onPointerUp() {
+      if (!pointerDown) return;
+      pointerDown = false;
+      if (dragging) {
+        dragging = false;
+        viewport.classList.remove('hs-dragging');
+        track.style.transition = '';
+        var dx = lastClientX - startX;
+        if (dx <= -SWIPE_THRESHOLD) goTo(page + 1);
+        else if (dx >= SWIPE_THRESHOLD) goTo(page - 1);
+        else goTo(page);
+      }
+      resumeLater();
+    }
+
+    viewport.addEventListener('pointerdown', onPointerDown);
+    viewport.addEventListener('pointermove', onPointerMove);
+    viewport.addEventListener('pointerup', onPointerUp);
+    viewport.addEventListener('pointercancel', onPointerUp);
+    viewport.addEventListener('pointerleave', function(e){ if (pointerDown && !dragging) onPointerUp(e); });
+    viewport.addEventListener('mouseenter', function(){ paused = true; });
+    viewport.addEventListener('mouseleave', function(){ if (!pointerDown) paused = false; });
+
+    if (TOTAL > 0) {
+      goTo(0, true);
+      setInterval(next, 4000);
+    }
+  })();
 
   /* — Wedding slideshow ────────────────────────── */
   const wedSlides = document.querySelectorAll('#wedding-slideshow img');
