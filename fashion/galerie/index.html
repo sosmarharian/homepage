@@ -298,9 +298,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       pointer-events: none;
       animation: cta-glow-pulse 2.2s ease-in-out infinite;
     }
-    .mob-menu a.nav-glow { position: relative; }
+    .mob-menu a.nav-glow { position: relative; display: inline-block; width: auto; padding: 10px 22px; border-bottom: none; border-radius: 999px; }
     .mob-menu a.nav-glow::after {
-      content: ''; position: absolute; left: 0; right: 0; top: 4px; bottom: 4px; border-radius: 8px;
+      content: ''; position: absolute; inset: 0; border-radius: inherit;
       border: 1px solid rgba(255,59,48,.85);
       box-shadow: 0 0 6px 1px rgba(255,59,48,.5), inset 0 0 6px 0 rgba(255,59,48,.3);
       pointer-events: none;

@@ -1,23 +1,6 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script>
-(function(){
-  if(localStorage.getItem('lang')) return;
-  var ua = navigator.userAgent.toLowerCase();
-  if(/googlebot|bingbot|yandexbot|facebookexternalhit|twitterbot|rogerbot|linkedinbot|slackbot|whatsapp|applebot|duckduckbot|petalbot/.test(ua)) return;
-  var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
-  var hasGerman = Array.prototype.some.call(langs, function(l){ return (l||'').toLowerCase().indexOf('de') === 0; });
-  var firstIsEnglish = (langs[0] || '').toLowerCase().indexOf('en') === 0;
-  if(!hasGerman && firstIsEnglish) window.location.replace('/galerie/index-en');
-})();
-</script>
 <!-- Google Consent Mode v2 — default (denied), muss vor CCM19 und GTM stehen -->
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -48,16 +31,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-K9L4JN9K');</script>
 <!-- End Google Tag Manager -->
-  <link rel="canonical" href="https://marharian.com/galerie">
-  <link rel="alternate" hreflang="de" href="https://marharian.com/galerie">
-  <link rel="alternate" hreflang="en" href="https://marharian.com/galerie/index-en">
-  <link rel="alternate" hreflang="x-default" href="https://marharian.com/galerie">
-  <title>Marharian Production · Galerie</title>
-  <meta name="description" content="Marharian Production — Galerie: eine Auswahl unserer Arbeiten aus Hochzeit, Fashion, Business, Event und Immobilien." />
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://marharian.com/immobilien/galerie/index-en">
+  <link rel="alternate" hreflang="de" href="https://marharian.com/immobilien/galerie">
+  <link rel="alternate" hreflang="en" href="https://marharian.com/immobilien/galerie/index-en">
+  <link rel="alternate" hreflang="x-default" href="https://marharian.com/immobilien/galerie">
+  <title>Marharian Production · Real Estate Gallery</title>
+  <meta name="description" content="Marharian Production — Real Estate Gallery: our real estate photography from Hamburg is coming soon." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Darker+Grotesque:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=Bricolage+Grotesque:wght@500;700;800&family=Fraunces:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Darker+Grotesque:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=Bricolage+Grotesque:wght@500;700;800&display=swap" rel="stylesheet" />
 
   <style>
     /* ─── Reset ───────────────────────────────────────── */
@@ -815,8 +804,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       #about { background: var(--white); }
     }
 
-    /* Zwischenbereich: Desktop-Nav passt nicht mehr in die 1200px-Pill —
-       hier Hamburger statt Umbruch/Überlappung. */
+    /* Intermediate range: desktop nav no longer fits the 1200px pill —
+       use the hamburger instead of wrapping/overlapping. */
     @media (min-width: 901px) and (max-width: 1200px) {
       .nav-links { display: none; }
       .nav-logo { flex: 1; justify-content: center; }
@@ -1791,25 +1780,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
   <!-- ───────────────────────────────────────────────
-     GALERIE HERO (statisch, kein Video)
+     VIDEO HERO
 ─────────────────────────────────────────────── -->
-<div id="video-hero">
+<div id="video-hero"><span id="soon" style="position:absolute;top:0;"></span>
+  <video data-hero muted loop playsinline preload="none" poster="/immobilien/posters/ivent-1.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-1.mp4" type="video/mp4"></video>
+  <div class="video-overlay"></div>
   <style>
-    #video-hero { aspect-ratio: auto !important; height: auto !important; background: var(--charcoal) !important; padding-bottom: clamp(60px, 8vw, 100px); }
-    .galhero-inner { position:relative; z-index:3; max-width:1440px; margin:0 auto; padding: clamp(150px,18vh,210px) clamp(20px,4vw,64px) 0; display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; }
-    .galback { display:inline-flex; align-items:center; gap:10px; font-family:var(--font-body); font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,0.7); text-decoration:none; margin-bottom:18px; }
-    .galhero-kicker { font-family:'Bricolage Grotesque',sans-serif; font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:#a9b593; }
-    .galhero-h { font-family:'Bricolage Grotesque',sans-serif; font-weight:800; text-transform:uppercase; line-height:.9; letter-spacing:-.045em; font-size: clamp(46px,9vw,128px); margin-top:18px; color:#fff; }
-    .galhero-h em { font-family:'Fraunces',serif; font-style:italic; font-weight:400; text-transform:none; color:#a9b593; }
-    .galhero-lede { max-width:40ch; font-family:var(--font-body); font-size: clamp(14px,1.3vw,16px); font-weight:300; line-height:1.7; color:rgba(255,255,255,0.82); }
+    .hero-tagline-big { font-size: clamp(2.4rem, 4vw, 4rem); letter-spacing: 0.12em; }
+    @media (max-width: 900px) { .hero-tagline-big { font-size: clamp(1.15rem, 4.6vw, 1.5rem); letter-spacing: 0.01em; max-width: 340px; margin: 0 auto; } }
   </style>
-  <div class="galhero-inner">
-    <div>
-      <a href="/" class="galback">← Zurück zur Startseite</a>
-      <div class="galhero-kicker">✦ Galerie · Marharian Production</div>
-      <h1 class="galhero-h">Echte <em>Geschichten.</em></h1>
-    </div>
-    <p class="galhero-lede">Eine Auswahl der Momente, die wir festhalten durften — Hochzeit, Fashion, Business, Event und Immobilien. Natürliches Licht, echte Nähe, nichts gestellt.</p>
+  <div class="hero-tagline-wrap" style="position:absolute; left:0; right:0; top:50%; transform:translateY(-50%); z-index:3; padding:0 24px; text-align:center; pointer-events:none;">
+    <span class="hero-tagline-big" style="text-transform: uppercase; color: #ffffff; opacity: 0.5; font-weight: 600; display: block; text-shadow: 0 2px 16px rgba(0,0,0,0.55); white-space: normal; word-break: break-word;">Gallery coming soon</span>
   </div>
   <!-- ───────────────────────────────────────────────
        NAVIGATION
@@ -1832,186 +1813,119 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .nav-dd-panel a:hover { background: #f5f0eb; color: var(--gold); }
   </style>
     <nav id="nav">
-    <a href="/" class="nav-logo">
-      <img src="/galerie/marharian.png" alt="Marharian Production">
+    <a href="/index-en" class="nav-logo">
+      <img src="/immobilien/marharian.png" alt="Marharian Production">
     </a>
 
     <ul class="nav-links">
-      <li><a href="#galerie-grid" class="nav-glow">Galerie</a></li>
-      <li><a href="#contact">Kontakt</a></li>
+      <li><a href="#soon" class="nav-glow">Gallery</a></li>
+      <li><a href="/index-en#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
       <li class="nav-dd">
-        <a href="#">Leistungen</a>
+        <a href="#">Services</a>
         <div class="nav-dd-panel">
-          <a href="/hochzeit">Hochzeit</a>
-          <a href="/fashion">Fashion</a>
-          <a href="/business">Business</a>
-          <a href="/events">Events</a>
-          <a href="/immobilien">Immobilien</a>
+          <a href="/hochzeit/index-en">Wedding</a>
+          <a href="/fashion/index-en">Fashion</a>
+          <a href="/business/index-en">Business</a>
+          <a href="/events/index-en">Events</a>
+          <a href="/immobilien/index-en">Real Estate</a>
         </div>
       </li>
-      <li><a href="/" class="nav-cross">Home</a></li>
+      <li><a href="/index-en" class="nav-cross">Home</a></li>
     </ul>
 
     <div class="lang-switcher" id="langSwitcher">
-      <button class="lang-btn" id="langBtn" aria-label="Select language">DE</button>
+      <button class="lang-btn" id="langBtn" aria-label="Sprache wählen">EN</button>
       <div class="lang-dropdown" id="langDropdown">
-        <a href="/galerie/index-en" class="lang-option" onclick="localStorage.setItem('lang','en')">EN</a>
+        <a href="/immobilien" class="lang-option" onclick="localStorage.setItem('lang','de')">DE</a>
       </div>
     </div>
 
-    <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 </div>
+<div class="eyebrow-gap" style="background:#f5f0eb; display:flex; align-items:center; justify-content:center; padding: 12px 24px; text-align: center;">
+  <span style="font-size: clamp(1.2rem, 2vw, 2rem); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; text-align: center; white-space: normal; word-break: break-word; visibility: hidden;">Gallery coming soon</span>
+</div>
+
 <!-- Mobile menu -->
 <div class="mob-backdrop" id="mobBackdrop"></div>
 <div class="mob-menu" id="mobMenu">
-  <a href="#galerie-grid" class="mob-link nav-glow">Galerie</a>
-  <a href="#contact"  class="mob-link">Kontakt</a>
-  <span class="mob-link" style="opacity:.5; font-size:13px; letter-spacing:1px; text-transform:uppercase; cursor:default;">Leistungen</span>
-  <a href="/hochzeit"  class="mob-link nav-leistungen-sub" style="padding-left:16px;">Hochzeit</a>
-  <a href="/fashion"   class="mob-link nav-leistungen-sub" style="padding-left:16px;">Fashion</a>
-  <a href="/business"  class="mob-link nav-leistungen-sub" style="padding-left:16px;">Business</a>
-  <a href="/events"   class="mob-link nav-leistungen-sub" style="padding-left:16px;">Events</a>
-  <a href="/immobilien" class="mob-link nav-leistungen-sub" style="padding-left:16px;">Immobilien</a>
-  <a href="/"         class="mob-link nav-cross">Home</a>
-  <button class="btn btn-gold mob-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Termin buchen</button>
+  <a href="#soon" class="mob-link nav-glow">Gallery</a>
+  <a href="/index-en#about"    class="mob-link">About</a>
+  <a href="#contact"  class="mob-link">Contact</a>
+  <span class="mob-link" style="opacity:.5; font-size:13px; letter-spacing:1px; text-transform:uppercase; cursor:default;">Services</span>
+  <a href="/hochzeit/index-en" class="mob-link nav-leistungen-sub" style="padding-left:16px;">Wedding</a>
+  <a href="/fashion/index-en" class="mob-link nav-leistungen-sub" style="padding-left:16px;">Fashion</a>
+  <a href="/business/index-en" class="mob-link nav-leistungen-sub" style="padding-left:16px;">Business</a>
+  <a href="/events/index-en" class="mob-link nav-leistungen-sub" style="padding-left:16px;">Events</a>
+  <a href="/immobilien/index-en" class="mob-link nav-leistungen-sub" style="padding-left:16px;">Real Estate</a>
+  <a href="/index-en"         class="mob-link nav-cross">Home</a>
+  <button class="btn btn-gold mob-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in touch</button>
   <div style="display: flex; align-items: center; gap: 8px; margin-top: 24px; font-family: var(--font-body); font-size: 14px; font-weight: 600;">
-    <a href="/galerie/index-en" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="localStorage.setItem('lang','en')">🇬🇧 EN</a>
+    <a href="/immobilien" style="display: inline-flex; align-items: center; gap: 4px; color: var(--gold); text-decoration: none; transition: color 0.2s;" onclick="localStorage.setItem('lang','de')">🇩🇪 DE</a>
   </div>
 </div>
-
-<!-- ───────────────────────────────────────────────
-     GALERIE-GRID
-─────────────────────────────────────────────── -->
-<style>
-  .gallery-section { background: var(--charcoal); padding: 0 24px clamp(90px,12vw,160px); }
-  .gallery-grid { max-width:1440px; margin:0 auto; column-count:3; column-gap: clamp(14px,1.6vw,22px); }
-  .gallery-item { break-inside: avoid; margin-bottom: clamp(14px,1.6vw,22px); display:block; position:relative; overflow:hidden; border-radius:2px; }
-  .gallery-item img { width:100%; height:auto; display:block; transition: transform 1.2s cubic-bezier(.2,.8,.2,1); }
-  .gallery-item:hover img { transform: scale(1.05); }
-  @media (max-width:980px) { .gallery-grid { column-count:2; } }
-  @media (max-width:560px) { .gallery-grid { column-count:1; } }
-</style>
-<section class="gallery-section" id="galerie-grid">
-  <div class="gallery-grid">
-    <a class="gallery-item" href="/DSC04410%20%E2%80%94%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg" target="_blank"><img src="/DSC04410%20%E2%80%94%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/DSC04368%20%E2%80%94%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg" target="_blank"><img src="/DSC04368%20%E2%80%94%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/DSC04363%20%E2%80%94%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg" target="_blank"><img src="/DSC04363%20%E2%80%94%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/DSC04148.jpg" target="_blank"><img src="/DSC04148.jpg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/DSC03872%20%E2%80%94%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg" target="_blank"><img src="/DSC03872%20%E2%80%94%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_5531.jpeg" target="_blank"><img src="/IMG_5531.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_5534.jpeg" target="_blank"><img src="/IMG_5534.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_5696.jpeg" target="_blank"><img src="/IMG_5696.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_5692.jpeg" target="_blank"><img src="/IMG_5692.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/DSC09615.jpeg" target="_blank"><img src="/DSC09615.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_5125.jpeg" target="_blank"><img src="/IMG_5125.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_5102.jpeg" target="_blank"><img src="/IMG_5102.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_0943.jpeg" target="_blank"><img src="/IMG_0943.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_9007.jpeg" target="_blank"><img src="/IMG_9007.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_0952.jpeg" target="_blank"><img src="/IMG_0952.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_2441.JPG" target="_blank"><img src="/IMG_2441.JPG" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_1935.JPG" target="_blank"><img src="/IMG_1935.JPG" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_2407.JPG" target="_blank"><img src="/IMG_2407.JPG" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_2559.jpeg" target="_blank"><img src="/IMG_2559.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_2569.jpeg" target="_blank"><img src="/IMG_2569.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_2568.jpeg" target="_blank"><img src="/IMG_2568.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_4831.jpeg" target="_blank"><img src="/IMG_4831.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_4839.jpeg" target="_blank"><img src="/IMG_4839.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_4847.jpeg" target="_blank"><img src="/IMG_4847.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_2828.jpeg" target="_blank"><img src="/IMG_2828.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/DSC00113.jpeg" target="_blank"><img src="/DSC00113.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_2824.jpeg" target="_blank"><img src="/IMG_2824.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_2259.jpeg" target="_blank"><img src="/IMG_2259.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_2247.jpeg" target="_blank"><img src="/IMG_2247.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_2228.jpeg" target="_blank"><img src="/IMG_2228.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_2252.jpeg" target="_blank"><img src="/IMG_2252.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_2235.jpeg" target="_blank"><img src="/IMG_2235.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_0010.jpeg" target="_blank"><img src="/IMG_0010.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_0008.jpeg" target="_blank"><img src="/IMG_0008.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_8170.jpeg" target="_blank"><img src="/IMG_8170.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_8180.jpeg" target="_blank"><img src="/IMG_8180.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_8167.jpeg" target="_blank"><img src="/IMG_8167.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_1299.JPG" target="_blank"><img src="/IMG_1299.JPG" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_1315.JPG" target="_blank"><img src="/IMG_1315.JPG" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_1320.JPG" target="_blank"><img src="/IMG_1320.JPG" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/-dodge%20-%2000000122.JPG" target="_blank"><img src="/-dodge%20-%2000000122.JPG" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_0282.JPG" target="_blank"><img src="/IMG_0282.JPG" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_0289.JPG" target="_blank"><img src="/IMG_0289.JPG" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_0353.JPG" target="_blank"><img src="/IMG_0353.JPG" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_5594.jpeg" target="_blank"><img src="/IMG_5594.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_5602.jpeg" target="_blank"><img src="/IMG_5602.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_7625.jpeg" target="_blank"><img src="/IMG_7625.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_7612.jpeg" target="_blank"><img src="/IMG_7612.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_7593.jpeg" target="_blank"><img src="/IMG_7593.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_7604.jpeg" target="_blank"><img src="/IMG_7604.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_2975.jpeg" target="_blank"><img src="/IMG_2975.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-    <a class="gallery-item" href="/IMG_2965.jpeg" target="_blank"><img src="/IMG_2965.jpeg" alt="Marharian Production — Galerie" loading="lazy"></a>
-  </div>
-</section>
-
 
 <!-- ───────────────────────────────────────────────
      REVIEWS (Google, custom carousel)
 ─────────────────────────────────────────────── -->
 
-<!-- ───────────────────────────────────────────────
-     CONTACT
-─────────────────────────────────────────────── -->
 <section id="contact">
   <div class="contact-grid">
 
     <div class="reveal contact-info">
-      <span class="eyebrow">Kontakt</span>
-      <h2 class="section-heading contact-heading">Lasst uns etwas<br>gemeinsam erschaffen</h2>
-      <p class="contact-desc">Habt ihr ein Projekt im Kopf? Schreibt uns — wir antworten innerhalb von 24 Stunden.</p>
+      <span class="eyebrow">Get in touch</span>
+      <h2 class="section-heading contact-heading">Let's create something<br>together</h2>
+      <p class="contact-desc">Have a project in mind? Write to us — we'll reply within 24 hours.</p>
     </div>
 
     <div class="reveal reveal-delay-1 contact-form-wrap">
       <form class="contact-form" id="cForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
         <input type="hidden" name="access_key" value="f7f95cd3-8f10-484e-a42e-3975a14980bc">
-        <input type="hidden" name="subject" value="Neue Anfrage von marharian.com/galerie (DE)">
-        <input type="hidden" name="redirect" value="https://marharian.com/galerie/thanks">
+        <input type="hidden" name="subject" value="Neue Anfrage von marharian.com/immobilien/galerie (EN)">
+        <input type="hidden" name="redirect" value="https://marharian.com/immobilien/galerie/thanks">
         <div class="fg">
           <label>NAME *</label>
-          <input type="text" name="name" placeholder="Euer Name" required />
+          <input type="text" name="name" placeholder="Your Name" required />
         </div>
         <div class="fg">
-          <label for="fEmail">E-Mail *</label>
+          <label for="fEmail">Email *</label>
           <input type="email" id="fEmail" name="email" placeholder="you@example.com" required />
         </div>
         <div class="fg">
-          <label for="fPhone">Telefon *</label>
+          <label for="fPhone">Phone *</label>
           <input type="tel" id="fPhone" name="phone" placeholder="+49 …" required />
         </div>
         <div class="fg">
-          <label for="fCity">Stadt *</label>
-          <input type="text" id="fCity" name="city" placeholder="Ihre Stadt" required />
+          <label for="fCity">City *</label>
+          <input type="text" id="fCity" name="city" placeholder="Your city" required />
         </div>
         <div class="fg">
-          <label for="fSource">Wie haben Sie von uns erfahren?</label>
+          <label for="fSource">How did you hear about us?</label>
           <select id="fSource" name="source">
-            <option value="">Bitte auswählen…</option>
+            <option value="">Please select…</option>
             <option>Instagram</option>
             <option>Google</option>
-            <option>Empfehlung</option>
+            <option>Referral</option>
             <option>Facebook</option>
-            <option>Sonstiges</option>
+            <option>Other</option>
           </select>
         </div>
         <div class="fg">
-          <label for="fService">Leistung</label>
+          <label for="fService">Service</label>
           <select id="fService" name="service">
-            <option value="">Bitte auswählen…</option>
-            <option>Corporate Portrait</option>
-            <option>Produktfotografie</option>
-            <option>Image-Film</option>
-            <option>Social-Media-Content</option>
-            <option>Sonstiges</option>
+            <option value="">Please select…</option>
+            <option>Interior Shots</option>
+            <option>Exterior &amp; Architecture</option>
+            <option>Drone Footage</option>
+            <option>Virtual Tour</option>
+            <option>Other</option>
           </select>
         </div>
-        <button type="submit" class="btn-submit" id="cSubmit">Anfrage senden →</button>
+        <button type="submit" class="btn-submit" id="cSubmit">Send request →</button>
       </form>
     </div>
 
@@ -2056,14 +1970,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
-      <img src="/galerie/marharian.png" alt="Marharian Production" style="height: 28px; filter: brightness(0) invert(1);">
+      <img src="/immobilien/marharian.png" alt="Marharian Production" style="height: 28px; filter: brightness(0) invert(1);">
     </div>
     <div class="footer-copy">© 2026 Marharian Production. Hamburg, Germany.</div>
     <ul class="footer-links">
-      <li><a href="/datenschutz">Datenschutz</a></li>
-      <li><a href="/galerie/impressum">Impressum</a></li>
+      <li><a href="/privacy">Privacy Policy</a></li>
+      <li><a href="/immobilien/impressum">Impressum</a></li>
       <li><a href="https://instagram.com/marharian.production" target="_blank" rel="noopener">Instagram</a></li>
-      <li><a href="#" id="cc-open" onclick="if(window.CCM){CCM.openWidget();}return false;">Cookie-Einstellungen</a></li>
+      <li><a href="#" id="cc-open" onclick="if(window.CCM){CCM.openWidget();}return false;">Cookie Settings</a></li>
     </ul>
   </div>
 </footer>
@@ -2176,7 +2090,7 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     f.addEventListener('input', () => f.classList.remove('err'))
   );
 
-  /* — Lead-Tracking: Browser-Pixel (GTM) + Server (CAPI), dedupliziert per event_id ─── */
+  /* — Lead tracking: browser pixel (GTM) + server (CAPI), deduplicated by event_id ─── */
   function eventsGetCookie(name) {
     var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
     return m ? m.pop() : undefined;
@@ -2222,7 +2136,7 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'lead_form_submit',
-      form_name: 'galerie_contact',
+      form_name: 'immobilien_galerie_contact',
       event_id: eventId,
       eventTimeout: 1500,
       eventCallback: go
@@ -2239,7 +2153,7 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
       if (bad) ok = false;
     });
     if (!ok) return;
-    submit.textContent = 'Wird gesendet…';
+    submit.textContent = 'Sending…';
     submit.disabled = true;
     fetch('https://api.web3forms.com/submit', {
       method: 'POST',
@@ -2248,18 +2162,18 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     }).then(res => {
       res.clone().json().then(d => console.log('Formspree response:', res.status, d));
       if (res.ok) {
-        eventsTrackLeadAndRedirect('/galerie/thanks', {
+        eventsTrackLeadAndRedirect('/immobilien/thanks', {
           email: (form.querySelector('[name="email"]') || {}).value,
           phone: (form.querySelector('[name="phone"]') || {}).value
         });
       } else {
         res.json().then(data => console.error('Formspree error:', data));
-        submit.textContent = 'Fehler — bitte erneut versuchen';
+        submit.textContent = 'Error — try again';
         submit.disabled = false;
       }
     }).catch(err => {
       console.error('Fetch error:', err);
-      submit.textContent = 'Fehler — bitte erneut versuchen';
+      submit.textContent = 'Error — try again';
       submit.disabled = false;
     });
   });
@@ -2342,9 +2256,9 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
 
 
 
-<a href="#contact" class="side-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Preis anfragen</a>
+<a href="#contact" class="side-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Request Price List</a>
 
-<a href="#contact" class="sticky-cta" data-sticky-cta>Preis anfragen</a>
+<a href="#contact" class="sticky-cta" data-sticky-cta>Request Price List</a>
 
 <script>
 (function(){

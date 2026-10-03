@@ -342,9 +342,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       pointer-events: none;
       animation: cta-glow-pulse 2.2s ease-in-out infinite;
     }
-    .mob-menu a.nav-glow { position: relative; }
+    .mob-menu a.nav-glow { position: relative; display: inline-block; width: auto; padding: 10px 22px; border-bottom: none; border-radius: 999px; }
     .mob-menu a.nav-glow::after {
-      content: ''; position: absolute; left: 0; right: 0; top: 4px; bottom: 4px; border-radius: 8px;
+      content: ''; position: absolute; inset: 0; border-radius: inherit;
       border: 1px solid rgba(255,59,48,.85);
       box-shadow: 0 0 6px 1px rgba(255,59,48,.5), inset 0 0 6px 0 rgba(255,59,48,.3);
       pointer-events: none;
@@ -1975,7 +1975,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <ul class="nav-links">
     <li><a href="/#about">Unsere Geschichte</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#portfolio" class="nav-glow">Galerie</a></li>
     <li><a href="#contact">Kontakt</a></li>
     <li><a href="#anfrage">Anfragen</a></li>
     <li class="nav-dd">
@@ -2007,7 +2007,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="mob-backdrop" id="mobBackdrop"></div>
 <div class="mob-menu" id="mobMenu">
   <a href="/#about"    class="mob-link">Unsere Geschichte</a>
-  <a href="#portfolio" class="mob-link">Portfolio</a>
+  <a href="#portfolio" class="mob-link nav-glow">Galerie</a>
   <a href="#faq"      class="mob-link">FAQ</a>
   <a href="#contact"  class="mob-link">Kontakt</a>
   <a href="#anfrage"  class="mob-link">Anfragen</a>
@@ -2040,9 +2040,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Portfolio -->
     <div class="wedding-portfolio" id="portfolio">
       <div class="wedding-portfolio-header">
-        <span class="eyebrow">Portfolio</span>
+        <span class="eyebrow">Galerie</span>
         <h2>Geliebte Momente</h2>
       </div>
+
+    <!-- Video: Polina & Zhenya -->
+    <div class="wedding-video">
+      <div class="wedding-video-text">
+        <div class="wedding-video-script">Polina &amp; Zhenya</div>
+        <p>Unsere kreative Hochzeitsaufnahme von Polina und Zhenya — verspielt, mit einem besonderen Gespür für Licht, Timing und kleine, unerwartete Momente.</p>
+        <p>Genau mit solchen Konzepten experimentieren wir am liebsten — das macht jede Hochzeit mit uns ein Stück einzigartiger.</p>
+      </div>
+      <div class="wedding-video-media">
+        <div class="wedding-video-card" id="wvCard5">
+          <video class="wv-video" id="wvVideo5" playsinline preload="metadata" poster="/posters/jenzapolinascreen_1.1.1.jpg"></video>
+          <button class="wv-play" id="wvPlay5" aria-label="Video abspielen"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video: Krissy & Kai -->
+    <div class="wedding-video reverse">
+      <div class="wedding-video-media">
+        <div class="wedding-video-card" id="wvCard2">
+          <video class="wv-video" id="wvVideo2" playsinline preload="metadata" poster="/posters/Krissy und Kai_comp.jpg"></video>
+          <button class="wv-play" id="wvPlay2" aria-label="Video abspielen"></button>
+        </div>
+      </div>
+      <div class="wedding-video-text">
+        <div class="wedding-video-script">Krissy &amp; Kai</div>
+        <p>Krissy und Kai haben uns von Anfang an begeistert. Ihre Leichtigkeit vor der Kamera ist ansteckend – und genau das sieht man in jedem einzelnen Bild.</p>
+        <p>Was die beiden verbindet, lässt sich nicht in Worte fassen. Aber auf Video – da spürt man es sofort.</p>
+      </div>
+    </div>
 
     <!-- Video: Christina & Tobi -->
     <div class="wedding-video">
@@ -2062,7 +2092,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="wedding-video reverse">
       <div class="wedding-video-media">
         <div class="wedding-video-card" id="wvCard">
-          <video class="wv-video" id="wvVideo" playsinline preload="metadata" poster="/posters/dlya-sayta.jpg"></video>
+          <video class="wv-video" id="wvVideo" playsinline preload="metadata" poster="/posters/IMG_0389.JPG"></video>
           <button class="wv-play" id="wvPlay" aria-label="Video abspielen"></button>
         </div>
       </div>
@@ -2073,47 +2103,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <!-- Video: Krissy & Kai -->
+    <!-- Video: Till -->
     <div class="wedding-video">
       <div class="wedding-video-text">
-        <div class="wedding-video-script">Krissy &amp; Kai</div>
-        <p>Krissy und Kai haben uns von Anfang an begeistert. Ihre Leichtigkeit vor der Kamera ist ansteckend – und genau das sieht man in jedem einzelnen Bild.</p>
-        <p>Was die beiden verbindet, lässt sich nicht in Worte fassen. Aber auf Video – da spürt man es sofort.</p>
+        <div class="wedding-video-script">Till</div>
+        <p>Eine Hochzeit voller ruhiger, ehrlicher Momente — genau die Art von Tag, die wir am liebsten einfangen.</p>
       </div>
       <div class="wedding-video-media">
-        <div class="wedding-video-card" id="wvCard2">
-          <video class="wv-video" id="wvVideo2" playsinline preload="metadata" poster="/posters/Krissy und Kai_comp.jpg"></video>
-          <button class="wv-play" id="wvPlay2" aria-label="Video abspielen"></button>
+        <div class="wedding-video-card" id="wvCard6">
+          <video class="wv-video" id="wvVideo6" playsinline preload="metadata" poster="/posters/tillscreen_1.1.2.jpg"></video>
+          <button class="wv-play" id="wvPlay6" aria-label="Video abspielen"></button>
         </div>
-      </div>
-    </div>
-
-    <!-- Video: Anastasia & Jeremi -->
-    <div class="wedding-video reverse">
-      <div class="wedding-video-media">
-        <div class="wedding-video-card" id="wvCard3">
-          <video class="wv-video" id="wvVideo3" playsinline preload="metadata" poster="/posters/anastasia und jeremy_comp.jpg"></video>
-          <button class="wv-play" id="wvPlay3" aria-label="Video abspielen"></button>
-        </div>
-      </div>
-      <div class="wedding-video-text">
-        <div class="wedding-video-script">Anastasia &amp; Jeremi</div>
-        <p>Anastasia und Jeremi – zwei Menschen, die einfach füreinander gemacht sind. Ihre Hochzeit war voller Emotionen, die wir kaum zu fassen wagten.</p>
-        <p>Wir haben versucht, das einzufangen, was Worte nicht können. Das Ergebnis spricht für sich.</p>
       </div>
     </div>
 
     <!-- Video: Asmik & Kirill -->
-    <div class="wedding-video">
+    <div class="wedding-video reverse">
+      <div class="wedding-video-media">
+        <div class="wedding-video-card" id="wvCard4">
+          <video class="wv-video" id="wvVideo4" playsinline preload="metadata" poster="/posters/IMG_9403_comp.jpg"></video>
+          <button class="wv-play" id="wvPlay4" aria-label="Video abspielen"></button>
+        </div>
+      </div>
       <div class="wedding-video-text">
         <div class="wedding-video-script">Asmik &amp; Kirill</div>
         <p>Asmik und Kirill sind ein Paar, das man einfach nicht aus den Augen lassen kann. Jeder Blick zwischen den beiden erzählt eine Geschichte.</p>
         <p>An ihrem Tag haben wir vor allem eines getan: zugeschaut. Und genau das reichte, um alles einzufangen.</p>
       </div>
+    </div>
+
+    <!-- Video: Anastasia & Jeremi -->
+    <div class="wedding-video">
+      <div class="wedding-video-text">
+        <div class="wedding-video-script">Anastasia &amp; Jeremi</div>
+        <p>Anastasia und Jeremi – zwei Menschen, die einfach füreinander gemacht sind. Ihre Hochzeit war voller Emotionen, die wir kaum zu fassen wagten.</p>
+        <p>Wir haben versucht, das einzufangen, was Worte nicht können. Das Ergebnis spricht für sich.</p>
+      </div>
       <div class="wedding-video-media">
-        <div class="wedding-video-card" id="wvCard4">
-          <video class="wv-video" id="wvVideo4" playsinline preload="metadata" poster="/posters/IMG_9403_comp.jpg"></video>
-          <button class="wv-play" id="wvPlay4" aria-label="Video abspielen"></button>
+        <div class="wedding-video-card" id="wvCard3">
+          <video class="wv-video" id="wvVideo3" playsinline preload="metadata" poster="/posters/anastasscreen_1.1.2.jpg"></video>
+          <button class="wv-play" id="wvPlay3" aria-label="Video abspielen"></button>
         </div>
       </div>
     </div>
@@ -2165,6 +2194,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
+
+    <!-- ───────────────────────────────────────────────
+         FOTOGALERIE
+    ─────────────────────────────────────────────── -->
+    <style>
+      .work-gallery { background: var(--charcoal); padding: clamp(90px,12vw,170px) 24px; }
+      .work-head { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; max-width:1440px; margin:0 auto clamp(30px,4vw,52px); }
+      .work-head .eyebrow { font-family:'Bricolage Grotesque',sans-serif; font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:#a9b593; }
+      .work-h { font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size: clamp(34px,6vw,86px); line-height:.96; letter-spacing:-.04em; text-transform:uppercase; color:#fff; margin-top:10px; }
+      .work-h em { font-family:'Fraunces',serif; font-style:italic; font-weight:400; text-transform:none; color:#a9b593; }
+      .work-grid { display:grid; grid-template-columns:repeat(12,1fr); gap: clamp(14px,1.6vw,22px); max-width:1440px; margin:0 auto; }
+      .work-item { position:relative; overflow:hidden; display:block; border-radius:2px; }
+      .work-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 1.2s cubic-bezier(.2,.8,.2,1); }
+      .work-item:hover img { transform:scale(1.06); }
+      .work-item--a { grid-column: span 8; aspect-ratio: 16/11; }
+      .work-item--b { grid-column: span 5; aspect-ratio: 4/5; }
+      .work-item--c, .work-item--d, .work-item--e { grid-column: span 4; aspect-ratio: 4/5; }
+      .work-item--tall { grid-column: span 4; aspect-ratio: 9/16; background: var(--charcoal); }
+      .work-item--tall img { object-fit: contain; }
+      @media (max-width:760px) { .work-item { grid-column: 1 / -1 !important; aspect-ratio: 3/2 !important; } .work-item--tall { aspect-ratio: 9/16 !important; } }
+      .work-more { display:flex; justify-content:center; margin-top: clamp(40px,5vw,70px); }
+      .work-morelink { display:inline-flex; align-items:center; gap:16px; padding:20px 42px; border-radius:999px; border:1px solid rgba(255,255,255,0.25); color:#fff; font-family:'Bricolage Grotesque',sans-serif; font-size:12px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; transition:background .4s, border-color .4s, gap .4s; }
+      .work-morelink:hover { background:#a9b593; border-color:#a9b593; color:var(--charcoal); gap:22px; }
+      .work-morelink i { width:26px; height:1px; background:currentColor; position:relative; display:inline-block; }
+      .work-morelink i::after { content:""; position:absolute; right:0; top:-3px; width:7px; height:7px; border-top:1px solid currentColor; border-right:1px solid currentColor; transform:rotate(45deg); }
+    </style>
+    <section id="fotogalerie" class="work-gallery">
+      <div class="work-head">
+        <div>
+          <div class="eyebrow">Fotogalerie</div>
+          <h2 class="work-h">Momente, die wir<br><em>festgehalten</em> haben.</h2>
+        </div>
+      </div>
+      <div class="work-grid">
+        <a class="work-item work-item--tall" href="/hochzeit/galerie">
+          <img src="/DSC04400.jpg" alt="Marharian Production — Hochzeit" loading="lazy">
+        </a>
+        <a class="work-item work-item--a" href="/hochzeit/galerie">
+          <img src="/R6M20121-2.jpg" alt="Marharian Production — Hochzeit" loading="lazy">
+        </a>
+        <a class="work-item work-item--tall" href="/hochzeit/galerie">
+          <img src="/DSC08642.jpg" alt="Marharian Production — Hochzeit" loading="lazy" style="object-position:center 75%;">
+        </a>
+        <a class="work-item work-item--c" href="/hochzeit/galerie">
+          <img src="/IMG_0599.JPG" alt="Marharian Production — Hochzeit" loading="lazy">
+        </a>
+        <a class="work-item work-item--tall" href="/hochzeit/galerie">
+          <img src="/R6M20137-2.jpg" alt="Marharian Production — Hochzeit" loading="lazy">
+        </a>
+      </div>
+      <div class="work-more">
+        <a class="work-morelink" href="/hochzeit/galerie">
+          <span>Weitere Bilder ansehen</span>
+          <i aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
 
     <!-- How We Work -->
     <div class="how-we-work" id="how-we-work">
@@ -2960,6 +3046,62 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
   var card = document.getElementById('wvCard4');
   if(!v || !card) return;
   var src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_9403_comp.mp4';
+  var loaded = false;
+
+  function toggle(){
+    if(!loaded){ loaded = true; v.src = src; }
+    if(v.paused){
+      v.muted = false; v.volume = 1;
+      var p = v.play();
+      if(p) p.catch(function(){});
+      card.classList.add('is-playing');
+    } else {
+      v.pause();
+      card.classList.remove('is-playing');
+    }
+  }
+
+  card.addEventListener('click', toggle);
+  v.addEventListener('pause',  function(){ card.classList.remove('is-playing'); });
+  v.addEventListener('play',   function(){ card.classList.add('is-playing'); });
+  v.addEventListener('ended',  function(){ card.classList.remove('is-playing'); v.currentTime = 0; });
+})();
+</script>
+
+<script>
+(function(){
+  var v    = document.getElementById('wvVideo5');
+  var card = document.getElementById('wvCard5');
+  if(!v || !card) return;
+  var src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/jenzapolina%20wedding.mp4';
+  var loaded = false;
+
+  function toggle(){
+    if(!loaded){ loaded = true; v.src = src; }
+    if(v.paused){
+      v.muted = false; v.volume = 1;
+      var p = v.play();
+      if(p) p.catch(function(){});
+      card.classList.add('is-playing');
+    } else {
+      v.pause();
+      card.classList.remove('is-playing');
+    }
+  }
+
+  card.addEventListener('click', toggle);
+  v.addEventListener('pause',  function(){ card.classList.remove('is-playing'); });
+  v.addEventListener('play',   function(){ card.classList.add('is-playing'); });
+  v.addEventListener('ended',  function(){ card.classList.remove('is-playing'); v.currentTime = 0; });
+})();
+</script>
+
+<script>
+(function(){
+  var v    = document.getElementById('wvVideo6');
+  var card = document.getElementById('wvCard6');
+  if(!v || !card) return;
+  var src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/tillweb.mp4';
   var loaded = false;
 
   function toggle(){

@@ -299,9 +299,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       pointer-events: none;
       animation: cta-glow-pulse 2.2s ease-in-out infinite;
     }
-    .mob-menu a.nav-glow { position: relative; }
+    .mob-menu a.nav-glow { position: relative; display: inline-block; width: auto; padding: 10px 22px; border-bottom: none; border-radius: 999px; }
     .mob-menu a.nav-glow::after {
-      content: ''; position: absolute; left: 0; right: 0; top: 4px; bottom: 4px; border-radius: 8px;
+      content: ''; position: absolute; inset: 0; border-radius: inherit;
       border: 1px solid rgba(255,59,48,.85);
       box-shadow: 0 0 6px 1px rgba(255,59,48,.5), inset 0 0 6px 0 rgba(255,59,48,.3);
       pointer-events: none;
@@ -1829,6 +1829,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
 
     <ul class="nav-links">
+      <li><a href="/business/galerie" class="nav-glow">Galerie</a></li>
       <li><a href="/#about">Über uns</a></li>
       <li><a href="#contact">Kontakt</a></li>
       <li class="nav-dd">
@@ -1863,6 +1864,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Mobile menu -->
 <div class="mob-backdrop" id="mobBackdrop"></div>
 <div class="mob-menu" id="mobMenu">
+  <a href="/business/galerie" class="mob-link nav-glow">Galerie</a>
   <a href="/#about"    class="mob-link">Über uns</a>
   <a href="#contact"  class="mob-link">Kontakt</a>
   <span class="mob-link" style="opacity:.5; font-size:13px; letter-spacing:1px; text-transform:uppercase; cursor:default;">Leistungen</span>
