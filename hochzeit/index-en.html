@@ -2091,14 +2091,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <!-- Video: Till -->
+    <!-- Video: Castle Wedding -->
     <div class="wedding-video">
       <div class="wedding-video-text">
-        <div class="wedding-video-script">Till</div>
-        <p>A wedding full of quiet, honest moments — exactly the kind of day we love capturing most.</p>
+        <div class="wedding-video-script">A Castle Wedding</div>
       </div>
       <div class="wedding-video-media">
-        <div class="wedding-video-card" id="wvCard6">
+        <div class="wedding-video-card" id="wvCard6" style="aspect-ratio: 16/9;">
           <video class="wv-video" id="wvVideo6" playsinline preload="metadata" poster="/posters/tillscreen_1.1.2.jpg"></video>
           <button class="wv-play" id="wvPlay6" aria-label="Play video"></button>
         </div>
@@ -2134,54 +2133,64 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
+    </div>
 
-      <div class="wedding-feature-rows">
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="/IMG_0389.JPG" alt="Creative Duo" style="object-position: center top;"></div>
-          <div class="wedding-feature-text"><h3>Creative Duo</h3><p>Photo &amp; film from one team — perfectly coordinated, no communication gaps, pure focus on your day.</p></div>
-        </div>
-        <div class="wedding-feature-row reverse">
-          <div class="wedding-feature-photo"><img src="/DSC04400.jpg" alt="Cinematic Style"></div>
-          <div class="wedding-feature-text"><h3>Cinematic Style</h3><p>Every image crafted with a director's eye — emotional, timeless, cinematic.</p></div>
-        </div>
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="/DSC03319.jpg" alt="All of Germany"></div>
-          <div class="wedding-feature-text"><h3>All of Germany</h3><p>Based in Hamburg, we travel throughout Germany and beyond for your wedding — without hidden costs.</p></div>
-        </div>
-        <div class="wedding-feature-row reverse">
-          <div class="wedding-feature-photo"><img src="/R6M20121-2.jpg" alt="Your Moment"></div>
-          <div class="wedding-feature-text"><h3>Your Moment</h3><p>Every glance, every tear, every laugh — caught before it fades. This is what we live for.</p></div>
-        </div>
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="/IMG_0599.JPG" alt="Real Emotions"></div>
-          <div class="wedding-feature-text"><h3>Real Emotions</h3><p>No rehearsed poses. We wait for the moment you forget the camera is there — that is where the lasting images come from.</p></div>
-        </div>
-        <div class="wedding-feature-row reverse">
-          <div class="wedding-feature-photo"><img src="/IMG_0428.JPG" alt="Together" style="object-position: center top;"></div>
-          <div class="wedding-feature-text"><h3>Together</h3><p>Foreheads together, hearts even closer. Real and unposed.</p></div>
-        </div>
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="/IMG_9102.JPG" alt="Timelessly Beautiful" style="object-fit: contain; background: #f5f0eb;"></div>
-          <div class="wedding-feature-text"><h3>Timelessly Beautiful</h3><p>A dress, a hairstyle, one detail at the edge of the frame — and suddenly the shot could be from the sixties. Images like these never age.</p></div>
-        </div>
-        <div class="wedding-feature-row reverse">
-          <div class="wedding-feature-photo"><img src="/IMG_0326.JPG" alt="Hand in Hand"></div>
-          <div class="wedding-feature-text"><h3>Between Drops</h3><p>I always wait for the rain. It does something to people — strips away the posed and leaves only the real.</p></div>
-        </div>
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="/IMG_2414.jpg" alt="The First Kiss"></div>
-          <div class="wedding-feature-text"><h3>The First Kiss</h3><p>Gentle, tender, unforgettable — just as it should be.</p></div>
-        </div>
-        <div class="wedding-feature-row reverse">
-          <div class="wedding-feature-photo"><img src="/R6M20137-2.jpg" alt="Just Married" style="object-position: center top;"></div>
-          <div class="wedding-feature-text"><h3>Just Married</h3><p>The beginning of forever — captured in a single frame.</p></div>
-        </div>
-        <div class="wedding-feature-row">
-          <div class="wedding-feature-photo"><img src="/DSC08642.jpg" alt="The Ceremony" style="transform: scale(1.25); transform-origin: center 75%; object-fit: cover; width: 100%; height: 100%;"></div>
-          <div class="wedding-feature-text"><h3>The Ceremony</h3><p>A sacred moment, witnessed by those who matter most.</p></div>
+    <!-- ───────────────────────────────────────────────
+         FOTOGALERIE
+    ─────────────────────────────────────────────── -->
+    <style>
+      .work-gallery { background: var(--charcoal); padding: clamp(90px,12vw,170px) 24px; }
+      .work-head { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; max-width:1440px; margin:0 auto clamp(30px,4vw,52px); }
+      .work-head .eyebrow { font-family:'Bricolage Grotesque',sans-serif; font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:#a9b593; }
+      .work-h { font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size: clamp(34px,6vw,86px); line-height:.96; letter-spacing:-.04em; text-transform:uppercase; color:#fff; margin-top:10px; }
+      .work-h em { font-family:'Fraunces',serif; font-style:italic; font-weight:400; text-transform:none; color:#a9b593; }
+      .work-grid { display:grid; grid-template-columns:repeat(12,1fr); gap: clamp(14px,1.6vw,22px); max-width:1440px; margin:0 auto; }
+      .work-item { position:relative; overflow:hidden; display:block; border-radius:2px; }
+      .work-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 1.2s cubic-bezier(.2,.8,.2,1); }
+      .work-item:hover img { transform:scale(1.06); }
+      .work-item--a { grid-column: span 8; aspect-ratio: 16/11; }
+      .work-item--b { grid-column: span 5; aspect-ratio: 4/5; }
+      .work-item--c, .work-item--d, .work-item--e { grid-column: span 4; aspect-ratio: 4/5; }
+      .work-item--tall { grid-column: span 4; aspect-ratio: 9/16; background: var(--charcoal); }
+      .work-item--tall img { object-fit: contain; }
+      @media (max-width:760px) { .work-item { grid-column: 1 / -1 !important; aspect-ratio: 3/2 !important; } .work-item--tall { aspect-ratio: 9/16 !important; } }
+      .work-more { display:flex; justify-content:center; margin-top: clamp(40px,5vw,70px); }
+      .work-morelink { display:inline-flex; align-items:center; gap:16px; padding:20px 42px; border-radius:999px; border:1px solid rgba(255,255,255,0.25); color:#fff; font-family:'Bricolage Grotesque',sans-serif; font-size:12px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; transition:background .4s, border-color .4s, gap .4s; }
+      .work-morelink:hover { background:#a9b593; border-color:#a9b593; color:var(--charcoal); gap:22px; }
+      .work-morelink i { width:26px; height:1px; background:currentColor; position:relative; display:inline-block; }
+      .work-morelink i::after { content:""; position:absolute; right:0; top:-3px; width:7px; height:7px; border-top:1px solid currentColor; border-right:1px solid currentColor; transform:rotate(45deg); }
+    </style>
+    <section id="fotogalerie" class="work-gallery">
+      <div class="work-head">
+        <div>
+          <div class="eyebrow">Photo Gallery</div>
+          <h2 class="work-h">Moments we<br><em>captured</em> along the way.</h2>
         </div>
       </div>
-    </div>
+      <div class="work-grid">
+        <a class="work-item work-item--tall" href="/hochzeit/galerie">
+          <img src="/DSC04400.jpg" alt="Marharian Production — Wedding" loading="lazy">
+        </a>
+        <a class="work-item work-item--a" href="/hochzeit/galerie">
+          <img src="/R6M20121-2.jpg" alt="Marharian Production — Wedding" loading="lazy">
+        </a>
+        <a class="work-item work-item--tall" href="/hochzeit/galerie">
+          <img src="/DSC08642.jpg" alt="Marharian Production — Wedding" loading="lazy" style="object-position:center 75%;">
+        </a>
+        <a class="work-item work-item--c" href="/hochzeit/galerie">
+          <img src="/IMG_0599.JPG" alt="Marharian Production — Wedding" loading="lazy">
+        </a>
+        <a class="work-item work-item--tall" href="/hochzeit/galerie">
+          <img src="/R6M20137-2.jpg" alt="Marharian Production — Wedding" loading="lazy">
+        </a>
+      </div>
+      <div class="work-more">
+        <a class="work-morelink" href="/hochzeit/galerie">
+          <span>See more photos</span>
+          <i aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
 
     <!-- How We Work -->
     <div class="how-we-work" id="how-we-work">
