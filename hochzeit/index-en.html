@@ -1225,8 +1225,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: #ffffff;
-      box-shadow: 0 4px 40px rgba(0,0,0,0.08);
     }
     .wedding-video-script {
       font-family: 'Great Vibes', cursive;
@@ -2036,8 +2034,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="wedding-video">
       <div class="wedding-video-text">
         <div class="wedding-video-script">Polina &amp; Zhenya</div>
-        <p>Our creative wedding film for Polina and Zhenya — playful, with a real eye for light, timing and small, unexpected moments.</p>
-        <p>This is exactly the kind of concept we love experimenting with — it's what makes every wedding with us a little different.</p>
       </div>
       <div class="wedding-video-media">
         <div class="wedding-video-card" id="wvCard5">
@@ -2057,8 +2053,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="wedding-video-text">
         <div class="wedding-video-script">Krissy &amp; Kai</div>
-        <p>Krissy and Kai captivated us from the very start. Their ease in front of the camera is contagious — and you can feel it in every single frame.</p>
-        <p>What connects them is hard to put into words. But on video — you sense it instantly.</p>
       </div>
     </div>
 
@@ -2066,7 +2060,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="wedding-video">
       <div class="wedding-video-text">
         <div class="wedding-video-script">Christina &amp; Tobi</div>
-        <p>Christina & Tobi — timeless elegance and a very special connection.</p>
       </div>
       <div class="wedding-video-media">
         <div class="wedding-video-card" id="wvCard0">
@@ -2086,8 +2079,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="wedding-video-text">
         <div class="wedding-video-script">Mandy &amp; Sven</div>
-        <p>Mandy and Sven are an incredible couple. So at ease in front of the camera that there is barely anything left to do but roll.</p>
-        <p>What happens between the two of them cannot be manufactured. That is exactly what we look for on every shoot.</p>
       </div>
     </div>
 
@@ -2114,8 +2105,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="wedding-video-text">
         <div class="wedding-video-script">Asmik &amp; Kirill</div>
-        <p>Asmik and Kirill are a couple you simply cannot take your eyes off. Every glance between them tells a story.</p>
-        <p>On their day we mostly did one thing: watch. And that was enough to capture everything.</p>
       </div>
     </div>
 
@@ -2123,8 +2112,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="wedding-video">
       <div class="wedding-video-text">
         <div class="wedding-video-script">Anastasia &amp; Jeremi</div>
-        <p>Anastasia and Jeremi — two people simply made for each other. Their wedding was full of emotions we could barely contain behind the lens.</p>
-        <p>We tried to capture what words cannot. The result speaks for itself.</p>
       </div>
       <div class="wedding-video-media">
         <div class="wedding-video-card" id="wvCard3">
@@ -2810,14 +2797,12 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     if(quiz){ e.preventDefault(); quiz.scrollIntoView({behavior:'smooth', block:'start'}); }
   });
   if(!quiz) return;
-  var hidden = false;
   function check(){
-    if(hidden) return;
     var rect = quiz.getBoundingClientRect();
     if(rect.top <= window.innerHeight){
       cta.classList.add('is-hidden');
-      hidden = true;
-      window.removeEventListener('scroll', check);
+    } else {
+      cta.classList.remove('is-hidden');
     }
   }
   window.addEventListener('scroll', check, {passive:true});
@@ -2832,14 +2817,12 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
   var sideCta = document.querySelector('.side-cta');
   var target  = document.getElementById('wedding-request');
   if(!sideCta || !target) return;
-  var hidden = false;
   function update(){
-    if(hidden) return;
     var rect = target.getBoundingClientRect();
     if(rect.top <= window.innerHeight){
       sideCta.classList.add('side-cta--hidden');
-      hidden = true;
-      window.removeEventListener('scroll', update);
+    } else {
+      sideCta.classList.remove('side-cta--hidden');
     }
   }
   window.addEventListener('scroll', update, {passive:true});

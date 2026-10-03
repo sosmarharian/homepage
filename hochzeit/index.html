@@ -1237,8 +1237,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: #ffffff;
-      box-shadow: 0 4px 40px rgba(0,0,0,0.08);
     }
     .wedding-video-script {
       font-family: 'Great Vibes', cursive;
@@ -2048,8 +2046,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="wedding-video">
       <div class="wedding-video-text">
         <div class="wedding-video-script">Polina &amp; Zhenya</div>
-        <p>Unsere kreative Hochzeitsaufnahme von Polina und Zhenya — verspielt, mit einem besonderen Gespür für Licht, Timing und kleine, unerwartete Momente.</p>
-        <p>Genau mit solchen Konzepten experimentieren wir am liebsten — das macht jede Hochzeit mit uns ein Stück einzigartiger.</p>
       </div>
       <div class="wedding-video-media">
         <div class="wedding-video-card" id="wvCard5">
@@ -2069,8 +2065,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="wedding-video-text">
         <div class="wedding-video-script">Krissy &amp; Kai</div>
-        <p>Krissy und Kai haben uns von Anfang an begeistert. Ihre Leichtigkeit vor der Kamera ist ansteckend – und genau das sieht man in jedem einzelnen Bild.</p>
-        <p>Was die beiden verbindet, lässt sich nicht in Worte fassen. Aber auf Video – da spürt man es sofort.</p>
       </div>
     </div>
 
@@ -2078,7 +2072,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="wedding-video">
       <div class="wedding-video-text">
         <div class="wedding-video-script">Christina &amp; Tobi</div>
-        <p>Christina & Tobi — zeitlose Eleganz und eine besondere Verbindung.</p>
       </div>
       <div class="wedding-video-media">
         <div class="wedding-video-card" id="wvCard0">
@@ -2098,8 +2091,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="wedding-video-text">
         <div class="wedding-video-script">Mandy &amp; Sven</div>
-        <p>Mandy und Sven sind ein unglaubliches Paar. Vor der Kamera so ungezwungen, dass kaum etwas zu tun bleibt außer draufzuhalten.</p>
-        <p>Zwischen den beiden ist etwas, das man sofort sieht. Genau darauf kommt es uns bei jedem Dreh an.</p>
       </div>
     </div>
 
@@ -2126,8 +2117,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="wedding-video-text">
         <div class="wedding-video-script">Asmik &amp; Kirill</div>
-        <p>Asmik und Kirill sind ein Paar, das man einfach nicht aus den Augen lassen kann. Jeder Blick zwischen den beiden erzählt eine Geschichte.</p>
-        <p>An ihrem Tag haben wir vor allem eines getan: zugeschaut. Und genau das reichte, um alles einzufangen.</p>
       </div>
     </div>
 
@@ -2135,8 +2124,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="wedding-video">
       <div class="wedding-video-text">
         <div class="wedding-video-script">Anastasia &amp; Jeremi</div>
-        <p>Anastasia und Jeremi – zwei Menschen, die einfach füreinander gemacht sind. Ihre Hochzeit war voller Emotionen, die wir kaum zu fassen wagten.</p>
-        <p>Wir haben versucht, das einzufangen, was Worte nicht können. Das Ergebnis spricht für sich.</p>
       </div>
       <div class="wedding-video-media">
         <div class="wedding-video-card" id="wvCard3">
@@ -2831,14 +2818,12 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     if(quiz){ e.preventDefault(); quiz.scrollIntoView({behavior:'smooth', block:'start'}); }
   });
   if(!quiz) return;
-  var hidden = false;
   function check(){
-    if(hidden) return;
     var rect = quiz.getBoundingClientRect();
     if(rect.top <= window.innerHeight){
       cta.classList.add('is-hidden');
-      hidden = true;
-      window.removeEventListener('scroll', check);
+    } else {
+      cta.classList.remove('is-hidden');
     }
   }
   window.addEventListener('scroll', check, {passive:true});
@@ -2853,14 +2838,12 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
   var sideCta = document.querySelector('.side-cta');
   var target  = document.getElementById('wedding-request');
   if(!sideCta || !target) return;
-  var hidden = false;
   function update(){
-    if(hidden) return;
     var rect = target.getBoundingClientRect();
     if(rect.top <= window.innerHeight){
       sideCta.classList.add('side-cta--hidden');
-      hidden = true;
-      window.removeEventListener('scroll', update);
+    } else {
+      sideCta.classList.remove('side-cta--hidden');
     }
   }
   window.addEventListener('scroll', update, {passive:true});

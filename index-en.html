@@ -3245,14 +3245,12 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
     if(quiz){ e.preventDefault(); quiz.scrollIntoView({behavior:'smooth', block:'start'}); }
   });
   if(!quiz) return;
-  var hidden = false;
   function check(){
-    if(hidden) return;
     var rect = quiz.getBoundingClientRect();
     if(rect.top <= window.innerHeight){
       cta.classList.add('is-hidden');
-      hidden = true;
-      window.removeEventListener('scroll', check);
+    } else {
+      cta.classList.remove('is-hidden');
     }
   }
   window.addEventListener('scroll', check, {passive:true});
@@ -3267,14 +3265,12 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
   var sideCta = document.querySelector('.side-cta');
   var target  = document.getElementById('contact');
   if(!sideCta || !target) return;
-  var hidden = false;
   function update(){
-    if(hidden) return;
     var rect = target.getBoundingClientRect();
     if(rect.top <= window.innerHeight){
       sideCta.classList.add('side-cta--hidden');
-      hidden = true;
-      window.removeEventListener('scroll', update);
+    } else {
+      sideCta.classList.remove('side-cta--hidden');
     }
   }
   window.addEventListener('scroll', update, {passive:true});
