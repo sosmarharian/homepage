@@ -59,7 +59,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Darker+Grotesque:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=Bricolage+Grotesque:wght@500;700;800&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="/events/posters/ivent-1.jpg" media="(min-width: 769px)">
-  <link rel="preload" as="image" href="/events/posters/ivent-1.jpg" media="(max-width: 768px)">
+  <link rel="preload" as="image" href="/events/posters/ivent-rozv-web.jpg" media="(max-width: 768px)">
 
   <style>
     /* ─── Reset ───────────────────────────────────────── */
@@ -1796,7 +1796,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      VIDEO HERO
 ─────────────────────────────────────────────── -->
 <div id="video-hero">
-  <video data-hero muted loop playsinline preload="none" poster="/events/posters/ivent-1.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-1.mp4" type="video/mp4"></video>
+  <video data-hero id="eventsHeroVideo" muted loop playsinline preload="none" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;"><source data-src="https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-1.mp4" type="video/mp4"></video>
+  <script>
+    (function(){
+      var v = document.getElementById('eventsHeroVideo');
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        v.setAttribute('poster', '/events/posters/ivent-rozv-web.jpg');
+      } else {
+        v.setAttribute('poster', '/events/posters/ivent-1.jpg');
+      }
+    })();
+  </script>
   <div class="video-overlay"></div>
   <style>
     .hero-tagline-big { font-size: clamp(2.4rem, 4vw, 4rem); letter-spacing: 0.12em; }
@@ -2898,7 +2908,13 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
   /* ─── Hero ─── */
   var hero = document.querySelector('video[data-hero]');
   if (hero) {
-    function loadHero() { load(hero); playWhenReady(hero); }
+    function loadHero() {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        var s = hero.querySelector('source[data-src]');
+        if (s) { s.dataset.src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/ivent-rozv-web.mp4'; }
+      }
+      load(hero); playWhenReady(hero);
+    }
     if ('requestIdleCallback' in window) requestIdleCallback(loadHero, { timeout: 2000 });
     else window.addEventListener('load', function () { setTimeout(loadHero, 300); });
   }
