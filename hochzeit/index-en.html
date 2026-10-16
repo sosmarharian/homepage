@@ -2835,7 +2835,10 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
 (function(){
   var v = document.getElementById('whVideo');
   if(!v) return;
-  v.src = 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/dlya%20sayta%20hero%20hochzeit.mp4';
+  var isMobile = window.matchMedia('(max-width: 768px)').matches;
+  v.src = isMobile
+    ? 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/dlya%20sayta%20hero%20hochzeit.mp4'
+    : 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_1880_web.mp4';
   v.play().catch(function(){});
 })();
 </script>
