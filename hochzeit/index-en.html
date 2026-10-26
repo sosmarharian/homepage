@@ -1030,7 +1030,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       justify-content: center;
     }
     @media (min-width: 769px) {
-      .wedding-hero { height: 60vh; min-height: 420px; }
+      .wedding-hero { height: 75vh; min-height: 500px; }
     }
     .wedding-hero img {
       position: absolute;
@@ -1343,13 +1343,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         min-height: 80vh;
       }
       .momente-split-left {
+        order: 2;
         text-align: left;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 80px 64px 80px 120px;
+        padding: 80px 120px 80px 64px;
       }
       .momente-split-right {
+        order: 1;
         position: relative;
         overflow: hidden;
         display: flex;
