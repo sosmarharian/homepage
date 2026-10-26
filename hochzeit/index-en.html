@@ -1320,12 +1320,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding: 0 24px 48px;
     }
     .wedding-portfolio-header .eyebrow { color: var(--gold); }
-    .wedding-portfolio-header h2 {
+    .wedding-portfolio-header h2,
+    .momente-split-left h2 {
       font-family: 'Great Vibes', cursive;
       font-size: clamp(40px, 7vw, 72px);
       color: var(--charcoal);
       font-weight: 400;
       margin-top: 8px;
+    }
+
+    /* Momente split — text left, slideshow right, exact match to the
+       /fashion hero layout (#hero / .hero-left / .hero-right). Mobile
+       falls back to a plain stacked block (header above, full-width
+       slideshow below) — the pre-split layout. */
+    .momente-split-left { text-align: center; padding: 0 24px 48px; }
+    .momente-split-left .eyebrow { color: var(--gold); }
+    .momente-split-right { width: 100%; }
+    @media (min-width: 769px) {
+      .momente-split {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        min-height: 80vh;
+      }
+      .momente-split-left {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 80px 64px 80px 120px;
+      }
+      .momente-split-right {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
 
     /* Momente slideshow — swipeable/auto-advancing photo carousel, same
@@ -1370,10 +1400,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @media (max-width: 768px) {
       #momente-slideshow { aspect-ratio: 3/4; margin-bottom: 24px; }
     }
-    /* Desktop only: contained block like the /fashion hero photo panel,
-       not stretched full-bleed across the whole browser width. */
+    /* Desktop: fills .momente-split-right exactly like #hero-slideshow
+       fills .hero-right on /fashion — no own aspect-ratio/max-width. */
     @media (min-width: 769px) {
-      #momente-slideshow { max-width: 500px; aspect-ratio: 9/16; margin-left: auto; margin-right: auto; }
+      #momente-slideshow { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; margin: 0; }
     }
 
     .wedding-grid {
@@ -2076,27 +2106,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Portfolio -->
     <div class="wedding-portfolio" id="portfolio">
-      <div class="wedding-portfolio-header">
-        <span class="eyebrow">Gallery</span>
-        <h2>Beloved Moments</h2>
-      </div>
-
-      <div id="momente-slideshow">
-        <div class="ms-track" id="msTrack">
-          <div class="ms-slide"><img src="/hochzeit/IMG_5270_YMSXoQ7P3i-web.jpeg" alt="Marharian Production — Wedding"></div>
-          <div class="ms-slide"><img src="/hochzeit/IMG_2407.JPG" alt="Marharian Production — Wedding"></div>
-          <div class="ms-slide"><img src="/hochzeit/R6M20137-2.jpg" alt="Marharian Production — Wedding"></div>
-          <div class="ms-slide"><img src="/hochzeit/IMG_0419.JPG" alt="Marharian Production — Wedding"></div>
-          <div class="ms-slide"><img src="/hochzeit/IMG_0327.JPG" alt="Marharian Production — Wedding"></div>
-          <div class="ms-slide"><img src="/hochzeit/DSC04400.jpg" alt="Marharian Production — Wedding"></div>
-          <div class="ms-slide"><img src="/hochzeit/IMG_2414.jpg" alt="Marharian Production — Wedding"></div>
-          <div class="ms-slide"><img src="/hochzeit/IMG_9102.JPG" alt="Marharian Production — Wedding"></div>
-          <div class="ms-slide"><img src="/hochzeit/IMG_9054.jpg" alt="Marharian Production — Wedding"></div>
+      <div class="momente-split">
+        <div class="momente-split-left">
+          <span class="eyebrow">Gallery</span>
+          <h2>Beloved Moments</h2>
         </div>
-        <div class="ms-swipe-hint" id="msSwipeHint">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-          Swipe
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        <div class="momente-split-right">
+          <div id="momente-slideshow">
+            <div class="ms-track" id="msTrack">
+              <div class="ms-slide"><img src="/hochzeit/IMG_5270_YMSXoQ7P3i-web.jpeg" alt="Marharian Production — Wedding"></div>
+              <div class="ms-slide"><img src="/hochzeit/IMG_2407.JPG" alt="Marharian Production — Wedding"></div>
+              <div class="ms-slide"><img src="/hochzeit/R6M20137-2.jpg" alt="Marharian Production — Wedding"></div>
+              <div class="ms-slide"><img src="/hochzeit/IMG_0419.JPG" alt="Marharian Production — Wedding"></div>
+              <div class="ms-slide"><img src="/hochzeit/IMG_0327.JPG" alt="Marharian Production — Wedding"></div>
+              <div class="ms-slide"><img src="/hochzeit/DSC04400.jpg" alt="Marharian Production — Wedding"></div>
+              <div class="ms-slide"><img src="/hochzeit/IMG_2414.jpg" alt="Marharian Production — Wedding"></div>
+              <div class="ms-slide"><img src="/hochzeit/IMG_9102.JPG" alt="Marharian Production — Wedding"></div>
+              <div class="ms-slide"><img src="/hochzeit/IMG_9054.jpg" alt="Marharian Production — Wedding"></div>
+            </div>
+            <div class="ms-swipe-hint" id="msSwipeHint">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              Swipe
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+          </div>
         </div>
       </div>
 
