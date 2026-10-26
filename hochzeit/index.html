@@ -1041,12 +1041,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       align-items: center;
       justify-content: center;
     }
-    /* vh-based height + object-fit:cover was cropping the 16:9 video on
-       desktop (amount varies by window shape, so no fixed vh/vw guess
-       matched it reliably). Lock the box to the video's own 16:9 ratio
-       instead — zero crop, shows the original framing, at any width. */
+    /* Desktop only: contain the hero instead of stretching it full-bleed
+       across the whole browser width — a normal-sized, centered block
+       (matches the page's usual 1200px content width) rather than a
+       banner blown up to the window. Locked to the video's own 16:9
+       ratio so there's no crop either. */
     @media (min-width: 769px) {
-      .wedding-hero { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
+      .wedding-hero {
+        height: auto; min-height: 0; aspect-ratio: 16 / 9;
+        max-width: 1200px; margin: 0 auto;
+      }
     }
     .wedding-hero img {
       position: absolute;
