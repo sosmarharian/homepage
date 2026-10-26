@@ -1041,37 +1041,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       align-items: center;
       justify-content: center;
     }
-    .wedding-hero-video-col {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .wedding-hero-samples { display: none; }
-    /* Desktop only: lock the video column to its native 16:9 ratio (a
-       vh-based height cropped it unpredictably depending on window shape),
-       and add a 2x2 work-sample grid beside it linking to the gallery. */
+    /* vh-based height + object-fit:cover was cropping the 16:9 video on
+       desktop (amount varies by window shape, so no fixed vh/vw guess
+       matched it reliably). Lock the box to the video's own 16:9 ratio
+       instead — zero crop, shows the original framing, at any width. */
     @media (min-width: 769px) {
-      .wedding-hero { height: auto; min-height: 0; align-items: stretch; }
-      .wedding-hero-video-col { flex: 0 0 75%; width: 75%; aspect-ratio: 16 / 9; }
-      .wedding-hero-samples {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4px;
-        flex: 0 0 25%;
-        width: 25%;
-      }
-      .whs-item { position: relative; overflow: hidden; display: block; }
-      .whs-item img {
-        position: absolute; inset: 0;
-        width: 100%; height: 100%;
-        object-fit: cover; display: block;
-        transition: transform .4s ease;
-      }
-      .whs-item:hover img { transform: scale(1.06); }
+      .wedding-hero { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
     }
     .wedding-hero img {
       position: absolute;
@@ -2103,19 +2078,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Hero -->
     <div class="wedding-hero">
-      <div class="wedding-hero-video-col">
-        <video class="wh-video" id="whVideo" autoplay muted loop playsinline poster="/posters/IMG_1880_comp.jpg"></video>
-        <div class="wedding-hero-content">
-          <div class="wedding-hero-sub">Hochzeitsfotografie &amp; Film · Hamburg &amp; Deutschlandweit</div>
+      <video class="wh-video" id="whVideo" autoplay muted loop playsinline poster="/posters/IMG_1880_comp.jpg"></video>
+      <div class="wedding-hero-content">
+        <div class="wedding-hero-sub">Hochzeitsfotografie &amp; Film · Hamburg &amp; Deutschlandweit</div>
 
-        </div>
       </div>
-      <a href="/hochzeit/galerie" class="wedding-hero-samples" aria-label="Zur Galerie">
-        <span class="whs-item"><img src="/hochzeit/IMG_0602.JPG" alt="Marharian Production — Hochzeit"></span>
-        <span class="whs-item"><img src="/hochzeit/IMG_1900.JPG" alt="Marharian Production — Hochzeit"></span>
-        <span class="whs-item"><img src="/hochzeit/IMG_6823.jpg" alt="Marharian Production — Hochzeit"></span>
-        <span class="whs-item"><img src="/hochzeit/R6M20108.jpg" alt="Marharian Production — Hochzeit"></span>
-      </a>
     </div>
 
     <!-- Portfolio -->
