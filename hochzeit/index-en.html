@@ -1395,6 +1395,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .ms-swipe-hint.ms-hint-hidden { opacity: 0; }
     .ms-swipe-hint svg { width: 14px; height: 14px; flex-shrink: 0; }
+    /* Persistent prev/next arrows — the swipe hint fades after 6s and
+       leaves no other way to tell the photo is browsable. */
+    .ms-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(26,24,21,0.45);
+      -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+      border: none; color: #f5f0eb;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 6;
+      transition: background .25s ease, transform .25s ease;
+    }
+    .ms-nav:hover { background: rgba(26,24,21,0.7); }
+    .ms-nav svg { width: 18px; height: 18px; }
+    .ms-nav-prev { left: 12px; }
+    .ms-nav-next { right: 12px; }
     @keyframes ms-hint-nudge {
       0%, 100% { transform: translateX(-50%); }
       50% { transform: translateX(calc(-50% - 3px)); }
@@ -2131,6 +2147,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               Swipe
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </div>
+            <button type="button" class="ms-nav ms-nav-prev" id="msPrev" aria-label="Previous photo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button type="button" class="ms-nav ms-nav-next" id="msNext" aria-label="Next photo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -2880,6 +2902,19 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
       if (swipeHint) swipeHint.classList.add('ms-hint-hidden');
     }
     if (swipeHint) { hintHideT = setTimeout(hideSwipeHint, 6000); }
+
+    var prevBtn = document.getElementById('msPrev');
+    var nextBtn = document.getElementById('msNext');
+    function manualStep(dir) {
+      normalize();
+      goToIndex(index + dir);
+      paused = true;
+      resumeLater();
+      clearTimeout(hintHideT);
+      hideSwipeHint();
+    }
+    if (prevBtn) prevBtn.addEventListener('click', function(){ manualStep(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function(){ manualStep(1); });
 
     function onPointerDown(e) {
       if (e.pointerType === 'mouse' && e.button !== 0) return;
