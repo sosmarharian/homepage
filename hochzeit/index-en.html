@@ -1029,12 +1029,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       align-items: center;
       justify-content: center;
     }
-    /* object-fit:cover on the 16:9 hero video crops aggressively on wide,
-       short desktop windows (85vh ends up far shorter than the video's own
-       aspect ratio needs) — floor the height to the video's proportions so
-       it doesn't zoom in past the couple's shoulders. */
+    /* vh-based height + object-fit:cover was cropping the 16:9 video on
+       desktop (amount varies by window shape, so no fixed vh/vw guess
+       matched it reliably). Lock the box to the video's own 16:9 ratio
+       instead — zero crop, shows the original framing, at any width. */
     @media (min-width: 769px) {
-      .wedding-hero { min-height: max(560px, 55vw); }
+      .wedding-hero { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
     }
     .wedding-hero img {
       position: absolute;
