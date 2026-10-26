@@ -1029,12 +1029,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       align-items: center;
       justify-content: center;
     }
-    /* vh-based height + object-fit:cover was cropping the 16:9 video on
-       desktop (amount varies by window shape, so no fixed vh/vw guess
-       matched it reliably). Lock the box to the video's own 16:9 ratio
-       instead — zero crop, shows the original framing, at any width. */
     @media (min-width: 769px) {
-      .wedding-hero { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
+      .wedding-hero { height: 60vh; min-height: 420px; }
     }
     .wedding-hero img {
       position: absolute;
