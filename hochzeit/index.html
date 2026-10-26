@@ -1336,6 +1336,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-weight: 400;
       margin-top: 8px;
     }
+
+    /* Momente slideshow — swipeable/auto-advancing photo carousel, same
+       mechanics as the /fashion hero slideshow (drag + auto-play). */
+    #momente-slideshow {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: var(--charcoal);
+      touch-action: pan-y;
+      cursor: grab;
+      margin-bottom: 40px;
+    }
+    #momente-slideshow.ms-dragging { cursor: grabbing; }
+    #momente-slideshow.ms-dragging .ms-slide { user-select: none; }
+    .ms-track { display:flex; width:100%; height:100%; transition: transform 0.6s cubic-bezier(.4,0,.2,1); }
+    .ms-slide { flex:0 0 100%; width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+    .ms-slide img { width:100%; height:100%; object-fit:contain; object-position:center center; display:block; }
+    .ms-swipe-hint {
+      position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%);
+      display: flex; align-items: center; gap: 8px;
+      padding: 7px 16px;
+      background: rgba(26,24,21,0.55);
+      -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+      border-radius: 999px;
+      color: #f5f0eb;
+      font-family: var(--font-body, sans-serif); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      pointer-events: none;
+      z-index: 5;
+      opacity: 1;
+      transition: opacity .4s ease;
+      animation: ms-hint-nudge 1.8s ease-in-out infinite;
+    }
+    .ms-swipe-hint.ms-hint-hidden { opacity: 0; }
+    .ms-swipe-hint svg { width: 14px; height: 14px; flex-shrink: 0; }
+    @keyframes ms-hint-nudge {
+      0%, 100% { transform: translateX(-50%); }
+      50% { transform: translateX(calc(-50% - 3px)); }
+    }
+    @media (max-width: 768px) {
+      #momente-slideshow { aspect-ratio: 3/4; margin-bottom: 24px; }
+    }
+
     .wedding-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -2042,6 +2086,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2>Geliebte Momente</h2>
       </div>
 
+      <div id="momente-slideshow">
+        <div class="ms-track" id="msTrack">
+          <div class="ms-slide"><img src="/hochzeit/IMG_5270_YMSXoQ7P3i-web.jpeg" alt="Marharian Production — Hochzeit"></div>
+          <div class="ms-slide"><img src="/hochzeit/IMG_2407.JPG" alt="Marharian Production — Hochzeit"></div>
+          <div class="ms-slide"><img src="/hochzeit/R6M20137-2.jpg" alt="Marharian Production — Hochzeit"></div>
+          <div class="ms-slide"><img src="/hochzeit/IMG_0419.JPG" alt="Marharian Production — Hochzeit"></div>
+          <div class="ms-slide"><img src="/hochzeit/IMG_0327.JPG" alt="Marharian Production — Hochzeit"></div>
+          <div class="ms-slide"><img src="/hochzeit/DSC04400.jpg" alt="Marharian Production — Hochzeit"></div>
+          <div class="ms-slide"><img src="/hochzeit/IMG_2414.jpg" alt="Marharian Production — Hochzeit"></div>
+          <div class="ms-slide"><img src="/hochzeit/IMG_9102.JPG" alt="Marharian Production — Hochzeit"></div>
+          <div class="ms-slide"><img src="/hochzeit/IMG_9054.jpg" alt="Marharian Production — Hochzeit"></div>
+        </div>
+        <div class="ms-swipe-hint" id="msSwipeHint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          Wischen
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+      </div>
+
     <!-- Video: Polina & Zhenya -->
     <div class="wedding-video">
       <div class="wedding-video-text">
@@ -2713,6 +2776,145 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
   const slides = document.querySelectorAll('#hero-slideshow img');
   let current = 0;
   if (slides.length > 0) { setInterval(() => { slides[current].style.opacity = '0'; current = (current + 1) % slides.length; slides[current].style.opacity = '1'; }, 4000); }
+
+  /* — Momente slideshow (swipeable, infinite loop, same mechanics as the
+       /fashion hero slideshow) ─────────────────────────────── */
+  (function(){
+    var viewport = document.getElementById('momente-slideshow');
+    var track = document.getElementById('msTrack');
+    if (!viewport || !track) return;
+    var realSlides = Array.prototype.slice.call(track.children);
+    var TOTAL = realSlides.length;
+    if (TOTAL === 0) return;
+    var loop = TOTAL > 1;
+
+    if (loop) {
+      var firstClone = realSlides[0].cloneNode(true);
+      var lastClone = realSlides[TOTAL - 1].cloneNode(true);
+      firstClone.setAttribute('aria-hidden', 'true');
+      lastClone.setAttribute('aria-hidden', 'true');
+      track.appendChild(firstClone);
+      track.insertBefore(lastClone, track.firstChild);
+    }
+
+    var index = loop ? 1 : 0;
+    var lastIndex = track.children.length - 1;
+    var paused = false;
+    var resumeT;
+
+    function setTx(idx, instant) {
+      var tx = idx * viewport.clientWidth;
+      if (instant) {
+        track.style.transition = 'none';
+        track.style.transform = 'translateX(-' + tx + 'px)';
+        track.offsetWidth;
+        track.style.transition = '';
+      } else {
+        track.style.transform = 'translateX(-' + tx + 'px)';
+      }
+    }
+    function goToIndex(n, instant) {
+      index = n;
+      setTx(index, instant);
+    }
+    function normalize() {
+      if (!loop) return;
+      if (index === 0) { index = TOTAL; setTx(index, true); }
+      else if (index === lastIndex) { index = 1; setTx(index, true); }
+    }
+    function next() {
+      if (paused) return;
+      normalize();
+      goToIndex(index + 1);
+    }
+
+    var resizeT;
+    window.addEventListener('resize', function(){
+      clearTimeout(resizeT);
+      resizeT = setTimeout(function(){ setTx(index, true); }, 80);
+    });
+
+    var DRAG_THRESHOLD = 6, SWIPE_THRESHOLD = 40;
+    var pointerDown = false, dragging = false, startX = 0, baseTx = 0, lastClientX = 0;
+
+    function currentTx() {
+      var m = window.getComputedStyle(track).transform;
+      if (m && m !== 'none') {
+        var parts = m.match(/matrix\(([^)]+)\)/);
+        if (parts) {
+          var vals = parts[1].split(',').map(Number);
+          return -vals[4];
+        }
+      }
+      return index * viewport.clientWidth;
+    }
+
+    function resumeLater() {
+      clearTimeout(resumeT);
+      resumeT = setTimeout(function(){ paused = false; }, 7000);
+    }
+    var swipeHint = document.getElementById('msSwipeHint');
+    var hintHideT;
+    function hideSwipeHint() {
+      if (swipeHint) swipeHint.classList.add('ms-hint-hidden');
+    }
+    if (swipeHint) { hintHideT = setTimeout(hideSwipeHint, 6000); }
+
+    function onPointerDown(e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      if (e.pointerType === 'mouse') e.preventDefault();
+      normalize();
+      pointerDown = true;
+      dragging = false;
+      startX = lastClientX = e.clientX;
+      baseTx = currentTx();
+      track.style.transition = 'none';
+      track.style.transform = 'translateX(-' + baseTx + 'px)';
+      paused = true;
+    }
+    function onPointerMove(e) {
+      if (!pointerDown) return;
+      lastClientX = e.clientX;
+      var dx = lastClientX - startX;
+      if (!dragging) {
+        if (Math.abs(dx) <= DRAG_THRESHOLD) return;
+        dragging = true;
+        viewport.classList.add('ms-dragging');
+        try { viewport.setPointerCapture(e.pointerId); } catch(err) {}
+        clearTimeout(hintHideT);
+        hideSwipeHint();
+      }
+      track.style.transform = 'translateX(' + (-(baseTx) + dx) + 'px)';
+    }
+    function onPointerUp() {
+      if (!pointerDown) return;
+      pointerDown = false;
+      track.style.transition = '';
+      var fromIndex = Math.round(baseTx / viewport.clientWidth);
+      if (dragging) {
+        dragging = false;
+        viewport.classList.remove('ms-dragging');
+        var dx = lastClientX - startX;
+        if (dx <= -SWIPE_THRESHOLD) goToIndex(fromIndex + 1);
+        else if (dx >= SWIPE_THRESHOLD) goToIndex(fromIndex - 1);
+        else goToIndex(fromIndex);
+      } else {
+        goToIndex(fromIndex);
+      }
+      resumeLater();
+    }
+
+    viewport.addEventListener('pointerdown', onPointerDown);
+    viewport.addEventListener('pointermove', onPointerMove);
+    viewport.addEventListener('pointerup', onPointerUp);
+    viewport.addEventListener('pointercancel', onPointerUp);
+    viewport.addEventListener('pointerleave', function(e){ if (pointerDown && !dragging) onPointerUp(e); });
+    viewport.addEventListener('mouseenter', function(){ paused = true; });
+    viewport.addEventListener('mouseleave', function(){ if (!pointerDown) paused = false; });
+
+    goToIndex(index, true);
+    setInterval(next, 4000);
+  })();
 
   /* — Wedding slideshow ────────────────────────── */
   const wedSlides = document.querySelectorAll('#wedding-slideshow img');
