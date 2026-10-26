@@ -24,6 +24,7 @@
 <!-- Cookie Consent Manager CCM19 -->
 <script src="https://cloud.ccm19.de/app.js?apiKey=7e592170d83ce250381db17922acc4a086ef5e5ab2c1ab3c&amp;domain=6a8e82436eab1b90910d76c2" referrerpolicy="origin"></script>
 <!-- End CCM19 -->
+<script src="/ccm-badge.js" defer></script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -471,28 +472,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
       .sticky-cta.is-hidden { transform: translateY(150%); }
       body { padding-bottom: 80px; }
-    }
-
-    /* CCM19 cookie-settings badge — move from bottom-left to bottom-right,
-       round frame (was square), pinned above the sticky "Preis anfragen"
-       button via JS below (a static bottom:Npx drifts on iOS Safari as its
-       toolbar collapses/expands during scroll — JS measuring the button's
-       live position keeps the gap constant instead). */
-    .ccm-settings-summoner {
-      left: auto !important;
-      right: 40px !important;
-      inset-inline-start: auto !important;
-      inset-inline-end: 40px !important;
-      border-radius: 50% !important;
-      overflow: hidden !important;
-    }
-    .ccm-settings-summoner--link { border-radius: 50% !important; }
-    @media (max-width: 768px) {
-      .ccm-settings-summoner {
-        right: 16px !important;
-        bottom: 110px !important; /* fallback until JS pins it / while CTA is off-screen */
-        inset-inline-end: 16px !important;
-      }
     }
 
     /* Thin glowing outline on the Preisliste CTA buttons */
@@ -2834,33 +2813,6 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
 })();
 </script>
 
-<script>
-/* Pin the CCM19 cookie badge a fixed gap above the sticky "Preis anfragen"
-   button, measured live — avoids the badge drifting relative to the button
-   when iOS Safari's toolbar collapses/expands during scroll. */
-(function(){
-  var cta = document.querySelector('[data-sticky-cta]');
-  var GAP = 14;
-  function getBadge(){ return document.querySelector('.ccm-settings-summoner'); }
-  function reposition(){
-    var badge = getBadge();
-    if(!badge || !cta) return;
-    if(window.innerWidth > 768){ badge.style.removeProperty('bottom'); return; }
-    var rect = cta.getBoundingClientRect();
-    var visible = !cta.classList.contains('is-hidden') && rect.top < window.innerHeight && rect.bottom > 0;
-    if(!visible){ badge.style.removeProperty('bottom'); return; }
-    badge.style.setProperty('bottom', (window.innerHeight - rect.top + GAP) + 'px', 'important');
-  }
-  window.addEventListener('scroll', reposition, {passive:true});
-  window.addEventListener('resize', reposition);
-  window.addEventListener('load', reposition);
-  var tries = 0;
-  var iv = setInterval(function(){
-    if(getBadge() || ++tries > 100){ reposition(); clearInterval(iv); }
-  }, 100);
-  reposition();
-})();
-</script>
 
 <script>
 (function(){
