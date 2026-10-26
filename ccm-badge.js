@@ -59,25 +59,16 @@
     }
     return null;
   }
-  // Continuous rAF sync instead of scroll/resize listeners: iOS Safari's
-  // toolbar can finish collapsing/expanding *after* the last scroll event
-  // fires (momentum settling), which left the badge pinned to a stale
-  // button position. Re-measuring every frame removes that timing gap.
-  var lastBottom;
-  function tick() {
+  function reposition() {
     var avoid = findAvoid();
-    var next = null;
-    if (avoid) {
-      var rect = avoid.getBoundingClientRect();
-      var visible = rect.top < window.innerHeight && rect.bottom > 0 && !avoid.classList.contains('is-hidden');
-      if (visible) next = Math.round(window.innerHeight - rect.top + GAP);
-    }
-    if (next !== lastBottom) {
-      lastBottom = next;
-      if (next === null) btn.style.removeProperty('bottom');
-      else btn.style.setProperty('bottom', next + 'px', 'important');
-    }
-    requestAnimationFrame(tick);
+    if (!avoid) { btn.style.removeProperty('bottom'); return; }
+    var rect = avoid.getBoundingClientRect();
+    var visible = rect.top < window.innerHeight && rect.bottom > 0 && !avoid.classList.contains('is-hidden');
+    if (!visible) { btn.style.removeProperty('bottom'); return; }
+    btn.style.setProperty('bottom', (window.innerHeight - rect.top + GAP) + 'px', 'important');
   }
-  requestAnimationFrame(tick);
+  window.addEventListener('scroll', reposition, { passive: true });
+  window.addEventListener('resize', reposition);
+  window.addEventListener('load', reposition);
+  reposition();
 })();
