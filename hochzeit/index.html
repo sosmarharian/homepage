@@ -1801,7 +1801,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
-    .quiz-choices .quiz-choice:last-child:nth-child(odd) { grid-column: 1 / -1; text-align: center; }
+    .quiz-choices .quiz-choice:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .quiz-optional-badge {
+      display: inline-block; margin-left: 10px; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold);
+      border: 1px solid var(--gold); border-radius: 999px; padding: 3px 10px;
+      vertical-align: middle;
+    }
     .quiz-choice {
       padding: 16px 20px;
       background: transparent;
@@ -1826,8 +1832,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: var(--charcoal);
       font-weight: 600;
     }
-    .quiz-input.quiz-city-input { display: none; margin-top: 14px; }
-    .quiz-input.quiz-city-input.show { display: block; }
+    .quiz-contact-detail { margin-top: 14px; }
     .quiz-slider-wrap {
       display: flex;
       flex-direction: column;
@@ -3145,12 +3150,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <!-- Schritt 2: Ort -->
           <div class="quiz-step" data-step="2">
             <h3 class="quiz-question">Wo findet eure Hochzeit statt?</h3>
-            <div class="quiz-choices">
-              <button class="quiz-choice" data-value="Hamburg">Hamburg</button>
-              <button class="quiz-choice" data-value="Andere Stadt in Deutschland">Andere Stadt in Deutschland</button>
-              <button class="quiz-choice" data-value="Im Ausland">Im Ausland</button>
-            </div>
-            <input type="text" class="quiz-input quiz-city-input" id="quiz-city-input" placeholder="Name der Stadt *">
+            <input type="text" class="quiz-input" id="quiz-city-input" placeholder="Name der Stadt *">
           </div>
 
           <!-- Schritt 3: Leistungen -->
@@ -3163,19 +3163,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
 
-          <!-- Schritt 4: Filmlänge -->
+          <!-- Schritt 4: Stunden -->
           <div class="quiz-step" data-step="4">
-            <h3 class="quiz-question">Wie lang soll euer Hochzeitsfilm sein?</h3>
-            <div class="quiz-choices">
-              <button class="quiz-choice" data-value="Bis 10 Min">Bis 10 Min</button>
-              <button class="quiz-choice" data-value="Bis 20 Min">Bis 20 Min</button>
-              <button class="quiz-choice" data-value="Bis 40 Min">Bis 40 Min</button>
-              <button class="quiz-choice" data-value="Bis 60 Min">Bis 60 Min</button>
-            </div>
-          </div>
-
-          <!-- Schritt 5: Stunden -->
-          <div class="quiz-step" data-step="5">
             <h3 class="quiz-question">Wie viele Stunden sollen wir euch begleiten?</h3>
             <div class="quiz-slider-wrap">
               <input type="range" class="quiz-slider" id="quiz-hours" min="2" max="16" value="6">
@@ -3186,16 +3175,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
 
+          <!-- Schritt 5: Kontaktmethode -->
+          <div class="quiz-step" data-step="5">
+            <h3 class="quiz-question">Wie erreichen wir euch am besten?</h3>
+            <div class="quiz-choices">
+              <button class="quiz-choice" data-value="Anruf">Anruf</button>
+              <button class="quiz-choice" data-value="E-Mail">E-Mail</button>
+              <button class="quiz-choice" data-value="WhatsApp">WhatsApp</button>
+            </div>
+            <input type="email" class="quiz-input quiz-contact-detail" id="quiz-contact-email" placeholder="E-Mail *" style="display:none;">
+            <input type="tel" class="quiz-input quiz-contact-detail" id="quiz-contact-phone" placeholder="Telefonnummer *" style="display:none;" pattern="[0-9+\s\-()]{6,20}">
+          </div>
+
           <!-- Schritt 6: Kontakt -->
           <div class="quiz-step" data-step="6">
-            <h3 class="quiz-question">Fast geschafft — wohin dürfen wir das Angebot senden?</h3>
+            <h3 class="quiz-question">Fast geschafft!<span class="quiz-optional-badge">Optional</span></h3>
             <form class="quiz-contact-form" id="quiz-contact-form" onsubmit="return false;">
-              <input type="text" name="names" placeholder="Eure Namen *" required class="quiz-input">
-              <input type="email" name="email" placeholder="E-Mail *" required class="quiz-input">
-              <input type="tel" name="whatsapp" placeholder="WhatsApp-Nummer *" required class="quiz-input" pattern="[0-9+\s\-()]{6,20}">
-              <input type="text" name="heard" placeholder="Wie habt ihr von uns erfahren? *" required class="quiz-input">
-              <input type="text" name="instagram" placeholder="Instagram (optional)" class="quiz-input">
-              <textarea name="comment" placeholder="Möchtet ihr uns noch etwas erzählen? (optional)" class="quiz-textarea" rows="3"></textarea>
+              <input type="text" name="names" placeholder="Eure Namen" class="quiz-input">
+              <input type="text" name="heard" placeholder="Wie habt ihr von uns erfahren?" class="quiz-input">
+              <input type="text" name="instagram" placeholder="Instagram" class="quiz-input">
+              <textarea name="comment" placeholder="Möchtet ihr uns noch etwas erzählen?" class="quiz-textarea" rows="3"></textarea>
               <label class="quiz-checkbox-label quiz-consent">
                 <input type="checkbox" id="quiz-consent" required>
                 <span>Ich stimme der <a href="/datenschutz">Datenverarbeitung</a> zu</span>
@@ -3230,18 +3229,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     // ── Quiz ──────────────────────────────────────────────────────────────────
-    var quizState = { step: 1, date: '', location: '', services: '', filmLength: '', hours: 6 };
-
-    // Schritt 4 (Filmlänge) wird übersprungen, wenn nur Fotografie gewünscht ist —
-    // dann ist die Frage nach der Filmlänge gegenstandslos.
-    function quizSkipsStep4() { return quizState.services === 'Nur Fotografie'; }
-    function quizNextStep(current) {
-      if (current === 3 && quizSkipsStep4()) return 5;
-      return current + 1;
-    }
-    function quizPrevStep(current) {
-      if (current === 5 && quizSkipsStep4()) return 3;
-      return current - 1;
+    var quizState = { step: 1, date: '', city: '', services: '', hours: 6, contactMethod: '' };
+    var europeanCountries = ['DE','AT','CH','FR','IT','ES','NL','BE','PL',
+      'GB','IE','DK','SE','NO','FI','PT','GR','CZ','HU','RO','BG','HR',
+      'SI','SK','LT','LV','EE','LU','MT','CY','IS','LI'];
+    function quizPhoneOk(val) {
+      try {
+        var parsed = window.libphonenumber && window.libphonenumber.parsePhoneNumberFromString(val, 'DE');
+        return !!(parsed && parsed.isValid() && europeanCountries.indexOf(parsed.country) !== -1);
+      } catch (e) { return false; }
     }
 
     function quizUpdateUI() {
@@ -3249,7 +3245,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.querySelectorAll('.quiz-step').forEach(function(el) {
         el.classList.toggle('active', parseInt(el.dataset.step) === step);
       });
-      var pcts = [17, 33, 50, 67, 100, 100];
+      var pcts = [17, 33, 50, 67, 83, 100];
       document.querySelector('.quiz-progress-pct').textContent = pcts[step - 1] + '%';
       document.querySelector('.quiz-progress-fill').style.width = pcts[step - 1] + '%';
       document.getElementById('quiz-back').classList.toggle('hidden', step === 1);
@@ -3264,44 +3260,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (step === 1) {
         valid = quizState.date !== '';
       } else if (step === 2) {
-        if (quizState.location === 'Andere Stadt in Deutschland') {
-          valid = document.getElementById('quiz-city-input').value.trim() !== '';
-        } else {
-          valid = quizState.location !== '';
-        }
+        valid = document.getElementById('quiz-city-input').value.trim() !== '';
       } else if (step === 3) {
         valid = quizState.services !== '';
       } else if (step === 4) {
-        valid = quizState.filmLength !== '';
-      } else if (step === 5) {
         valid = true;
+      } else if (step === 5) {
+        if (quizState.contactMethod === 'E-Mail') {
+          var email = document.getElementById('quiz-contact-email').value.trim();
+          valid = email !== '' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        } else if (quizState.contactMethod === 'Anruf' || quizState.contactMethod === 'WhatsApp') {
+          valid = quizPhoneOk(document.getElementById('quiz-contact-phone').value.trim());
+        } else {
+          valid = false;
+        }
       } else if (step === 6) {
-        var names = document.querySelector('.quiz-contact-form [name="names"]').value.trim();
-        var email = document.querySelector('.quiz-contact-form [name="email"]').value.trim();
-        var whatsapp = document.querySelector('.quiz-contact-form [name="whatsapp"]').value.trim();
-        var heard = document.querySelector('.quiz-contact-form [name="heard"]').value.trim();
-        var europeanCountries = ['DE','AT','CH','FR','IT','ES','NL','BE','PL',
-          'GB','IE','DK','SE','NO','FI','PT','GR','CZ','HU','RO','BG','HR',
-          'SI','SK','LT','LV','EE','LU','MT','CY','IS','LI'];
-        var phoneOk = false;
-        try {
-          var parsed = window.libphonenumber &&
-            window.libphonenumber.parsePhoneNumberFromString(whatsapp, 'DE');
-          phoneOk = !!(parsed && parsed.isValid() &&
-            europeanCountries.indexOf(parsed.country) !== -1);
-        } catch (e) { phoneOk = false; }
-        valid = names !== '' && email !== '' && phoneOk && heard !== '' && document.getElementById('quiz-consent').checked;
+        valid = document.getElementById('quiz-consent').checked;
       }
       document.getElementById('quiz-next').disabled = !valid;
     }
 
     function quizNext() {
       var step = quizState.step;
-      if (step === 5) {
+      if (step === 4) {
         quizState.hours = document.getElementById('quiz-hours').value;
       }
       if (step < 6) {
-        quizState.step = quizNextStep(step);
+        quizState.step = step + 1;
         quizUpdateUI();
       } else {
         quizSubmit();
@@ -3310,7 +3295,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     function quizBack() {
       if (quizState.step > 1) {
-        quizState.step = quizPrevStep(quizState.step);
+        quizState.step = quizState.step - 1;
         quizUpdateUI();
       }
     }
@@ -3400,25 +3385,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     function quizSubmit() {
       var form = document.getElementById('quiz-contact-form');
       var names = form.querySelector('[name="names"]').value.trim();
-      var email = form.querySelector('[name="email"]').value.trim();
-      var whatsapp = form.querySelector('[name="whatsapp"]').value.trim();
       var heard = form.querySelector('[name="heard"]').value.trim();
       var instagram = form.querySelector('[name="instagram"]').value.trim();
       var comment = form.querySelector('[name="comment"]').value.trim();
+      var email = quizState.contactMethod === 'E-Mail' ? document.getElementById('quiz-contact-email').value.trim() : '';
+      var phone = (quizState.contactMethod === 'Anruf' || quizState.contactMethod === 'WhatsApp') ? document.getElementById('quiz-contact-phone').value.trim() : '';
       var dateStr = quizState.date || 'Nicht angegeben';
-      var locationStr = quizState.location;
-      if (locationStr === 'Andere Stadt in Deutschland') {
-        var cityName = document.getElementById('quiz-city-input').value.trim();
-        locationStr = 'Andere Stadt in Deutschland (' + cityName + ')';
-      }
+      var cityStr = document.getElementById('quiz-city-input').value.trim();
       var message = 'Hochzeitsdatum: ' + dateStr + '\n'
-        + 'Ort: ' + (locationStr || '—') + '\n'
+        + 'Ort: ' + (cityStr || '—') + '\n'
         + 'Leistungen: ' + (quizState.services || '—') + '\n'
-        + 'Filmlänge: ' + (quizState.filmLength || '—') + '\n'
         + 'Stunden: ' + quizState.hours + '\n'
-        + 'Namen: ' + names + '\n'
-        + 'WhatsApp: ' + whatsapp + '\n'
-        + 'Wie erfahren: ' + heard + '\n'
+        + 'Bevorzugter Kontakt: ' + (quizState.contactMethod || '—') + '\n'
+        + 'Telefonnummer: ' + (phone || '—') + '\n'
+        + 'E-Mail: ' + (email || '—') + '\n'
+        + 'Namen: ' + (names || '—') + '\n'
+        + 'Wie erfahren: ' + (heard || '—') + '\n'
         + 'Instagram: ' + (instagram || '—') + '\n'
         + 'Anmerkung: ' + (comment || '—');
       var data = new FormData();
@@ -3426,7 +3408,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var subject = 'Neue Hochzeitsanfrage — marharian.com';
       if (quizIsTestMode()) subject = '[TEST] ' + subject;
       data.append('subject', subject);
-      data.append('name', names);
+      data.append('name', names || cityStr);
       data.append('email', email);
       data.append('message', message);
       var btn = document.getElementById('quiz-next');
@@ -3438,7 +3420,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         headers: { 'Accept': 'application/json' }
       }).then(function(res) {
         if (res.ok) {
-          quizTrackLeadAndRedirect('/danke', { email: email, phone: whatsapp });
+          quizTrackLeadAndRedirect('/danke', { email: email, phone: phone });
         } else {
           btn.disabled = false;
           btn.textContent = 'Anfrage absenden';
@@ -3455,23 +3437,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           var step = parseInt(this.closest('.quiz-step').dataset.step);
           this.closest('.quiz-choices').querySelectorAll('.quiz-choice').forEach(function(b) { b.classList.remove('selected'); });
           this.classList.add('selected');
-          if (step === 2) {
-            quizState.location = this.dataset.value;
-            var cityInput = document.getElementById('quiz-city-input');
-            if (this.dataset.value === 'Andere Stadt in Deutschland') {
-              cityInput.classList.add('show');
-              cityInput.focus();
+          if (step === 3) quizState.services = this.dataset.value;
+          if (step === 5) {
+            quizState.contactMethod = this.dataset.value;
+            var emailInput = document.getElementById('quiz-contact-email');
+            var phoneInput = document.getElementById('quiz-contact-phone');
+            if (this.dataset.value === 'E-Mail') {
+              emailInput.style.display = 'block'; emailInput.focus();
+              phoneInput.style.display = 'none'; phoneInput.value = '';
             } else {
-              cityInput.classList.remove('show');
-              cityInput.value = '';
+              phoneInput.style.display = 'block'; phoneInput.focus();
+              emailInput.style.display = 'none'; emailInput.value = '';
             }
           }
-          if (step === 3) quizState.services = this.dataset.value;
-          if (step === 4) quizState.filmLength = this.dataset.value;
           quizValidateStep();
         });
       });
       document.getElementById('quiz-city-input').addEventListener('input', quizValidateStep);
+      document.getElementById('quiz-contact-email').addEventListener('input', quizValidateStep);
+      document.getElementById('quiz-contact-phone').addEventListener('input', quizValidateStep);
       var quizFlatpickr = flatpickr('#quiz-date', {
         minDate: 'today',
         dateFormat: 'd.m.Y',
