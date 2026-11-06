@@ -2702,23 +2702,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   .pk-list li.pk-muted::before { content: '+'; }
   .pk-cta { display: block; width: 100%; padding: 15px; border-radius: 6px; border: 1.5px solid var(--charcoal); color: var(--charcoal); background: transparent; font-family: var(--font-body); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; font-size: 13px; cursor: pointer; transition: all .2s; }
   .pk-cta:hover, .pk-card.is-featured .pk-cta { background: var(--charcoal); color: #fff; }
-  .pk-mini { margin-top: 24px; background: #fff; border-radius: 6px; padding: 18px 24px; display: flex; justify-content: space-between; align-items: center; gap: 12px 20px; flex-wrap: wrap; font-size: 15px; color: #4a4744; }
-  .pk-mini-price { font-family: var(--font-heading); font-size: 24px; color: var(--charcoal); margin-left: auto; }
-  .pk-mini .pk-cta { width: auto; padding: 11px 22px; }
+  .pk-std { margin-top: 28px; background: #fff; border-radius: 6px; padding: 22px 24px 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+  .pk-std-head { text-align: center; font-size: 16px; color: #4a4744; margin-bottom: 16px; }
+  .pk-std-head strong { color: var(--charcoal); }
+  .pk-std-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .pk-std-item { display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 8px; padding: 16px 14px; border: 1px solid rgba(0,0,0,0.08); border-radius: 6px; text-align: center; }
+  .pk-std-label { font-size: 14px; color: #4a4744; }
+  .pk-std-price { font-family: var(--font-heading); font-size: 28px; color: var(--charcoal); line-height: 1.1; }
+  .pk-std-item .pk-cta { width: auto; padding: 10px 22px; }
   .pk-extras { margin-top: 16px; padding: 20px 24px; border: 1px dashed rgba(0,0,0,0.18); border-radius: 6px; font-size: 14px; color: #4a4744; line-height: 1.7; }
   .pk-extras p + p { margin-top: 8px; }
   .pk-extras strong { color: var(--charcoal); }
   .pk-note { text-align: center; color: var(--gray); font-size: 13px; margin-top: 18px; }
   @media (max-width: 900px) {
     .pk-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; gap: 28px; }
-    .pk-mini, .pk-extras, .pk-note { max-width: 440px; margin-left: auto; margin-right: auto; }
+    .pk-std, .pk-extras, .pk-note { max-width: 440px; margin-left: auto; margin-right: auto; }
+    .pk-std-grid { grid-template-columns: 1fr; }
+    .pk-std-item { flex-direction: row; flex-wrap: wrap; justify-content: space-between; text-align: left; }
+    .pk-std-label { flex: 1 1 100%; }
   }
   @media (max-width: 600px) {
     #pakete { padding: 64px 16px; }
     .pk-tabs { width: 100%; justify-content: space-between; }
     .pk-tab { padding: 10px 12px; font-size: 13px; flex: 1; }
     .pk-tab-badge { display: none; }
-    .pk-mini-price { margin-left: 0; }
   }
 </style>
     <!-- Pakete -->
@@ -2761,11 +2768,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <button type="button" class="pk-cta" data-service="combo" data-package="premium">Paket anfragen</button>
             </div>
           </div>
-          <div class="pk-mini">
-            <span><strong>Nur Standesamt?</strong> 2 Stunden Fotos + Love-Story-Clip (20 Sek.)</span>
-            <span class="pk-mini-price">600 €</span>
-            <button type="button" class="pk-cta" data-service="combo" data-package="standesamt">Anfragen</button>
-          </div>
         </div>
         <div class="pk-panel" data-tab="foto" role="tabpanel">
           <div class="pk-grid">
@@ -2791,11 +2793,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <ul class="pk-list"><li>ca. 400 bearbeitete Fotos</li><li>Private Online-Galerie</li><li>Drohnenaufnahmen*</li><li>Anfahrt in Hamburg inklusive</li></ul>
               <button type="button" class="pk-cta" data-service="foto" data-package="premium">Paket anfragen</button>
             </div>
-          </div>
-          <div class="pk-mini">
-            <span><strong>Nur Standesamt?</strong> 2 Stunden Fotobegleitung</span>
-            <span class="pk-mini-price">400 €</span>
-            <button type="button" class="pk-cta" data-service="foto" data-package="standesamt">Anfragen</button>
           </div>
         </div>
         <div class="pk-panel" data-tab="film" role="tabpanel">
@@ -2823,10 +2820,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <button type="button" class="pk-cta" data-service="film" data-package="premium">Paket anfragen</button>
             </div>
           </div>
-          <div class="pk-mini">
-            <span><strong>Nur Standesamt?</strong> 2 Stunden Film (Highlight + Love Story)</span>
-            <span class="pk-mini-price">600 €</span>
-            <button type="button" class="pk-cta" data-service="film" data-package="standesamt">Anfragen</button>
+        </div>
+        <div class="pk-std">
+          <div class="pk-std-head"><strong>Nur Standesamt?</strong> 2 Stunden Begleitung</div>
+          <div class="pk-std-grid">
+            <div class="pk-std-item"><span class="pk-std-label">Fotos</span><span class="pk-std-price">400 €</span><button type="button" class="pk-cta" data-service="foto" data-package="standesamt">Anfragen</button></div>
+            <div class="pk-std-item"><span class="pk-std-label">Film (Highlight + Love Story)</span><span class="pk-std-price">600 €</span><button type="button" class="pk-cta" data-service="film" data-package="standesamt">Anfragen</button></div>
+            <div class="pk-std-item"><span class="pk-std-label">Fotos + Love-Story-Clip (20 Sek.)</span><span class="pk-std-price">600 €</span><button type="button" class="pk-cta" data-service="combo" data-package="standesamt">Anfragen</button></div>
           </div>
         </div>
         <div class="pk-extras">
