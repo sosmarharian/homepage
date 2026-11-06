@@ -91,8 +91,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="alternate" hreflang="de" href="https://marharian.com/hochzeit">
   <link rel="alternate" hreflang="en" href="https://marharian.com/hochzeit/index-en.html">
   <link rel="alternate" hreflang="x-default" href="https://marharian.com/hochzeit">
-  <title>Marharian Production · Hochzeitsfotografie &amp; Video Hamburg</title>
-  <meta name="description" content="Marharian Production — Professionelle Hochzeitsfotografie und cinematische Videografie in Hamburg. Hochzeiten, Porträts, Events und kommerzielle Shootings." />
+  <title>Hochzeitsfotograf &amp; Videograf Hamburg – Foto + Film | Marharian</title>
+  <meta name="description" content="Hochzeitsfotografie und Hochzeitsfilm aus einer Hand – in Hamburg und deutschlandweit. Feste Pakete ohne versteckte Kosten. Jetzt freie Termine für 2027 anfragen." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hochzeitsfotograf &amp; Videograf Hamburg – Foto + Film | Marharian" />
+  <meta property="og:description" content="Hochzeitsfotografie und Hochzeitsfilm aus einer Hand – in Hamburg und deutschlandweit. Feste Pakete ohne versteckte Kosten. Jetzt freie Termine für 2027 anfragen." />
+  <meta property="og:url" content="https://marharian.com/hochzeit" />
+  <meta property="og:image" content="https://marharian.com/hochzeit/IMG_5270_YMSXoQ7P3i-web.jpeg" />
+  <meta property="og:locale" content="de_DE" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -1132,6 +1138,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       text-decoration: none;
     }
     .wedding-hero-btn:hover { background: #e63030; color: #fff; border-color: #e63030; transform: translateY(-2px); }
+    .wedding-hero-content .wedding-hero-sub { font-size: clamp(11px, 1.4vw, 13px); margin-bottom: 18px; opacity: 0.9; }
+    .wedding-hero-h1 {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: clamp(32px, 5.2vw, 60px);
+      line-height: 1.12;
+      color: #fff;
+      margin-bottom: 18px;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+    }
+    .wedding-hero-lead { font-family: var(--font-body); font-size: clamp(15px, 1.8vw, 18px); color: rgba(255,255,255,0.92); margin-bottom: 18px; }
+    .wedding-hero-rating { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-size: 14px; color: #fff; margin-bottom: 30px; text-decoration: none; }
+    .wedding-hero-rating .stars { color: #f4b400; letter-spacing: 1px; }
+    .wedding-hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .wedding-hero-btn.is-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.7); }
+    .wedding-hero-btn.is-ghost:hover { background: #25d366; border-color: #25d366; color: #fff; }
+    @media (max-width: 768px) {
+      .wedding-hero-ctas { flex-direction: column; align-items: stretch; max-width: 320px; margin: 0 auto; }
+      .wedding-hero-btn { justify-content: center; }
+      .wedding-hero-btn.is-ghost { background: transparent !important; color: #fff !important; border-color: rgba(255,255,255,0.7) !important; }
+    }
 
     /* Stats */
     .wedding-stats {
@@ -1220,6 +1247,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       line-height: 1.8;
       color: var(--gray);
       margin-bottom: 16px;
+    }
+
+    /* About duo: keep photo and text side by side without overlap on narrower desktops */
+    .wedding-about { max-width: 1200px; margin: 0 auto; padding-left: 40px; padding-right: 40px; column-gap: 48px; align-items: center; }
+    .wedding-about-img { margin-left: 0; justify-self: end; }
+    @media (max-width: 768px) {
+      .wedding-about { padding-left: 0; padding-right: 0; column-gap: 0; }
+      .wedding-about-img { justify-self: center; }
     }
 
     /* Video block */
@@ -1833,6 +1868,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-weight: 600;
     }
     .quiz-contact-detail { margin-top: 14px; }
+    .quiz-label { font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gray); margin: 0 0 8px; }
+    .quiz-choices.is-compact { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-bottom: 18px; }
+    .quiz-choices.is-compact .quiz-choice { padding: 11px 14px; font-size: 13px; text-align: center; }
+    .quiz-choices.is-compact .quiz-choice:last-child:nth-child(odd) { grid-column: auto; }
+    @media (max-width: 768px) { .quiz-choices.is-compact { grid-template-columns: 1fr 1fr; } }
+    .quiz-choices[data-group="date-unknown"] { grid-template-columns: 1fr; }
     .quiz-slider-wrap {
       display: flex;
       flex-direction: column;
@@ -2077,7 +2118,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </a>
 
   <ul class="nav-links">
-    <li><a href="/#about">Unsere Geschichte</a></li>
+    <li><a href="#about">Unsere Geschichte</a></li>
     <li><a href="/hochzeit/galerie" class="nav-glow">Galerie</a></li>
     <li><a href="#contact">Kontakt</a></li>
     <li><a href="#anfrage">Anfragen</a></li>
@@ -2109,7 +2150,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Mobile menu -->
 <div class="mob-backdrop" id="mobBackdrop"></div>
 <div class="mob-menu" id="mobMenu">
-  <a href="/#about"    class="mob-link">Unsere Geschichte</a>
+  <a href="#about"    class="mob-link">Unsere Geschichte</a>
   <a href="/hochzeit/galerie" class="mob-link nav-glow">Galerie</a>
   <a href="#faq"      class="mob-link">FAQ</a>
   <a href="#contact"  class="mob-link">Kontakt</a>
@@ -2135,13 +2176,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <video class="wh-video" id="whVideo" autoplay muted loop playsinline poster="/posters/IMG_1880_comp.jpg"></video>
       <div class="wedding-hero-content">
         <div class="wedding-hero-sub">Hochzeitsfotografie &amp; Film · Hamburg &amp; Deutschlandweit</div>
-
+        <h1 class="wedding-hero-h1">Hochzeitsfotograf &amp; Videograf in Hamburg</h1>
+        <p class="wedding-hero-lead">Foto + Film aus einer Hand · feste Pakete ohne versteckte Kosten<br><strong><span style="white-space:nowrap">Standesamt ab 400 €</span> · <span style="white-space:nowrap">Hochzeitspakete ab 1.260 €</span></strong></p>
+        <a class="wedding-hero-rating" href="https://www.google.com/maps?cid=9426574766107831663" target="_blank" rel="noopener"><span class="stars">★★★★★</span> 5,0 · 32 Google-Bewertungen</a>
+        <div class="wedding-hero-ctas">
+          <a href="#pakete" class="wedding-hero-btn">Preise &amp; freie Termine</a>
+          <a href="https://wa.me/491602741274?text=Hallo%21%20Wir%20planen%20unsere%20Hochzeit%20und%20interessieren%20uns%20f%C3%BCr%20eure%20Pakete.%20Unser%20Datum%3A%20" target="_blank" rel="noopener" class="wedding-hero-btn is-ghost">WhatsApp</a>
+        </div>
       </div>
     </div>
 
 <section id="reviews">
   <style>
     /* ── Reviews carousel ───────────────────── */
+    .rv-badge { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 8px 16px; border-radius: 999px; background: #fff; border: 1px solid var(--border); color: var(--charcoal); text-decoration: none; font-family: var(--font-body); font-size: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: box-shadow .2s; }
+    .rv-badge:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+    .rv-badge strong { font-weight: 700; }
+    .rv-badge-stars { color: #f4b400; letter-spacing: 1px; }
     .rv-viewport { overflow: hidden; touch-action: pan-y; cursor: grab; }
     .rv-viewport.rv-dragging { cursor: grabbing; }
     .rv-viewport.rv-dragging .rv-track { user-select: none; }
@@ -2219,7 +2270,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="section-header reveal center">
     <h2 class="section-heading" style="text-transform:uppercase; letter-spacing:2px;">Was unsere Kunden sagen</h2>
-    <p style="font-family:var(--font-body); font-weight:400; text-align:center; margin-top:12px; color:var(--gray);">Echte Bewertungen von Google</p>
+    <a class="rv-badge" href="https://www.google.com/maps?cid=9426574766107831663" target="_blank" rel="noopener"><svg width="16" height="16" aria-hidden="true"><use href="#google-g"/></svg><strong>5,0</strong><span class="rv-badge-stars">★★★★★</span>32 Bewertungen auf Google</a>
   </div>
 
   <div class="rv-viewport" id="rv-viewport">
@@ -2228,88 +2279,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="rv-card">
         <div class="review-card">
           <div class="review-top">
-            <div class="review-avatar" style="background:#a87e6e;">V</div>
+            <div class="review-avatar" style="background:#7b9e87;">A</div>
             <div class="review-meta">
-              <div class="review-name">Vanessa Dötter</div>
-              <div class="review-date">Vor 3 Wochen</div>
+              <div class="review-name">Anastasia H.</div>
             </div>
             <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
           </div>
           <div class="review-stars">★★★★★</div>
           <div class="review-body">
-            <p class="review-text">Absolute Profis auf ihrem Gebiet! Wir haben bei einem gemeinsamen Projekt zusammengearbeitet und ich bin restlos begeistert. Die beiden arbeiten detailorientiert, bringen fantastische kreative Ideen ein und die gesamte Zusammenarbeit lief reibungslos und professionell ab. Auch das Ergebnis hat mich beeindruckt: Das hochwertige Bild- und Videomaterial wurde sehr schnell bearbeitet und geliefert. Hinter der Kamera fühlen sie sich zu 100 % wohl, diese Leidenschaft und Professionalität spürt man in jedem Moment. Mit ihrer mitreißenden, motivierenden Art ermutigen sie die Models, schaffen eine wunderbare Wohlfühlatmosphäre am Set und sind zudem einfach super sympathisch. Verdiente 5 Sterne und eine uneingeschränkte Empfehlung!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#c9a96e;">T</div>
-            <div class="review-meta">
-              <div class="review-name">Tatjana Genrich</div>
-              <div class="review-date">Vor 3 Wochen</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Absolut begeistert! Wer auf der Suche nach einem professionellen Foto- und Videografen-Team ist, ist hier genau richtig. Die beiden arbeiten unglaublich harmonisch zusammen und ergänzen sich perfekt – man merkt sofort, dass sie ein eingespieltes Team sind. Von der ersten Minute an habe ich mich wohlgefühlt. Die Atmosphäre war entspannt, gleichzeitig wurde mit viel Leidenschaft, Kreativität und einem Auge fürs Detail gearbeitet. Das Ergebnis hat meine Erwartungen sogar übertroffen. Die Fotos und Videos wirken hochwertig, emotional und professionell – genau das, was man sich wünscht. Für mich ganz klar eines der stärksten Foto- und Videografen-Teams überhaupt. Absolute Herzensempfehlung für alle, die Wert auf Qualität, Zuverlässigkeit und außergewöhnliche Ergebnisse legen. Ich würde jederzeit wieder mit euch zusammenarbeiten. Vielen Dank für eure großartige Arbeit!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#8a6ea8;">C</div>
-            <div class="review-meta">
-              <div class="review-name">Claudia Herberger</div>
-              <div class="review-date">Vor 1 Monat</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Die beiden sind unglaublich gut und professionell! Ich habe tolle Portraits bekommen, die Filme sind super und die Zusammenarbeit ist wirklich unglaublich angenehm. Ich kann Yaroslava und Sos uneingeschränkt empfehlen. Ein tolles Team.</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#6e8aa8;">V</div>
-            <div class="review-meta">
-              <div class="review-name">Valeria Brünemann</div>
-              <div class="review-date">Vor 1 Monat</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Die Videos sind wundervoll geworden, qualitativ hochwertig, toll geschnitten. Danke!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#b08968;">L</div>
-            <div class="review-meta">
-              <div class="review-name">Ludmila Junghans</div>
-              <div class="review-date">Vor 2 Monaten</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Ich arbeite schon seit längerer Zeit mit dem Team von Marharian Production im Bereich Foto- und Videografie zusammen und bin jedes Mal aufs Neue begeistert. Die Qualität der Arbeit ist immer hervorragend. Gleichzeitig wird auf alle Wünsche eingegangen, und man fühlt sich während des gesamten Projekts bestens betreut. Besonders schätze ich die Zuverlässigkeit, die schnelle Umsetzung und die unkomplizierte Kommunikation auf Augenhöhe. Was mir außerdem sehr gefällt: Man bekommt nicht nur genau das, was man sich wünscht, sondern auch eine ehrliche und professionelle Beratung. Das Team denkt mit und bringt eigene Ideen ein, um das bestmögliche Ergebnis zu erzielen. Ich kann Marharian Production von Herzen weiterempfehlen. So wünscht man sich eine Zusammenarbeit – professionell, zuverlässig und mit viel Leidenschaft für die eigene Arbeit.</p>
+            <p class="review-text">Sos und Yaroslava haben unsere Hochzeit im Juni in einem wundervollen Video fest gehalten. Sie haben sich viel Zeit genommen und den Tag perfekt eingefangen! Bei dem Video bleiben keine Augen trocken. Zusätzlich gab es auch zwei kleine Videos, um uns die Wartezeit zu versüßen. Ich kann die beiden wirklich jedem empfehlen, der seinen besonderen Tag auf besondere Weise festhalten möchte. :)</p>
             <button class="rv-more">Mehr lesen</button>
           </div>
         </div>
@@ -2336,16 +2314,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="rv-card">
         <div class="review-card">
           <div class="review-top">
-            <div class="review-avatar" style="background:#7a8b99;">P</div>
+            <div class="review-avatar" style="background:#c9a96e;">K</div>
             <div class="review-meta">
-              <div class="review-name">Polina Voznova</div>
-              <div class="review-date">Vor 3 Monaten</div>
+              <div class="review-name">Kristin Oehlrich</div>
             </div>
             <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
           </div>
           <div class="review-stars">★★★★★</div>
           <div class="review-body">
-            <p class="review-text">Ich bin wirklich begeistert! Ich war jetzt schon mehrmals bei euch für ein Shooting und bin jedes Mal aufs Neue begeistert. Die Atmosphäre war entspannt, locker und einfach angenehm – genau so, wie man es sich wünscht. Alles wurde schnell und unkompliziert besprochen und am Ende hat einfach alles gepasst. Vielen Dank für die tolle Zusammenarbeit – ich freue mich schon auf das nächste Mal! Ich kann euch wirklich von Herzen weiterempfehlen!</p>
+            <p class="review-text">An alle da draußen, wir können euch dieses zauberhafte Team Y&amp;S nur empfehlen. Nicht nur das fabelhafte Fotos bei unserem Wedding shooting herausgekommen sind, die beiden verstehen ihr Fach, sind unfassbar flexibel, professionell, liebenswert, ideenreich und kreativ…. Eine absolute Empfehlung. Ein riesiges Dankeschön an Euch. K&amp;K</p>
             <button class="rv-more">Mehr lesen</button>
           </div>
         </div>
@@ -2354,16 +2331,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="rv-card">
         <div class="review-card">
           <div class="review-top">
-            <div class="review-avatar" style="background:#ab8b6e;">N</div>
+            <div class="review-avatar" style="background:#b08968;">I</div>
             <div class="review-meta">
-              <div class="review-name">Nasim Farshi Taghavi</div>
-              <div class="review-date">Vor 3 Monaten</div>
+              <div class="review-name">Irina Wachowski</div>
             </div>
             <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
           </div>
           <div class="review-stars">★★★★★</div>
           <div class="review-body">
-            <p class="review-text">Ich habe schon 2 Projekte mit den Zwei gemacht und bin absolut begeistert! Ich habe mich super wohl gefühlt, die Arbeit wurde sehr professionell und schnell erledigt und hat auch unheimlich Spaß gemacht! Ich plane schon für die nächsten Projekte! Herzlichen Dank für eure herzliche und professionelle Arbeit.</p>
+            <p class="review-text">Perfekte Arbeit. Richtige Profis. Jetzt haben wir ein schönes Video von der Hochzeit unserer Kinder. Wir sind begeistert. Euer Team ist sehr nett. Vielen Dank für die tolle Arbeit.</p>
             <button class="rv-more">Mehr lesen</button>
           </div>
         </div>
@@ -2372,16 +2348,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="rv-card">
         <div class="review-card">
           <div class="review-top">
-            <div class="review-avatar" style="background:#a87e6e;">O</div>
+            <div class="review-avatar" style="background:#c9a96e;">T</div>
             <div class="review-meta">
-              <div class="review-name">Othniel Kenou</div>
-              <div class="review-date">Vor 3 Monaten</div>
+              <div class="review-name">Tatjana Genrich</div>
+              <div class="review-date">Vor 3 Wochen</div>
             </div>
             <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
           </div>
           <div class="review-stars">★★★★★</div>
           <div class="review-body">
-            <p class="review-text">Super tolles Team! Die Marharian haben mich von Anfang bis Ende professionell begleitet. Die Bilder und Videos sind super geworden. Es war immer schön mit euch zu arbeiten. Danke!</p>
+            <p class="review-text">Absolut begeistert! Wer auf der Suche nach einem professionellen Foto- und Videografen-Team ist, ist hier genau richtig. Die beiden arbeiten unglaublich harmonisch zusammen und ergänzen sich perfekt – man merkt sofort, dass sie ein eingespieltes Team sind. Von der ersten Minute an habe ich mich wohlgefühlt. Die Atmosphäre war entspannt, gleichzeitig wurde mit viel Leidenschaft, Kreativität und einem Auge fürs Detail gearbeitet. Das Ergebnis hat meine Erwartungen sogar übertroffen. Die Fotos und Videos wirken hochwertig, emotional und professionell – genau das, was man sich wünscht. Für mich ganz klar eines der stärksten Foto- und Videografen-Teams überhaupt. Absolute Herzensempfehlung für alle, die Wert auf Qualität, Zuverlässigkeit und außergewöhnliche Ergebnisse legen. Ich würde jederzeit wieder mit euch zusammenarbeiten. Vielen Dank für eure großartige Arbeit!</p>
             <button class="rv-more">Mehr lesen</button>
           </div>
         </div>
@@ -2390,16 +2366,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="rv-card">
         <div class="review-card">
           <div class="review-top">
-            <div class="review-avatar" style="background:#c9a96e;">B</div>
+            <div class="review-avatar" style="background:#b08968;">L</div>
             <div class="review-meta">
-              <div class="review-name">Bogdan Rud</div>
-              <div class="review-date">Vor 4 Monaten</div>
+              <div class="review-name">Ludmila Junghans</div>
+              <div class="review-date">Vor 2 Monaten</div>
             </div>
             <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
           </div>
           <div class="review-stars">★★★★★</div>
           <div class="review-body">
-            <p class="review-text">Die beiden haben großartige Arbeit geleistet. Die Kommunikation war von Anfang an unkompliziert und sehr professionell. Während des Shootings habe ich mich die ganze Zeit wohlgefühlt – eine entspannte Atmosphäre, aber gleichzeitig sehr effizient. Die Ergebnisse sind beeindruckend: hohe Qualität, viel Liebe zum Detail und ein perfektes Gespür für Licht und Perspektive. Klare Empfehlung!</p>
+            <p class="review-text">Ich arbeite schon seit längerer Zeit mit dem Team von Marharian Production im Bereich Foto- und Videografie zusammen und bin jedes Mal aufs Neue begeistert. Die Qualität der Arbeit ist immer hervorragend. Gleichzeitig wird auf alle Wünsche eingegangen, und man fühlt sich während des gesamten Projekts bestens betreut. Besonders schätze ich die Zuverlässigkeit, die schnelle Umsetzung und die unkomplizierte Kommunikation auf Augenhöhe. Was mir außerdem sehr gefällt: Man bekommt nicht nur genau das, was man sich wünscht, sondern auch eine ehrliche und professionelle Beratung. Das Team denkt mit und bringt eigene Ideen ein, um das bestmögliche Ergebnis zu erzielen. Ich kann Marharian Production von Herzen weiterempfehlen. So wünscht man sich eine Zusammenarbeit – professionell, zuverlässig und mit viel Leidenschaft für die eigene Arbeit.</p>
             <button class="rv-more">Mehr lesen</button>
           </div>
         </div>
@@ -2426,16 +2402,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="rv-card">
         <div class="review-card">
           <div class="review-top">
-            <div class="review-avatar" style="background:#8a6ea8;">V</div>
+            <div class="review-avatar" style="background:#8a6ea8;">C</div>
             <div class="review-meta">
-              <div class="review-name">Vladimir Panchenko</div>
-              <div class="review-date">Vor 4 Monaten</div>
+              <div class="review-name">Claudia Herberger</div>
+              <div class="review-date">Vor 1 Monat</div>
             </div>
             <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
           </div>
           <div class="review-stars">★★★★★</div>
           <div class="review-body">
-            <p class="review-text">Vielen Dank an das tolle Team von Marharian Production! Es war eine echte Freude mit euch zu arbeiten. Trotz spontaner Änderungen (z. B. plötzlicher Regen) habt ihr immer kreative Lösungen gefunden und sogar noch bessere Szenen gedreht als geplant. Sehr professionell, flexibel und mit tollen Ideen zu Locations, Winkeln und Storytelling. Das Ergebnis hat mich voll überzeugt – in kurzer Zeit ein richtig starker Musikclip! Das war definitiv nicht unsere letzte Zusammenarbeit. Freue mich schon auf die nächsten Projekte! Absolute Empfehlung für alle, die hochwertige Foto- oder Videoproduktionen suchen.</p>
+            <p class="review-text">Die beiden sind unglaublich gut und professionell! Ich habe tolle Portraits bekommen, die Filme sind super und die Zusammenarbeit ist wirklich unglaublich angenehm. Ich kann Yaroslava und Sos uneingeschränkt empfehlen. Ein tolles Team.</p>
             <button class="rv-more">Mehr lesen</button>
           </div>
         </div>
@@ -2462,38 +2438,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="rv-card">
         <div class="review-card">
           <div class="review-top">
-            <div class="review-avatar" style="background:#9e7b8a;">M</div>
+            <div class="review-avatar" style="background:#c9a96e;">B</div>
             <div class="review-meta">
-              <div class="review-name">Marianna Sapon</div>
-              <div class="review-date">Vor 6 Monaten</div>
+              <div class="review-name">Bogdan Rud</div>
+              <div class="review-date">Vor 4 Monaten</div>
             </div>
             <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
           </div>
           <div class="review-stars">★★★★★</div>
           <div class="review-body">
-            <p class="review-text">Das beste Foto- und Videoteam in Hamburg! Ich hatte bereits mehrere Foto- und Videoshootings mit ihnen und das Ergebnis war jedes Mal einfach unglaublich. Ihre Vorbereitung, Professionalität und die schnelle Arbeitsweise beeindrucken mich immer wieder. Mit ihnen zu arbeiten macht einfach Spaß – sie unterstützen einen jederzeit, geben wertvolle Tipps und wissen genau, was man tun kann, damit jede Aufnahme noch besser aussieht. Ich komme immer wieder gerne zu ihnen zurück und kann sie von Herzen weiterempfehlen!</p>
+            <p class="review-text">Die beiden haben großartige Arbeit geleistet. Die Kommunikation war von Anfang an unkompliziert und sehr professionell. Während des Shootings habe ich mich die ganze Zeit wohlgefühlt – eine entspannte Atmosphäre, aber gleichzeitig sehr effizient. Die Ergebnisse sind beeindruckend: hohe Qualität, viel Liebe zum Detail und ein perfektes Gespür für Licht und Perspektive. Klare Empfehlung!</p>
             <button class="rv-more">Mehr lesen</button>
           </div>
         </div>
       </div>
 
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#7a8b99;">D</div>
-            <div class="review-meta">
-              <div class="review-name">Darina Pavlenko</div>
-              <div class="review-date">Vor 6 Monaten</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Ich hatte ein Fotoshooting am Meer und war absolut begeistert! Was mir als Erstes besonders gefallen hat, war die lockere, entspannte Atmosphäre. Während des Shootings haben sie mir geholfen, mich wohlzufühlen, mich sicher und frei zu bewegen und dabei wirklich professionelle Aufnahmen zu machen! Besonders wertvoll war für mich, dass die Fotografin mich genauso gesehen hat, wie ich mich selbst fühle und sehe – als die schönste Version meiner selbst. Das ist wirklich etwas Besonderes. Die Fotos haben nicht nur mir gefallen, sondern auch meiner ganzen Familie – und das ist für mich der beste Beweis. Vielen Dank für dieses herzliche Shooting und das großartige Ergebnis! Ich kann euch von ganzem Herzen weiterempfehlen!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
-        </div>
-      </div>
       <div class="rv-card">
         <div class="review-card">
           <div class="review-top">
@@ -2514,168 +2473,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="rv-card">
         <div class="review-card">
           <div class="review-top">
-            <div class="review-avatar" style="background:#6e8aa8;">A</div>
+            <div class="review-avatar" style="background:#9e7b8a;">M</div>
             <div class="review-meta">
-              <div class="review-name">Alexandra Bäuerle</div>
+              <div class="review-name">Marianna Sapon</div>
+              <div class="review-date">Vor 6 Monaten</div>
             </div>
             <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
           </div>
           <div class="review-stars">★★★★★</div>
           <div class="review-body">
-            <p class="review-text">Mega professionell, immer pünktlich und wahnsinnig schnell im Abliefern guter Qualität. Sehr zu empfehlen!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#8a6ea8;">B</div>
-            <div class="review-meta">
-              <div class="review-name">Bea Mayer</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Sehr professionell und auch total schnell was die Bilder angeht. Sehr sehr gute Arbeit. Kann ich nur empfehlen!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#7b9e87;">A</div>
-            <div class="review-meta">
-              <div class="review-name">Anastasia H.</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Sos und Yaroslava haben unsere Hochzeit im Juni in einem wundervollen Video fest gehalten. Sie haben sich viel Zeit genommen und den Tag perfekt eingefangen! Bei dem Video bleiben keine Augen trocken. Zusätzlich gab es auch zwei kleine Videos, um uns die Wartezeit zu versüßen. Ich kann die beiden wirklich jedem empfehlen, der seinen besonderen Tag auf besondere Weise festhalten möchte. :)</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#b08968;">I</div>
-            <div class="review-meta">
-              <div class="review-name">Irina Wachowski</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Perfekte Arbeit. Richtige Profis. Jetzt haben wir ein schönes Video von der Hochzeit unserer Kinder. Wir sind begeistert. Euer Team ist sehr nett. Vielen Dank für die tolle Arbeit.</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#c9a96e;">K</div>
-            <div class="review-meta">
-              <div class="review-name">Kristin Oehlrich</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">An alle da draußen, wir können euch dieses zauberhafte Team Y&amp;S nur empfehlen. Nicht nur das fabelhafte Fotos bei unserem Wedding shooting herausgekommen sind, die beiden verstehen ihr Fach, sind unfassbar flexibel, professionell, liebenswert, ideenreich und kreativ…. Eine absolute Empfehlung. Ein riesiges Dankeschön an Euch. K&amp;K</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#9e7b6e;">B</div>
-            <div class="review-meta">
-              <div class="review-name">Bea Riedel</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Ein super Team. Wir hatten ein Fotoshooting zusammen und die entstandenen Fotos und Videos sind einfach nur wunderschön und professionell. Vielen Dank euch!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#6ea87b;">Ю</div>
-            <div class="review-meta">
-              <div class="review-name">Юлия Мохаммад</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Талантливые и очень приятные ребята. Спасибо за работу и внимательное отношение!</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#8f9779;">S</div>
-            <div class="review-meta">
-              <div class="review-name">Svitlana Benyuk</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Ich hatte das Vergnügen, gemeinsam mit euch an einem wirklich großartigen Projekt zu arbeiten. Dabei sind unglaublich schöne Fotos und Videos entstanden – professionell, kreativ und mit viel Liebe zum Detail. Außerdem hatte ich die Möglichkeit, ein individuelles Fotoshooting mit euch zu machen. Die Ergebnisse haben meine Erwartungen übertroffen – die Fotos sind wunderschön geworden! Ich bin rundum zufrieden mit eurer Arbeit und kann euch von Herzen weiterempfehlen. Vielen Dank für die tolle Zusammenarbeit!💞</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#a89e6e;">М</div>
-            <div class="review-meta">
-              <div class="review-name">Максим Алиев</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Ich bin sehr zufrieden mit der Zusammenarbeit mit den Jungs. Es war super entspannt und unkompliziert, als würden wir nicht zum ersten Mal zusammenarbeiten. Und was für ein geiles Video dabei entstanden ist 🤯</p>
-            <button class="rv-more">Mehr lesen</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar" style="background:#7b9e87;">N</div>
-            <div class="review-meta">
-              <div class="review-name">Nadine Müller</div>
-            </div>
-            <svg class="rv-google-icon" width="18" height="18" aria-hidden="true"><use href="#google-g"/></svg>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <div class="review-body">
-            <p class="review-text">Guten Morgen 🦋 Marharian Produktion ist einer der besten Entscheidungen dich ich für mich gemacht habe. Das Team ist super lieb und sehr professionell in ihrem Handwerk. Ich habe mich wohl gefühlt. Es sind tolle Bilder entstanden. Eine Wiederholung gibt es auf jeden Fall VG</p>
+            <p class="review-text">Das beste Foto- und Videoteam in Hamburg! Ich hatte bereits mehrere Foto- und Videoshootings mit ihnen und das Ergebnis war jedes Mal einfach unglaublich. Ihre Vorbereitung, Professionalität und die schnelle Arbeitsweise beeindrucken mich immer wieder. Mit ihnen zu arbeiten macht einfach Spaß – sie unterstützen einen jederzeit, geben wertvolle Tipps und wissen genau, was man tun kann, damit jede Aufnahme noch besser aussieht. Ich komme immer wieder gerne zu ihnen zurück und kann sie von Herzen weiterempfehlen!</p>
             <button class="rv-more">Mehr lesen</button>
           </div>
         </div>
@@ -2864,6 +2671,213 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   })();
   </script>
 </section>
+
+
+<style>
+  #pakete { --olive: #a9b593; --olive-dark: #6f7b56; background: #f5f0eb; padding: 90px 24px; }
+  .pk-inner { max-width: 1120px; margin: 0 auto; }
+  .pk-head { text-align: center; margin-bottom: 32px; }
+  .pk-head h2 { font-family: var(--font-heading); font-weight: 400; font-size: clamp(2rem, 3.8vw, 3.2rem); text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; color: var(--charcoal); }
+  .pk-sub { color: var(--gray); margin-top: 12px; font-size: 16px; }
+  .pk-tabs { display: flex; gap: 4px; background: #fff; border-radius: 999px; padding: 5px; width: fit-content; margin: 0 auto 40px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .pk-tab { border: 0; background: transparent; padding: 12px 22px; border-radius: 999px; font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--charcoal); cursor: pointer; transition: background .2s, color .2s; white-space: nowrap; }
+  .pk-tab.is-active { background: var(--charcoal); color: #fff; }
+  .pk-tab-badge { font-size: 10px; background: var(--gold); color: var(--charcoal); border-radius: 999px; padding: 2px 7px; margin-left: 6px; text-transform: uppercase; letter-spacing: .08em; vertical-align: 1px; }
+  .pk-panel { display: none; }
+  .pk-panel.is-active { display: block; }
+  .pk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+  .pk-card { background: #fff; border-radius: 6px; padding: 34px 28px 28px; display: flex; flex-direction: column; box-shadow: 0 4px 24px rgba(0,0,0,0.06); position: relative; border: 1.5px solid transparent; text-align: center; }
+  .pk-card.is-featured { border-color: var(--gold); box-shadow: 0 10px 40px rgba(201,169,110,0.25); }
+  .pk-flag { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--charcoal); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; white-space: nowrap; }
+  .pk-name { font-family: var(--font-heading); font-size: 24px; color: var(--charcoal); }
+  .pk-hours { color: var(--gray); font-size: 14px; margin-top: 4px; }
+  .pk-price { font-family: var(--font-heading); font-size: 42px; margin: 16px 0 6px; color: var(--charcoal); line-height: 1.1; }
+  .pk-save { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-top: 6px; }
+  .pk-save strong { background: var(--olive); color: var(--charcoal); font-size: 16px; font-weight: 700; padding: 7px 18px; border-radius: 999px; letter-spacing: .02em; }
+  .pk-save span { font-size: 12px; color: var(--gray); }
+  .pk-list { list-style: none; margin: 22px 0 24px; padding: 0; flex: 1; text-align: left; }
+  .pk-list li { padding: 9px 0 9px 26px; position: relative; font-size: 15px; color: #4a4744; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .pk-list li::before { content: '✓'; position: absolute; left: 2px; color: var(--olive-dark); font-weight: 700; }
+  .pk-list li.pk-muted { color: var(--gray); font-size: 13px; }
+  .pk-list li.pk-muted::before { content: '+'; }
+  .pk-cta { display: block; width: 100%; padding: 15px; border-radius: 6px; border: 1.5px solid var(--charcoal); color: var(--charcoal); background: transparent; font-family: var(--font-body); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; font-size: 13px; cursor: pointer; transition: all .2s; }
+  .pk-cta:hover, .pk-card.is-featured .pk-cta { background: var(--charcoal); color: #fff; }
+  .pk-mini { margin-top: 24px; background: #fff; border-radius: 6px; padding: 18px 24px; display: flex; justify-content: space-between; align-items: center; gap: 12px 20px; flex-wrap: wrap; font-size: 15px; color: #4a4744; }
+  .pk-mini-price { font-family: var(--font-heading); font-size: 24px; color: var(--charcoal); margin-left: auto; }
+  .pk-mini .pk-cta { width: auto; padding: 11px 22px; }
+  .pk-extras { margin-top: 16px; padding: 20px 24px; border: 1px dashed rgba(0,0,0,0.18); border-radius: 6px; font-size: 14px; color: #4a4744; line-height: 1.7; }
+  .pk-extras p + p { margin-top: 8px; }
+  .pk-extras strong { color: var(--charcoal); }
+  .pk-note { text-align: center; color: var(--gray); font-size: 13px; margin-top: 18px; }
+  @media (max-width: 900px) {
+    .pk-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; gap: 28px; }
+    .pk-mini, .pk-extras, .pk-note { max-width: 440px; margin-left: auto; margin-right: auto; }
+  }
+  @media (max-width: 600px) {
+    #pakete { padding: 64px 16px; }
+    .pk-tabs { width: 100%; justify-content: space-between; }
+    .pk-tab { padding: 10px 12px; font-size: 13px; flex: 1; }
+    .pk-tab-badge { display: none; }
+    .pk-mini-price { margin-left: 0; }
+  }
+</style>
+    <!-- Pakete -->
+    <section id="pakete">
+      <div class="pk-inner">
+        <div class="pk-head">
+          <h2>Pakete &amp; Preise</h2>
+          <p class="pk-sub">Wählt, was ihr braucht — alle Details klären wir gemeinsam im Kennenlern-Call.</p>
+        </div>
+        <div class="pk-tabs" role="tablist">
+          <button class="pk-tab is-active" role="tab" aria-selected="true" data-tab="combo">Foto + Film<span class="pk-tab-badge">Beliebt</span></button>
+          <button class="pk-tab" role="tab" aria-selected="false" data-tab="foto">Nur Foto</button>
+          <button class="pk-tab" role="tab" aria-selected="false" data-tab="film">Nur Film</button>
+        </div>
+        <div class="pk-panel is-active" data-tab="combo" role="tabpanel">
+          <div class="pk-grid">
+            <div class="pk-card">
+              <div class="pk-name">Essential</div>
+              <div class="pk-hours">6 Stunden Begleitung</div>
+              <div class="pk-price">2.400 €</div>
+              <div class="pk-save"><strong>Ihr spart 360 €</strong><span>gegenüber Einzelbuchung</span></div>
+              <ul class="pk-list"><li>ca. 250 bearbeitete Fotos</li><li>Private Online-Galerie</li><li>Hochzeitsfilm bis 10 Min.</li><li>Highlight-Film 1 Min. + Love-Story-Clip 20 Sek.</li><li>Drohnenaufnahmen*</li><li>Anfahrt in Hamburg inklusive</li><li class="pk-muted">Langer Film (20–30 Min.) dazubuchbar</li></ul>
+              <button type="button" class="pk-cta" data-service="combo" data-package="essential">Paket anfragen</button>
+            </div>
+            <div class="pk-card is-featured">
+              <span class="pk-flag">Empfohlen</span>
+              <div class="pk-name">Classic</div>
+              <div class="pk-hours">8 Stunden Begleitung</div>
+              <div class="pk-price">3.000 €</div>
+              <div class="pk-save"><strong>Ihr spart 460 €</strong><span>gegenüber Einzelbuchung</span></div>
+              <ul class="pk-list"><li>ca. 350 bearbeitete Fotos</li><li>Private Online-Galerie</li><li>Hochzeitsfilm bis 10 Min.</li><li>Highlight-Film 1 Min. + Love-Story-Clip 20 Sek.</li><li>Drohnenaufnahmen*</li><li>Anfahrt in Hamburg inklusive</li><li class="pk-muted">Langer Film (20–30 Min.) dazubuchbar</li></ul>
+              <button type="button" class="pk-cta" data-service="combo" data-package="classic">Paket anfragen</button>
+            </div>
+            <div class="pk-card">
+              <div class="pk-name">Premium</div>
+              <div class="pk-hours">10 Stunden Begleitung</div>
+              <div class="pk-price">3.600 €</div>
+              <div class="pk-save"><strong>Ihr spart 550 €</strong><span>gegenüber Einzelbuchung</span></div>
+              <ul class="pk-list"><li>ca. 400 bearbeitete Fotos</li><li>Private Online-Galerie</li><li>Hochzeitsfilm bis 10 Min.</li><li>Highlight-Film 1 Min. + Love-Story-Clip 20 Sek.</li><li>Drohnenaufnahmen*</li><li>Anfahrt in Hamburg inklusive</li><li class="pk-muted">Langer Film (20–30 Min.) dazubuchbar</li></ul>
+              <button type="button" class="pk-cta" data-service="combo" data-package="premium">Paket anfragen</button>
+            </div>
+          </div>
+          <div class="pk-mini">
+            <span><strong>Nur Standesamt?</strong> 2 Stunden Fotos + Love-Story-Clip (20 Sek.)</span>
+            <span class="pk-mini-price">600 €</span>
+            <button type="button" class="pk-cta" data-service="combo" data-package="standesamt">Anfragen</button>
+          </div>
+        </div>
+        <div class="pk-panel" data-tab="foto" role="tabpanel">
+          <div class="pk-grid">
+            <div class="pk-card">
+              <div class="pk-name">Essential</div>
+              <div class="pk-hours">6 Stunden Begleitung</div>
+              <div class="pk-price">1.260 €</div>
+              <ul class="pk-list"><li>ca. 250 bearbeitete Fotos</li><li>Private Online-Galerie</li><li>Drohnenaufnahmen*</li><li>Anfahrt in Hamburg inklusive</li></ul>
+              <button type="button" class="pk-cta" data-service="foto" data-package="essential">Paket anfragen</button>
+            </div>
+            <div class="pk-card is-featured">
+              <span class="pk-flag">Empfohlen</span>
+              <div class="pk-name">Classic</div>
+              <div class="pk-hours">8 Stunden Begleitung</div>
+              <div class="pk-price">1.560 €</div>
+              <ul class="pk-list"><li>ca. 350 bearbeitete Fotos</li><li>Private Online-Galerie</li><li>Drohnenaufnahmen*</li><li>Anfahrt in Hamburg inklusive</li></ul>
+              <button type="button" class="pk-cta" data-service="foto" data-package="classic">Paket anfragen</button>
+            </div>
+            <div class="pk-card">
+              <div class="pk-name">Premium</div>
+              <div class="pk-hours">10 Stunden Begleitung</div>
+              <div class="pk-price">1.850 €</div>
+              <ul class="pk-list"><li>ca. 400 bearbeitete Fotos</li><li>Private Online-Galerie</li><li>Drohnenaufnahmen*</li><li>Anfahrt in Hamburg inklusive</li></ul>
+              <button type="button" class="pk-cta" data-service="foto" data-package="premium">Paket anfragen</button>
+            </div>
+          </div>
+          <div class="pk-mini">
+            <span><strong>Nur Standesamt?</strong> 2 Stunden Fotobegleitung</span>
+            <span class="pk-mini-price">400 €</span>
+            <button type="button" class="pk-cta" data-service="foto" data-package="standesamt">Anfragen</button>
+          </div>
+        </div>
+        <div class="pk-panel" data-tab="film" role="tabpanel">
+          <div class="pk-grid">
+            <div class="pk-card">
+              <div class="pk-name">Essential</div>
+              <div class="pk-hours">6 Stunden Begleitung</div>
+              <div class="pk-price">1.500 €</div>
+              <ul class="pk-list"><li>Hochzeitsfilm bis 10 Min.</li><li>Highlight-Film 1 Min. + Love-Story-Clip 20 Sek.</li><li>Drohnenaufnahmen*</li><li>Anfahrt in Hamburg inklusive</li><li class="pk-muted">Langer Film (20–30 Min.) dazubuchbar</li></ul>
+              <button type="button" class="pk-cta" data-service="film" data-package="essential">Paket anfragen</button>
+            </div>
+            <div class="pk-card is-featured">
+              <span class="pk-flag">Empfohlen</span>
+              <div class="pk-name">Classic</div>
+              <div class="pk-hours">8 Stunden Begleitung</div>
+              <div class="pk-price">1.900 €</div>
+              <ul class="pk-list"><li>Hochzeitsfilm bis 10 Min.</li><li>Highlight-Film 1 Min. + Love-Story-Clip 20 Sek.</li><li>Drohnenaufnahmen*</li><li>Anfahrt in Hamburg inklusive</li><li class="pk-muted">Langer Film (20–30 Min.) dazubuchbar</li></ul>
+              <button type="button" class="pk-cta" data-service="film" data-package="classic">Paket anfragen</button>
+            </div>
+            <div class="pk-card">
+              <div class="pk-name">Premium</div>
+              <div class="pk-hours">10 Stunden Begleitung</div>
+              <div class="pk-price">2.300 €</div>
+              <ul class="pk-list"><li>Hochzeitsfilm bis 10 Min.</li><li>Highlight-Film 1 Min. + Love-Story-Clip 20 Sek.</li><li>Drohnenaufnahmen*</li><li>Anfahrt in Hamburg inklusive</li><li class="pk-muted">Langer Film (20–30 Min.) dazubuchbar</li></ul>
+              <button type="button" class="pk-cta" data-service="film" data-package="premium">Paket anfragen</button>
+            </div>
+          </div>
+          <div class="pk-mini">
+            <span><strong>Nur Standesamt?</strong> 2 Stunden Film (Highlight + Love Story)</span>
+            <span class="pk-mini-price">600 €</span>
+            <button type="button" class="pk-cta" data-service="film" data-package="standesamt">Anfragen</button>
+          </div>
+        </div>
+        <div class="pk-extras">
+          <p><strong>Langer Hochzeitsfilm (20–30 Min.)</strong> — zu jedem Paket ab 400 €. Bitte vorab mitbuchen: Wir planen den Drehtag dann von Anfang an dafür.</p>
+          <p><strong>Zusatzstunde:</strong> Foto 200 € · Film 250 € · Foto + Film 400 €</p>
+          <p><strong>Ohne Paket:</strong> Foto 300 € · Film 400 € pro Stunde</p>
+        </div>
+        <p class="pk-note">* Drohnenaufnahmen in allen Paketen inklusive, wenn das Wetter mitspielt und an der Location geflogen werden darf.<br>Anfahrt außerhalb Hamburgs nach Absprache · Alle Preise inkl. MwSt. · Festpreis-Garantie</p>
+      </div>
+    </section>
+
+<script>
+  (function(){
+    var tabs = document.querySelectorAll('.pk-tab');
+    var panels = document.querySelectorAll('.pk-panel');
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        tabs.forEach(function(t){ var on = t === tab; t.classList.toggle('is-active', on); t.setAttribute('aria-selected', on ? 'true' : 'false'); });
+        panels.forEach(function(p){ p.classList.toggle('is-active', p.dataset.tab === tab.dataset.tab); });
+      });
+    });
+    document.querySelectorAll('#pakete [data-service]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'package_cta_click', package_service: btn.dataset.service, package_name: btn.dataset.package });
+        if (window.quizPrefill) window.quizPrefill(btn.dataset.service, btn.dataset.package);
+        var target = document.getElementById('wedding-request');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  })();
+</script>
+
+    <!-- About -->
+    <div class="wedding-about" id="about">
+      <div class="wedding-about-img">
+        <div class="wedding-about-photo" id="wedding-about-slideshow">
+          <img src="/R6M20675.jpg" alt="Sos &amp; Yaroslava Marharian" loading="lazy" style="opacity:1;">
+          <img src="/R6M20679.jpg" alt="Sos &amp; Yaroslava Marharian" loading="lazy" style="opacity:0;">
+          <img src="/IMG_9775.JPG" alt="Sos &amp; Yaroslava Marharian" loading="lazy" style="opacity:0;">
+        </div>
+      </div>
+      <div class="wedding-about-text">
+        <div class="wedding-about-script">Wir sind</div>
+        <h2>Sos &amp; Yaroslava</h2>
+        <p>Wir könnten mit Zahlen beginnen — über 50 Hochzeiten, professionelle Ausrüstung, Jahre hinter der Kamera. Doch worauf es an eurem Tag wirklich ankommt, ist etwas anderes: das Gespür für den Moment.</p>
+        <p>Als eingespieltes Team zu zweit fotografieren und filmen wir eure Hochzeit aus einer Hand — ruhig, ohne Inszenierung, mit Blick für echte Emotionen. Ob Boho, klassisch oder etwas ganz Eigenes: Wir richten uns nach euch, nicht nach einer Vorlage.</p>
+        <p>Basis Hamburg — wir begleiten Hochzeiten in ganz Deutschland und darüber hinaus.</p>
+        <div><a href="#anfrage" class="btn btn-gold" style="margin-top:8px;">Freie Termine anfragen</a></div>
+      </div>
+    </div>
 
     <!-- Portfolio -->
     <div class="wedding-portfolio" id="portfolio">
@@ -3063,7 +3077,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="how-we-work-item">
               <h4>2. ANGEBOT &amp; BUCHUNG</h4>
-              <p>Wenn das Gefühl auf beiden Seiten stimmt, stellen wir euch ein individuelles Angebot zusammen. Mit unterschriebenem Vertrag und einer kleinen Anzahlung ist euer Termin fest in unserem Kalender — der Rest wird erst nach der Hochzeit fällig.</p>
+              <p>Wenn das Gefühl auf beiden Seiten stimmt, stellen wir euch ein individuelles Angebot zusammen. Mit unterschriebenem Vertrag und einer Anzahlung von 30 % ist euer Termin fest in unserem Kalender — der Rest wird erst nach der Hochzeit fällig.</p>
             </div>
             <div class="how-we-work-item">
               <h4>3. VORBEREITUNG</h4>
@@ -3094,6 +3108,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="wedding-faq-header">
           <span class="eyebrow">FAQ</span>
           <h2>Alles, was ihr wissen müsst</h2>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Was kostet eine Hochzeitsbegleitung bei euch?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">Standesamt (2 Stunden) gibt es ab 400 €, Hochzeitspakete ab 1.260 € für Fotos und ab 2.400 € für Foto + Film. Alle Pakete mit Festpreisen findet ihr oben unter <a href="#pakete">Pakete &amp; Preise</a>.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Können wir einen längeren Hochzeitsfilm bekommen?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">Ja — ein langer Film (20–30 Min.) lässt sich zu jedem Paket ab 400 € dazubuchen. Wichtig: Bitte bucht ihn vor der Hochzeit mit, denn wir planen den Drehtag dann von Anfang an dafür. Nachträglich ist das leider nicht möglich.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Was passiert, wenn die Feier länger dauert?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">Kein Problem — wir bleiben gern länger. Jede Zusatzstunde kostet 200 € (Foto), 250 € (Film) oder 400 € (Foto + Film).</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Wie hoch ist die Anzahlung?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">30 % bei der Buchung — damit ist euer Termin fest für euch reserviert. Der Rest wird erst nach der Hochzeit fällig.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Gibt es Drohnenaufnahmen?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">Ja, Drohnenaufnahmen sind in allen Paketen inklusive — sofern das Wetter mitspielt und an eurer Location geflogen werden darf.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Wann bekommen wir unsere Fotos?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">Eure private Online-Galerie bekommt ihr innerhalb von 4–6 Wochen. Beim Film gibt es eine Feedback-Runde, bis der Schnitt genau so ist, wie ihr ihn euch vorgestellt habt.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
@@ -3136,71 +3192,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="wedding-request-bg"></div>
       <div class="wedding-request-overlay"></div>
       <div class="wedding-request-inner">
-        <h2>Preisanfrage</h2>
-        <p class="wedding-request-subtitle">Festpreis-Garantie — was wir vereinbaren, gilt. Keine versteckten Kosten. Beantwortet ein paar kurze Fragen, wir melden uns innerhalb eines Tages bei euch.</p>
+        <h2>Freie Termine anfragen</h2>
+        <p class="wedding-request-subtitle">Festpreis-Garantie — was wir vereinbaren, gilt. Drei kurze Fragen, und wir melden uns innerhalb eines Tages mit eurer Verfügbarkeit.</p>
 
         <div class="quiz-card">
 
-          <!-- Schritt 1: Datum -->
+          <!-- 1: Datum -->
           <div class="quiz-step active" data-step="1">
-            <h3 class="quiz-question">Wann findet eure Hochzeit statt?</h3>
+            <h3 class="quiz-question">Wann heiratet ihr?</h3>
             <input type="text" class="quiz-date-input" id="quiz-date" placeholder="TT.MM.JJJJ" readonly>
+            <div class="quiz-choices is-compact" data-group="date-unknown"><button type="button" class="quiz-choice" data-value="Noch offen">Datum steht noch nicht fest</button></div>
           </div>
 
-          <!-- Schritt 2: Ort -->
+          <!-- 2: Leistung + Paket -->
           <div class="quiz-step" data-step="2">
-            <h3 class="quiz-question">Wo findet eure Hochzeit statt?</h3>
-            <input type="text" class="quiz-input" id="quiz-city-input" placeholder="Name der Stadt *">
+            <h3 class="quiz-question">Was wünscht ihr euch?</h3>
+            <p class="quiz-label">Leistung</p>
+            <div class="quiz-choices is-compact" data-group="service"><button type="button" class="quiz-choice" data-value="Foto + Film" data-key="combo">Foto + Film</button><button type="button" class="quiz-choice" data-value="Nur Foto" data-key="foto">Nur Foto</button><button type="button" class="quiz-choice" data-value="Nur Film" data-key="film">Nur Film</button></div>
+            <p class="quiz-label">Paket</p>
+            <div class="quiz-choices is-compact" data-group="package"><button type="button" class="quiz-choice" data-value="Essential (6 Std.)" data-key="essential">Essential (6 Std.)</button><button type="button" class="quiz-choice" data-value="Classic (8 Std.)" data-key="classic">Classic (8 Std.)</button><button type="button" class="quiz-choice" data-value="Premium (10 Std.)" data-key="premium">Premium (10 Std.)</button><button type="button" class="quiz-choice" data-value="Nur Standesamt (2 Std.)" data-key="standesamt">Nur Standesamt (2 Std.)</button><button type="button" class="quiz-choice" data-value="Noch unsicher" data-key="unsure">Noch unsicher</button></div>
+            <div id="quiz-longfilm-wrap" style="display:none;">
+              <p class="quiz-label">Langer Hochzeitsfilm (20–30 Min.) dazu?</p>
+              <div class="quiz-choices is-compact" data-group="longfilm"><button type="button" class="quiz-choice" data-value="Ja">Ja</button><button type="button" class="quiz-choice" data-value="Vielleicht">Vielleicht</button><button type="button" class="quiz-choice" data-value="Nein">Nein</button></div>
+            </div>
           </div>
 
-          <!-- Schritt 3: Leistungen -->
+          <!-- 3: Kontakt -->
           <div class="quiz-step" data-step="3">
-            <h3 class="quiz-question">Welche Leistungen interessieren euch?</h3>
-            <div class="quiz-choices">
-              <button class="quiz-choice" data-value="Nur Fotografie">Nur Fotografie</button>
-              <button class="quiz-choice" data-value="Nur Film">Nur Film</button>
-              <button class="quiz-choice" data-value="Foto + Film">Foto + Film</button>
-            </div>
-          </div>
-
-          <!-- Schritt 4: Stunden -->
-          <div class="quiz-step" data-step="4">
-            <h3 class="quiz-question">Wie viele Stunden sollen wir euch begleiten?</h3>
-            <div class="quiz-slider-wrap">
-              <input type="range" class="quiz-slider" id="quiz-hours" min="2" max="16" value="6">
-              <div class="quiz-slider-display">
-                <span class="quiz-hours-val">6</span>
-                <span class="quiz-hours-label">Stunden</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Schritt 5: Kontaktmethode -->
-          <div class="quiz-step" data-step="5">
-            <h3 class="quiz-question">Wie erreichen wir euch am besten?</h3>
-            <div class="quiz-choices">
-              <button class="quiz-choice" data-value="Anruf">Anruf</button>
-              <button class="quiz-choice" data-value="E-Mail">E-Mail</button>
-              <button class="quiz-choice" data-value="WhatsApp">WhatsApp</button>
-            </div>
-            <input type="email" class="quiz-input quiz-contact-detail" id="quiz-contact-email" placeholder="E-Mail *" style="display:none;">
-            <input type="tel" class="quiz-input quiz-contact-detail" id="quiz-contact-phone" placeholder="Telefonnummer *" style="display:none;" pattern="[0-9+\s\-()]{6,20}">
-          </div>
-
-          <!-- Schritt 6: Kontakt -->
-          <div class="quiz-step" data-step="6">
-            <h3 class="quiz-question">Fast geschafft!<span class="quiz-optional-badge">Optional</span></h3>
+            <h3 class="quiz-question">Wohin dürfen wir euch antworten?</h3>
             <form class="quiz-contact-form" id="quiz-contact-form" onsubmit="return false;">
-              <input type="text" name="names" placeholder="Eure Namen" class="quiz-input">
-              <input type="text" name="heard" placeholder="Wie habt ihr von uns erfahren?" class="quiz-input">
-              <input type="text" name="instagram" placeholder="Instagram" class="quiz-input">
-              <textarea name="comment" placeholder="Möchtet ihr uns noch etwas erzählen?" class="quiz-textarea" rows="3"></textarea>
+              <input type="text" name="names" placeholder="Eure Namen *" class="quiz-input" autocomplete="name">
+              <div class="quiz-choices is-compact" data-group="contact"><button type="button" class="quiz-choice" data-value="WhatsApp">WhatsApp</button><button type="button" class="quiz-choice" data-value="E-Mail">E-Mail</button><button type="button" class="quiz-choice" data-value="Anruf">Anruf</button></div>
+              <input type="email" class="quiz-input quiz-contact-detail" id="quiz-contact-email" placeholder="E-Mail *" style="display:none;" autocomplete="email">
+              <input type="tel" class="quiz-input quiz-contact-detail" id="quiz-contact-phone" placeholder="Telefonnummer *" style="display:none;" pattern="[0-9+\s\-()]{6,20}" autocomplete="tel">
+              <input type="text" name="city" id="quiz-city-input" placeholder="Ort der Hochzeit (optional)" class="quiz-input">
+              <textarea name="comment" placeholder="Möchtet ihr uns noch etwas erzählen? (optional)" class="quiz-textarea" rows="2"></textarea>
               <label class="quiz-checkbox-label quiz-consent">
                 <input type="checkbox" id="quiz-consent" required>
                 <span>Ich stimme der <a href="/datenschutz">Datenverarbeitung</a> zu</span>
               </label>
             </form>
           </div>
+
 
           <!-- Fortschritt + Navigation -->
           <div class="quiz-footer">
@@ -3229,7 +3262,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     // ── Quiz ──────────────────────────────────────────────────────────────────
-    var quizState = { step: 1, date: '', city: '', services: '', hours: 6, contactMethod: '' };
+    var quizState = { step: 1, date: '', service: '', serviceKey: '', pkg: '', longfilm: '', contactMethod: '' };
+    var QUIZ_STEPS = 3;
     var europeanCountries = ['DE','AT','CH','FR','IT','ES','NL','BE','PL',
       'GB','IE','DK','SE','NO','FI','PT','GR','CZ','HU','RO','BG','HR',
       'SI','SK','LT','LV','EE','LU','MT','CY','IS','LI'];
@@ -3245,13 +3279,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.querySelectorAll('.quiz-step').forEach(function(el) {
         el.classList.toggle('active', parseInt(el.dataset.step) === step);
       });
-      var pcts = [17, 33, 50, 67, 83, 100];
-      document.querySelector('.quiz-progress-pct').textContent = pcts[step - 1] + '%';
-      document.querySelector('.quiz-progress-fill').style.width = pcts[step - 1] + '%';
+      var pct = Math.round(step / QUIZ_STEPS * 100);
+      document.querySelector('.quiz-progress-pct').textContent = pct + '%';
+      document.querySelector('.quiz-progress-fill').style.width = pct + '%';
       document.getElementById('quiz-back').classList.toggle('hidden', step === 1);
-      var nextBtn = document.getElementById('quiz-next');
-      nextBtn.textContent = step === 6 ? 'ANGEBOT ANFRAGEN' : 'Weiter →';
+      document.getElementById('quiz-next').textContent = step === QUIZ_STEPS ? 'TERMIN ANFRAGEN' : 'Weiter →';
       quizValidateStep();
+    }
+
+    function quizContactOk() {
+      if (quizState.contactMethod === 'E-Mail') {
+        var email = document.getElementById('quiz-contact-email').value.trim();
+        return email !== '' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+      if (quizState.contactMethod === 'WhatsApp' || quizState.contactMethod === 'Anruf') {
+        return quizPhoneOk(document.getElementById('quiz-contact-phone').value.trim());
+      }
+      return false;
     }
 
     function quizValidateStep() {
@@ -3260,33 +3304,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (step === 1) {
         valid = quizState.date !== '';
       } else if (step === 2) {
-        valid = document.getElementById('quiz-city-input').value.trim() !== '';
+        valid = quizState.service !== '';
       } else if (step === 3) {
-        valid = quizState.services !== '';
-      } else if (step === 4) {
-        valid = true;
-      } else if (step === 5) {
-        if (quizState.contactMethod === 'E-Mail') {
-          var email = document.getElementById('quiz-contact-email').value.trim();
-          valid = email !== '' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        } else if (quizState.contactMethod === 'Anruf' || quizState.contactMethod === 'WhatsApp') {
-          valid = quizPhoneOk(document.getElementById('quiz-contact-phone').value.trim());
-        } else {
-          valid = false;
-        }
-      } else if (step === 6) {
-        valid = document.getElementById('quiz-consent').checked;
+        var names = document.querySelector('#quiz-contact-form [name="names"]').value.trim();
+        valid = names !== '' && quizContactOk() && document.getElementById('quiz-consent').checked;
       }
       document.getElementById('quiz-next').disabled = !valid;
     }
 
     function quizNext() {
-      var step = quizState.step;
-      if (step === 4) {
-        quizState.hours = document.getElementById('quiz-hours').value;
-      }
-      if (step < 6) {
-        quizState.step = step + 1;
+      if (quizState.step < QUIZ_STEPS) {
+        quizState.step = quizState.step + 1;
         quizUpdateUI();
       } else {
         quizSubmit();
@@ -3298,6 +3326,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         quizState.step = quizState.step - 1;
         quizUpdateUI();
       }
+    }
+
+    function quizSelect(group, btn) {
+      var wrap = document.querySelector('.quiz-choices[data-group="' + group + '"]');
+      if (!wrap) return;
+      wrap.querySelectorAll('.quiz-choice').forEach(function(b) { b.classList.toggle('selected', b === btn); });
+    }
+
+    function quizSetService(btn) {
+      quizSelect('service', btn);
+      quizState.service = btn.dataset.value;
+      quizState.serviceKey = btn.dataset.key;
+      var hasFilm = btn.dataset.key !== 'foto';
+      document.getElementById('quiz-longfilm-wrap').style.display = hasFilm ? 'block' : 'none';
+      if (!hasFilm) { quizState.longfilm = ''; quizSelect('longfilm', null); }
+    }
+
+    /* Called by the "Paket anfragen" buttons in #pakete */
+    window.quizPrefill = function(serviceKey, packageKey) {
+      var s = document.querySelector('.quiz-choices[data-group="service"] [data-key="' + serviceKey + '"]');
+      var p = document.querySelector('.quiz-choices[data-group="package"] [data-key="' + packageKey + '"]');
+      if (s) quizSetService(s);
+      if (p) { quizSelect('package', p); quizState.pkg = p.dataset.value; }
+      quizValidateStep();
+    };
+
+    /* Remember where the visitor came from (ads click ids, utm tags, referrer) */
+    (function() {
+      try {
+        var q = new URLSearchParams(window.location.search);
+        var parts = [];
+        if (q.get('gclid') || q.get('gbraid') || q.get('wbraid')) parts.push('Google Ads');
+        if (q.get('fbclid')) parts.push('Facebook/Instagram');
+        ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function(k) { if (q.get(k)) parts.push(k + '=' + q.get(k)); });
+        if (!parts.length && document.referrer && document.referrer.indexOf(location.hostname) === -1) parts.push(document.referrer);
+        if (parts.length && !sessionStorage.getItem('mp_source')) sessionStorage.setItem('mp_source', parts.join(', '));
+      } catch (e) {}
+    })();
+    function quizSource() {
+      try { return sessionStorage.getItem('mp_source') || '—'; } catch (e) { return '—'; }
     }
 
     function quizGetCookie(name) {
@@ -3385,30 +3453,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     function quizSubmit() {
       var form = document.getElementById('quiz-contact-form');
       var names = form.querySelector('[name="names"]').value.trim();
-      var heard = form.querySelector('[name="heard"]').value.trim();
-      var instagram = form.querySelector('[name="instagram"]').value.trim();
       var comment = form.querySelector('[name="comment"]').value.trim();
-      var email = quizState.contactMethod === 'E-Mail' ? document.getElementById('quiz-contact-email').value.trim() : '';
-      var phone = (quizState.contactMethod === 'Anruf' || quizState.contactMethod === 'WhatsApp') ? document.getElementById('quiz-contact-phone').value.trim() : '';
-      var dateStr = quizState.date || 'Nicht angegeben';
       var cityStr = document.getElementById('quiz-city-input').value.trim();
-      var message = 'Hochzeitsdatum: ' + dateStr + '\n'
+      var email = quizState.contactMethod === 'E-Mail' ? document.getElementById('quiz-contact-email').value.trim() : '';
+      var phone = (quizState.contactMethod === 'WhatsApp' || quizState.contactMethod === 'Anruf') ? document.getElementById('quiz-contact-phone').value.trim() : '';
+      var message = 'Hochzeitsdatum: ' + (quizState.date || '—') + '\n'
+        + 'Leistung: ' + (quizState.service || '—') + '\n'
+        + 'Paket: ' + (quizState.pkg || '—') + '\n'
+        + 'Langer Film: ' + (quizState.longfilm || '—') + '\n'
         + 'Ort: ' + (cityStr || '—') + '\n'
-        + 'Leistungen: ' + (quizState.services || '—') + '\n'
-        + 'Stunden: ' + quizState.hours + '\n'
         + 'Bevorzugter Kontakt: ' + (quizState.contactMethod || '—') + '\n'
         + 'Telefonnummer: ' + (phone || '—') + '\n'
         + 'E-Mail: ' + (email || '—') + '\n'
         + 'Namen: ' + (names || '—') + '\n'
-        + 'Wie erfahren: ' + (heard || '—') + '\n'
-        + 'Instagram: ' + (instagram || '—') + '\n'
-        + 'Anmerkung: ' + (comment || '—');
+        + 'Anmerkung: ' + (comment || '—') + '\n'
+        + 'Quelle: ' + quizSource() + '\n'
+        + 'Seite: ' + window.location.pathname;
       var data = new FormData();
       data.append('access_key', 'f7f95cd3-8f10-484e-a42e-3975a14980bc');
       var subject = 'Neue Hochzeitsanfrage — marharian.com';
       if (quizIsTestMode()) subject = '[TEST] ' + subject;
       data.append('subject', subject);
-      data.append('name', names || cityStr);
+      data.append('name', names);
       data.append('email', email);
       data.append('message', message);
       var btn = document.getElementById('quiz-next');
@@ -3423,22 +3489,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           quizTrackLeadAndRedirect('/danke', { email: email, phone: phone });
         } else {
           btn.disabled = false;
-          btn.textContent = 'Anfrage absenden';
+          btn.textContent = 'TERMIN ANFRAGEN';
         }
       }).catch(function() {
         btn.disabled = false;
-        btn.textContent = 'Anfrage absenden';
+        btn.textContent = 'TERMIN ANFRAGEN';
       });
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.quiz-choice').forEach(function(btn) {
+      var dateInput = document.getElementById('quiz-date');
+      var quizFlatpickr = flatpickr('#quiz-date', {
+        minDate: 'today',
+        dateFormat: 'd.m.Y',
+        locale: 'de',
+        disableMobile: true,
+        allowInput: false,
+        onChange: function(selectedDates, dateStr) {
+          if (!dateStr) return;
+          quizState.date = dateStr;
+          quizSelect('date-unknown', null);
+          quizValidateStep();
+        }
+      });
+      document.querySelectorAll('.quiz-choices[data-group] .quiz-choice').forEach(function(btn) {
         btn.addEventListener('click', function() {
-          var step = parseInt(this.closest('.quiz-step').dataset.step);
-          this.closest('.quiz-choices').querySelectorAll('.quiz-choice').forEach(function(b) { b.classList.remove('selected'); });
-          this.classList.add('selected');
-          if (step === 3) quizState.services = this.dataset.value;
-          if (step === 5) {
+          var group = this.closest('.quiz-choices').dataset.group;
+          if (group === 'date-unknown') {
+            var on = !this.classList.contains('selected');
+            quizSelect(group, on ? this : null);
+            quizFlatpickr.clear();
+            quizState.date = on ? this.dataset.value : '';
+          } else if (group === 'service') {
+            quizSetService(this);
+          } else if (group === 'package') {
+            quizSelect(group, this);
+            quizState.pkg = this.dataset.value;
+          } else if (group === 'longfilm') {
+            quizSelect(group, this);
+            quizState.longfilm = this.dataset.value;
+          } else if (group === 'contact') {
+            quizSelect(group, this);
             quizState.contactMethod = this.dataset.value;
             var emailInput = document.getElementById('quiz-contact-email');
             var phoneInput = document.getElementById('quiz-contact-phone');
@@ -3453,28 +3544,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           quizValidateStep();
         });
       });
-      document.getElementById('quiz-city-input').addEventListener('input', quizValidateStep);
       document.getElementById('quiz-contact-email').addEventListener('input', quizValidateStep);
       document.getElementById('quiz-contact-phone').addEventListener('input', quizValidateStep);
-      var quizFlatpickr = flatpickr('#quiz-date', {
-        minDate: 'today',
-        dateFormat: 'd.m.Y',
-        locale: 'de',
-        disableMobile: true,
-        allowInput: false,
-        onChange: function(selectedDates, dateStr) {
-          quizState.date = dateStr;
-          quizValidateStep();
-        }
-      });
-      var slider = document.getElementById('quiz-hours');
-      var hoursVal = document.querySelector('.quiz-hours-val');
-      slider.addEventListener('input', function() {
-        hoursVal.textContent = this.value;
-        quizState.hours = this.value;
-        var pct = ((this.value - 2) / 14) * 100;
-        this.style.background = 'linear-gradient(to right, var(--gold) ' + pct + '%, rgba(0,0,0,0.15) ' + pct + '%)';
-      });
       document.querySelector('.quiz-contact-form').addEventListener('input', quizValidateStep);
       document.getElementById('quiz-consent').addEventListener('change', quizValidateStep);
       quizUpdateUI();
@@ -3512,7 +3583,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </svg>
         Instagram
       </a>
-      <a href="https://wa.me/491602741274" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:14px; padding:10px 20px;">
+      <a href="https://wa.me/491602741274?text=Hallo%21%20Wir%20planen%20unsere%20Hochzeit%20und%20interessieren%20uns%20f%C3%BCr%20eure%20Pakete.%20Unser%20Datum%3A%20" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:14px; padding:10px 20px;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
         </svg>
@@ -3794,9 +3865,9 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 
-<a href="#wedding-request" class="side-cta" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'});return false;">Preis anfragen</a>
+<a href="#wedding-request" class="side-cta" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'});return false;">Termin anfragen</a>
 
-<a href="#wedding-request" class="sticky-cta" data-sticky-cta>Preis anfragen</a>
+<a href="#wedding-request" class="sticky-cta" data-sticky-cta>Termin anfragen</a>
 
 <script>
 (function(){
@@ -3847,8 +3918,8 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
   if(!v) return;
   var isMobile = window.matchMedia('(max-width: 768px)').matches;
   v.src = isMobile
-    ? 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/dlya%20sayta%20hero%20hochzeit.mp4'
-    : 'https://pub-da8974d5730c42128a8035611ecdec73.r2.dev/IMG_1880_web.mp4';
+    ? '/media/hochzeit-hero-mobile.mp4'
+    : '/media/hochzeit-hero-desktop.mp4';
   v.play().catch(function(){});
 })();
 </script>
@@ -4059,11 +4130,12 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
 .wa-fab svg{width:18px;height:18px;flex-shrink:0;}
 .wa-fab.wa-dimmed{opacity:.25;}
 .wa-fab.wa-dimmed:hover{opacity:1;}
+.wa-fab.wa-hidden{opacity:0;visibility:hidden;pointer-events:none;}
 @media(min-width:901px) and (max-width:1279.98px){.wa-fab{right:56px;}}
 @media(min-width:1280px){.wa-fab{right:calc(50vw - 600px + 16px);}}
 @media(max-width:900px){.wa-fab{top:72px;right:16px;padding:9px 14px;font-size:12px;border-radius:10px;}}
 </style>
-<a href="https://wa.me/491602741274" class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp">
+<a href="https://wa.me/491602741274?text=Hallo%21%20Wir%20planen%20unsere%20Hochzeit%20und%20interessieren%20uns%20f%C3%BCr%20eure%20Pakete.%20Unser%20Datum%3A%20" class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   WhatsApp
 </a>
@@ -4071,9 +4143,12 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
 (function(){
   var wa = document.querySelector('.wa-fab');
   if(!wa) return;
+  var hero = document.querySelector('.wedding-hero');
   function update(){
-    if (window.scrollY > 10) wa.classList.add('wa-dimmed');
-    else wa.classList.remove('wa-dimmed');
+    /* The hero has its own WhatsApp button, so the floating one appears only after the hero */
+    var heroGone = !hero || hero.getBoundingClientRect().bottom < 80;
+    wa.classList.toggle('wa-hidden', !heroGone);
+    wa.classList.toggle('wa-dimmed', heroGone && window.scrollY > 10);
   }
   window.addEventListener('scroll', update, {passive:true});
   update();

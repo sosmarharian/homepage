@@ -138,6 +138,8 @@
 *.MP4
 *.avi
 *.mkv
+!media/hochzeit-hero-desktop.mp4
+!media/hochzeit-hero-mobile.mp4
 
 # System
 .DS_Store
