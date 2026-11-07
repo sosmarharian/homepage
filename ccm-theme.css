@@ -61,9 +61,9 @@
 }
 
 /* ── Buttons ──
-   "Alles ablehnen" and "Alles akzeptieren" stay identical in size and weight
-   (equal choice on the first layer, as German authorities and courts require);
-   "Einstellungen" is the quieter outline button below them. */
+   First layer shows only "Einstellungen" (outline) + "Alles akzeptieren"
+   (filled) side by side. "Alles ablehnen" is hidden on purpose (owner's
+   decision, 2026-11-07); rejecting is still possible via "Einstellungen". */
 .ccm-root #ccm-widget .ccm-widget--buttons {
   display: flex;
   flex-wrap: wrap;
@@ -95,7 +95,7 @@
   border: 1.5px solid var(--mh-ink);
   color: var(--mh-bg);
 }
-.ccm-root #ccm-widget .ccm-widget--buttons button.ccm--decline-cookies { order: 1; }
+.ccm-root #ccm-widget .ccm-widget--buttons button.ccm--decline-cookies { display: none; }
 .ccm-root #ccm-widget .ccm-widget--buttons button.ccm--save-settings { order: 2; }
 .ccm-root #ccm-widget .ccm-widget--buttons button[data-ccm-modal],
 .ccm-root #ccm-control-panel .ccm-modal--footer button.ccm-modal--close {
@@ -105,6 +105,10 @@
   background: transparent;
   border: 1.5px solid var(--mh-line);
   color: var(--mh-ink);
+}
+.ccm-root #ccm-widget .ccm-widget--buttons button[data-ccm-modal] {
+  order: 1;
+  flex: 1 1 calc(50% - 5px) !important;
 }
 .ccm-root #ccm-widget .ccm-widget--buttons button.ccm--decline-cookies:hover,
 .ccm-root #ccm-widget .ccm-widget--buttons button.ccm--save-settings:hover,
