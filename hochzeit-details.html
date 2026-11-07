@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<title>Eure Hochzeit · Marharian Production</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1/bundle/libphonenumber-js.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream:      #f0ebe3;
+    --charcoal:   #1a1815;
+    --gold:       #c9a96e;
+    --gold-light: #e2c89a;
+    --gray:       #888580;
+    --border:     rgba(0,0,0,0.08);
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: #f5f0eb; color: var(--charcoal); min-height: 100vh; }
+  a { color: var(--gold); }
+  img { display: block; max-width: 100%; }
+  button { font-family: inherit; }
+
+  .hd-header {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; justify-content: center;
+    padding: 14px 20px; height: 64px;
+    background: rgba(245,240,235,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .hd-header img { height: 34px; width: auto; }
+
+  .hd-wrap { max-width: 640px; margin: 0 auto; padding: 36px 20px 80px; }
+
+  .hd-title { font-family: var(--font-heading); font-weight: 400; font-size: clamp(28px, 6vw, 38px); margin-bottom: 14px; }
+  .hd-intro { font-size: 15px; line-height: 1.65; color: #4a4742; margin-bottom: 36px; }
+
+  .hd-card {
+    background: #fff; border-radius: 6px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    padding: 32px 28px;
+    margin-bottom: 24px;
+  }
+  .hd-card h2 {
+    font-family: var(--font-heading); font-weight: 400; font-size: 21px;
+    margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border);
+  }
+  .hd-card h2 .hd-subnote { display:block; font-family: var(--font-body); font-size: 13px; font-weight: 400; color: var(--gray); margin-top: 6px; }
+
+  .hd-field { margin-bottom: 18px; }
+  .hd-field:last-child { margin-bottom: 0; }
+  .hd-label {
+    display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gray); margin-bottom: 7px;
+  }
+  .hd-optional {
+    display: inline-block; margin-left: 8px; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold);
+    border: 1px solid var(--gold); border-radius: 999px; padding: 2px 8px;
+    vertical-align: middle;
+  }
+  .hd-input, .hd-textarea {
+    width: 100%; background: #f0ece6; border: 1.5px solid rgba(0,0,0,0.12); border-radius: 3px;
+    padding: 13px 16px; font-family: var(--font-body); font-size: 15px; color: var(--charcoal);
+    outline: none; transition: border-color 0.18s;
+  }
+  .hd-input::placeholder, .hd-textarea::placeholder { color: var(--gray); }
+  .hd-input:focus, .hd-textarea:focus { border-color: var(--charcoal); }
+  .hd-input.hd-invalid, .hd-textarea.hd-invalid { border-color: #c0443a; background: #fbf1f0; }
+  .hd-textarea { resize: vertical; min-height: 72px; }
+  .hd-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .hd-error { display: none; font-size: 12.5px; color: #c0443a; margin-top: 6px; }
+  .hd-error.show { display: block; }
+
+  .hd-toggle {
+    display: flex; align-items: center; gap: 10px; margin-top: 14px; cursor: pointer; user-select: none;
+    font-size: 14px; color: var(--charcoal);
+  }
+  .hd-toggle input { width: 17px; height: 17px; accent-color: var(--gold); cursor: pointer; flex-shrink: 0; }
+  .hd-conditional { display: none; margin-top: 14px; }
+  .hd-conditional.show { display: block; }
+
+  .hd-choices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .hd-choice {
+    padding: 14px 10px; background: transparent; border: 1.5px solid rgba(0,0,0,0.18); border-radius: 3px;
+    font-family: var(--font-body); font-size: 13.5px; font-weight: 500; color: var(--charcoal);
+    cursor: pointer; transition: all 0.18s ease; text-align: center;
+  }
+  .hd-choice:hover { border-color: var(--gold); background: rgba(201,169,110,0.07); }
+  .hd-choice.selected { background: var(--gold); border-color: var(--gold); color: var(--charcoal); font-weight: 700; }
+
+  .hd-time-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+  .hd-folgetag { display: flex; align-items: center; gap: 8px; margin-top: 9px; font-size: 13px; color: var(--gray); cursor: pointer; user-select: none; }
+  .hd-folgetag input { width: 15px; height: 15px; accent-color: var(--gold); cursor: pointer; }
+
+  .hd-duration {
+    margin-top: 16px; padding: 12px 16px; border-radius: 3px; font-size: 14px;
+    background: rgba(201,169,110,0.12); color: var(--charcoal); border: 1px solid rgba(201,169,110,0.4);
+  }
+  .hd-duration strong { font-weight: 700; }
+  .hd-duration.hd-warn { background: #fbf1f0; border-color: rgba(192,68,58,0.35); color: #8a3329; }
+  .hd-duration.hd-hidden { display: none; }
+
+  /* ── Video-Format-Auswahl ── */
+  .fmt-row { display: grid; grid-template-columns: 150px 1fr; gap: 16px; align-items: center; margin-bottom: 18px; }
+  .fmt-row:last-of-type { margin-bottom: 0; }
+  .fmt-row-label { font-size: 15px; font-weight: 600; }
+  .fmt-row-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .fmt-tile {
+    position: relative; display: flex; align-items: center; gap: 10px;
+    border: 1.5px solid rgba(0,0,0,0.16); border-radius: 4px; padding: 10px 12px;
+    cursor: pointer; transition: all 0.18s ease;
+  }
+  .fmt-tile:hover { border-color: var(--gold); background: rgba(201,169,110,0.06); }
+  .fmt-tile.selected { border-color: var(--gold); background: rgba(201,169,110,0.12); }
+  .fmt-tile input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+  .fmt-shape { flex-shrink: 0; background: var(--cream); border: 1px solid rgba(0,0,0,0.18); border-radius: 2px; }
+  .fmt-shape.wide { width: 34px; height: 19px; }
+  .fmt-shape.tall { width: 14px; height: 25px; }
+  .fmt-check {
+    width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,0.25);
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  }
+  .fmt-tile.selected .fmt-check { background: var(--gold); border-color: var(--gold); }
+  .fmt-tile.selected .fmt-check::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+  .fmt-label { font-size: 12.5px; line-height: 1.3; }
+
+  .hd-music-note { font-size: 12.5px; color: var(--gray); margin-top: 7px; }
+
+  .hd-submit-wrap { text-align: center; margin-top: 8px; }
+  .hd-submit {
+    width: 100%; padding: 15px 24px; background: var(--gold); border: 1.5px solid var(--gold);
+    border-radius: 3px; font-family: var(--font-body); font-size: 14px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal);
+    cursor: pointer; transition: all 0.18s ease;
+  }
+  .hd-submit:hover { background: #b8924a; border-color: #b8924a; }
+  .hd-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+  .hd-submit-error { display: none; font-size: 13px; color: #c0443a; margin-top: 12px; }
+  .hd-submit-error.show { display: block; }
+  .hd-footnote { font-size: 12.5px; color: var(--gray); line-height: 1.6; margin-top: 18px; text-align: center; }
+  .hd-footnote a { color: var(--gray); text-decoration: underline; }
+  .hd-footnote a:hover { color: var(--gold); }
+
+  .hd-thanks { text-align: center; padding: 20px 4px; }
+  .hd-thanks-icon { font-size: 38px; margin-bottom: 14px; }
+  .hd-thanks h2 { font-family: var(--font-heading); font-weight: 400; font-size: 24px; margin-bottom: 10px; border: none; padding: 0; }
+  .hd-thanks p { font-size: 15px; color: #4a4742; line-height: 1.6; }
+
+  @media (max-width: 560px) {
+    .hd-card { padding: 24px 18px; }
+    .hd-row2 { grid-template-columns: 1fr; gap: 0; }
+    .hd-time-row { grid-template-columns: 1fr; gap: 0; }
+    .hd-choices { grid-template-columns: 1fr 1fr; }
+    .hd-choices .hd-choice:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .fmt-row { grid-template-columns: 1fr; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hd-header">
+  <a href="/"><img src="marharian.png" alt="Marharian Production"></a>
+</header>
+
+<div class="hd-wrap">
+  <h1 class="hd-title">Eure Hochzeit</h1>
+  <p class="hd-intro">Ein paar Angaben, damit ich euren Vertrag vorbereiten kann. Den genauen Tagesablauf besprechen wir später.</p>
+
+  <form id="hdForm" novalidate>
+
+    <!-- Block 1: Eure Daten -->
+    <div class="hd-card">
+      <h2>Eure Daten</h2>
+
+      <div class="hd-field hd-row2">
+        <div>
+          <label class="hd-label" for="f-name1">Name 1</label>
+          <input class="hd-input" type="text" id="f-name1" placeholder="Vorname und Nachname" autocomplete="name" required>
+          <div class="hd-error">Bitte vollständigen Namen eintragen.</div>
+        </div>
+        <div>
+          <label class="hd-label" for="f-name2">Name 2</label>
+          <input class="hd-input" type="text" id="f-name2" placeholder="Vorname und Nachname" autocomplete="name" required>
+          <div class="hd-error">Bitte vollständigen Namen eintragen.</div>
+        </div>
+      </div>
+
+      <div class="hd-field hd-row2">
+        <div>
+          <label class="hd-label" for="f-email">E-Mail</label>
+          <input class="hd-input" type="email" id="f-email" placeholder="eure@email.de" autocomplete="email" required>
+          <div class="hd-error">Bitte gültige E-Mail-Adresse eintragen.</div>
+        </div>
+        <div>
+          <label class="hd-label" for="f-phone">Telefon</label>
+          <input class="hd-input" type="tel" id="f-phone" placeholder="+49 151 23456789" autocomplete="tel" required>
+          <div class="hd-error">Bitte gültige Telefonnummer eintragen.</div>
+        </div>
+      </div>
+
+      <div class="hd-field">
+        <label class="hd-label" for="f-address1">Adresse</label>
+        <input class="hd-input" type="text" id="f-address1" placeholder="Straße, Nr., PLZ und Ort" autocomplete="street-address" required>
+        <div class="hd-error">Bitte eure Adresse eintragen.</div>
+
+        <label class="hd-toggle">
+          <input type="checkbox" id="f-diff-addr">
+          <span>Wir haben unterschiedliche Adressen</span>
+        </label>
+
+        <div class="hd-conditional" id="hd-address2-wrap">
+          <label class="hd-label" for="f-address2" id="f-address2-label">Adresse von Person 2</label>
+          <input class="hd-input" type="text" id="f-address2" placeholder="Straße, Nr., PLZ und Ort" autocomplete="street-address">
+          <div class="hd-error">Bitte die zweite Adresse eintragen.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Block 2: Euer Tag -->
+    <div class="hd-card">
+      <h2>Euer Tag</h2>
+
+      <div class="hd-field">
+        <label class="hd-label" for="f-date">Datum</label>
+        <input class="hd-input" type="date" id="f-date" required>
+        <div class="hd-error">Bitte euer Datum eintragen.</div>
+      </div>
+
+      <div class="hd-field">
+        <label class="hd-label">Foto / Video / Foto und Video</label>
+        <div class="hd-choices" id="hd-daytype" role="radiogroup">
+          <button type="button" class="hd-choice" data-value="Foto">Foto</button>
+          <button type="button" class="hd-choice" data-value="Video">Video</button>
+          <button type="button" class="hd-choice" data-value="Foto und Video">Foto und Video</button>
+        </div>
+        <div class="hd-error" id="hd-daytype-error">Bitte eine Option wählen.</div>
+      </div>
+
+      <div class="hd-field">
+        <div class="hd-time-row">
+          <div>
+            <label class="hd-label" for="f-begin">Beginn</label>
+            <input class="hd-input" type="time" id="f-begin" required>
+            <div class="hd-error">Bitte Beginn eintragen.</div>
+          </div>
+          <div>
+            <label class="hd-label" for="f-end">Ende</label>
+            <input class="hd-input" type="time" id="f-end" required>
+            <div class="hd-error">Bitte Ende eintragen.</div>
+            <label class="hd-folgetag">
+              <input type="checkbox" id="f-end-nextday">
+              <span>am Folgetag</span>
+            </label>
+          </div>
+        </div>
+        <div class="hd-duration hd-hidden" id="hd-duration"></div>
+      </div>
+
+      <div class="hd-field">
+        <label class="hd-label" for="f-startaddr">Startadresse</label>
+        <input class="hd-input" type="text" id="f-startaddr" placeholder="Location, Straße und Ort" required>
+        <div class="hd-error">Bitte Startadresse eintragen.</div>
+      </div>
+
+      <div class="hd-field">
+        <label class="hd-label" for="f-otherplaces">Weitere Orte <span class="hd-optional">Optional</span></label>
+        <textarea class="hd-textarea" id="f-otherplaces" rows="2"></textarea>
+      </div>
+    </div>
+
+    <!-- Block 3: Eure Videos -->
+    <div class="hd-card hd-conditional" id="hd-video-block">
+      <h2>Eure Videos<span class="hd-subnote">Bitte für jedes Video ein Format wählen.</span></h2>
+
+      <div class="fmt-row" data-video="Hochzeitsfilm">
+        <div class="fmt-row-label">Hochzeitsfilm</div>
+        <div class="fmt-row-tiles">
+          <label class="fmt-tile">
+            <input type="radio" name="fmt-hochzeitsfilm" value="16:9 · Querformat">
+            <span class="fmt-shape wide"></span>
+            <span class="fmt-check"></span>
+            <span class="fmt-label">16:9 · Querformat</span>
+          </label>
+          <label class="fmt-tile">
+            <input type="radio" name="fmt-hochzeitsfilm" value="9:16 · Hochformat">
+            <span class="fmt-shape tall"></span>
+            <span class="fmt-check"></span>
+            <span class="fmt-label">9:16 · Hochformat</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="fmt-row" data-video="Love Story">
+        <div class="fmt-row-label">Love Story</div>
+        <div class="fmt-row-tiles">
+          <label class="fmt-tile">
+            <input type="radio" name="fmt-lovestory" value="16:9 · Querformat">
+            <span class="fmt-shape wide"></span>
+            <span class="fmt-check"></span>
+            <span class="fmt-label">16:9 · Querformat</span>
+          </label>
+          <label class="fmt-tile">
+            <input type="radio" name="fmt-lovestory" value="9:16 · Hochformat">
+            <span class="fmt-shape tall"></span>
+            <span class="fmt-check"></span>
+            <span class="fmt-label">9:16 · Hochformat</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="fmt-row" data-video="Highlight">
+        <div class="fmt-row-label">Highlight</div>
+        <div class="fmt-row-tiles">
+          <label class="fmt-tile">
+            <input type="radio" name="fmt-highlight" value="16:9 · Querformat">
+            <span class="fmt-shape wide"></span>
+            <span class="fmt-check"></span>
+            <span class="fmt-label">16:9 · Querformat</span>
+          </label>
+          <label class="fmt-tile">
+            <input type="radio" name="fmt-highlight" value="9:16 · Hochformat">
+            <span class="fmt-shape tall"></span>
+            <span class="fmt-check"></span>
+            <span class="fmt-label">9:16 · Hochformat</span>
+          </label>
+        </div>
+      </div>
+      <div class="hd-error" id="hd-fmt-error">Bitte für jedes Video ein Format wählen.</div>
+
+      <div class="hd-field" style="margin-top:22px;">
+        <label class="hd-label" for="f-filmwish">Wie stellt ihr euch euren Hochzeitsfilm vor? (optional)</label>
+        <textarea class="hd-textarea" id="f-filmwish" placeholder="Ein paar Worte zu Stimmung, Stil oder wichtigen Momenten" rows="3"></textarea>
+      </div>
+
+      <div class="hd-field">
+        <label class="hd-label" for="f-music">Welche Musik möchtet ihr? (optional)</label>
+        <textarea class="hd-textarea" id="f-music" placeholder="Titel und Interpret, Links oder eine Musikrichtung" rows="3"></textarea>
+        <div class="hd-music-note">Ich prüfe, ob ich eure Musikwünsche verwenden darf.</div>
+      </div>
+    </div>
+
+    <div class="hd-submit-wrap">
+      <button type="submit" class="hd-submit" id="hd-submit-btn">Angaben senden</button>
+      <div class="hd-submit-error" id="hd-submit-error">Etwas ist schiefgelaufen. Bitte versucht es gerade noch einmal.</div>
+      <p class="hd-footnote">Mit dem Absenden bucht ihr noch nicht verbindlich. Die Buchung erfolgt über einen gesonderten Vertrag.<br>
+      <a href="/datenschutz">Datenschutzhinweise</a></p>
+    </div>
+  </form>
+
+  <div class="hd-card hd-thanks" id="hd-thanks" style="display:none;">
+    <div class="hd-thanks-icon">💌</div>
+    <h2>Danke!</h2>
+    <p>Eure Angaben sind angekommen. Ich melde mich mit dem Vertragsentwurf.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  function $(id) { return document.getElementById(id); }
+
+  // ── Unterschiedliche Adressen ──
+  var diffAddr = $('f-diff-addr');
+  var addr2Wrap = $('hd-address2-wrap');
+  var addr2Input = $('f-address2');
+  var addr2Label = $('f-address2-label');
+  var name2Input = $('f-name2');
+
+  function updateAddr2Label() {
+    var n2 = name2Input.value.trim();
+    addr2Label.textContent = n2 ? ('Adresse von ' + n2) : 'Adresse von Person 2';
+  }
+  name2Input.addEventListener('input', updateAddr2Label);
+
+  diffAddr.addEventListener('change', function() {
+    if (diffAddr.checked) {
+      addr2Wrap.classList.add('show');
+      addr2Input.required = true;
+    } else {
+      addr2Wrap.classList.remove('show');
+      addr2Input.required = false;
+      clearFieldError(addr2Input);
+    }
+  });
+
+  // ── Foto / Video / Foto und Video ──
+  var dayType = '';
+  var dayTypeButtons = document.querySelectorAll('#hd-daytype .hd-choice');
+  var videoBlock = $('hd-video-block');
+  var fmtGroups = ['fmt-hochzeitsfilm', 'fmt-lovestory', 'fmt-highlight'];
+
+  function setVideoRequired(required) {
+    fmtGroups.forEach(function(name) {
+      document.querySelectorAll('input[name="' + name + '"]').forEach(function(r) {
+        r.required = required;
+      });
+    });
+  }
+
+  dayTypeButtons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      dayTypeButtons.forEach(function(b){ b.classList.remove('selected'); });
+      btn.classList.add('selected');
+      dayType = btn.dataset.value;
+      clearFieldError($('hd-daytype'), 'hd-daytype-error');
+
+      var showVideo = dayType === 'Video' || dayType === 'Foto und Video';
+      if (showVideo) {
+        videoBlock.classList.add('show');
+      } else {
+        videoBlock.classList.remove('show');
+      }
+      setVideoRequired(showVideo);
+    });
+  });
+
+  // ── Format-Kacheln (Radio mit visuellem Status) ──
+  document.querySelectorAll('.fmt-tile input[type="radio"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      var group = radio.name;
+      document.querySelectorAll('input[name="' + group + '"]').forEach(function(r) {
+        r.closest('.fmt-tile').classList.toggle('selected', r.checked);
+      });
+      clearFieldError(null, 'hd-fmt-error');
+    });
+  });
+
+  // ── Dauer-Berechnung (Europe/Berlin, DST-sicher) ──
+  var dateInput = $('f-date');
+  var beginInput = $('f-begin');
+  var endInput = $('f-end');
+  var nextDayInput = $('f-end-nextday');
+  var durationBox = $('hd-duration');
+  var durationValid = false;
+
+  function addDaysISO(dateStr, n) {
+    var parts = dateStr.split('-').map(Number);
+    var d = new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
+    d.setUTCDate(d.getUTCDate() + n);
+    return d.getUTCFullYear() + '-' + String(d.getUTCMonth() + 1).padStart(2, '0') + '-' + String(d.getUTCDate()).padStart(2, '0');
+  }
+
+  // Wandelt eine Europe/Berlin-Wanduhrzeit zuverlässig in einen UTC-Zeitpunkt um (DST-sicher).
+  var BERLIN_FMT = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Europe/Berlin', year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+  });
+  function berlinOffsetMs(utcDate) {
+    var o = {};
+    BERLIN_FMT.formatToParts(utcDate).forEach(function(p){ o[p.type] = p.value; });
+    var asUTC = Date.UTC(+o.year, +o.month - 1, +o.day, o.hour === '24' ? 0 : +o.hour, +o.minute, +o.second);
+    return asUTC - utcDate.getTime();
+  }
+  function zonedWallTimeToUTC(dateStr, timeStr) {
+    var p = (dateStr + 'T' + timeStr + ':00').split(/[-T:]/).map(Number);
+    var naiveUTC = Date.UTC(p[0], p[1] - 1, p[2], p[3], p[4], p[5] || 0);
+    var offset1 = berlinOffsetMs(new Date(naiveUTC));
+    var candidate = naiveUTC - offset1;
+    var offset2 = berlinOffsetMs(new Date(candidate));
+    return new Date(naiveUTC - offset2);
+  }
+
+  function formatHours(h) {
+    var rounded = Math.round(h * 100) / 100;
+    rounded = Math.round(rounded * 10) / 10;
+    var str = rounded.toFixed(1).replace('.', ',');
+    if (str.slice(-2) === ',0') str = str.slice(0, -2);
+    return str;
+  }
+
+  function updateDuration() {
+    var dateStr = dateInput.value, b = beginInput.value, e = endInput.value;
+    durationValid = false;
+    if (!dateStr || !b || !e) {
+      durationBox.classList.add('hd-hidden');
+      durationBox.classList.remove('hd-warn');
+      return;
+    }
+    var endDateStr = nextDayInput.checked ? addDaysISO(dateStr, 1) : dateStr;
+    var startUTC = zonedWallTimeToUTC(dateStr, b);
+    var endUTC = zonedWallTimeToUTC(endDateStr, e);
+    var hours = (endUTC.getTime() - startUTC.getTime()) / 3600000;
+
+    durationBox.classList.remove('hd-hidden');
+    if (hours > 0) {
+      durationValid = true;
+      durationBox.classList.remove('hd-warn');
+      durationBox.innerHTML = 'Begleitung: <strong>' + formatHours(hours) + ' Stunden</strong>';
+    } else {
+      durationBox.classList.add('hd-warn');
+      durationBox.textContent = 'Ende muss nach Beginn liegen — bei Arbeit über Mitternacht bitte „am Folgetag“ ankreuzen.';
+    }
+  }
+  [dateInput, beginInput, endInput, nextDayInput].forEach(function(el) {
+    el.addEventListener('change', updateDuration);
+    el.addEventListener('input', updateDuration);
+  });
+
+  // ── Fehleranzeige ──
+  function showFieldError(input, errorIdOrNull) {
+    input && input.classList.add('hd-invalid');
+    var box = errorIdOrNull ? $(errorIdOrNull) : (input && input.parentElement.querySelector('.hd-error'));
+    if (box) box.classList.add('show');
+  }
+  function clearFieldError(input, errorIdOrNull) {
+    input && input.classList.remove('hd-invalid');
+    var box = errorIdOrNull ? $(errorIdOrNull) : (input && input.parentElement.querySelector('.hd-error'));
+    if (box) box.classList.remove('show');
+  }
+  document.querySelectorAll('.hd-input, .hd-textarea').forEach(function(el) {
+    el.addEventListener('input', function(){ clearFieldError(el); });
+  });
+
+  // ── Validierung + Submit ──
+  var form = $('hdForm');
+  var submitBtn = $('hd-submit-btn');
+  var submitError = $('hd-submit-error');
+
+  function isValidPhone(val) {
+    try {
+      if (window.libphonenumber) {
+        var parsed = window.libphonenumber.parsePhoneNumberFromString(val, 'DE');
+        return !!(parsed && parsed.isValid());
+      }
+    } catch (e) {}
+    return /^[0-9+\s\-()]{6,20}$/.test(val);
+  }
+
+  function validate() {
+    var ok = true;
+    var firstInvalid = null;
+
+    function check(input, condition) {
+      if (!condition) {
+        showFieldError(input);
+        ok = false;
+        if (!firstInvalid) firstInvalid = input;
+      } else {
+        clearFieldError(input);
+      }
+    }
+
+    check($('f-name1'), $('f-name1').value.trim().length > 1);
+    check($('f-name2'), $('f-name2').value.trim().length > 1);
+    check($('f-email'), $('f-email').checkValidity());
+    check($('f-phone'), isValidPhone($('f-phone').value.trim()));
+    check($('f-address1'), $('f-address1').value.trim().length > 3);
+    if (diffAddr.checked) check(addr2Input, addr2Input.value.trim().length > 3);
+
+    check(dateInput, !!dateInput.value);
+
+    if (!dayType) {
+      showFieldError(null, 'hd-daytype-error');
+      ok = false;
+      if (!firstInvalid) firstInvalid = $('hd-daytype');
+    } else {
+      clearFieldError(null, 'hd-daytype-error');
+    }
+
+    check(beginInput, !!beginInput.value);
+    check(endInput, !!endInput.value);
+    if (beginInput.value && endInput.value) {
+      updateDuration();
+      if (!durationValid) { ok = false; if (!firstInvalid) firstInvalid = endInput; }
+    }
+
+    check($('f-startaddr'), $('f-startaddr').value.trim().length > 3);
+
+    var showVideo = dayType === 'Video' || dayType === 'Foto und Video';
+    if (showVideo) {
+      var allChosen = fmtGroups.every(function(name) {
+        return !!document.querySelector('input[name="' + name + '"]:checked');
+      });
+      if (!allChosen) {
+        showFieldError(null, 'hd-fmt-error');
+        ok = false;
+        if (!firstInvalid) firstInvalid = videoBlock;
+      } else {
+        clearFieldError(null, 'hd-fmt-error');
+      }
+    }
+
+    if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return ok;
+  }
+
+  function fmtDateDE(iso) {
+    var p = iso.split('-');
+    return p[2] + '.' + p[1] + '.' + p[0];
+  }
+  function checkedValue(name) {
+    var el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : '';
+  }
+
+  form.addEventListener('submit', function(ev) {
+    ev.preventDefault();
+    submitError.classList.remove('show');
+    if (!validate()) return;
+
+    var name1 = $('f-name1').value.trim();
+    var name2 = $('f-name2').value.trim();
+    var email = $('f-email').value.trim();
+    var phone = $('f-phone').value.trim();
+    var address1 = $('f-address1').value.trim();
+    var address2 = diffAddr.checked ? addr2Input.value.trim() : '';
+    var dateStr = dateInput.value;
+    var begin = beginInput.value;
+    var end = endInput.value;
+    var nextDay = nextDayInput.checked;
+    var startAddr = $('f-startaddr').value.trim();
+    var otherPlaces = $('f-otherplaces').value.trim();
+    var showVideo = dayType === 'Video' || dayType === 'Foto und Video';
+    var filmwish = showVideo ? $('f-filmwish').value.trim() : '';
+    var music = showVideo ? $('f-music').value.trim() : '';
+
+    var endDateStr = nextDay ? addDaysISO(dateStr, 1) : dateStr;
+    var startUTC = zonedWallTimeToUTC(dateStr, begin);
+    var endUTC = zonedWallTimeToUTC(endDateStr, end);
+    var hours = (endUTC.getTime() - startUTC.getTime()) / 3600000;
+
+    var lines = [];
+    lines.push('Datum: ' + fmtDateDE(dateStr));
+    lines.push('Beginn: ' + begin + ' Uhr');
+    lines.push('Ende: ' + end + ' Uhr' + (nextDay ? ' (am Folgetag)' : ''));
+    lines.push('Begleitung: ' + formatHours(hours) + ' Stunden');
+    lines.push('');
+    lines.push('Name 1: ' + name1);
+    lines.push('Name 2: ' + name2);
+    lines.push('Adresse: ' + address1);
+    if (address2) lines.push('Adresse von ' + name2 + ': ' + address2);
+    lines.push('E-Mail: ' + email);
+    lines.push('Telefon: ' + phone);
+    lines.push('');
+    lines.push('Foto/Video: ' + dayType);
+    lines.push('Startadresse: ' + startAddr);
+    if (otherPlaces) lines.push('Weitere Orte: ' + otherPlaces);
+    if (showVideo) {
+      lines.push('');
+      lines.push('Hochzeitsfilm — Format: ' + checkedValue('fmt-hochzeitsfilm'));
+      lines.push('Love Story — Format: ' + checkedValue('fmt-lovestory'));
+      lines.push('Highlight — Format: ' + checkedValue('fmt-highlight'));
+    }
+    if (filmwish) lines.push('Filmwünsche: ' + filmwish);
+    if (music) lines.push('Musikwünsche: ' + music);
+
+    var data = new FormData();
+    data.append('access_key', 'f7f95cd3-8f10-484e-a42e-3975a14980bc');
+    data.append('subject', 'Hochzeit — Angaben für den Vertrag');
+    data.append('name', name1 + ' & ' + name2);
+    data.append('email', email);
+    data.append('message', lines.join('\n'));
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Wird gesendet…';
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res) {
+      if (res.ok) {
+        form.style.display = 'none';
+        $('hd-thanks').style.display = 'block';
+        $('hd-thanks').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Angaben senden';
+        submitError.classList.add('show');
+      }
+    }).catch(function() {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Angaben senden';
+      submitError.classList.add('show');
+    });
+  });
+})();
+</script>
+</body>
+</html>
