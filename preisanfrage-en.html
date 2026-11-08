@@ -281,6 +281,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   .pk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
   .pk-card { background: #fff; border-radius: 6px; padding: 34px 28px 28px; display: flex; flex-direction: column; box-shadow: 0 4px 24px rgba(0,0,0,0.06); position: relative; border: 1.5px solid transparent; text-align: center; }
   .pk-card.is-featured { border-color: var(--gold); box-shadow: 0 10px 40px rgba(201,169,110,0.25); }
+    @media (hover: hover) {
+      .pk-card { transition: border-color .2s ease, box-shadow .2s ease; }
+      .pk-card:hover { border-color: var(--gold); box-shadow: 0 10px 40px rgba(201,169,110,0.25); }
+      .pk-card:hover .pk-cta { background: var(--charcoal); color: #fff; }
+      .pk-grid:has(.pk-card:hover) .pk-card.is-featured:not(:hover) { border-color: transparent; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+      .pk-grid:has(.pk-card:hover) .pk-card.is-featured:not(:hover) .pk-cta { background: transparent; color: var(--charcoal); }
+    }
   .pk-flag { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--charcoal); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; white-space: nowrap; }
   .pk-name { font-family: var(--font-heading); font-size: 24px; color: var(--charcoal); }
   .pk-hours { color: var(--gray); font-size: 14px; margin-top: 4px; }

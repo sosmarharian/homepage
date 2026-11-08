@@ -2181,7 +2181,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="wedding-hero-lead">Foto + Film aus einer Hand · feste Pakete ohne versteckte Kosten<br><strong><span style="white-space:nowrap">Standesamt ab 400 €</span> · <span style="white-space:nowrap">Hochzeitspakete ab 1.350 €</span></strong></p>
         <a class="wedding-hero-rating" href="https://www.google.com/maps?cid=9426574766107831663" target="_blank" rel="noopener"><span class="stars">★★★★★</span> 5,0 · 32 Google-Bewertungen</a>
         <div class="wedding-hero-ctas">
-          <a href="#pakete" class="wedding-hero-btn">Preise &amp; freie Termine</a>
+          <a href="#pakete" class="wedding-hero-btn">Preise anfragen</a>
           <a href="https://wa.me/491602741274?text=Hallo%21%20Wir%20planen%20unsere%20Hochzeit%20und%20interessieren%20uns%20f%C3%BCr%20eure%20Pakete.%20Unser%20Datum%3A%20" target="_blank" rel="noopener" class="wedding-hero-btn is-ghost">WhatsApp</a>
         </div>
       </div>
@@ -2774,6 +2774,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   .pk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
   .pk-card { background: #fff; border-radius: 6px; padding: 34px 28px 28px; display: flex; flex-direction: column; box-shadow: 0 4px 24px rgba(0,0,0,0.06); position: relative; border: 1.5px solid transparent; text-align: center; }
   .pk-card.is-featured { border-color: var(--gold); box-shadow: 0 10px 40px rgba(201,169,110,0.25); }
+    @media (hover: hover) {
+      .pk-card { transition: border-color .2s ease, box-shadow .2s ease; }
+      .pk-card:hover { border-color: var(--gold); box-shadow: 0 10px 40px rgba(201,169,110,0.25); }
+      .pk-card:hover .pk-cta { background: var(--charcoal); color: #fff; }
+      .pk-grid:has(.pk-card:hover) .pk-card.is-featured:not(:hover) { border-color: transparent; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+      .pk-grid:has(.pk-card:hover) .pk-card.is-featured:not(:hover) .pk-cta { background: transparent; color: var(--charcoal); }
+    }
   .pk-flag { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--charcoal); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; white-space: nowrap; }
   .pk-name { font-family: var(--font-heading); font-size: 24px; color: var(--charcoal); }
   .pk-hours { color: var(--gray); font-size: 14px; margin-top: 4px; }
@@ -3950,9 +3957,9 @@ if (window.location.hash) { var _t = document.querySelector(window.location.hash
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 
-<a href="#wedding-request" class="side-cta" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'});return false;">Termin anfragen</a>
+<a href="#wedding-request" class="side-cta" onclick="document.getElementById('wedding-request').scrollIntoView({behavior:'smooth'});return false;">Preis anfragen</a>
 
-<a href="#wedding-request" class="sticky-cta" data-sticky-cta>Termin anfragen</a>
+<a href="#wedding-request" class="sticky-cta" data-sticky-cta>Preis anfragen</a>
 
 <script>
 (function(){
