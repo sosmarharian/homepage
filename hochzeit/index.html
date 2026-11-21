@@ -2985,13 +2985,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       .pk-grid:has(.pk-card:hover) .pk-card.is-featured:not(:hover) .pk-cta { background: transparent; color: var(--charcoal); }
     }
   .pk-flag { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--charcoal); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; white-space: nowrap; }
-  .pk-name { font-family: var(--font-heading); font-size: 24px; color: var(--charcoal); }
+  .pk-name { font-family: var(--font-heading); font-size: clamp(30px, 3vw, 38px); line-height: 1.1; color: var(--charcoal); }
   .pk-hours { color: var(--gray); font-size: 14px; margin-top: 4px; }
-  .pk-price { font-family: var(--font-heading); font-size: 42px; margin: 16px 0 6px; color: var(--charcoal); line-height: 1.1; }
+  .pk-price { font-family: var(--font-heading); font-size: 28px; margin: 0; color: var(--charcoal); line-height: 1.2; }
+  .pk-price-wrap { margin: 0 0 18px; }
+  .pk-save-note { font-size: 12px; color: var(--gray); margin-top: 4px; }
+  .pk-tagline { display: inline-block; align-self: center; margin-top: 14px; background: var(--olive); color: var(--charcoal); font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 999px; letter-spacing: .04em; white-space: nowrap; }
   .pk-save { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-top: 6px; }
   .pk-save strong { background: var(--olive); color: var(--charcoal); font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 999px; letter-spacing: .04em; white-space: nowrap; }
   .pk-save span { font-size: 12px; color: var(--gray); }
-  .pk-list { list-style: none; margin: 22px 0 24px; padding: 0; flex: 1; text-align: left; }
+  .pk-list { list-style: none; margin: 22px 0 22px; padding: 0; flex: 1; text-align: left; }
   .pk-list li { padding: 9px 0 9px 26px; position: relative; font-size: 15px; color: #4a4744; border-bottom: 1px solid rgba(0,0,0,0.05); }
   .pk-list li::before { content: '✓'; position: absolute; left: 2px; color: var(--olive-dark); font-weight: 700; }
   .pk-list li.pk-muted { color: var(--gray); font-size: 13px; }
@@ -3041,26 +3044,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="pk-card">
               <div class="pk-name">Essential</div>
               <div class="pk-hours">6 Stunden Begleitung</div>
-              <div class="pk-price">2.500 €</div>
-              <div class="pk-save"><strong>Foto &amp; Film aus einer Hand</strong><span>350 € weniger als einzeln gebucht</span></div>
+              <div class="pk-tagline">Foto &amp; Film aus einer Hand</div>
               <ul class="pk-list"><li>ca. 250 bearbeitete Fotos</li><li>Private Online-Galerie</li><li>Hochzeitsfilm bis 10 Min.</li><li>Highlight-Film 1 Min. + Love-Story-Clip 20 Sek.</li><li>Drohnenaufnahmen*</li><li>Anfahrt bis 50 km inklusive</li><li class="pk-muted">Langer Film (20–30 Min.) dazubuchbar</li></ul>
+              <div class="pk-price-wrap"><div class="pk-price">2.500 €</div><div class="pk-save-note">350 € weniger als einzeln gebucht</div></div>
               <button type="button" class="pk-cta" data-service="combo" data-package="essential">Paket anfragen</button>
             </div>
             <div class="pk-card is-featured">
               <span class="pk-flag">Empfohlen</span>
               <div class="pk-name">Classic</div>
               <div class="pk-hours">8 Stunden Begleitung</div>
-              <div class="pk-price">3.100 €</div>
-              <div class="pk-save"><strong>Foto &amp; Film aus einer Hand</strong><span>500 € weniger als einzeln gebucht</span></div>
+              <div class="pk-tagline">Foto &amp; Film aus einer Hand</div>
               <ul class="pk-list"><li>ca. 350 bearbeitete Fotos</li><li>Private Online-Galerie</li><li>Hochzeitsfilm bis 10 Min.</li><li>Highlight-Film 1 Min. + Love-Story-Clip 20 Sek.</li><li>Drohnenaufnahmen*</li><li>Anfahrt bis 50 km inklusive</li><li class="pk-muted">Langer Film (20–30 Min.) dazubuchbar</li></ul>
+              <div class="pk-price-wrap"><div class="pk-price">3.100 €</div><div class="pk-save-note">500 € weniger als einzeln gebucht</div></div>
               <button type="button" class="pk-cta" data-service="combo" data-package="classic">Paket anfragen</button>
             </div>
             <div class="pk-card">
               <div class="pk-name">Premium</div>
               <div class="pk-hours">10 Stunden Begleitung</div>
-              <div class="pk-price">3.700 €</div>
-              <div class="pk-save"><strong>Foto &amp; Film aus einer Hand</strong><span>600 € weniger als einzeln gebucht</span></div>
+              <div class="pk-tagline">Foto &amp; Film aus einer Hand</div>
               <ul class="pk-list"><li>ca. 400 bearbeitete Fotos</li><li>Private Online-Galerie</li><li>Hochzeitsfilm bis 10 Min.</li><li>Highlight-Film 1 Min. + Love-Story-Clip 20 Sek.</li><li>Drohnenaufnahmen*</li><li>Anfahrt bis 50 km inklusive</li><li class="pk-muted">Langer Film (20–30 Min.) dazubuchbar</li></ul>
+              <div class="pk-price-wrap"><div class="pk-price">3.700 €</div><div class="pk-save-note">600 € weniger als einzeln gebucht</div></div>
               <button type="button" class="pk-cta" data-service="combo" data-package="premium">Paket anfragen</button>
             </div>
           </div>
@@ -3070,23 +3073,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="pk-card">
               <div class="pk-name">Essential</div>
               <div class="pk-hours">6 Stunden Begleitung</div>
-              <div class="pk-price">1.350 €</div>
               <ul class="pk-list"><li>ca. 250 bearbeitete Fotos</li><li>Private Online-Galerie</li><li>Drohnenaufnahmen*</li><li>Anfahrt bis 50 km inklusive</li></ul>
+              <div class="pk-price-wrap"><div class="pk-price">1.350 €</div></div>
               <button type="button" class="pk-cta" data-service="foto" data-package="essential">Paket anfragen</button>
             </div>
             <div class="pk-card is-featured">
               <span class="pk-flag">Empfohlen</span>
               <div class="pk-name">Classic</div>
               <div class="pk-hours">8 Stunden Begleitung</div>
-              <div class="pk-price">1.700 €</div>
               <ul class="pk-list"><li>ca. 350 bearbeitete Fotos</li><li>Private Online-Galerie</li><li>Drohnenaufnahmen*</li><li>Anfahrt bis 50 km inklusive</li></ul>
+              <div class="pk-price-wrap"><div class="pk-price">1.700 €</div></div>
               <button type="button" class="pk-cta" data-service="foto" data-package="classic">Paket anfragen</button>
             </div>
             <div class="pk-card">
               <div class="pk-name">Premium</div>
               <div class="pk-hours">10 Stunden Begleitung</div>
-              <div class="pk-price">2.000 €</div>
               <ul class="pk-list"><li>ca. 400 bearbeitete Fotos</li><li>Private Online-Galerie</li><li>Drohnenaufnahmen*</li><li>Anfahrt bis 50 km inklusive</li></ul>
+              <div class="pk-price-wrap"><div class="pk-price">2.000 €</div></div>
               <button type="button" class="pk-cta" data-service="foto" data-package="premium">Paket anfragen</button>
             </div>
           </div>
@@ -3096,23 +3099,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="pk-card">
               <div class="pk-name">Essential</div>
               <div class="pk-hours">6 Stunden Begleitung</div>
-              <div class="pk-price">1.500 €</div>
               <ul class="pk-list"><li>Hochzeitsfilm bis 10 Min.</li><li>Highlight-Film 1 Min. + Love-Story-Clip 20 Sek.</li><li>Drohnenaufnahmen*</li><li>Anfahrt bis 50 km inklusive</li><li class="pk-muted">Langer Film (20–30 Min.) dazubuchbar</li></ul>
+              <div class="pk-price-wrap"><div class="pk-price">1.500 €</div></div>
               <button type="button" class="pk-cta" data-service="film" data-package="essential">Paket anfragen</button>
             </div>
             <div class="pk-card is-featured">
               <span class="pk-flag">Empfohlen</span>
               <div class="pk-name">Classic</div>
               <div class="pk-hours">8 Stunden Begleitung</div>
-              <div class="pk-price">1.900 €</div>
               <ul class="pk-list"><li>Hochzeitsfilm bis 10 Min.</li><li>Highlight-Film 1 Min. + Love-Story-Clip 20 Sek.</li><li>Drohnenaufnahmen*</li><li>Anfahrt bis 50 km inklusive</li><li class="pk-muted">Langer Film (20–30 Min.) dazubuchbar</li></ul>
+              <div class="pk-price-wrap"><div class="pk-price">1.900 €</div></div>
               <button type="button" class="pk-cta" data-service="film" data-package="classic">Paket anfragen</button>
             </div>
             <div class="pk-card">
               <div class="pk-name">Premium</div>
               <div class="pk-hours">10 Stunden Begleitung</div>
-              <div class="pk-price">2.300 €</div>
               <ul class="pk-list"><li>Hochzeitsfilm bis 10 Min.</li><li>Highlight-Film 1 Min. + Love-Story-Clip 20 Sek.</li><li>Drohnenaufnahmen*</li><li>Anfahrt bis 50 km inklusive</li><li class="pk-muted">Langer Film (20–30 Min.) dazubuchbar</li></ul>
+              <div class="pk-price-wrap"><div class="pk-price">2.300 €</div></div>
               <button type="button" class="pk-cta" data-service="film" data-package="premium">Paket anfragen</button>
             </div>
           </div>
