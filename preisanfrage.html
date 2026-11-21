@@ -1381,7 +1381,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         var parts = [];
         if (q.get('gclid') || q.get('gbraid') || q.get('wbraid')) parts.push('Google Ads');
         if (q.get('fbclid')) parts.push('Facebook/Instagram');
-        ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function(k) { if (q.get(k)) parts.push(k + '=' + q.get(k)); });
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(function(k) { if (q.get(k)) parts.push(k + '=' + q.get(k)); });
         if (!parts.length && document.referrer && document.referrer.indexOf(location.hostname) === -1) parts.push(document.referrer);
         if (parts.length && !sessionStorage.getItem('mp_source')) sessionStorage.setItem('mp_source', parts.join(', '));
       } catch (e) {}
