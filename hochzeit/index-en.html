@@ -2166,7 +2166,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="wedding-hero-content">
         <div class="wedding-hero-sub">Wedding Photography &amp; Film · Hamburg &amp; throughout Germany</div>
         <h1 class="wedding-hero-h1">Wedding Photographer &amp; Videographer in Hamburg</h1>
-        <p class="wedding-hero-lead">Photo + film from one team · fixed packages, no hidden costs<br><strong><span style="white-space:nowrap">Civil ceremony from €400</span> · <span style="white-space:nowrap">Wedding packages from €1,350</span></strong></p>
+        <p class="wedding-hero-lead">Photo + film from one team · fixed packages, no hidden costs<br><strong><span style="white-space:nowrap">Photo + film from €2,500</span> · <span style="white-space:nowrap">Wedding packages from €1,350</span></strong></p>
         <a class="wedding-hero-rating" href="https://www.google.com/maps?cid=9426574766107831663" target="_blank" rel="noopener"><span class="stars">★★★★★</span> 5.0 · 32 Google reviews</a>
         <div class="wedding-hero-ctas">
           <a href="#pakete" class="wedding-hero-btn">Request prices</a>
@@ -2747,199 +2747,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 
-<style>
-  #pakete { --olive: #a9b593; --olive-dark: #6f7b56; background: #f5f0eb; padding: 90px 24px; }
-  .pk-inner { max-width: 1120px; margin: 0 auto; }
-  .pk-head { text-align: center; margin-bottom: 32px; }
-  .pk-head h2 { font-family: var(--font-heading); font-weight: 400; font-size: clamp(2rem, 3.8vw, 3.2rem); text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; color: var(--charcoal); }
-  .pk-sub { color: var(--gray); margin-top: 12px; font-size: 16px; }
-  .pk-tabs { display: flex; gap: 4px; background: #fff; border-radius: 999px; padding: 5px; width: fit-content; margin: 0 auto 40px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-  .pk-tab { border: 0; background: transparent; padding: 12px 22px; border-radius: 999px; font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--charcoal); cursor: pointer; transition: background .2s, color .2s; white-space: nowrap; }
-  .pk-tab.is-active { background: var(--charcoal); color: #fff; }
-  .pk-tab-badge { font-size: 10px; background: var(--gold); color: var(--charcoal); border-radius: 999px; padding: 2px 7px; margin-left: 6px; text-transform: uppercase; letter-spacing: .08em; vertical-align: 1px; }
-  .pk-panel { display: none; }
-  .pk-panel.is-active { display: block; }
-  .pk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
-  .pk-card { background: #fff; border-radius: 6px; padding: 34px 28px 28px; display: flex; flex-direction: column; box-shadow: 0 4px 24px rgba(0,0,0,0.06); position: relative; border: 1.5px solid transparent; text-align: center; }
-  .pk-card.is-featured { border-color: var(--gold); box-shadow: 0 10px 40px rgba(201,169,110,0.25); }
-    @media (hover: hover) {
-      .pk-card { transition: border-color .2s ease, box-shadow .2s ease; }
-      .pk-card:hover { border-color: var(--gold); box-shadow: 0 10px 40px rgba(201,169,110,0.25); }
-      .pk-card:hover .pk-cta { background: var(--charcoal); color: #fff; }
-      .pk-grid:has(.pk-card:hover) .pk-card.is-featured:not(:hover) { border-color: transparent; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
-      .pk-grid:has(.pk-card:hover) .pk-card.is-featured:not(:hover) .pk-cta { background: transparent; color: var(--charcoal); }
-    }
-  .pk-flag { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--charcoal); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; white-space: nowrap; }
-  .pk-name { font-family: var(--font-heading); font-size: 24px; color: var(--charcoal); }
-  .pk-hours { color: var(--gray); font-size: 14px; margin-top: 4px; }
-  .pk-price { font-family: var(--font-heading); font-size: 42px; margin: 16px 0 6px; color: var(--charcoal); line-height: 1.1; }
-  .pk-save { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-top: 6px; }
-  .pk-save strong { background: var(--olive); color: var(--charcoal); font-size: 16px; font-weight: 700; padding: 7px 18px; border-radius: 999px; letter-spacing: .02em; }
-  .pk-save span { font-size: 12px; color: var(--gray); }
-  .pk-list { list-style: none; margin: 22px 0 24px; padding: 0; flex: 1; text-align: left; }
-  .pk-list li { padding: 9px 0 9px 26px; position: relative; font-size: 15px; color: #4a4744; border-bottom: 1px solid rgba(0,0,0,0.05); }
-  .pk-list li::before { content: '✓'; position: absolute; left: 2px; color: var(--olive-dark); font-weight: 700; }
-  .pk-list li.pk-muted { color: var(--gray); font-size: 13px; }
-  .pk-list li.pk-muted::before { content: '+'; }
-  .pk-cta { display: block; width: 100%; padding: 15px; border-radius: 6px; border: 1.5px solid var(--charcoal); color: var(--charcoal); background: transparent; font-family: var(--font-body); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; font-size: 13px; cursor: pointer; transition: all .2s; }
-  .pk-cta:hover, .pk-card.is-featured .pk-cta { background: var(--charcoal); color: #fff; }
-  .pk-std { margin-top: 28px; background: #fff; border-radius: 6px; padding: 22px 24px 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
-  .pk-std-head { text-align: center; font-size: 16px; color: #4a4744; margin-bottom: 16px; }
-  .pk-std-head strong { color: var(--charcoal); }
-  .pk-std-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 640px; margin: 0 auto; }
-  .pk-std-item { display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 8px; padding: 16px 14px; border: 1px solid rgba(0,0,0,0.08); border-radius: 6px; text-align: center; }
-  .pk-std-label { font-size: 14px; color: #4a4744; }
-  .pk-std-price { font-family: var(--font-heading); font-size: 28px; color: var(--charcoal); line-height: 1.1; }
-  .pk-std-item .pk-cta { width: auto; padding: 10px 22px; }
-  .pk-extras { margin-top: 16px; padding: 20px 24px; border: 1px dashed rgba(0,0,0,0.18); border-radius: 6px; font-size: 14px; color: #4a4744; line-height: 1.7; }
-  .pk-extras p + p { margin-top: 8px; }
-  .pk-extras strong { color: var(--charcoal); }
-  .pk-note { text-align: center; color: var(--gray); font-size: 13px; margin-top: 18px; }
-  @media (max-width: 900px) {
-    .pk-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; gap: 28px; }
-    .pk-std, .pk-extras, .pk-note { max-width: 440px; margin-left: auto; margin-right: auto; }
-    .pk-std-grid { grid-template-columns: 1fr; }
-    .pk-std-item { flex-direction: row; flex-wrap: wrap; justify-content: space-between; text-align: left; }
-    .pk-std-label { flex: 1 1 100%; }
-  }
-  @media (max-width: 600px) {
-    #pakete { padding: 64px 16px; }
-    .pk-tabs { width: 100%; justify-content: space-between; }
-    .pk-tab { padding: 10px 12px; font-size: 13px; flex: 1; }
-    .pk-tab-badge { display: none; }
-  }
-</style>
-    <!-- Pakete -->
-    <section id="pakete">
-      <div class="pk-inner">
-        <div class="pk-head">
-          <h2>Packages &amp; Prices</h2>
-          <p class="pk-sub">Pick what you need — we’ll go through every detail together on a short intro call.</p>
-        </div>
-        <div class="pk-tabs" role="tablist">
-          <button class="pk-tab is-active" role="tab" aria-selected="true" data-tab="combo">Photo + Film<span class="pk-tab-badge">Popular</span></button>
-          <button class="pk-tab" role="tab" aria-selected="false" data-tab="foto">Photo only</button>
-          <button class="pk-tab" role="tab" aria-selected="false" data-tab="film">Film only</button>
-        </div>
-        <div class="pk-panel is-active" data-tab="combo" role="tabpanel">
-          <div class="pk-grid">
-            <div class="pk-card">
-              <div class="pk-name">Essential</div>
-              <div class="pk-hours">6 hours of coverage</div>
-              <div class="pk-price">€2,500</div>
-              <div class="pk-save"><strong>You save €350</strong><span>vs. booking separately</span></div>
-              <ul class="pk-list"><li>approx. 250 edited photos</li><li>Private online gallery</li><li>Wedding film up to 10 min</li><li>Highlight film 1 min + love story clip 20 sec</li><li>Drone footage*</li><li>Travel up to 50 km included</li><li class="pk-muted">Long film (20–30 min) available as add-on</li></ul>
-              <button type="button" class="pk-cta" data-service="combo" data-package="essential">Request package</button>
-            </div>
-            <div class="pk-card is-featured">
-              <span class="pk-flag">Recommended</span>
-              <div class="pk-name">Classic</div>
-              <div class="pk-hours">8 hours of coverage</div>
-              <div class="pk-price">€3,100</div>
-              <div class="pk-save"><strong>You save €500</strong><span>vs. booking separately</span></div>
-              <ul class="pk-list"><li>approx. 350 edited photos</li><li>Private online gallery</li><li>Wedding film up to 10 min</li><li>Highlight film 1 min + love story clip 20 sec</li><li>Drone footage*</li><li>Travel up to 50 km included</li><li class="pk-muted">Long film (20–30 min) available as add-on</li></ul>
-              <button type="button" class="pk-cta" data-service="combo" data-package="classic">Request package</button>
-            </div>
-            <div class="pk-card">
-              <div class="pk-name">Premium</div>
-              <div class="pk-hours">10 hours of coverage</div>
-              <div class="pk-price">€3,700</div>
-              <div class="pk-save"><strong>You save €600</strong><span>vs. booking separately</span></div>
-              <ul class="pk-list"><li>approx. 400 edited photos</li><li>Private online gallery</li><li>Wedding film up to 10 min</li><li>Highlight film 1 min + love story clip 20 sec</li><li>Drone footage*</li><li>Travel up to 50 km included</li><li class="pk-muted">Long film (20–30 min) available as add-on</li></ul>
-              <button type="button" class="pk-cta" data-service="combo" data-package="premium">Request package</button>
-            </div>
-          </div>
-        </div>
-        <div class="pk-panel" data-tab="foto" role="tabpanel">
-          <div class="pk-grid">
-            <div class="pk-card">
-              <div class="pk-name">Essential</div>
-              <div class="pk-hours">6 hours of coverage</div>
-              <div class="pk-price">€1,350</div>
-              <ul class="pk-list"><li>approx. 250 edited photos</li><li>Private online gallery</li><li>Drone footage*</li><li>Travel up to 50 km included</li></ul>
-              <button type="button" class="pk-cta" data-service="foto" data-package="essential">Request package</button>
-            </div>
-            <div class="pk-card is-featured">
-              <span class="pk-flag">Recommended</span>
-              <div class="pk-name">Classic</div>
-              <div class="pk-hours">8 hours of coverage</div>
-              <div class="pk-price">€1,700</div>
-              <ul class="pk-list"><li>approx. 350 edited photos</li><li>Private online gallery</li><li>Drone footage*</li><li>Travel up to 50 km included</li></ul>
-              <button type="button" class="pk-cta" data-service="foto" data-package="classic">Request package</button>
-            </div>
-            <div class="pk-card">
-              <div class="pk-name">Premium</div>
-              <div class="pk-hours">10 hours of coverage</div>
-              <div class="pk-price">€2,000</div>
-              <ul class="pk-list"><li>approx. 400 edited photos</li><li>Private online gallery</li><li>Drone footage*</li><li>Travel up to 50 km included</li></ul>
-              <button type="button" class="pk-cta" data-service="foto" data-package="premium">Request package</button>
-            </div>
-          </div>
-        </div>
-        <div class="pk-panel" data-tab="film" role="tabpanel">
-          <div class="pk-grid">
-            <div class="pk-card">
-              <div class="pk-name">Essential</div>
-              <div class="pk-hours">6 hours of coverage</div>
-              <div class="pk-price">€1,500</div>
-              <ul class="pk-list"><li>Wedding film up to 10 min</li><li>Highlight film 1 min + love story clip 20 sec</li><li>Drone footage*</li><li>Travel up to 50 km included</li><li class="pk-muted">Long film (20–30 min) available as add-on</li></ul>
-              <button type="button" class="pk-cta" data-service="film" data-package="essential">Request package</button>
-            </div>
-            <div class="pk-card is-featured">
-              <span class="pk-flag">Recommended</span>
-              <div class="pk-name">Classic</div>
-              <div class="pk-hours">8 hours of coverage</div>
-              <div class="pk-price">€1,900</div>
-              <ul class="pk-list"><li>Wedding film up to 10 min</li><li>Highlight film 1 min + love story clip 20 sec</li><li>Drone footage*</li><li>Travel up to 50 km included</li><li class="pk-muted">Long film (20–30 min) available as add-on</li></ul>
-              <button type="button" class="pk-cta" data-service="film" data-package="classic">Request package</button>
-            </div>
-            <div class="pk-card">
-              <div class="pk-name">Premium</div>
-              <div class="pk-hours">10 hours of coverage</div>
-              <div class="pk-price">€2,300</div>
-              <ul class="pk-list"><li>Wedding film up to 10 min</li><li>Highlight film 1 min + love story clip 20 sec</li><li>Drone footage*</li><li>Travel up to 50 km included</li><li class="pk-muted">Long film (20–30 min) available as add-on</li></ul>
-              <button type="button" class="pk-cta" data-service="film" data-package="premium">Request package</button>
-            </div>
-          </div>
-        </div>
-        <div class="pk-std">
-          <div class="pk-std-head"><strong>Civil ceremony only?</strong> 2 hours of coverage</div>
-          <div class="pk-std-grid">
-            <div class="pk-std-item"><span class="pk-std-label">Photos</span><span class="pk-std-price">€400</span><button type="button" class="pk-cta" data-service="foto" data-package="standesamt">Request</button></div>
-            <div class="pk-std-item"><span class="pk-std-label">Photos + love story clip (20 sec)</span><span class="pk-std-price">€600</span><button type="button" class="pk-cta" data-service="combo" data-package="standesamt">Request</button></div>
-          </div>
-        </div>
-        <div class="pk-extras">
-          <p><strong>Long wedding film (20–30 min)</strong> — add to any package from €400. Please book it in advance so we can plan the shooting day for it from the start.</p>
-          <p><strong>Extra hour:</strong> photo €200 · film €250 · photo + film €400</p>
-          <p><strong>Without a package:</strong> photo €300 · film €400 per hour</p>
-        </div>
-        <p class="pk-note">* Drone footage is included in every package when the weather allows and flying is permitted at the venue.<br>Travel up to 50 km (one way from Hamburg-Billstedt) included; beyond that €0.50 per km for the entire round trip.<br>All prices are final. No VAT is charged under § 19 UStG (German small-business rule) · Fixed-price guarantee</p>
-      </div>
-    </section>
-
-<script>
-  (function(){
-    var tabs = document.querySelectorAll('.pk-tab');
-    var panels = document.querySelectorAll('.pk-panel');
-    tabs.forEach(function(tab){
-      tab.addEventListener('click', function(){
-        tabs.forEach(function(t){ var on = t === tab; t.classList.toggle('is-active', on); t.setAttribute('aria-selected', on ? 'true' : 'false'); });
-        panels.forEach(function(p){ p.classList.toggle('is-active', p.dataset.tab === tab.dataset.tab); });
-      });
-    });
-    document.querySelectorAll('#pakete [data-service]').forEach(function(btn){
-      btn.addEventListener('click', function(){
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: 'package_cta_click', package_service: btn.dataset.service, package_name: btn.dataset.package });
-        if (window.quizPrefill) window.quizPrefill(btn.dataset.service, btn.dataset.package);
-        var target = document.getElementById('wedding-request');
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  })();
-</script>
-
     <!-- About -->
     <div class="wedding-about" id="about">
       <div class="wedding-about-img">
@@ -3142,6 +2949,199 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </a>
       </div>
     </section>
+
+<style>
+  #pakete { --olive: #a9b593; --olive-dark: #6f7b56; background: #f5f0eb; padding: 90px 24px; }
+  .pk-inner { max-width: 1120px; margin: 0 auto; }
+  .pk-head { text-align: center; margin-bottom: 32px; }
+  .pk-head h2 { font-family: var(--font-heading); font-weight: 400; font-size: clamp(2rem, 3.8vw, 3.2rem); text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; color: var(--charcoal); }
+  .pk-sub { color: var(--gray); margin-top: 12px; font-size: 16px; }
+  .pk-tabs { display: flex; gap: 4px; background: #fff; border-radius: 999px; padding: 5px; width: fit-content; margin: 0 auto 40px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .pk-tab { border: 0; background: transparent; padding: 12px 22px; border-radius: 999px; font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--charcoal); cursor: pointer; transition: background .2s, color .2s; white-space: nowrap; }
+  .pk-tab.is-active { background: var(--charcoal); color: #fff; }
+  .pk-tab-badge { font-size: 10px; background: var(--gold); color: var(--charcoal); border-radius: 999px; padding: 2px 7px; margin-left: 6px; text-transform: uppercase; letter-spacing: .08em; vertical-align: 1px; }
+  .pk-panel { display: none; }
+  .pk-panel.is-active { display: block; }
+  .pk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+  .pk-card { background: #fff; border-radius: 6px; padding: 34px 28px 28px; display: flex; flex-direction: column; box-shadow: 0 4px 24px rgba(0,0,0,0.06); position: relative; border: 1.5px solid transparent; text-align: center; }
+  .pk-card.is-featured { border-color: var(--gold); box-shadow: 0 10px 40px rgba(201,169,110,0.25); }
+    @media (hover: hover) {
+      .pk-card { transition: border-color .2s ease, box-shadow .2s ease; }
+      .pk-card:hover { border-color: var(--gold); box-shadow: 0 10px 40px rgba(201,169,110,0.25); }
+      .pk-card:hover .pk-cta { background: var(--charcoal); color: #fff; }
+      .pk-grid:has(.pk-card:hover) .pk-card.is-featured:not(:hover) { border-color: transparent; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+      .pk-grid:has(.pk-card:hover) .pk-card.is-featured:not(:hover) .pk-cta { background: transparent; color: var(--charcoal); }
+    }
+  .pk-flag { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--charcoal); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; white-space: nowrap; }
+  .pk-name { font-family: var(--font-heading); font-size: 24px; color: var(--charcoal); }
+  .pk-hours { color: var(--gray); font-size: 14px; margin-top: 4px; }
+  .pk-price { font-family: var(--font-heading); font-size: 42px; margin: 16px 0 6px; color: var(--charcoal); line-height: 1.1; }
+  .pk-save { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-top: 6px; }
+  .pk-save strong { background: var(--olive); color: var(--charcoal); font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 999px; letter-spacing: .04em; white-space: nowrap; }
+  .pk-save span { font-size: 12px; color: var(--gray); }
+  .pk-list { list-style: none; margin: 22px 0 24px; padding: 0; flex: 1; text-align: left; }
+  .pk-list li { padding: 9px 0 9px 26px; position: relative; font-size: 15px; color: #4a4744; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .pk-list li::before { content: '✓'; position: absolute; left: 2px; color: var(--olive-dark); font-weight: 700; }
+  .pk-list li.pk-muted { color: var(--gray); font-size: 13px; }
+  .pk-list li.pk-muted::before { content: '+'; }
+  .pk-cta { display: block; width: 100%; padding: 15px; border-radius: 6px; border: 1.5px solid var(--charcoal); color: var(--charcoal); background: transparent; font-family: var(--font-body); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; font-size: 13px; cursor: pointer; transition: all .2s; }
+  .pk-cta:hover, .pk-card.is-featured .pk-cta { background: var(--charcoal); color: #fff; }
+  .pk-std { margin-top: 28px; background: #fff; border-radius: 6px; padding: 22px 24px 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+  .pk-std-head { text-align: center; font-size: 16px; color: #4a4744; margin-bottom: 16px; }
+  .pk-std-head strong { color: var(--charcoal); }
+  .pk-std-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 640px; margin: 0 auto; }
+  .pk-std-item { display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 8px; padding: 16px 14px; border: 1px solid rgba(0,0,0,0.08); border-radius: 6px; text-align: center; }
+  .pk-std-label { font-size: 14px; color: #4a4744; }
+  .pk-std-price { font-family: var(--font-heading); font-size: 28px; color: var(--charcoal); line-height: 1.1; }
+  .pk-std-item .pk-cta { width: auto; padding: 10px 22px; }
+  .pk-extras { margin-top: 16px; padding: 20px 24px; border: 1px dashed rgba(0,0,0,0.18); border-radius: 6px; font-size: 14px; color: #4a4744; line-height: 1.7; }
+  .pk-extras p + p { margin-top: 8px; }
+  .pk-extras strong { color: var(--charcoal); }
+  .pk-note { text-align: center; color: var(--gray); font-size: 13px; margin-top: 18px; }
+  @media (max-width: 900px) {
+    .pk-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; gap: 28px; }
+    .pk-std, .pk-extras, .pk-note { max-width: 440px; margin-left: auto; margin-right: auto; }
+    .pk-std-grid { grid-template-columns: 1fr; }
+    .pk-std-item { flex-direction: row; flex-wrap: wrap; justify-content: space-between; text-align: left; }
+    .pk-std-label { flex: 1 1 100%; }
+  }
+  @media (max-width: 600px) {
+    #pakete { padding: 64px 16px; }
+    .pk-tabs { width: 100%; justify-content: space-between; }
+    .pk-tab { padding: 10px 12px; font-size: 13px; flex: 1; }
+    .pk-tab-badge { display: none; }
+  }
+</style>
+    <!-- Pakete -->
+    <section id="pakete">
+      <div class="pk-inner">
+        <div class="pk-head">
+          <h2>Packages &amp; Prices</h2>
+          <p class="pk-sub">Pick what you need — we’ll go through every detail together on a short intro call.</p>
+        </div>
+        <div class="pk-tabs" role="tablist">
+          <button class="pk-tab is-active" role="tab" aria-selected="true" data-tab="combo">Photo + Film<span class="pk-tab-badge">Popular</span></button>
+          <button class="pk-tab" role="tab" aria-selected="false" data-tab="foto">Photo only</button>
+          <button class="pk-tab" role="tab" aria-selected="false" data-tab="film">Film only</button>
+        </div>
+        <div class="pk-panel is-active" data-tab="combo" role="tabpanel">
+          <div class="pk-grid">
+            <div class="pk-card">
+              <div class="pk-name">Essential</div>
+              <div class="pk-hours">6 hours of coverage</div>
+              <div class="pk-price">€2,500</div>
+              <div class="pk-save"><strong>Photo &amp; film from one team</strong><span>€350 less than booking separately</span></div>
+              <ul class="pk-list"><li>approx. 250 edited photos</li><li>Private online gallery</li><li>Wedding film up to 10 min</li><li>Highlight film 1 min + love story clip 20 sec</li><li>Drone footage*</li><li>Travel up to 50 km included</li><li class="pk-muted">Long film (20–30 min) available as add-on</li></ul>
+              <button type="button" class="pk-cta" data-service="combo" data-package="essential">Request package</button>
+            </div>
+            <div class="pk-card is-featured">
+              <span class="pk-flag">Recommended</span>
+              <div class="pk-name">Classic</div>
+              <div class="pk-hours">8 hours of coverage</div>
+              <div class="pk-price">€3,100</div>
+              <div class="pk-save"><strong>Photo &amp; film from one team</strong><span>€500 less than booking separately</span></div>
+              <ul class="pk-list"><li>approx. 350 edited photos</li><li>Private online gallery</li><li>Wedding film up to 10 min</li><li>Highlight film 1 min + love story clip 20 sec</li><li>Drone footage*</li><li>Travel up to 50 km included</li><li class="pk-muted">Long film (20–30 min) available as add-on</li></ul>
+              <button type="button" class="pk-cta" data-service="combo" data-package="classic">Request package</button>
+            </div>
+            <div class="pk-card">
+              <div class="pk-name">Premium</div>
+              <div class="pk-hours">10 hours of coverage</div>
+              <div class="pk-price">€3,700</div>
+              <div class="pk-save"><strong>Photo &amp; film from one team</strong><span>€600 less than booking separately</span></div>
+              <ul class="pk-list"><li>approx. 400 edited photos</li><li>Private online gallery</li><li>Wedding film up to 10 min</li><li>Highlight film 1 min + love story clip 20 sec</li><li>Drone footage*</li><li>Travel up to 50 km included</li><li class="pk-muted">Long film (20–30 min) available as add-on</li></ul>
+              <button type="button" class="pk-cta" data-service="combo" data-package="premium">Request package</button>
+            </div>
+          </div>
+        </div>
+        <div class="pk-panel" data-tab="foto" role="tabpanel">
+          <div class="pk-grid">
+            <div class="pk-card">
+              <div class="pk-name">Essential</div>
+              <div class="pk-hours">6 hours of coverage</div>
+              <div class="pk-price">€1,350</div>
+              <ul class="pk-list"><li>approx. 250 edited photos</li><li>Private online gallery</li><li>Drone footage*</li><li>Travel up to 50 km included</li></ul>
+              <button type="button" class="pk-cta" data-service="foto" data-package="essential">Request package</button>
+            </div>
+            <div class="pk-card is-featured">
+              <span class="pk-flag">Recommended</span>
+              <div class="pk-name">Classic</div>
+              <div class="pk-hours">8 hours of coverage</div>
+              <div class="pk-price">€1,700</div>
+              <ul class="pk-list"><li>approx. 350 edited photos</li><li>Private online gallery</li><li>Drone footage*</li><li>Travel up to 50 km included</li></ul>
+              <button type="button" class="pk-cta" data-service="foto" data-package="classic">Request package</button>
+            </div>
+            <div class="pk-card">
+              <div class="pk-name">Premium</div>
+              <div class="pk-hours">10 hours of coverage</div>
+              <div class="pk-price">€2,000</div>
+              <ul class="pk-list"><li>approx. 400 edited photos</li><li>Private online gallery</li><li>Drone footage*</li><li>Travel up to 50 km included</li></ul>
+              <button type="button" class="pk-cta" data-service="foto" data-package="premium">Request package</button>
+            </div>
+          </div>
+        </div>
+        <div class="pk-panel" data-tab="film" role="tabpanel">
+          <div class="pk-grid">
+            <div class="pk-card">
+              <div class="pk-name">Essential</div>
+              <div class="pk-hours">6 hours of coverage</div>
+              <div class="pk-price">€1,500</div>
+              <ul class="pk-list"><li>Wedding film up to 10 min</li><li>Highlight film 1 min + love story clip 20 sec</li><li>Drone footage*</li><li>Travel up to 50 km included</li><li class="pk-muted">Long film (20–30 min) available as add-on</li></ul>
+              <button type="button" class="pk-cta" data-service="film" data-package="essential">Request package</button>
+            </div>
+            <div class="pk-card is-featured">
+              <span class="pk-flag">Recommended</span>
+              <div class="pk-name">Classic</div>
+              <div class="pk-hours">8 hours of coverage</div>
+              <div class="pk-price">€1,900</div>
+              <ul class="pk-list"><li>Wedding film up to 10 min</li><li>Highlight film 1 min + love story clip 20 sec</li><li>Drone footage*</li><li>Travel up to 50 km included</li><li class="pk-muted">Long film (20–30 min) available as add-on</li></ul>
+              <button type="button" class="pk-cta" data-service="film" data-package="classic">Request package</button>
+            </div>
+            <div class="pk-card">
+              <div class="pk-name">Premium</div>
+              <div class="pk-hours">10 hours of coverage</div>
+              <div class="pk-price">€2,300</div>
+              <ul class="pk-list"><li>Wedding film up to 10 min</li><li>Highlight film 1 min + love story clip 20 sec</li><li>Drone footage*</li><li>Travel up to 50 km included</li><li class="pk-muted">Long film (20–30 min) available as add-on</li></ul>
+              <button type="button" class="pk-cta" data-service="film" data-package="premium">Request package</button>
+            </div>
+          </div>
+        </div>
+        <div class="pk-std">
+          <div class="pk-std-head"><strong>Civil ceremony only?</strong> 2 hours of coverage</div>
+          <div class="pk-std-grid">
+            <div class="pk-std-item"><span class="pk-std-label">Photos</span><span class="pk-std-price">€400</span><button type="button" class="pk-cta" data-service="foto" data-package="standesamt">Request</button></div>
+            <div class="pk-std-item"><span class="pk-std-label">Photos + love story clip (20 sec)</span><span class="pk-std-price">€600</span><button type="button" class="pk-cta" data-service="combo" data-package="standesamt">Request</button></div>
+          </div>
+        </div>
+        <div class="pk-extras">
+          <p><strong>Long wedding film (20–30 min)</strong> — add to any package from €400. Please book it in advance so we can plan the shooting day for it from the start.</p>
+          <p><strong>Extra hour:</strong> photo €200 · film €250 · photo + film €400</p>
+          <p><strong>Without a package:</strong> photo €300 · film €400 per hour</p>
+        </div>
+        <p class="pk-note">* Drone footage is included in every package when the weather allows and flying is permitted at the venue.<br>Travel up to 50 km (one way from Hamburg-Billstedt) included; beyond that €0.50 per km for the entire round trip.<br>All prices are final. No VAT is charged under § 19 UStG (German small-business rule) · Fixed-price guarantee</p>
+      </div>
+    </section>
+
+<script>
+  (function(){
+    var tabs = document.querySelectorAll('.pk-tab');
+    var panels = document.querySelectorAll('.pk-panel');
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        tabs.forEach(function(t){ var on = t === tab; t.classList.toggle('is-active', on); t.setAttribute('aria-selected', on ? 'true' : 'false'); });
+        panels.forEach(function(p){ p.classList.toggle('is-active', p.dataset.tab === tab.dataset.tab); });
+      });
+    });
+    document.querySelectorAll('#pakete [data-service]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'package_cta_click', package_service: btn.dataset.service, package_name: btn.dataset.package });
+        if (window.quizPrefill) window.quizPrefill(btn.dataset.service, btn.dataset.package);
+        var target = document.getElementById('wedding-request');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  })();
+</script>
 
     <!-- How We Work -->
     <div class="how-we-work" id="how-we-work">
