@@ -15,7 +15,7 @@
   var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
   var hasGerman = Array.prototype.some.call(langs, function(l){ return (l||'').toLowerCase().indexOf('de') === 0; });
   var firstIsEnglish = (langs[0] || '').toLowerCase().indexOf('en') === 0;
-  if(!hasGerman && firstIsEnglish) window.location.replace('/events/index-en');
+  if(!hasGerman && firstIsEnglish) window.location.replace('/events/index-en' + location.search + location.hash);
 })();
 </script>
 <!-- Google Consent Mode v2 — default (denied), muss vor CCM19 und GTM stehen -->
