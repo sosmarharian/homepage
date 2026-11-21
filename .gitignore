@@ -266,3 +266,7 @@
 !IMG_5268_RFNm2LfqsT.jpeg
 !IMG_5270_YMSXoQ7P3i.jpeg
 !IMG_5270_YMSXoQ7P3i-web.jpeg
+
+# SEO preview images
+!og/*.jpg
+!*.webp
