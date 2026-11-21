@@ -177,3 +177,7 @@
 .ccm-root #ccm-control-panel input[type="checkbox"].ccm-checkbox-type--switch[aria-disabled="true"]:checked + label::before { background-color: #ddd3c3; }
 .ccm-root #ccm-control-panel input[type="checkbox"].ccm-checkbox-type--switch[disabled]:checked + label::after,
 .ccm-root #ccm-control-panel input[type="checkbox"].ccm-checkbox-type--switch[aria-disabled="true"]:checked + label::after { background-color: #b39a6b; }
+
+/* ── Floating cookie icon: hidden on request; consent can be changed via the
+      "Cookie-Einstellungen" link in every page footer (CCM.openWidget()) ── */
+.ccm-root .ccm-settings-summoner { display: none !important; }
